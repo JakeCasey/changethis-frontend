@@ -16,15 +16,17 @@ Router.onRouteChangeError = () => {
 };
 
 const Logo = styled.h1`
-  font-size: 4rem;
-  margin-left: 2rem;
+  font-size: 3rem;
+  margin: 0em 0em 0em 2em;
   position: relative;
   z-index: 2;
+
   a {
     padding: 0.5rem 1rem;
     /* background: ${props => props.theme.primary}; */
     color: ${props => props.theme.black};
-    text-transform: uppercase;
+    text-transform: lowercase;
+    font-weight: 800;
     text-decoration: none;
   }
   @media (max-width: 1300px) {
@@ -35,8 +37,9 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
+    margin-top: 2em;
    /* border-bottom: 10px solid ${props => props.theme.black}; */
-   box-shadow: ${props => props.theme.bs};
+   /* box-shadow: ${props => props.theme.bs}; */
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
@@ -51,6 +54,11 @@ const StyledHeader = styled.header`
     grid-template-columns: 1fr auto;
     border-bottom: 1px solid ${props => props.theme.lightgrey};
   }
+  
+  /* a {
+    letter-spacing: -0.055em;
+    font-weight: 740;
+  } */
 `;
 
 const Header = () => (
@@ -58,7 +66,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>Skeleton Key</a>
+          <a>CHANGETHIS</a>
         </Link>
       </Logo>
       <Nav />

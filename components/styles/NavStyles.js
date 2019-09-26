@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 const NavStyles = styled.ul`
-  margin: 0;
+  margin: 0em 2em 0em 0em;
   padding: 0;
   display: flex;
   justify-self: end;
   font-size: 2rem;
+
   a,
   button {
     color: ${props => props.theme.black};
@@ -13,8 +14,9 @@ const NavStyles = styled.ul`
     display: flex;
     align-items: center;
     position: relative;
-    text-transform: uppercase;
-    font-weight: 600;
+    /* text-transform: uppercase; */
+    font-weight: 300;
+    letter-spacing: 0.25px;
     font-size: 1em;
     background: none;
     border: 0;
