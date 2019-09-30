@@ -1200,12 +1200,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Toolbar_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Toolbar.js */ "./components/special/Toolbar.js");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! url */ "url");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(url__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var graphql_tools__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! graphql-tools */ "graphql-tools");
-/* harmony import */ var graphql_tools__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(graphql_tools__WEBPACK_IMPORTED_MODULE_13__);
 
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/Reporting.js";
-
 
 
 
@@ -1243,13 +1240,13 @@ const Test = props => {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 52
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 53
     },
     __self: undefined
   }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(router.query), props.children);
@@ -1292,20 +1289,20 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     if (!this.props.Global) return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90
+        lineNumber: 89
       },
       __self: this
     }, "Loading...");
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 91
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 92
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
@@ -1317,7 +1314,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 93
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1326,19 +1323,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 101
       },
       __self: this
     }, "Go")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111
+        lineNumber: 110
       },
       __self: this
     }, this.props.Global.state.overIframe.map((OverIframe, i) => {
@@ -1348,7 +1345,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 113
         },
         __self: this
       });
@@ -1358,13 +1355,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       src: this.props.Global.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 115
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 122
       },
       __self: this
     })));
@@ -2453,17 +2450,6 @@ module.exports = require("fabric");
 /***/ (function(module, exports) {
 
 module.exports = require("graphql-tag");
-
-/***/ }),
-
-/***/ "graphql-tools":
-/*!********************************!*\
-  !*** external "graphql-tools" ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("graphql-tools");
 
 /***/ }),
 

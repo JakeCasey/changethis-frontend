@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import DesignCanvas from './DesignCanvas';
 import Toolbar from './Toolbar.js';
 import { Url } from 'url';
-import { assertResolveFunctionsPresent } from 'graphql-tools';
 
 const Frame = styled.iframe`
   position: absolute;
