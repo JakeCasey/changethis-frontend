@@ -1,9 +1,11 @@
-import { endpoint } from '../../config';
+import { prodEndPoint, endpoint } from '../../config';
 
 export default async (req, res) => {
   try {
+    var newEndpoint =
+      process.env.NODE_ENV === 'development' ? endpoint : prodEndPoint;
     var url = req.url;
-    var fetchUrl = endpoint + url;
+    var fetchUrl = newEndpoint + url;
 
     var fetchRes = await fetch(fetchUrl);
     var response = await fetchRes.text();

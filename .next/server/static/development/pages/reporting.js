@@ -700,7 +700,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       overIframe: [],
-      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
+      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovLvi2J1Z2hlcmQuY29t',
       showPins: false,
       showCanvas: false,
       canvas: null,
