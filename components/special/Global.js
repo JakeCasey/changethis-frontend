@@ -9,7 +9,7 @@ class Global extends Container {
   state = {
     overIframe: [],
     currentIframe:
-      'http://localhost:7777/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
+      'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
     showPins: false,
     showCanvas: false,
     canvas: null,
