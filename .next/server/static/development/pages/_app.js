@@ -725,7 +725,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
 const endpoint = `http://localhost:4444`;
-const prodEndPoint = `https://test-backend.deva.io`;
+const prodEndPoint = `https://changethisbackend.deva.io`;
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 
