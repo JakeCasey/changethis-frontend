@@ -53,7 +53,7 @@ class Toolbar extends Component {
     var toolbar = this.props.Global.state.toolbar;
     return (
       <ToolbarDiv>
-        {this.props.Global.state &&
+        {this.props.Global &&
           this.props.Global.state.toolbar.map((block, i) => {
             var type = block.type;
             switch (type) {

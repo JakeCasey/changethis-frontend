@@ -19,7 +19,7 @@ class ToolbarOverlay extends Component {
   render() {
     return (
       <div>
-        {this.props.Global.state && (
+        {this.props.Global && (
           <Transition
             items={this.props.Global.state.showToolbarOverlay}
             from={{
