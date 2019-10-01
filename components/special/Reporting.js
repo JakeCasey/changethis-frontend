@@ -127,7 +127,7 @@ class Reporting extends Component {
             )}
             {/* <DesignCanvas /> */}
           </CanvasContainer>
-          <Toolbar />
+          {/* <Toolbar /> */}
         </WorkArea>
       </div>
     );
