@@ -26,6 +26,7 @@
     "fabric-webpack": "^1.6.0-rc.1",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "next": "^9.0.3",

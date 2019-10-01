@@ -807,7 +807,7 @@ function (_Container) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
       overIframe: [],
-      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovLvi2J1Z2hlcmQuY29t',
+      currentIframe: 'http://changethisfrontend.deva.io/api/proxy?url=aHR0cDovLvi2J1Z2hlcmQuY29t',
       showPins: false,
       showCanvas: false,
       canvas: null,
@@ -1439,6 +1439,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Toolbar_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Toolbar.js */ "./components/special/Toolbar.js");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! url */ "./node_modules/url/url.js");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(url__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../config */ "./config.js");
 
 
 
@@ -1448,6 +1449,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/Reporting.js";
+
 
 
 
@@ -1487,17 +1489,19 @@ var Test = function Test(props) {
   return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 54
     },
     __self: this
   }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(router.query), props.children);
 };
+
+var frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_19__["frontend"] : undefined;
 
 var Reporting =
 /*#__PURE__*/
@@ -1519,11 +1523,11 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
       url: 'http://bugherd.com',
-      urlSelected: 'http://localhost:7777/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
+      urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "reloadIframe", function () {
-      var urlString = 'http://localhost:7777/api/proxy?url=' + btoa(_this.state.url);
+      var urlString = frontendUrl + '/api/proxy?url=' + btoa(_this.state.url);
 
       _this.props.Global.setCurrentIframe(urlString);
 
@@ -1559,20 +1563,20 @@ function (_Component) {
       if (!this.props.Global) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 92
         },
         __self: this
       }, "Loading...");
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 94
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UrlBar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 95
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(URL, {
@@ -1586,7 +1590,7 @@ function (_Component) {
         type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 96
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_14__["default"], {
@@ -1595,19 +1599,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 104
         },
         __self: this
       }, "Go")), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(WorkArea, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 112
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(CanvasContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 113
         },
         __self: this
       }, this.props.Global.state.overIframe.map(function (OverIframe, i) {
@@ -1617,7 +1621,7 @@ function (_Component) {
           id: OverIframe.belongsTo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 116
           },
           __self: this
         });
@@ -1627,13 +1631,13 @@ function (_Component) {
         src: this.props.Global.state.currentIframe,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 118
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_17__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 125
         },
         __self: this
       })));
@@ -2577,6 +2581,31 @@ function withContainers(Containers) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (withContainers);
+
+/***/ }),
+
+/***/ "./config.js":
+/*!*******************!*\
+  !*** ./config.js ***!
+  \*******************/
+/*! exports provided: endpoint, prodEndPoint, frontend, prodFrontend, perPage, STRIPE_PUBLIC_KEY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodEndPoint", function() { return prodEndPoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontend", function() { return frontend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodFrontend", function() { return prodFrontend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
+// This is client side config only - don't put anything in here that shouldn't be public!
+var endpoint = "http://localhost:4444";
+var prodEndPoint = "https://changethisbackend.deva.io";
+var frontend = "http://localhost:7777";
+var prodFrontend = 'https://changethisfrontend.deva.io';
+var perPage = 4;
+var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 
 /***/ }),
 
@@ -14468,7 +14497,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 1);
+  var jsdom = __webpack_require__(/*! jsdom */ 4);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -14478,8 +14507,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 2).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 3).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 5).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 6).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -89937,7 +89966,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 3:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -89949,7 +89978,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 1:
+/***/ 4:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -89960,7 +89989,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 2:
+/***/ 5:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -89971,7 +90000,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -89993,5 +90022,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map

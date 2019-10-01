@@ -714,18 +714,22 @@ User.propTypes = {
 /*!*******************!*\
   !*** ./config.js ***!
   \*******************/
-/*! exports provided: endpoint, prodEndPoint, perPage, STRIPE_PUBLIC_KEY */
+/*! exports provided: endpoint, prodEndPoint, frontend, prodFrontend, perPage, STRIPE_PUBLIC_KEY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodEndPoint", function() { return prodEndPoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontend", function() { return frontend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodFrontend", function() { return prodFrontend; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
 const endpoint = `http://localhost:4444`;
 const prodEndPoint = `https://changethisbackend.deva.io`;
+const frontend = `http://localhost:7777`;
+const prodFrontend = 'https://changethisfrontend.deva.io';
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 

@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import DesignCanvas from './DesignCanvas';
 import Toolbar from './Toolbar.js';
 import { Url } from 'url';
+import { frontend, prodFrontend } from '../../config';
 
 const Frame = styled.iframe`
   position: absolute;
@@ -57,15 +58,17 @@ const Test = props => {
   );
 };
 
+const frontendUrl =
+  process.env.NODE_ENV === 'development' ? frontend : prodFrontend;
+
 class Reporting extends Component {
   state = {
     url: 'http://bugherd.com',
-    urlSelected: 'http://localhost:7777/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
+    urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
   };
 
   reloadIframe = () => {
-    var urlString =
-      'http://localhost:7777/api/proxy?url=' + btoa(this.state.url);
+    var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
 
     this.props.Global.setCurrentIframe(urlString);
 

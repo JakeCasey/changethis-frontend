@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -700,7 +700,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       overIframe: [],
-      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovLvi2J1Z2hlcmQuY29t',
+      currentIframe: 'http://changethisfrontend.deva.io/api/proxy?url=aHR0cDovLvi2J1Z2hlcmQuY29t',
       showPins: false,
       showCanvas: false,
       canvas: null,
@@ -1200,9 +1200,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Toolbar_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Toolbar.js */ "./components/special/Toolbar.js");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! url */ "url");
 /* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(url__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../config */ "./config.js");
 
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/Reporting.js";
+
 
 
 
@@ -1240,17 +1242,19 @@ const Test = props => {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 54
     },
     __self: undefined
   }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(router.query), props.children);
 };
+
+const frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_13__["frontend"] : undefined;
 
 class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   constructor(...args) {
@@ -1258,11 +1262,11 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
       url: 'http://bugherd.com',
-      urlSelected: 'http://localhost:7777/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
+      urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
-      var urlString = 'http://localhost:7777/api/proxy?url=' + btoa(this.state.url);
+      var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
       this.props.Global.setCurrentIframe(urlString);
       this.setState({
         urlSelected: urlString
@@ -1289,20 +1293,20 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     if (!this.props.Global) return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89
+        lineNumber: 92
       },
       __self: this
     }, "Loading...");
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91
+        lineNumber: 94
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 95
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
@@ -1314,7 +1318,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 96
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1323,19 +1327,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 104
       },
       __self: this
     }, "Go")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109
+        lineNumber: 112
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 113
       },
       __self: this
     }, this.props.Global.state.overIframe.map((OverIframe, i) => {
@@ -1345,7 +1349,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 116
         },
         __self: this
       });
@@ -1355,13 +1359,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       src: this.props.Global.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 118
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 125
       },
       __self: this
     })));
@@ -2058,6 +2062,31 @@ function withContainers(Containers) {
 
 /***/ }),
 
+/***/ "./config.js":
+/*!*******************!*\
+  !*** ./config.js ***!
+  \*******************/
+/*! exports provided: endpoint, prodEndPoint, frontend, prodFrontend, perPage, STRIPE_PUBLIC_KEY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodEndPoint", function() { return prodEndPoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontend", function() { return frontend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodFrontend", function() { return prodFrontend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
+// This is client side config only - don't put anything in here that shouldn't be public!
+const endpoint = `http://localhost:4444`;
+const prodEndPoint = `https://changethisbackend.deva.io`;
+const frontend = `http://localhost:7777`;
+const prodFrontend = 'https://changethisfrontend.deva.io';
+const perPage = 4;
+const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
+
+/***/ }),
+
 /***/ "./lib/helpers.js":
 /*!************************!*\
   !*** ./lib/helpers.js ***!
@@ -2320,7 +2349,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

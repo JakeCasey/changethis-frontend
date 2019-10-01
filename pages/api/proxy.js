@@ -1,4 +1,5 @@
 import { prodEndPoint, endpoint } from '../../config';
+import fetch from 'isomorphic-fetch';
 
 export default async (req, res) => {
   try {
