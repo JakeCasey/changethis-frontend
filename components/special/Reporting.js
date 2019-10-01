@@ -118,11 +118,13 @@ class Reporting extends Component {
                   <OverIframeComponent key={i} id={OverIframe.belongsTo} />
                 );
               })}{' '}
-            <Frame
-              id="iframe"
-              width={this.props.Global.state.iframe.width}
-              src={this.props.Global.state.currentIframe}
-            />
+            {this.props.Global.state && (
+              <Frame
+                id="iframe"
+                width={this.props.Global.state.iframe.width}
+                src={this.props.Global.state.currentIframe}
+              />
+            )}
             {/* <DesignCanvas /> */}
           </CanvasContainer>
           <Toolbar />
