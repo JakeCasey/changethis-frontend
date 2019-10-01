@@ -2007,8 +2007,8 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var canvas = this.props.Global;
-      var toolbar = this.props.Global.state.toolbar;
+      var canvas = this.props.Global; // var toolbar = this.props.Global.state.toolbar;
+
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ToolbarDiv, {
         __source: {
           fileName: _jsxFileName,

@@ -54,7 +54,7 @@ class Toolbar extends Component {
 
   render() {
     var canvas = this.props.Global;
-    var toolbar = this.props.Global.state.toolbar;
+    // var toolbar = this.props.Global.state.toolbar;
     return (
       <ToolbarDiv>
         {this.props.Global &&

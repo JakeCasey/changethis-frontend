@@ -1631,8 +1631,8 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   }
 
   render() {
-    var canvas = this.props.Global;
-    var toolbar = this.props.Global.state.toolbar;
+    var canvas = this.props.Global; // var toolbar = this.props.Global.state.toolbar;
+
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
         fileName: _jsxFileName,
