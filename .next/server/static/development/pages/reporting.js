@@ -1356,7 +1356,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         lineNumber: 122
       },
       __self: this
-    }))));
+    })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 130
+      },
+      __self: this
+    })));
   }
 
 }
@@ -1697,7 +1703,13 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 86
       },
       __self: this
-    }, ' ', "Update State From String"));
+    }, ' ', "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 91
+      },
+      __self: this
+    }));
   }
 
 }
