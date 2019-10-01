@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import gql from 'graphql-tag';
 
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 
 import SickButton from '../styles/SickButton';
 import styled from 'styled-components';
@@ -70,9 +70,9 @@ class Reporting extends Component {
   reloadIframe = () => {
     var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
     console.log(this.props);
-    if (this.props.Global) {
-      this.props.Global.setCurrentIframe(urlString);
-    }
+    // if (this.props.Global) {
+    this.props.Global.setCurrentIframe(urlString);
+    // }
 
     this.setState({ urlSelected: urlString });
   };
@@ -123,7 +123,7 @@ class Reporting extends Component {
             {this.props.Global && this.props.Global.state && (
               <Frame
                 id="iframe"
-                width={this.props.Global.state.iframe.width}
+                width={this.props.Global.state.iframe.size.width}
                 src={this.props.Global.state.currentIframe}
               />
             )}
@@ -136,4 +136,4 @@ class Reporting extends Component {
   }
 }
 
-export default withContainers([Global])(Reporting);
+export default withContainers([globalState])(Reporting);

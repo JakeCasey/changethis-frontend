@@ -1,6 +1,6 @@
 import withContainers from '../wrappers/withContainer';
 
-import Global from './Global';
+import { Global as globalState } from './Global';
 import React, { Component } from 'react';
 
 import SickButton from '../styles/SickButton';
@@ -32,4 +32,4 @@ class PinBlock extends Component {
   }
 }
 
-export default withContainers([Global])(PinBlock);
+export default withContainers([globalState])(PinBlock);

@@ -7,14 +7,15 @@ function withContainers(Containers) {
       render() {
         return (
           <Subscribe to={Containers}>
-            {(...test) => {
+            {(...containers) => {
               const containerObject = {};
-              Object.values(test).forEach(container => {
+              Object.values(containers).forEach(container => {
                 let key = container.key;
                 if (!key) {
                   key = container.constructor.name;
                 }
                 containerObject[key] = container;
+                // containerObject[key] = 'test';
               });
               return <Component {...containerObject} {...this.props} />;
             }}

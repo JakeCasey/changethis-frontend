@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -501,7 +501,7 @@ class BlockList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["default"]])(BlockList));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]])(BlockList));
 
 /***/ }),
 
@@ -559,7 +559,7 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Commentarea, {
       value: this.props.pin.comment,
-      onChange: e => this._updateComment(this.props.global, e),
+      onChange: e => this._updateComment(this.props.Global, e),
       placeholder: this._getPlaceholder(),
       __source: {
         fileName: _jsxFileName,
@@ -660,7 +660,7 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
   height: 1000
 });
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__["default"])([_Global__WEBPACK_IMPORTED_MODULE_7__["default"]])(DesignCanvas));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__["default"])([_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]])(DesignCanvas));
 
 /***/ }),
 
@@ -668,11 +668,12 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
 /*!**************************************!*\
   !*** ./components/special/Global.js ***!
   \**************************************/
-/*! exports provided: default */
+/*! exports provided: Global */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Global", function() { return Global; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
@@ -882,7 +883,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Global);
+
 
 /***/ }),
 
@@ -949,7 +950,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_7__["default"], {
         pin: this.props.pin,
-        global: this.props.global,
+        global: this.props.Global,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 35
@@ -1034,7 +1035,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["default"]])(PinBlock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]])(PinBlock));
 
 /***/ }),
 
@@ -1147,7 +1148,7 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_5__["Subscribe"], {
-      to: [_Global__WEBPACK_IMPORTED_MODULE_3__["default"]],
+      to: [Global],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 77
@@ -1165,7 +1166,7 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     }, this.state.pin.x, "\" \"", this.state.pin.y)));
   }
 
-} // export default withContainers([Global])(PinOverlay);
+} // export default withContainers([globalState])(PinOverlay);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (PinOverlay);
@@ -1267,11 +1268,9 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
       var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-      console.log(this.props);
+      console.log(this.props); // if (this.props.Global) {
 
-      if (this.props.Global) {
-        this.props.Global.setCurrentIframe(urlString);
-      }
+      this.props.Global.setCurrentIframe(urlString); // }
 
       this.setState({
         urlSelected: urlString
@@ -1354,7 +1353,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       });
     }), ' ', this.props.Global && this.props.Global.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
       id: "iframe",
-      width: this.props.Global.state.iframe.width,
+      width: this.props.Global.state.iframe.size.width,
       src: this.props.Global.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
@@ -1372,7 +1371,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__["default"])([_Global__WEBPACK_IMPORTED_MODULE_7__["default"]])(Reporting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__["default"])([_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]])(Reporting));
 
 /***/ }),
 
@@ -1470,7 +1469,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
-      to: [_Global__WEBPACK_IMPORTED_MODULE_2__["default"]],
+      to: [Global],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 79
@@ -1497,7 +1496,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     }))));
   }
 
-} // export default withContainers([Global])(ShowPins);
+} // export default withContainers([globalState])(ShowPins);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowPins);
@@ -1550,7 +1549,7 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["default"]])(SimpleTextBlock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__["default"])([_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]])(SimpleTextBlock));
 
 /***/ }),
 
@@ -1698,20 +1697,20 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 86
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 88
       },
       __self: this
     }, ' ', "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91
+        lineNumber: 93
       },
       __self: this
     }));
@@ -1719,7 +1718,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__["default"])([_Global__WEBPACK_IMPORTED_MODULE_6__["default"]])(Toolbar));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__["default"])([_Global__WEBPACK_IMPORTED_MODULE_6__["Global"]])(Toolbar));
 
 /***/ }),
 
@@ -1805,7 +1804,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       y2: "18",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 49
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
@@ -1815,7 +1814,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       y2: "18",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 50
       },
       __self: this
     })), this.props.Global.state.toolbarOverlayContents))));
@@ -1823,7 +1822,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_3__["default"])([_Global__WEBPACK_IMPORTED_MODULE_4__["default"]])(ToolbarOverlay));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_3__["default"])([_Global__WEBPACK_IMPORTED_MODULE_4__["Global"]])(ToolbarOverlay));
 
 /***/ }),
 
@@ -2036,23 +2035,23 @@ function withContainers(Containers) {
             lineNumber: 9
           },
           __self: this
-        }, (...test) => {
+        }, (...containers) => {
           const containerObject = {};
 
-          _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(test).forEach(container => {
+          _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(containers).forEach(container => {
             let key = container.key;
 
             if (!key) {
               key = container.constructor.name;
             }
 
-            containerObject[key] = container;
+            containerObject[key] = container; // containerObject[key] = 'test';
           });
 
           return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, this.props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 20
             },
             __self: this
           }));
@@ -2083,10 +2082,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-const endpoint = `http://localhost:4444`;
-const prodEndPoint = `https://changethisbackend.deva.io`;
-const frontend = `http://localhost:7777`;
-const prodFrontend = 'https://changethisfrontend.deva.io';
+const endpoint = `http://localhost:4444`; // export const prodEndPoint = `https://changethisbackend.deva.io`;
+
+const prodEndPoint = `http://localhost:4444`;
+const frontend = `http://localhost:7777`; // export const prodFrontend = 'https://changethisfrontend.deva.io';
+
+const prodFrontend = 'http://localhost:7777';
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 
@@ -2354,7 +2355,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

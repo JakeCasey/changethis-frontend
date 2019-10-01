@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Transition } from 'react-spring';
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 
 const ToolbarOverlayDiv = styled.div`
   padding: 40px;
@@ -42,7 +42,9 @@ class ToolbarOverlay extends Component {
                     strokeWidth="3"
                     strokeLinecap="square"
                     strokeLinejoin="arcs"
-                    onClick={() => this.props.Global.toggleToolbarOverlay()}
+                    onClick={() =>
+                      this.props.Global.toggleToolbarOverlay()
+                    }
                   >
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
@@ -58,4 +60,4 @@ class ToolbarOverlay extends Component {
   }
 }
 
-export default withContainers([Global])(ToolbarOverlay);
+export default withContainers([globalState])(ToolbarOverlay);

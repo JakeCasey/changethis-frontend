@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Global from './Global';
+import { Global as globalState } from './Global';
 import { Subscribe } from 'unstated';
 import _ from 'lodash';
 import styled from 'styled-components';
@@ -43,7 +43,7 @@ class Comment extends Component {
     return (
       <Commentarea
         value={this.props.pin.comment}
-        onChange={e => this._updateComment(this.props.global, e)}
+        onChange={e => this._updateComment(this.props.Global, e)}
         placeholder={this._getPlaceholder()}
       />
     );

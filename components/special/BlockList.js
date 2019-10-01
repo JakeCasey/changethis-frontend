@@ -1,5 +1,5 @@
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 import React, { Component } from 'react';
 import SickButton from '../styles/SickButton';
 
@@ -21,4 +21,4 @@ class BlockList extends Component {
   }
 }
 
-export default withContainers([Global])(BlockList);
+export default withContainers([globalState])(BlockList);

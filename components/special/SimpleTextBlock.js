@@ -1,5 +1,5 @@
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 import React, { Component } from 'react';
 
 class SimpleTextBlock extends Component {
@@ -16,4 +16,4 @@ class SimpleTextBlock extends Component {
   }
 }
 
-export default withContainers([Global])(SimpleTextBlock);
+export default withContainers([globalState])(SimpleTextBlock);

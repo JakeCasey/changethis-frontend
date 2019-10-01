@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
-import Global from './Global';
+import { Global as globalState } from './Global';
 import withContainers from '../wrappers/withContainer';
 import styled from 'styled-components';
 

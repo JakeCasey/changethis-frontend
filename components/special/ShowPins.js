@@ -1,6 +1,6 @@
 import withContainers from '../wrappers/withContainer';
 
-import Global from './Global';
+import { Global as globalState } from './Global';
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
 
@@ -90,5 +90,5 @@ class ShowPins extends Component {
   }
 }
 
-// export default withContainers([Global])(ShowPins);
+// export default withContainers([globalState])(ShowPins);
 export default ShowPins;

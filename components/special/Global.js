@@ -168,4 +168,4 @@ class Global extends Container {
   };
 }
 
-export default Global;
+export { Global };

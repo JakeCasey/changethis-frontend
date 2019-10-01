@@ -1,6 +1,6 @@
 import withContainers from '../wrappers/withContainer';
 
-import Global from './Global';
+import { Global as globalState } from './Global';
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
 
@@ -90,5 +90,5 @@ class PinOverlay extends Component {
   }
 }
 
-// export default withContainers([Global])(PinOverlay);
+// export default withContainers([globalState])(PinOverlay);
 export default PinOverlay;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
-import Global from './Global';
+import { Global as globalState } from './Global';
 import styled from 'styled-components';
 import { Tooltip } from 'react-tippy';
 import TooltipWrapper from './TooltipWrapper';
@@ -32,7 +32,7 @@ class Pin extends Component {
           interactive={true}
           html={
             <TooltipWrapper>
-              <Comment pin={this.props.pin} global={this.props.global} />
+              <Comment pin={this.props.pin} global={this.props.Global} />
             </TooltipWrapper>
           }
         >

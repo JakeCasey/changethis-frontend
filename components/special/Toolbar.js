@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SickButton from '../styles/SickButton';
 import styled from 'styled-components';
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 import ToolbarOverlay from './ToolbarOverlay';
 import BlockList from './BlockList';
 import btoa from 'btoa';
@@ -75,7 +75,9 @@ class Toolbar extends Component {
         {this.props.Global && (
           <Clipboard
             component={SickButton}
-            data-clipboard-text={btoa(JSON.stringify(this.props.Global.state))}
+            data-clipboard-text={btoa(
+              JSON.stringify(this.props.Global.state),
+            )}
           >
             copy to clipboard
           </Clipboard>
@@ -118,4 +120,4 @@ class Toolbar extends Component {
   }
 }
 
-export default withContainers([Global])(Toolbar);
+export default withContainers([globalState])(Toolbar);

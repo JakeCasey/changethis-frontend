@@ -4,7 +4,7 @@ import { fabric } from 'fabric';
 import styled from 'styled-components';
 import { Container, Subscribe } from 'unstated';
 import withContainers from '../wrappers/withContainer';
-import Global from './Global';
+import { Global as globalState } from './Global';
 
 const CanvasContainer = styled.div`
   position: absolute;
@@ -46,4 +46,4 @@ class DesignCanvas extends React.Component {
   }
 }
 
-export default withContainers([Global])(DesignCanvas);
+export default withContainers([globalState])(DesignCanvas);

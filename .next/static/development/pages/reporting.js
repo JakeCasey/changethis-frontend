@@ -515,7 +515,7 @@ function (_Component) {
   return BlockList;
 }(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["default"]])(BlockList));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]])(BlockList));
 
 /***/ }),
 
@@ -604,7 +604,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Commentarea, {
         value: this.props.pin.comment,
         onChange: function onChange(e) {
-          return _this2._updateComment(_this2.props.global, e);
+          return _this2._updateComment(_this2.props.Global, e);
         },
         placeholder: this._getPlaceholder(),
         __source: {
@@ -742,7 +742,7 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
   height: 1000
 });
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_12__["default"])([_Global__WEBPACK_IMPORTED_MODULE_13__["default"]])(DesignCanvas));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_12__["default"])([_Global__WEBPACK_IMPORTED_MODULE_13__["Global"]])(DesignCanvas));
 
 /***/ }),
 
@@ -750,11 +750,12 @@ Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODUL
 /*!**************************************!*\
   !*** ./components/special/Global.js ***!
   \**************************************/
-/*! exports provided: default */
+/*! exports provided: Global */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Global", function() { return Global; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
@@ -1005,7 +1006,7 @@ function (_Container) {
   return Global;
 }(unstated__WEBPACK_IMPORTED_MODULE_9__["Container"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Global);
+
 
 /***/ }),
 
@@ -1104,7 +1105,7 @@ function (_Component) {
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_12__["default"], {
           pin: this.props.pin,
-          global: this.props.global,
+          global: this.props.Global,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 35
@@ -1227,7 +1228,7 @@ function (_Component) {
   return PinBlock;
 }(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["default"]])(PinBlock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]])(PinBlock));
 
 /***/ }),
 
@@ -1373,7 +1374,7 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_11__["Subscribe"], {
-        to: [_Global__WEBPACK_IMPORTED_MODULE_9__["default"]],
+        to: [Global],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 77
@@ -1399,7 +1400,7 @@ function (_Component) {
   }]);
 
   return PinOverlay;
-}(react__WEBPACK_IMPORTED_MODULE_10__["Component"]); // export default withContainers([Global])(PinOverlay);
+}(react__WEBPACK_IMPORTED_MODULE_10__["Component"]); // export default withContainers([globalState])(PinOverlay);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (PinOverlay);
@@ -1528,11 +1529,10 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "reloadIframe", function () {
       var urlString = frontendUrl + '/api/proxy?url=' + btoa(_this.state.url);
-      console.log(_this.props);
+      console.log(_this.props); // if (this.props.Global) {
 
-      if (_this.props.Global) {
-        _this.props.Global.setCurrentIframe(urlString);
-      }
+      _this.props.Global.setCurrentIframe(urlString); // }
+
 
       _this.setState({
         urlSelected: urlString
@@ -1624,7 +1624,7 @@ function (_Component) {
         });
       }), ' ', this.props.Global && this.props.Global.state && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Frame, {
         id: "iframe",
-        width: this.props.Global.state.iframe.width,
+        width: this.props.Global.state.iframe.size.width,
         src: this.props.Global.state.currentIframe,
         __source: {
           fileName: _jsxFileName,
@@ -1644,7 +1644,7 @@ function (_Component) {
   return Reporting;
 }(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_12__["default"])([_Global__WEBPACK_IMPORTED_MODULE_13__["default"]])(Reporting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_12__["default"])([_Global__WEBPACK_IMPORTED_MODULE_13__["Global"]])(Reporting));
 
 /***/ }),
 
@@ -1776,7 +1776,7 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
-        to: [_Global__WEBPACK_IMPORTED_MODULE_8__["default"]],
+        to: [Global],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 79
@@ -1807,7 +1807,7 @@ function (_Component) {
   }]);
 
   return ShowPins;
-}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]); // export default withContainers([Global])(ShowPins);
+}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]); // export default withContainers([globalState])(ShowPins);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowPins);
@@ -1892,7 +1892,7 @@ function (_Component) {
   return SimpleTextBlock;
 }(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["default"]])(SimpleTextBlock));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__["default"])([_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]])(SimpleTextBlock));
 
 /***/ }),
 
@@ -2078,7 +2078,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 86
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2087,13 +2087,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 88
         },
         __self: this
       }, ' ', "Update State From String"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 93
         },
         __self: this
       }));
@@ -2103,7 +2103,7 @@ function (_Component) {
   return Toolbar;
 }(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_11__["default"])([_Global__WEBPACK_IMPORTED_MODULE_12__["default"]])(Toolbar));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_11__["default"])([_Global__WEBPACK_IMPORTED_MODULE_12__["Global"]])(Toolbar));
 
 /***/ }),
 
@@ -2217,7 +2217,7 @@ function (_Component) {
             y2: "18",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 47
+              lineNumber: 49
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("line", {
@@ -2227,7 +2227,7 @@ function (_Component) {
             y2: "18",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 48
+              lineNumber: 50
             },
             __self: this
           })), _this.props.Global.state.toolbarOverlayContents);
@@ -2239,7 +2239,7 @@ function (_Component) {
   return ToolbarOverlay;
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_8__["default"])([_Global__WEBPACK_IMPORTED_MODULE_9__["default"]])(ToolbarOverlay));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_8__["default"])([_Global__WEBPACK_IMPORTED_MODULE_9__["Global"]])(ToolbarOverlay));
 
 /***/ }),
 
@@ -2552,24 +2552,24 @@ function withContainers(Containers) {
             }, function () {
               var containerObject = {};
 
-              for (var _len = arguments.length, test = new Array(_len), _key = 0; _key < _len; _key++) {
-                test[_key] = arguments[_key];
+              for (var _len = arguments.length, containers = new Array(_len), _key = 0; _key < _len; _key++) {
+                containers[_key] = arguments[_key];
               }
 
-              _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(test).forEach(function (container) {
+              _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(containers).forEach(function (container) {
                 var key = container.key;
 
                 if (!key) {
                   key = container.constructor.name;
                 }
 
-                containerObject[key] = container;
+                containerObject[key] = container; // containerObject[key] = 'test';
               });
 
               return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, _this.props, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 19
+                  lineNumber: 20
                 },
                 __self: this
               }));
@@ -2603,10 +2603,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-var endpoint = "http://localhost:4444";
-var prodEndPoint = "https://changethisbackend.deva.io";
-var frontend = "http://localhost:7777";
-var prodFrontend = 'https://changethisfrontend.deva.io';
+var endpoint = "http://localhost:4444"; // export const prodEndPoint = `https://changethisbackend.deva.io`;
+
+var prodEndPoint = "http://localhost:4444";
+var frontend = "http://localhost:7777"; // export const prodFrontend = 'https://changethisfrontend.deva.io';
+
+var prodFrontend = 'http://localhost:7777';
 var perPage = 4;
 var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 
@@ -14501,7 +14503,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 2);
+  var jsdom = __webpack_require__(/*! jsdom */ 1);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -14511,8 +14513,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 3).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 4).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 2).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 3).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -89970,7 +89972,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -89982,7 +89984,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -89993,7 +89995,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -90004,7 +90006,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -90026,5 +90028,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map
