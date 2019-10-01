@@ -26,8 +26,12 @@ const ToolbarDiv = styled.div`
 `;
 
 class Toolbar extends Component {
+  // state = {
+  //   base64: btoa(JSON.stringify(this.props.Global.state)),
+  // };
+
   state = {
-    base64: btoa(JSON.stringify(this.props.Global.state)),
+    base64: '',
   };
 
   showBlocks = () => {
@@ -68,13 +72,14 @@ class Toolbar extends Component {
 
         <SickButton onClick={() => this.showBlocks()}>Add Block</SickButton>
         <p ref={textarea => (this.textArea = textarea)}>{}</p>
-
-        <Clipboard
-          component={SickButton}
-          data-clipboard-text={btoa(JSON.stringify(this.props.Global.state))}
-        >
-          copy to clipboard
-        </Clipboard>
+        {this.props.Global && (
+          <Clipboard
+            component={SickButton}
+            data-clipboard-text={btoa(JSON.stringify(this.props.Global.state))}
+          >
+            copy to clipboard
+          </Clipboard>
+        )}
 
         <textarea onChange={e => this.handlebase64Update(e)} />
 
