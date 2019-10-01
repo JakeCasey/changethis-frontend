@@ -69,8 +69,10 @@ class Reporting extends Component {
 
   reloadIframe = () => {
     var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-
-    this.props.Global.setCurrentIframe(urlString);
+    console.log(this.props);
+    if (this.props.Global) {
+      this.props.Global.setCurrentIframe(urlString);
+    }
 
     this.setState({ urlSelected: urlString });
   };
@@ -118,7 +120,7 @@ class Reporting extends Component {
                   <OverIframeComponent key={i} id={OverIframe.belongsTo} />
                 );
               })}{' '}
-            {this.props.Global && (
+            {this.props.Global && this.props.Global.state && (
               <Frame
                 id="iframe"
                 width={this.props.Global.state.iframe.width}

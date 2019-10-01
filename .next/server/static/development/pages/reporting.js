@@ -1267,7 +1267,12 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
       var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-      this.props.Global.setCurrentIframe(urlString);
+      console.log(this.props);
+
+      if (this.props.Global) {
+        this.props.Global.setCurrentIframe(urlString);
+      }
+
       this.setState({
         urlSelected: urlString
       });
@@ -1294,13 +1299,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 96
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 97
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
@@ -1312,7 +1317,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 98
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1321,19 +1326,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 106
       },
       __self: this
     }, "Go")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 114
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 115
       },
       __self: this
     }, this.props.Global && this.props.Global.state.overIframe.map((OverIframe, i) => {
@@ -1343,23 +1348,23 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 120
         },
         __self: this
       });
-    }), ' ', this.props.Global && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
+    }), ' ', this.props.Global && this.props.Global.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
       id: "iframe",
       width: this.props.Global.state.iframe.width,
       src: this.props.Global.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 124
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 132
       },
       __self: this
     })));
