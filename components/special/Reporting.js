@@ -111,10 +111,13 @@ class Reporting extends Component {
         </UrlBar>
         <WorkArea>
           <CanvasContainer>
-            {this.props.Global.state.overIframe.map((OverIframe, i) => {
-              var OverIframeComponent = OverIframe.component;
-              return <OverIframeComponent key={i} id={OverIframe.belongsTo} />;
-            })}{' '}
+            {this.props.Global.state &&
+              this.props.Global.state.overIframe.map((OverIframe, i) => {
+                var OverIframeComponent = OverIframe.component;
+                return (
+                  <OverIframeComponent key={i} id={OverIframe.belongsTo} />
+                );
+              })}{' '}
             <Frame
               id="iframe"
               width={this.props.Global.state.iframe.width}
