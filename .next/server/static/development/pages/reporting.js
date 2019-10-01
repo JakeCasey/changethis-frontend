@@ -546,24 +546,25 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       return lodash__WEBPACK_IMPORTED_MODULE_4___default.a.sample(placeholders); // return 'test';
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateComment", (Global, e) => {
-      var previousState = Global.state.pins;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateComment", (globalState, e) => {
+      var previousState = globalState.state.pins;
       console.log(this.props.pin.id);
       console.log(e.target.value);
       console.log(previousState);
 
-      Global._updatePinCommentByID(this.props.pin.id, e.target.value, previousState);
+      globalState._updatePinCommentByID(this.props.pin.id, e.target.value, previousState);
     });
   }
 
   render() {
+    console.log(this.props);
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Commentarea, {
       value: this.props.pin.comment,
       onChange: e => this._updateComment(this.props.test, e),
       placeholder: this._getPlaceholder(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 45
       },
       __self: this
     });
@@ -686,6 +687,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(shortid__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "lodash");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../config */ "./config.js");
 
 
 
@@ -694,6 +696,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_8__["frontend"] : undefined;
 
 class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
   constructor(...args) {
@@ -701,7 +705,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       overIframe: [],
-      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
+      currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
       showPins: false,
       showCanvas: false,
       canvas: null,
@@ -950,7 +954,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_7__["default"], {
         pin: this.props.pin,
-        global: this.props.test,
+        test: this.props.test,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 35
@@ -1148,15 +1152,15 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_5__["Subscribe"], {
-      to: [Global],
+      to: [_Global__WEBPACK_IMPORTED_MODULE_3__["Global"]],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 77
       },
       __self: this
-    }, Global => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
+    }, test => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
       showPointerEvents: this.state.showPointerEvents,
-      onClick: () => this._handlePinClick(Global),
+      onClick: () => this._handlePinClick(test),
       onMouseMove: e => this._onMouseMove(e),
       __source: {
         fileName: _jsxFileName,
@@ -1469,24 +1473,24 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
-      to: [Global],
+      to: [_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]],
       __source: {
         fileName: _jsxFileName,
         lineNumber: 79
       },
       __self: this
-    }, Global => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
+    }, test => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 81
       },
       __self: this
-    }, Global.state.pins.map((pin, i) => {
+    }, test.state.pins.map((pin, i) => {
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_8__["default"], {
         key: i,
         pin: pin,
-        global: Global,
+        test: test,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 83
@@ -2082,12 +2086,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-const endpoint = `http://localhost:4444`; // export const prodEndPoint = `https://changethisbackend.deva.io`;
+const endpoint = `http://localhost:4444`;
+const prodEndPoint = `https://changethisbackend.deva.io`; // export const prodEndPoint = `http://localhost:4444`;
 
-const prodEndPoint = `http://localhost:4444`;
-const frontend = `http://localhost:7777`; // export const prodFrontend = 'https://changethisfrontend.deva.io';
+const frontend = `http://localhost:7777`;
+const prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
 
-const prodFrontend = 'http://localhost:7777';
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 

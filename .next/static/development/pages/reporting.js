@@ -584,13 +584,13 @@ function (_Component) {
       return lodash__WEBPACK_IMPORTED_MODULE_10___default.a.sample(placeholders); // return 'test';
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateComment", function (Global, e) {
-      var previousState = Global.state.pins;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateComment", function (globalState, e) {
+      var previousState = globalState.state.pins;
       console.log(_this.props.pin.id);
       console.log(e.target.value);
       console.log(previousState);
 
-      Global._updatePinCommentByID(_this.props.pin.id, e.target.value, previousState);
+      globalState._updatePinCommentByID(_this.props.pin.id, e.target.value, previousState);
     });
 
     return _this;
@@ -601,6 +601,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Commentarea, {
         value: this.props.pin.comment,
         onChange: function onChange(e) {
@@ -609,7 +610,7 @@ function (_Component) {
         placeholder: this._getPlaceholder(),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 45
         },
         __self: this
       });
@@ -773,6 +774,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(shortid__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../config */ "./config.js");
 
 
 
@@ -787,6 +789,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_14__["frontend"] : undefined;
 
 var Global =
 /*#__PURE__*/
@@ -808,7 +812,7 @@ function (_Container) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
       overIframe: [],
-      currentIframe: 'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
+      currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
       showPins: false,
       showCanvas: false,
       canvas: null,
@@ -1105,7 +1109,7 @@ function (_Component) {
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_12__["default"], {
           pin: this.props.pin,
-          global: this.props.test,
+          test: this.props.test,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 35
@@ -1374,17 +1378,17 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_11__["Subscribe"], {
-        to: [Global],
+        to: [_Global__WEBPACK_IMPORTED_MODULE_9__["Global"]],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 77
         },
         __self: this
-      }, function (Global) {
+      }, function (test) {
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(PinOverlayDiv, {
           showPointerEvents: _this2.state.showPointerEvents,
           onClick: function onClick() {
-            return _this2._handlePinClick(Global);
+            return _this2._handlePinClick(test);
           },
           onMouseMove: function onMouseMove(e) {
             return _this2._onMouseMove(e);
@@ -1776,13 +1780,13 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
-        to: [Global],
+        to: [_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]],
         __source: {
           fileName: _jsxFileName,
           lineNumber: 79
         },
         __self: this
-      }, function (Global) {
+      }, function (test) {
         return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShowPinsDiv, {
           scrollTop: _this2.state.scrollTop,
           __source: {
@@ -1790,11 +1794,11 @@ function (_Component) {
             lineNumber: 81
           },
           __self: this
-        }, Global.state.pins.map(function (pin, i) {
+        }, test.state.pins.map(function (pin, i) {
           return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_14__["default"], {
             key: i,
             pin: pin,
-            global: Global,
+            test: test,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 83
@@ -2603,12 +2607,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-var endpoint = "http://localhost:4444"; // export const prodEndPoint = `https://changethisbackend.deva.io`;
+var endpoint = "http://localhost:4444";
+var prodEndPoint = "https://changethisbackend.deva.io"; // export const prodEndPoint = `http://localhost:4444`;
 
-var prodEndPoint = "http://localhost:4444";
-var frontend = "http://localhost:7777"; // export const prodFrontend = 'https://changethisfrontend.deva.io';
+var frontend = "http://localhost:7777";
+var prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
 
-var prodFrontend = 'http://localhost:7777';
 var perPage = 4;
 var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 

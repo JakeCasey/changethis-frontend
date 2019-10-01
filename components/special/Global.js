@@ -4,12 +4,14 @@ import PinOverlay from './PinOverlay';
 import ShowPins from './ShowPins';
 import shortId from 'shortid';
 import _ from 'lodash';
+import { frontend, prodFrontend } from '../../config';
 
+var frontendUrl =
+  process.env.NODE_ENV === 'development' ? frontend : prodFrontend;
 class Global extends Container {
   state = {
     overIframe: [],
-    currentIframe:
-      'https://changethisfrontend.deva.io/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
+    currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
     showPins: false,
     showCanvas: false,
     canvas: null,

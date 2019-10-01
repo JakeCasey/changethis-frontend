@@ -26,13 +26,13 @@ class Comment extends Component {
     // return 'test';
   };
 
-  _updateComment = (Global, e) => {
-    var previousState = Global.state.pins;
+  _updateComment = (globalState, e) => {
+    var previousState = globalState.state.pins;
 
     console.log(this.props.pin.id);
     console.log(e.target.value);
     console.log(previousState);
-    Global._updatePinCommentByID(
+    globalState._updatePinCommentByID(
       this.props.pin.id,
       e.target.value,
       previousState,
@@ -40,6 +40,7 @@ class Comment extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <Commentarea
         value={this.props.pin.comment}

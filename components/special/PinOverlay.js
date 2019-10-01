@@ -74,11 +74,11 @@ class PinOverlay extends Component {
     var block = this.props.block;
     return (
       <div>
-        <Subscribe to={[Global]}>
-          {Global => (
+        <Subscribe to={[globalState]}>
+          {test => (
             <PinOverlayDiv
               showPointerEvents={this.state.showPointerEvents}
-              onClick={() => this._handlePinClick(Global)}
+              onClick={() => this._handlePinClick(test)}
               onMouseMove={e => this._onMouseMove(e)}
             >
               {this.state.pin.x}" "{this.state.pin.y}

@@ -76,11 +76,11 @@ class ShowPins extends Component {
     var block = this.props.block;
     return (
       <div>
-        <Subscribe to={[Global]}>
-          {Global => (
+        <Subscribe to={[globalState]}>
+          {test => (
             <ShowPinsDiv scrollTop={this.state.scrollTop}>
-              {Global.state.pins.map((pin, i) => {
-                return <Pin key={i} pin={pin} global={Global} />;
+              {test.state.pins.map((pin, i) => {
+                return <Pin key={i} pin={pin} test={test} />;
               })}
             </ShowPinsDiv>
           )}
