@@ -89,7 +89,7 @@ class Reporting extends Component {
   handleScroll = e => {};
 
   render() {
-    if (!this.props.Global) return <p>Loading...</p>;
+    // if (!this.props.Global) return <p>Loading...</p>;
     return (
       <div>
         <UrlBar>

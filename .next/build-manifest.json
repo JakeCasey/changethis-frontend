@@ -11,14 +11,6 @@
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/reporting": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/signin": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }
