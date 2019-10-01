@@ -18,38 +18,42 @@ const ToolbarOverlayDiv = styled.div`
 class ToolbarOverlay extends Component {
   render() {
     return (
-      <Transition
-        items={this.props.Global.state.showToolbarOverlay}
-        from={{
-          opacity: 0,
-        }}
-        enter={{ opacity: 1 }}
-        leave={{ opacity: 0 }}
-      >
-        {show =>
-          show &&
-          (props => (
-            <ToolbarOverlayDiv style={props}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#000000"
-                strokeWidth="3"
-                strokeLinecap="square"
-                strokeLinejoin="arcs"
-                onClick={() => this.props.Global.toggleToolbarOverlay()}
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-              {this.props.Global.state.toolbarOverlayContents}
-            </ToolbarOverlayDiv>
-          ))
-        }
-      </Transition>
+      <div>
+        {this.props.Global.state && (
+          <Transition
+            items={this.props.Global.state.showToolbarOverlay}
+            from={{
+              opacity: 0,
+            }}
+            enter={{ opacity: 1 }}
+            leave={{ opacity: 0 }}
+          >
+            {show =>
+              show &&
+              (props => (
+                <ToolbarOverlayDiv style={props}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#000000"
+                    strokeWidth="3"
+                    strokeLinecap="square"
+                    strokeLinejoin="arcs"
+                    onClick={() => this.props.Global.toggleToolbarOverlay()}
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                  {this.props.Global.state.toolbarOverlayContents}
+                </ToolbarOverlayDiv>
+              ))
+            }
+          </Transition>
+        )}
+      </div>
     );
   }
 }

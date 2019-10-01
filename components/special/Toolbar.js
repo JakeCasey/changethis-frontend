@@ -53,17 +53,18 @@ class Toolbar extends Component {
     var toolbar = this.props.Global.state.toolbar;
     return (
       <ToolbarDiv>
-        {this.props.Global.state.toolbar.map((block, i) => {
-          var type = block.type;
-          switch (type) {
-            case 'text':
-              return <SimpleTextBlock key={i} block={block} />;
-              break;
-            case 'pin':
-              return <PinBlock key={i} block={block} />;
-              break;
-          }
-        })}
+        {this.props.Global.state &&
+          this.props.Global.state.toolbar.map((block, i) => {
+            var type = block.type;
+            switch (type) {
+              case 'text':
+                return <SimpleTextBlock key={i} block={block} />;
+                break;
+              case 'pin':
+                return <PinBlock key={i} block={block} />;
+                break;
+            }
+          })}
 
         <SickButton onClick={() => this.showBlocks()}>Add Block</SickButton>
         <p ref={textarea => (this.textArea = textarea)}>{}</p>
