@@ -88,7 +88,7 @@ class Toolbar extends Component {
           Update State From String
         </SickButton>
 
-        <ToolbarOverlay />
+        {/* <ToolbarOverlay /> */}
 
         {/* <ToolbarOverlay>
           <SickButton
