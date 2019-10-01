@@ -483,14 +483,14 @@ class BlockList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   render() {
     var block = this.props.block;
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.Global.addSimpleTextBlock(),
+      onClick: () => this.props.test.addSimpleTextBlock(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
       },
       __self: this
     }, "Add Simple Text Block"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.Global.addPinBlock(),
+      onClick: () => this.props.test.addPinBlock(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -559,7 +559,7 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Commentarea, {
       value: this.props.pin.comment,
-      onChange: e => this._updateComment(this.props.Global, e),
+      onChange: e => this._updateComment(this.props.test, e),
       placeholder: this._getPlaceholder(),
       __source: {
         fileName: _jsxFileName,
@@ -621,7 +621,7 @@ class DesignCanvas extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Componen
   }
 
   componentDidMount() {
-    this.props.Global.instantiateCanvas(this);
+    this.props.test.instantiateCanvas(this);
   }
 
   render() {
@@ -629,7 +629,7 @@ class DesignCanvas extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Componen
       width,
       height
     } = this.props;
-    var canvas = this.props.Global;
+    var canvas = this.props.test;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
@@ -950,7 +950,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_7__["default"], {
         pin: this.props.pin,
-        global: this.props.Global,
+        global: this.props.test,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 35
@@ -1012,7 +1012,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
   render() {
     var block = this.props.block;
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, this.props.Global && this.props.Global.state.pins.map((p, index) => {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, this.props.test && this.props.test.state.pins.map((p, index) => {
       if (p.belongsTo == this.props.block.id) {
         return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
           key: index,
@@ -1024,13 +1024,13 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         }, p.comment);
       }
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.Global.togglePinPlacement(this.props.block.id),
+      onClick: () => this.props.test.togglePinPlacement(this.props.block.id),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 21
       },
       __self: this
-    }, this.props.Global && this.props.Global.state.isPlacingPin ? 'Stop Placing Pins' : 'Place Pin'));
+    }, this.props.test && this.props.test.state.isPlacingPin ? 'Stop Placing Pins' : 'Place Pin'));
   }
 
 }
@@ -1268,9 +1268,9 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
       var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-      console.log(this.props); // if (this.props.Global) {
+      console.log(this.props); // if (this.props.test) {
 
-      this.props.Global.setCurrentIframe(urlString); // }
+      this.props.test.setCurrentIframe(urlString); // }
 
       this.setState({
         urlSelected: urlString
@@ -1294,7 +1294,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   }
 
   render() {
-    // if (!this.props.Global) return <p>Loading...</p>;
+    // if (!this.props.test) return <p>Loading...</p>;
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
@@ -1340,7 +1340,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         lineNumber: 115
       },
       __self: this
-    }, this.props.Global && this.props.Global.state.overIframe.map((OverIframe, i) => {
+    }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
       var OverIframeComponent = OverIframe.component;
       return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(OverIframeComponent, {
         key: i,
@@ -1351,10 +1351,10 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         },
         __self: this
       });
-    }), ' ', this.props.Global && this.props.Global.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
+    }), ' ', this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
       id: "iframe",
-      width: this.props.Global.state.iframe.size.width,
-      src: this.props.Global.state.currentIframe,
+      width: this.props.test.state.iframe.size.width,
+      src: this.props.test.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 124
@@ -1610,7 +1610,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "showBlocks", () => {
       //place component in state
-      this.props.Global.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      this.props.test.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -1618,7 +1618,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         __self: this
       })); //open toolbar
 
-      this.props.Global.toggleToolbarOverlay();
+      this.props.test.toggleToolbarOverlay();
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "showCanvasOptions", () => {});
@@ -1630,12 +1630,12 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_updateState", () => {
-      this.props.Global._loadStateFromHash(this.state.base64);
+      this.props.test._loadStateFromHash(this.state.base64);
     });
   }
 
   render() {
-    var canvas = this.props.Global; // var toolbar = this.props.Global.state.toolbar;
+    var canvas = this.props.test; // var toolbar = this.props.test.state.toolbar;
 
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
@@ -1643,7 +1643,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 59
       },
       __self: this
-    }, this.props.Global && this.props.Global.state.toolbar.map((block, i) => {
+    }, this.props.test && this.props.test.state.toolbar.map((block, i) => {
       var type = block.type;
 
       switch (type) {
@@ -1685,9 +1685,9 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 74
       },
       __self: this
-    }), this.props.Global && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    }), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
       component: _styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"],
-      "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.Global.state)),
+      "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 76
@@ -1758,8 +1758,8 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 21
       },
       __self: this
-    }, this.props.Global && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
-      items: this.props.Global.state.showToolbarOverlay,
+    }, this.props.test && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
+      items: this.props.test.state.showToolbarOverlay,
       from: {
         opacity: 0
       },
@@ -1791,7 +1791,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       strokeWidth: "3",
       strokeLinecap: "square",
       strokeLinejoin: "arcs",
-      onClick: () => this.props.Global.toggleToolbarOverlay(),
+      onClick: () => this.props.test.toggleToolbarOverlay(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 35
@@ -1804,7 +1804,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       y2: "18",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 47
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
@@ -1814,10 +1814,10 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       y2: "18",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 48
       },
       __self: this
-    })), this.props.Global.state.toolbarOverlayContents))));
+    })), this.props.test.state.toolbarOverlayContents))));
   }
 
 }
@@ -2012,13 +2012,10 @@ User.propTypes = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/values */ "./node_modules/@babel/runtime-corejs2/core-js/object/values.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! unstated */ "unstated");
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(unstated__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! unstated */ "unstated");
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(unstated__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/wrappers/withContainer.js";
 
@@ -2026,9 +2023,9 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 function withContainers(Containers) {
   return function (Component) {
-    return class ComponentWithContainer extends react__WEBPACK_IMPORTED_MODULE_3___default.a.Component {
+    return class ComponentWithContainer extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       render() {
-        return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_2__["Subscribe"], {
+        return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_1__["Subscribe"], {
           to: Containers,
           __source: {
             fileName: _jsxFileName,
@@ -2036,22 +2033,25 @@ function withContainers(Containers) {
           },
           __self: this
         }, (...containers) => {
-          const containerObject = {};
+          console.log(containers);
+          const containerObject = {}; // Object.values(containers).forEach(container => {
+          //   let key = container.key;
+          //   if (!key) {
+          //     key = container.constructor.name;
+          //   }
+          //   // key = 'test';
+          //   containerObject[key] = container;
+          //   // containerObject[key] = 'test';
+          // });
 
-          _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(containers).forEach(container => {
-            let key = container.key;
-
-            if (!key) {
-              key = container.constructor.name;
-            }
-
-            containerObject[key] = container; // containerObject[key] = 'test';
+          containers.forEach((container, index) => {
+            var a = 'test';
+            containerObject[a] = container;
           });
-
-          return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, this.props, {
+          return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, this.props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 27
             },
             __self: this
           }));
@@ -2182,17 +2182,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-prope
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core-js/library/fn/object/keys");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/values.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/values.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/values */ "core-js/library/fn/object/values");
 
 /***/ }),
 
@@ -2441,17 +2430,6 @@ module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/keys");
-
-/***/ }),
-
-/***/ "core-js/library/fn/object/values":
-/*!***************************************************!*\
-  !*** external "core-js/library/fn/object/values" ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("core-js/library/fn/object/values");
 
 /***/ }),
 

@@ -70,8 +70,8 @@ class Reporting extends Component {
   reloadIframe = () => {
     var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
     console.log(this.props);
-    // if (this.props.Global) {
-    this.props.Global.setCurrentIframe(urlString);
+    // if (this.props.test) {
+    this.props.test.setCurrentIframe(urlString);
     // }
 
     this.setState({ urlSelected: urlString });
@@ -91,7 +91,7 @@ class Reporting extends Component {
   handleScroll = e => {};
 
   render() {
-    // if (!this.props.Global) return <p>Loading...</p>;
+    // if (!this.props.test) return <p>Loading...</p>;
     return (
       <div>
         <UrlBar>
@@ -113,18 +113,18 @@ class Reporting extends Component {
         </UrlBar>
         <WorkArea>
           <CanvasContainer>
-            {this.props.Global &&
-              this.props.Global.state.overIframe.map((OverIframe, i) => {
+            {this.props.test &&
+              this.props.test.state.overIframe.map((OverIframe, i) => {
                 var OverIframeComponent = OverIframe.component;
                 return (
                   <OverIframeComponent key={i} id={OverIframe.belongsTo} />
                 );
               })}{' '}
-            {this.props.Global && this.props.Global.state && (
+            {this.props.test && this.props.test.state && (
               <Frame
                 id="iframe"
-                width={this.props.Global.state.iframe.size.width}
-                src={this.props.Global.state.currentIframe}
+                width={this.props.test.state.iframe.size.width}
+                src={this.props.test.state.currentIframe}
               />
             )}
             {/* <DesignCanvas /> */}

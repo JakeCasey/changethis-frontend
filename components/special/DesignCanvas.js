@@ -31,12 +31,12 @@ class DesignCanvas extends React.Component {
   };
 
   componentDidMount() {
-    this.props.Global.instantiateCanvas(this);
+    this.props.test.instantiateCanvas(this);
   }
 
   render() {
     const { width, height } = this.props;
-    var canvas = this.props.Global;
+    var canvas = this.props.test;
     return (
       <CanvasContainer>
         <canvas ref={c => (this.c = c)} width={width} height={height} />

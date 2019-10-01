@@ -27,7 +27,7 @@ const ToolbarDiv = styled.div`
 
 class Toolbar extends Component {
   // state = {
-  //   base64: btoa(JSON.stringify(this.props.Global.state)),
+  //   base64: btoa(JSON.stringify(this.props.test.state)),
   // };
 
   state = {
@@ -36,10 +36,10 @@ class Toolbar extends Component {
 
   showBlocks = () => {
     //place component in state
-    this.props.Global.putComponentInToolbar(<BlockList />);
+    this.props.test.putComponentInToolbar(<BlockList />);
 
     //open toolbar
-    this.props.Global.toggleToolbarOverlay();
+    this.props.test.toggleToolbarOverlay();
   };
 
   showCanvasOptions = () => {};
@@ -49,16 +49,16 @@ class Toolbar extends Component {
   };
 
   _updateState = () => {
-    this.props.Global._loadStateFromHash(this.state.base64);
+    this.props.test._loadStateFromHash(this.state.base64);
   };
 
   render() {
-    var canvas = this.props.Global;
-    // var toolbar = this.props.Global.state.toolbar;
+    var canvas = this.props.test;
+    // var toolbar = this.props.test.state.toolbar;
     return (
       <ToolbarDiv>
-        {this.props.Global &&
-          this.props.Global.state.toolbar.map((block, i) => {
+        {this.props.test &&
+          this.props.test.state.toolbar.map((block, i) => {
             var type = block.type;
             switch (type) {
               case 'text':
@@ -72,11 +72,11 @@ class Toolbar extends Component {
 
         <SickButton onClick={() => this.showBlocks()}>Add Block</SickButton>
         <p ref={textarea => (this.textArea = textarea)}>{}</p>
-        {this.props.Global && (
+        {this.props.test && (
           <Clipboard
             component={SickButton}
             data-clipboard-text={btoa(
-              JSON.stringify(this.props.Global.state),
+              JSON.stringify(this.props.test.state),
             )}
           >
             copy to clipboard

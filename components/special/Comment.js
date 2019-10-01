@@ -43,7 +43,7 @@ class Comment extends Component {
     return (
       <Commentarea
         value={this.props.pin.comment}
-        onChange={e => this._updateComment(this.props.Global, e)}
+        onChange={e => this._updateComment(this.props.test, e)}
         placeholder={this._getPlaceholder()}
       />
     );

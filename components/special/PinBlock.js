@@ -12,18 +12,18 @@ class PinBlock extends Component {
     var block = this.props.block;
     return (
       <>
-        {this.props.Global &&
-          this.props.Global.state.pins.map((p, index) => {
+        {this.props.test &&
+          this.props.test.state.pins.map((p, index) => {
             if (p.belongsTo == this.props.block.id) {
               return <p key={index}>{p.comment}</p>;
             }
           })}
         <SickButton
           onClick={() =>
-            this.props.Global.togglePinPlacement(this.props.block.id)
+            this.props.test.togglePinPlacement(this.props.block.id)
           }
         >
-          {this.props.Global && this.props.Global.state.isPlacingPin
+          {this.props.test && this.props.test.state.isPlacingPin
             ? 'Stop Placing Pins'
             : 'Place Pin'}
         </SickButton>

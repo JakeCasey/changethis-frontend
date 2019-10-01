@@ -492,7 +492,7 @@ function (_Component) {
       var block = this.props.block;
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
         onClick: function onClick() {
-          return _this2.props.Global.addSimpleTextBlock();
+          return _this2.props.test.addSimpleTextBlock();
         },
         __source: {
           fileName: _jsxFileName,
@@ -501,7 +501,7 @@ function (_Component) {
         __self: this
       }, "Add Simple Text Block"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
         onClick: function onClick() {
-          return _this2.props.Global.addPinBlock();
+          return _this2.props.test.addPinBlock();
         },
         __source: {
           fileName: _jsxFileName,
@@ -604,7 +604,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Commentarea, {
         value: this.props.pin.comment,
         onChange: function onChange(e) {
-          return _this2._updateComment(_this2.props.Global, e);
+          return _this2._updateComment(_this2.props.test, e);
         },
         placeholder: this._getPlaceholder(),
         __source: {
@@ -697,7 +697,7 @@ function (_React$Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DesignCanvas, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.Global.instantiateCanvas(this);
+      this.props.test.instantiateCanvas(this);
     }
   }, {
     key: "render",
@@ -707,7 +707,7 @@ function (_React$Component) {
       var _this$props = this.props,
           width = _this$props.width,
           height = _this$props.height;
-      var canvas = this.props.Global;
+      var canvas = this.props.test;
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(CanvasContainer, {
         __source: {
           fileName: _jsxFileName,
@@ -1105,7 +1105,7 @@ function (_Component) {
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_12__["default"], {
           pin: this.props.pin,
-          global: this.props.Global,
+          global: this.props.test,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 35
@@ -1201,7 +1201,7 @@ function (_Component) {
       var _this2 = this;
 
       var block = this.props.block;
-      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, this.props.Global && this.props.Global.state.pins.map(function (p, index) {
+      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, this.props.test && this.props.test.state.pins.map(function (p, index) {
         if (p.belongsTo == _this2.props.block.id) {
           return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
             key: index,
@@ -1214,14 +1214,14 @@ function (_Component) {
         }
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_10__["default"], {
         onClick: function onClick() {
-          return _this2.props.Global.togglePinPlacement(_this2.props.block.id);
+          return _this2.props.test.togglePinPlacement(_this2.props.block.id);
         },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 21
         },
         __self: this
-      }, this.props.Global && this.props.Global.state.isPlacingPin ? 'Stop Placing Pins' : 'Place Pin'));
+      }, this.props.test && this.props.test.state.isPlacingPin ? 'Stop Placing Pins' : 'Place Pin'));
     }
   }]);
 
@@ -1529,9 +1529,9 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "reloadIframe", function () {
       var urlString = frontendUrl + '/api/proxy?url=' + btoa(_this.state.url);
-      console.log(_this.props); // if (this.props.Global) {
+      console.log(_this.props); // if (this.props.test) {
 
-      _this.props.Global.setCurrentIframe(urlString); // }
+      _this.props.test.setCurrentIframe(urlString); // }
 
 
       _this.setState({
@@ -1563,7 +1563,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      // if (!this.props.Global) return <p>Loading...</p>;
+      // if (!this.props.test) return <p>Loading...</p>;
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
@@ -1611,7 +1611,7 @@ function (_Component) {
           lineNumber: 115
         },
         __self: this
-      }, this.props.Global && this.props.Global.state.overIframe.map(function (OverIframe, i) {
+      }, this.props.test && this.props.test.state.overIframe.map(function (OverIframe, i) {
         var OverIframeComponent = OverIframe.component;
         return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(OverIframeComponent, {
           key: i,
@@ -1622,10 +1622,10 @@ function (_Component) {
           },
           __self: this
         });
-      }), ' ', this.props.Global && this.props.Global.state && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Frame, {
+      }), ' ', this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Frame, {
         id: "iframe",
-        width: this.props.Global.state.iframe.size.width,
-        src: this.props.Global.state.currentIframe,
+        width: this.props.test.state.iframe.size.width,
+        src: this.props.test.state.currentIframe,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 124
@@ -1978,7 +1978,7 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "showBlocks", function () {
       //place component in state
-      _this.props.Global.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      _this.props.test.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_14__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -1987,7 +1987,7 @@ function (_Component) {
       })); //open toolbar
 
 
-      _this.props.Global.toggleToolbarOverlay();
+      _this.props.test.toggleToolbarOverlay();
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "showCanvasOptions", function () {});
@@ -1999,7 +1999,7 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "_updateState", function () {
-      _this.props.Global._loadStateFromHash(_this.state.base64);
+      _this.props.test._loadStateFromHash(_this.state.base64);
     });
 
     return _this;
@@ -2010,7 +2010,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var canvas = this.props.Global; // var toolbar = this.props.Global.state.toolbar;
+      var canvas = this.props.test; // var toolbar = this.props.test.state.toolbar;
 
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ToolbarDiv, {
         __source: {
@@ -2018,7 +2018,7 @@ function (_Component) {
           lineNumber: 59
         },
         __self: this
-      }, this.props.Global && this.props.Global.state.toolbar.map(function (block, i) {
+      }, this.props.test && this.props.test.state.toolbar.map(function (block, i) {
         var type = block.type;
 
         switch (type) {
@@ -2064,9 +2064,9 @@ function (_Component) {
           lineNumber: 74
         },
         __self: this
-      }), this.props.Global && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_16___default.a, {
+      }), this.props.test && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_16___default.a, {
         component: _styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"],
-        "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_15___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.Global.state)),
+        "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_15___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
         __source: {
           fileName: _jsxFileName,
           lineNumber: 76
@@ -2167,8 +2167,8 @@ function (_Component) {
           lineNumber: 21
         },
         __self: this
-      }, this.props.Global && react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_7__["Transition"], {
-        items: this.props.Global.state.showToolbarOverlay,
+      }, this.props.test && react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_7__["Transition"], {
+        items: this.props.test.state.showToolbarOverlay,
         from: {
           opacity: 0
         },
@@ -2203,7 +2203,7 @@ function (_Component) {
             strokeLinecap: "square",
             strokeLinejoin: "arcs",
             onClick: function onClick() {
-              return _this.props.Global.toggleToolbarOverlay();
+              return _this.props.test.toggleToolbarOverlay();
             },
             __source: {
               fileName: _jsxFileName,
@@ -2217,7 +2217,7 @@ function (_Component) {
             y2: "18",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 47
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("line", {
@@ -2227,10 +2227,10 @@ function (_Component) {
             y2: "18",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 48
             },
             __self: this
-          })), _this.props.Global.state.toolbarOverlayContents);
+          })), _this.props.test.state.toolbarOverlayContents);
         };
       }));
     }
@@ -2503,17 +2503,14 @@ User.propTypes = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/values */ "./node_modules/@babel/runtime-corejs2/core-js/object/values.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! unstated */ "./node_modules/unstated/lib/unstated.es.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! unstated */ "./node_modules/unstated/lib/unstated.es.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -2529,20 +2526,20 @@ function withContainers(Containers) {
     return (
       /*#__PURE__*/
       function (_React$Component) {
-        Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_6__["default"])(ComponentWithContainer, _React$Component);
+        Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(ComponentWithContainer, _React$Component);
 
         function ComponentWithContainer() {
-          Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, ComponentWithContainer);
+          Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ComponentWithContainer);
 
-          return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(ComponentWithContainer).apply(this, arguments));
+          return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(ComponentWithContainer).apply(this, arguments));
         }
 
-        Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(ComponentWithContainer, [{
+        Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ComponentWithContainer, [{
           key: "render",
           value: function render() {
             var _this = this;
 
-            return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_7__["Subscribe"], {
+            return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_6__["Subscribe"], {
               to: Containers,
               __source: {
                 fileName: _jsxFileName,
@@ -2550,26 +2547,29 @@ function withContainers(Containers) {
               },
               __self: this
             }, function () {
-              var containerObject = {};
-
               for (var _len = arguments.length, containers = new Array(_len), _key = 0; _key < _len; _key++) {
                 containers[_key] = arguments[_key];
               }
 
-              _babel_runtime_corejs2_core_js_object_values__WEBPACK_IMPORTED_MODULE_1___default()(containers).forEach(function (container) {
-                var key = container.key;
+              console.log(containers);
+              var containerObject = {}; // Object.values(containers).forEach(container => {
+              //   let key = container.key;
+              //   if (!key) {
+              //     key = container.constructor.name;
+              //   }
+              //   // key = 'test';
+              //   containerObject[key] = container;
+              //   // containerObject[key] = 'test';
+              // });
 
-                if (!key) {
-                  key = container.constructor.name;
-                }
-
-                containerObject[key] = container; // containerObject[key] = 'test';
+              containers.forEach(function (container, index) {
+                var a = 'test';
+                containerObject[a] = container;
               });
-
-              return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, _this.props, {
+              return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, _this.props, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 20
+                  lineNumber: 27
                 },
                 __self: this
               }));
@@ -2578,7 +2578,7 @@ function withContainers(Containers) {
         }]);
 
         return ComponentWithContainer;
-      }(react__WEBPACK_IMPORTED_MODULE_8___default.a.Component)
+      }(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component)
     );
   };
 }
@@ -2802,17 +2802,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "./no
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/set-prototype-of */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/set-prototype-of.js");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/values.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/values.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/values */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/values.js");
 
 /***/ }),
 
@@ -3798,19 +3787,6 @@ module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/
 
 __webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.set-prototype-of.js");
 module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").Object.setPrototypeOf;
-
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/values.js":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/values.js ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es7.object.values */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es7.object.values.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").Object.values;
 
 
 /***/ }),
@@ -5233,38 +5209,6 @@ module.exports = function (KEY, exec) {
   var exp = {};
   exp[KEY] = exec(fn);
   $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-to-array.js":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-to-array.js ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_descriptors.js");
-var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-keys.js");
-var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_to-iobject.js");
-var isEnum = __webpack_require__(/*! ./_object-pie */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-pie.js").f;
-module.exports = function (isEntries) {
-  return function (it) {
-    var O = toIObject(it);
-    var keys = getKeys(O);
-    var length = keys.length;
-    var i = 0;
-    var result = [];
-    var key;
-    while (length > i) {
-      key = keys[i++];
-      if (!DESCRIPTORS || isEnum.call(O, key)) {
-        result.push(isEntries ? [key, O[key]] : O[key]);
-      }
-    }
-    return result;
-  };
 };
 
 
@@ -6873,26 +6817,6 @@ setToStringTag($Symbol, 'Symbol');
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
-
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es7.object.values.js":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es7.object.values.js ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// https://github.com/tc39/proposal-object-values-entries
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_export.js");
-var $values = __webpack_require__(/*! ./_object-to-array */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-to-array.js")(false);
-
-$export($export.S, 'Object', {
-  values: function values(it) {
-    return $values(it);
-  }
-});
 
 
 /***/ }),

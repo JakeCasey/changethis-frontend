@@ -19,9 +19,9 @@ class ToolbarOverlay extends Component {
   render() {
     return (
       <div>
-        {this.props.Global && (
+        {this.props.test && (
           <Transition
-            items={this.props.Global.state.showToolbarOverlay}
+            items={this.props.test.state.showToolbarOverlay}
             from={{
               opacity: 0,
             }}
@@ -42,14 +42,12 @@ class ToolbarOverlay extends Component {
                     strokeWidth="3"
                     strokeLinecap="square"
                     strokeLinejoin="arcs"
-                    onClick={() =>
-                      this.props.Global.toggleToolbarOverlay()
-                    }
+                    onClick={() => this.props.test.toggleToolbarOverlay()}
                   >
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
-                  {this.props.Global.state.toolbarOverlayContents}
+                  {this.props.test.state.toolbarOverlayContents}
                 </ToolbarOverlayDiv>
               ))
             }

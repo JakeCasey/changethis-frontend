@@ -10,10 +10,10 @@ class BlockList extends Component {
     var block = this.props.block;
     return (
       <>
-        <SickButton onClick={() => this.props.Global.addSimpleTextBlock()}>
+        <SickButton onClick={() => this.props.test.addSimpleTextBlock()}>
           Add Simple Text Block
         </SickButton>
-        <SickButton onClick={() => this.props.Global.addPinBlock()}>
+        <SickButton onClick={() => this.props.test.addPinBlock()}>
           Add Pin Block
         </SickButton>
       </>
