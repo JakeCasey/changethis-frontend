@@ -751,9 +751,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var apollo_link_error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-link-error */ "apollo-link-error");
+/* harmony import */ var apollo_link_error__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
+
+const errorLink = Object(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__["onError"])(({
+  graphQLErrors,
+  networkError
+}) => {
+  if (networkError) {
+    // Check if error response is JSON
+    try {
+      JSON.parse(networkError.bodyText);
+    } catch (e) {
+      // If not replace parsing error message with real one
+      networkError.message = networkError.bodyText;
+    }
+  }
+});
 
 function createClient({
   headers
@@ -768,6 +785,7 @@ function createClient({
         headers
       });
     },
+    onError: errorLink,
     //local data
     clientState: {
       resolvers: {},
@@ -1816,6 +1834,17 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 /***/ (function(module, exports) {
 
 module.exports = require("apollo-boost");
+
+/***/ }),
+
+/***/ "apollo-link-error":
+/*!************************************!*\
+  !*** external "apollo-link-error" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-link-error");
 
 /***/ }),
 
