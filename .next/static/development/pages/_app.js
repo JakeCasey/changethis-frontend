@@ -744,20 +744,6 @@ function createClient(_ref2) {
         headers: headers
       });
     },
-    onError: Object(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__["onError"])(function (_ref3) {
-      var graphQLErrors = _ref3.graphQLErrors,
-          networkError = _ref3.networkError;
-
-      if (networkError) {
-        // Check if error response is JSON
-        try {
-          JSON.parse(networkError.bodyText);
-        } catch (e) {
-          // If not replace parsing error message with real one
-          networkError.message = networkError.bodyText;
-        }
-      }
-    }),
     //local data
     clientState: {
       resolvers: {},
@@ -6632,7 +6618,7 @@ function previouslyCompared(a, b) {
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, gql, HttpLink, default, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument */
+/*! exports provided: ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument, gql, HttpLink, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

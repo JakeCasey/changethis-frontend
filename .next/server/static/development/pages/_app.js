@@ -785,20 +785,6 @@ function createClient({
         headers
       });
     },
-    onError: Object(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__["onError"])(({
-      graphQLErrors,
-      networkError
-    }) => {
-      if (networkError) {
-        // Check if error response is JSON
-        try {
-          JSON.parse(networkError.bodyText);
-        } catch (e) {
-          // If not replace parsing error message with real one
-          networkError.message = networkError.bodyText;
-        }
-      }
-    }),
     //local data
     clientState: {
       resolvers: {},
