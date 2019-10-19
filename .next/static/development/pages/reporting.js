@@ -14431,7 +14431,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 3);
+  var jsdom = __webpack_require__(/*! jsdom */ 4);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -14441,8 +14441,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 4).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 5).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 5).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 6).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -89900,7 +89900,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -89912,7 +89912,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -89923,7 +89923,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -89934,7 +89934,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -89956,5 +89956,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map
