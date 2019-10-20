@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -138,21 +138,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (async (req, res) => {
   try {
     var newEndpoint =  true ? _config__WEBPACK_IMPORTED_MODULE_0__["endpoint"] : undefined;
-    console.log(newEndpoint);
     var url = req.url;
     var fetchUrl = newEndpoint + url;
-    var fetchRes = await isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1___default()(fetchUrl);
-    var response = await fetchRes.text(); // res.setHeader('Content-Type', 'text/html');
+    var fetchRes = await isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1___default()(fetchUrl); // console.log(fetchRes);
 
+    const contentType = fetchRes.headers.get('content-type');
+    let response; // if (contentType.includes('text/html')) {
+    //   response = await fetchRes.text();
+    //   res.setHeader('Content-Type', 'text/html');
+    // }
+    // if (contentType.includes('text/css')) {
+    //   response = await fetchRes.text();
+    //   res.setHeader('Content-Type', 'text/css');
+    // }
+    // if (contentType.includes('image/png')) {
+    //   response = fetchRes.text();
+    //   res.setHeader('Content-Type', 'image/png');
+    // }
+
+    response = await fetchRes.text();
+    res.setHeader('Content-Type', contentType);
+
+    if (contentType.includes('image/jpeg')) {
+      response = await fetchRes;
+      res.setHeader('Content-Type', 'image/jpeg');
+    }
+
+    if (contentType.includes('image/png')) {
+      response = await fetchRes;
+      res.setHeader('Content-Type', 'image/png');
+    }
+
+    console.log(fetchRes);
     res.send(response);
-  } catch (error) {
-    if (error) throw new Error(error);
+  } catch (error) {// if (error) throw new Error(error);
   }
 });
 
 /***/ }),
 
-/***/ 7:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/api/proxy.js ***!
   \**********************************/
