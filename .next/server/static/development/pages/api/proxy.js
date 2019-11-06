@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -130,17 +130,16 @@ const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config */ "./config.js");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1__);
-
- //fucky stuff going on here
+ // import fetch from 'isomorphic-fetch';
+//fucky stuff going on here
 
 /* harmony default export */ __webpack_exports__["default"] = (async (req, res) => {
   try {
-    var newEndpoint =  true ? _config__WEBPACK_IMPORTED_MODULE_0__["endpoint"] : undefined;
+    var newEndpoint =  false ? undefined : _config__WEBPACK_IMPORTED_MODULE_0__["endpoint"];
+    console.log(newEndpoint);
     var url = req.url;
     var fetchUrl = newEndpoint + url;
-    var fetchRes = await isomorphic_fetch__WEBPACK_IMPORTED_MODULE_1___default()(fetchUrl); // console.log(fetchRes);
+    var fetchRes = await fetch(fetchUrl); // console.log(fetchRes);
 
     const contentType = fetchRes.headers.get('content-type');
     let response; // if (contentType.includes('text/html')) {
@@ -156,20 +155,37 @@ __webpack_require__.r(__webpack_exports__);
     //   res.setHeader('Content-Type', 'image/png');
     // }
 
-    response = await fetchRes.text();
-    res.setHeader('Content-Type', contentType);
+    res.setHeader('Content-Type', contentType); // TODO: these are not serving the correct data formats;
+
+    console.log(contentType);
 
     if (contentType.includes('image/jpeg')) {
-      response = await fetchRes;
-      res.setHeader('Content-Type', 'image/jpeg');
+      console.log('jpeg');
+
+      try {
+        response = await fetchRes.buffer();
+      } catch (error) {
+        if (error) console.log(error);
+      }
+
+      res.end(response, 'binary');
+      return;
     }
 
     if (contentType.includes('image/png')) {
-      response = await fetchRes;
-      res.setHeader('Content-Type', 'image/png');
+      console.log('png');
+
+      try {
+        response = await fetchRes.buffer();
+      } catch (error) {
+        if (error) console.log(error);
+      }
+
+      res.end(response, 'binary');
+      return;
     }
 
-    console.log(fetchRes);
+    response = await fetchRes.text();
     res.send(response);
   } catch (error) {// if (error) throw new Error(error);
   }
@@ -177,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./pages/api/proxy.js ***!
   \**********************************/
@@ -186,17 +202,6 @@ __webpack_require__.r(__webpack_exports__);
 
 module.exports = __webpack_require__(/*! /Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/pages/api/proxy.js */"./pages/api/proxy.js");
 
-
-/***/ }),
-
-/***/ "isomorphic-fetch":
-/*!***********************************!*\
-  !*** external "isomorphic-fetch" ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-fetch");
 
 /***/ })
 

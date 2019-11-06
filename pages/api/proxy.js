@@ -1,11 +1,12 @@
 import { prodEndPoint, endpoint } from '../../config';
-import fetch from 'isomorphic-fetch';
+// import fetch from 'isomorphic-fetch';
 
 //fucky stuff going on here
 export default async (req, res) => {
   try {
     var newEndpoint =
-      process.env.NODE_ENV === 'development' ? endpoint : prodEndPoint;
+      process.env.NODE_ENV === 'production' ? prodEndPoint : endpoint;
+    console.log(newEndpoint);
     var url = req.url;
     var fetchUrl = newEndpoint + url;
 
@@ -27,20 +28,35 @@ export default async (req, res) => {
     //   res.setHeader('Content-Type', 'image/png');
     // }
 
-    response = await fetchRes.text();
     res.setHeader('Content-Type', contentType);
 
+    // TODO: these are not serving the correct data formats;
+
+    console.log(contentType);
+
     if (contentType.includes('image/jpeg')) {
-      response = await fetchRes;
-      res.setHeader('Content-Type', 'image/jpeg');
+      console.log('jpeg');
+      try {
+        response = await fetchRes.buffer();
+      } catch (error) {
+        if (error) console.log(error);
+      }
+      res.end(response, 'binary');
+      return;
     }
 
     if (contentType.includes('image/png')) {
-      response = await fetchRes;
-      res.setHeader('Content-Type', 'image/png');
+      console.log('png');
+      try {
+        response = await fetchRes.buffer();
+      } catch (error) {
+        if (error) console.log(error);
+      }
+      res.end(response, 'binary');
+      return;
     }
 
-    console.log(fetchRes);
+    response = await fetchRes.text();
     res.send(response);
   } catch (error) {
     // if (error) throw new Error(error);
