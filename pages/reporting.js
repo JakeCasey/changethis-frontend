@@ -4,7 +4,9 @@ import PleaseSignIn from '../components/PleaseSignIn';
 
 const ProtectedPage = props => (
   <div>
-    <PleaseSignIn>{/* <Reporting /> */}</PleaseSignIn>
+    <PleaseSignIn>
+      <Reporting />
+    </PleaseSignIn>
   </div>
 );
 
