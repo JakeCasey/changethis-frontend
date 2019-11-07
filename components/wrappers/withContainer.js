@@ -8,7 +8,6 @@ function withContainers(Containers) {
         return (
           <Subscribe to={Containers}>
             {(...containers) => {
-              console.log(containers);
               const containerObject = {};
               // Object.values(containers).forEach(container => {
               //   let key = container.key;

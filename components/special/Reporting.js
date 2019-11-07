@@ -69,7 +69,6 @@ class Reporting extends Component {
 
   reloadIframe = () => {
     var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-    console.log(this.props);
     // if (this.props.test) {
     this.props.test.setCurrentIframe(urlString);
     // }

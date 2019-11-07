@@ -6,12 +6,10 @@ export default async (req, res) => {
   try {
     var newEndpoint =
       process.env.NODE_ENV === 'production' ? prodEndPoint : endpoint;
-    console.log(newEndpoint);
     var url = req.url;
     var fetchUrl = newEndpoint + url;
 
     var fetchRes = await fetch(fetchUrl);
-    // console.log(fetchRes);
     const contentType = fetchRes.headers.get('content-type');
 
     let response;
@@ -32,10 +30,7 @@ export default async (req, res) => {
 
     // TODO: these are not serving the correct data formats;
 
-    console.log(contentType);
-
     if (contentType.includes('image/jpeg')) {
-      console.log('jpeg');
       try {
         response = await fetchRes.buffer();
       } catch (error) {
@@ -46,7 +41,6 @@ export default async (req, res) => {
     }
 
     if (contentType.includes('image/png')) {
-      console.log('png');
       try {
         response = await fetchRes.buffer();
       } catch (error) {
