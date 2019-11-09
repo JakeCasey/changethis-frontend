@@ -734,6 +734,7 @@ var errorLink = Object(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__["onError"]
 
 function createClient(_ref2) {
   var headers = _ref2.headers;
+  console.log(headers);
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1__["default"]({
     uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: function request(operation) {

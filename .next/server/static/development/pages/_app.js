@@ -775,6 +775,7 @@ const errorLink = Object(apollo_link_error__WEBPACK_IMPORTED_MODULE_3__["onError
 function createClient({
   headers
 }) {
+  console.log(headers);
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1___default.a({
     uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: operation => {
