@@ -96,7 +96,7 @@ DisplayError.propTypes = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
 /* harmony import */ var _wrappers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wrappers/User */ "./components/wrappers/User.js");
 /* harmony import */ var _Signin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Signin */ "./components/Signin.js");
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/PleaseSignIn.js";
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _styles_Form__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./styles/Form */ "./components/styles/Form.js");
@@ -2445,7 +2445,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -2633,6 +2633,1508 @@ var getIframeScrollPosition = function getIframeScrollPosition() {
   return scroll;
 };
 
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-common/lib/react-common.esm.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/react-common/lib/react-common.esm.js ***!
+  \*******************************************************************/
+/*! exports provided: ApolloConsumer, ApolloProvider, DocumentType, getApolloContext, operationName, parser, resetApolloContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return ApolloConsumer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return ApolloProvider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentType", function() { return DocumentType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return getApolloContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "operationName", function() { return operationName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parser", function() { return parser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return resetApolloContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+
+var apolloContext;
+function getApolloContext() {
+    if (!apolloContext) {
+        apolloContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({});
+    }
+    return apolloContext;
+}
+function resetApolloContext() {
+    apolloContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({});
+}
+
+var ApolloProvider = function (_a) {
+    var client = _a.client, children = _a.children;
+    var ApolloContext = getApolloContext();
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApolloContext.Consumer, null, function (context) {
+        if (context === void 0) { context = {}; }
+        if (client && context.client !== client) {
+            context = Object.assign({}, context, { client: client });
+        }
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(context.client, 'ApolloProvider was not passed a client instance. Make ' +
+            'sure you pass in your client via the "client" prop.');
+        return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApolloContext.Provider, { value: context }, children));
+    });
+};
+
+var ApolloConsumer = function (props) {
+    var ApolloContext = getApolloContext();
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApolloContext.Consumer, null, function (context) {
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(context && context.client, 'Could not find "client" in the context of ApolloConsumer. ' +
+            'Wrap the root component in an <ApolloProvider>.');
+        return props.children(context.client);
+    });
+};
+
+var DocumentType;
+(function (DocumentType) {
+    DocumentType[DocumentType["Query"] = 0] = "Query";
+    DocumentType[DocumentType["Mutation"] = 1] = "Mutation";
+    DocumentType[DocumentType["Subscription"] = 2] = "Subscription";
+})(DocumentType || (DocumentType = {}));
+var cache = new Map();
+function operationName(type) {
+    var name;
+    switch (type) {
+        case DocumentType.Query:
+            name = 'Query';
+            break;
+        case DocumentType.Mutation:
+            name = 'Mutation';
+            break;
+        case DocumentType.Subscription:
+            name = 'Subscription';
+            break;
+    }
+    return name;
+}
+function parser(document) {
+    var cached = cache.get(document);
+    if (cached)
+        return cached;
+    var variables, type, name;
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!!document && !!document.kind, "Argument of " + document + " passed to parser was not a valid GraphQL " +
+        "DocumentNode. You may need to use 'graphql-tag' or another method " +
+        "to convert your operation into a document");
+    var fragments = document.definitions.filter(function (x) { return x.kind === 'FragmentDefinition'; });
+    var queries = document.definitions.filter(function (x) {
+        return x.kind === 'OperationDefinition' && x.operation === 'query';
+    });
+    var mutations = document.definitions.filter(function (x) {
+        return x.kind === 'OperationDefinition' && x.operation === 'mutation';
+    });
+    var subscriptions = document.definitions.filter(function (x) {
+        return x.kind === 'OperationDefinition' && x.operation === 'subscription';
+    });
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!fragments.length ||
+        (queries.length || mutations.length || subscriptions.length), "Passing only a fragment to 'graphql' is not yet supported. " +
+        "You must include a query, subscription or mutation as well");
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(queries.length + mutations.length + subscriptions.length <= 1, "react-apollo only supports a query, subscription, or a mutation per HOC. " +
+        (document + " had " + queries.length + " queries, " + subscriptions.length + " ") +
+        ("subscriptions and " + mutations.length + " mutations. ") +
+        "You can use 'compose' to join multiple operation types to a component");
+    type = queries.length ? DocumentType.Query : DocumentType.Mutation;
+    if (!queries.length && !mutations.length)
+        type = DocumentType.Subscription;
+    var definitions = queries.length
+        ? queries
+        : mutations.length
+            ? mutations
+            : subscriptions;
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(definitions.length === 1, "react-apollo only supports one definition per HOC. " + document + " had " +
+        (definitions.length + " definitions. ") +
+        "You can use 'compose' to join multiple operation types to a component");
+    var definition = definitions[0];
+    variables = definition.variableDefinitions || [];
+    if (definition.name && definition.name.kind === 'Name') {
+        name = definition.name.value;
+    }
+    else {
+        name = 'data';
+    }
+    var payload = { name: name, type: type, variables: variables };
+    cache.set(document, payload);
+    return payload;
+}
+
+
+//# sourceMappingURL=react-common.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-components/lib/react-components.esm.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@apollo/react-components/lib/react-components.esm.js ***!
+  \***************************************************************************/
+/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, Mutation, Query, Subscription */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Mutation", function() { return Mutation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Query", function() { return Query; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return Subscription; });
+/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
+
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+function Query(props) {
+    var children = props.children, query = props.query, options = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(props, ["children", "query"]);
+    var result = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(query, options);
+    return children && result ? children(result) : null;
+}
+(function (Query) {
+    Query.propTypes = {
+        client: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
+        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+        notifyOnNetworkStatusChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        onError: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        pollInterval: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+        query: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+        ssr: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+        partialRefetch: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+        returnPartialData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
+    };
+})(Query || (Query = {}));
+
+function Mutation(props) {
+    var _a = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(props.mutation, props), runMutation = _a[0], result = _a[1];
+    return props.children ? props.children(runMutation, result) : null;
+}
+(function (Mutation) {
+    Mutation.propTypes = {
+        mutation: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+        optimisticResponse: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func]),
+        refetchQueries: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([
+            prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object])),
+            prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func
+        ]),
+        awaitRefetchQueries: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+        update: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
+        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        onError: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
+    };
+})(Mutation || (Mutation = {}));
+
+function Subscription(props) {
+    var result = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(props.subscription, props);
+    return props.children && result ? props.children(result) : null;
+}
+(function (Subscription) {
+    Subscription.propTypes = {
+        subscription: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+        variables: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+        children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        onSubscriptionData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        onSubscriptionComplete: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+        shouldResubscribe: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool]),
+    };
+})(Subscription || (Subscription = {}));
+
+
+//# sourceMappingURL=react-components.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js ***!
+  \*************************************************************/
+/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, graphql, withApollo, withMutation, withQuery, withSubscription */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "graphql", function() { return graphql; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withApollo", function() { return withApollo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withMutation", function() { return withMutation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQuery", function() { return withQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withSubscription", function() { return withSubscription; });
+/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
+
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _apollo_react_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-components */ "./node_modules/@apollo/react-components/lib/react-components.esm.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+
+
+
+
+
+
+var defaultMapPropsToOptions = function () { return ({}); };
+var defaultMapPropsToSkip = function () { return false; };
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+function calculateVariablesFromProps(operation, props) {
+    var variables = {};
+    for (var _i = 0, _a = operation.variables; _i < _a.length; _i++) {
+        var _b = _a[_i], variable = _b.variable, type = _b.type;
+        if (!variable.name || !variable.name.value)
+            continue;
+        var variableName = variable.name.value;
+        var variableProp = props[variableName];
+        if (typeof variableProp !== 'undefined') {
+            variables[variableName] = variableProp;
+            continue;
+        }
+        if (type.kind !== 'NonNullType') {
+            variables[variableName] = undefined;
+        }
+    }
+    return variables;
+}
+var GraphQLBase = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQLBase, _super);
+    function GraphQLBase(props) {
+        var _this = _super.call(this, props) || this;
+        _this.withRef = false;
+        _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
+        return _this;
+    }
+    GraphQLBase.prototype.getWrappedInstance = function () {
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(this.withRef, "To access the wrapped instance, you need to specify " +
+            "{ withRef: true } in the options");
+        return this.wrappedInstance;
+    };
+    GraphQLBase.prototype.setWrappedInstance = function (ref) {
+        this.wrappedInstance = ref;
+    };
+    return GraphQLBase;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component));
+
+function withQuery(document, operationOptions) {
+    if (operationOptions === void 0) { operationOptions = {}; }
+    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
+    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c;
+    var mapPropsToOptions = options;
+    if (typeof mapPropsToOptions !== 'function') {
+        mapPropsToOptions = function () { return options; };
+    }
+    var mapPropsToSkip = skip;
+    if (typeof mapPropsToSkip !== 'function') {
+        mapPropsToSkip = function () { return skip; };
+    }
+    var lastResultProps;
+    return function (WrappedComponent) {
+        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
+        var GraphQL = (function (_super) {
+            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
+            function GraphQL() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            GraphQL.prototype.render = function () {
+                var _this = this;
+                var props = this.props;
+                var shouldSkip = mapPropsToSkip(props);
+                var opts = shouldSkip
+                    ? Object.create(null)
+                    : Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, mapPropsToOptions(props));
+                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
+                    opts.variables = calculateVariablesFromProps(operation, props);
+                }
+                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Query"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, query: document }), function (_a) {
+                    var _b, _c;
+                    var _ = _a.client, data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["client", "data"]);
+                    if (operationOptions.withRef) {
+                        _this.withRef = true;
+                        props = Object.assign({}, props, {
+                            ref: _this.setWrappedInstance
+                        });
+                    }
+                    if (shouldSkip) {
+                        return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, {})));
+                    }
+                    var result = Object.assign(r, data || {});
+                    var name = operationOptions.name || 'data';
+                    var childProps = (_b = {}, _b[name] = result, _b);
+                    if (operationOptions.props) {
+                        var newResult = (_c = {},
+                            _c[name] = result,
+                            _c.ownProps = props,
+                            _c);
+                        lastResultProps = operationOptions.props(newResult, lastResultProps);
+                        childProps = lastResultProps;
+                    }
+                    return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps)));
+                }));
+            };
+            GraphQL.displayName = graphQLDisplayName;
+            GraphQL.WrappedComponent = WrappedComponent;
+            return GraphQL;
+        }(GraphQLBase));
+        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
+    };
+}
+
+function withMutation(document, operationOptions) {
+    if (operationOptions === void 0) { operationOptions = {}; }
+    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
+    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.alias, alias = _b === void 0 ? 'Apollo' : _b;
+    var mapPropsToOptions = options;
+    if (typeof mapPropsToOptions !== 'function')
+        mapPropsToOptions = function () { return options; };
+    return function (WrappedComponent) {
+        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
+        var GraphQL = (function (_super) {
+            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
+            function GraphQL() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            GraphQL.prototype.render = function () {
+                var props = this.props;
+                var opts = mapPropsToOptions(props);
+                if (operationOptions.withRef) {
+                    this.withRef = true;
+                    props = Object.assign({}, props, {
+                        ref: this.setWrappedInstance
+                    });
+                }
+                if (!opts.variables && operation.variables.length > 0) {
+                    opts.variables = calculateVariablesFromProps(operation, props);
+                }
+                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Mutation"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({ ignoreResults: true }, opts, { mutation: document }), function (mutate, _a) {
+                    var _b, _c;
+                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["data"]);
+                    var result = Object.assign(r, data || {});
+                    var name = operationOptions.name || 'mutate';
+                    var resultName = operationOptions.name
+                        ? name + "Result"
+                        : 'result';
+                    var childProps = (_b = {},
+                        _b[name] = mutate,
+                        _b[resultName] = result,
+                        _b);
+                    if (operationOptions.props) {
+                        var newResult = (_c = {},
+                            _c[name] = mutate,
+                            _c[resultName] = result,
+                            _c.ownProps = props,
+                            _c);
+                        childProps = operationOptions.props(newResult);
+                    }
+                    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps));
+                }));
+            };
+            GraphQL.displayName = graphQLDisplayName;
+            GraphQL.WrappedComponent = WrappedComponent;
+            return GraphQL;
+        }(GraphQLBase));
+        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
+    };
+}
+
+function withSubscription(document, operationOptions) {
+    if (operationOptions === void 0) { operationOptions = {}; }
+    var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
+    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c, shouldResubscribe = operationOptions.shouldResubscribe;
+    var mapPropsToOptions = options;
+    if (typeof mapPropsToOptions !== 'function')
+        mapPropsToOptions = function () { return options; };
+    var mapPropsToSkip = skip;
+    if (typeof mapPropsToSkip !== 'function')
+        mapPropsToSkip = function () { return skip; };
+    var lastResultProps;
+    return function (WrappedComponent) {
+        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
+        var GraphQL = (function (_super) {
+            Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(GraphQL, _super);
+            function GraphQL(props) {
+                var _this = _super.call(this, props) || this;
+                _this.state = { resubscribe: false };
+                return _this;
+            }
+            GraphQL.prototype.componentDidUpate = function (prevProps) {
+                if (shouldResubscribe) {
+                    this.setState({
+                        resubscribe: shouldResubscribe(prevProps, this.props)
+                    });
+                }
+            };
+            GraphQL.prototype.render = function () {
+                var _this = this;
+                var props = this.props;
+                var shouldSkip = mapPropsToSkip(props);
+                var opts = shouldSkip
+                    ? Object.create(null)
+                    : mapPropsToOptions(props);
+                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
+                    opts.variables = calculateVariablesFromProps(operation, props);
+                }
+                return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_components__WEBPACK_IMPORTED_MODULE_4__["Subscription"], Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, subscription: document, shouldResubscribe: this.state.resubscribe }), function (_a) {
+                    var _b, _c;
+                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__rest"])(_a, ["data"]);
+                    if (operationOptions.withRef) {
+                        _this.withRef = true;
+                        props = Object.assign({}, props, {
+                            ref: _this.setWrappedInstance
+                        });
+                    }
+                    if (shouldSkip) {
+                        return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, {})));
+                    }
+                    var result = Object.assign(r, data || {});
+                    var name = operationOptions.name || 'data';
+                    var childProps = (_b = {}, _b[name] = result, _b);
+                    if (operationOptions.props) {
+                        var newResult = (_c = {},
+                            _c[name] = result,
+                            _c.ownProps = props,
+                            _c);
+                        lastResultProps = operationOptions.props(newResult, lastResultProps);
+                        childProps = lastResultProps;
+                    }
+                    return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props, childProps)));
+                }));
+            };
+            GraphQL.displayName = graphQLDisplayName;
+            GraphQL.WrappedComponent = WrappedComponent;
+            return GraphQL;
+        }(GraphQLBase));
+        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(GraphQL, WrappedComponent, {});
+    };
+}
+
+function graphql(document, operationOptions) {
+    if (operationOptions === void 0) { operationOptions = {}; }
+    switch (Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document).type) {
+        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Mutation:
+            return withMutation(document, operationOptions);
+        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Subscription:
+            return withSubscription(document, operationOptions);
+        case _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Query:
+        default:
+            return withQuery(document, operationOptions);
+    }
+}
+
+function getDisplayName$1(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+function withApollo(WrappedComponent, operationOptions) {
+    if (operationOptions === void 0) { operationOptions = {}; }
+    var withDisplayName = "withApollo(" + getDisplayName$1(WrappedComponent) + ")";
+    var WithApollo = (function (_super) {
+        Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(WithApollo, _super);
+        function WithApollo(props) {
+            var _this = _super.call(this, props) || this;
+            _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
+            return _this;
+        }
+        WithApollo.prototype.getWrappedInstance = function () {
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(operationOptions.withRef, "To access the wrapped instance, you need to specify " +
+                "{ withRef: true } in the options");
+            return this.wrappedInstance;
+        };
+        WithApollo.prototype.setWrappedInstance = function (ref) {
+            this.wrappedInstance = ref;
+        };
+        WithApollo.prototype.render = function () {
+            var _this = this;
+            return (react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"], null, function (client) {
+                var props = Object.assign({}, _this.props, {
+                    client: client,
+                    ref: operationOptions.withRef
+                        ? _this.setWrappedInstance
+                        : undefined
+                });
+                return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, props));
+            }));
+        };
+        WithApollo.displayName = withDisplayName;
+        WithApollo.WrappedComponent = WrappedComponent;
+        return WithApollo;
+    }(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component));
+    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_3___default()(WithApollo, WrappedComponent, {});
+}
+
+
+//# sourceMappingURL=react-hoc.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/@apollo/react-hoc/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+var REACT_STATICS = {
+    childContextTypes: true,
+    contextType: true,
+    contextTypes: true,
+    defaultProps: true,
+    displayName: true,
+    getDefaultProps: true,
+    getDerivedStateFromError: true,
+    getDerivedStateFromProps: true,
+    mixins: true,
+    propTypes: true,
+    type: true
+};
+
+var KNOWN_STATICS = {
+    name: true,
+    length: true,
+    prototype: true,
+    caller: true,
+    callee: true,
+    arguments: true,
+    arity: true
+};
+
+var FORWARD_REF_STATICS = {
+    '$$typeof': true,
+    render: true,
+    defaultProps: true,
+    displayName: true,
+    propTypes: true
+};
+
+var MEMO_STATICS = {
+    '$$typeof': true,
+    compare: true,
+    defaultProps: true,
+    displayName: true,
+    propTypes: true,
+    type: true
+};
+
+var TYPE_STATICS = {};
+TYPE_STATICS[ReactIs.ForwardRef] = FORWARD_REF_STATICS;
+
+function getStatics(component) {
+    if (ReactIs.isMemo(component)) {
+        return MEMO_STATICS;
+    }
+    return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
+}
+
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = Object.prototype;
+
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+    if (typeof sourceComponent !== 'string') {
+        // don't hoist over string (html) components
+
+        if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) {
+                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+            }
+        }
+
+        var keys = getOwnPropertyNames(sourceComponent);
+
+        if (getOwnPropertySymbols) {
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+        }
+
+        var targetStatics = getStatics(targetComponent);
+        var sourceStatics = getStatics(sourceComponent);
+
+        for (var i = 0; i < keys.length; ++i) {
+            var key = keys[i];
+            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+                try {
+                    // Avoid failures from read-only properties
+                    defineProperty(targetComponent, key, descriptor);
+                } catch (e) {}
+            }
+        }
+
+        return targetComponent;
+    }
+
+    return targetComponent;
+}
+
+module.exports = hoistNonReactStatics;
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js ***!
+  \*****************************************************************/
+/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, RenderPromises, useApolloClient, useLazyQuery, useMutation, useQuery, useSubscription */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RenderPromises", function() { return RenderPromises; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useApolloClient", function() { return useApolloClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLazyQuery", function() { return useLazyQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useMutation", function() { return useMutation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return useQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSubscription", function() { return useSubscription; });
+/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
+
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-client */ "./node_modules/apollo-client/bundle.esm.js");
+/* harmony import */ var _wry_equality__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wry/equality */ "./node_modules/@wry/equality/lib/equality.esm.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+
+
+
+
+
+
+var OperationData = (function () {
+    function OperationData(options, context) {
+        this.isMounted = false;
+        this.previousOptions = {};
+        this.context = {};
+        this.options = {};
+        this.options = options || {};
+        this.context = context || {};
+    }
+    OperationData.prototype.getOptions = function () {
+        return this.options;
+    };
+    OperationData.prototype.setOptions = function (newOptions, storePrevious) {
+        if (storePrevious === void 0) { storePrevious = false; }
+        if (storePrevious && !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(this.options, newOptions)) {
+            this.previousOptions = this.options;
+        }
+        this.options = newOptions;
+    };
+    OperationData.prototype.unmount = function () {
+        this.isMounted = false;
+    };
+    OperationData.prototype.refreshClient = function () {
+        var client = (this.options && this.options.client) ||
+            (this.context && this.context.client);
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(!!client, 'Could not find "client" in the context or passed in as an option. ' +
+            'Wrap the root component in an <ApolloProvider>, or pass an ' +
+            'ApolloClient instance in via options.');
+        var isNew = false;
+        if (client !== this.client) {
+            isNew = true;
+            this.client = client;
+            this.cleanup();
+        }
+        return {
+            client: this.client,
+            isNew: isNew
+        };
+    };
+    OperationData.prototype.verifyDocumentType = function (document, type) {
+        var operation = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["parser"])(document);
+        var requiredOperationName = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["operationName"])(type);
+        var usedOperationName = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["operationName"])(operation.type);
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(operation.type === type, "Running a " + requiredOperationName + " requires a graphql " +
+            (requiredOperationName + ", but a " + usedOperationName + " was used instead."));
+    };
+    return OperationData;
+}());
+
+var QueryData = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(QueryData, _super);
+    function QueryData(_a) {
+        var options = _a.options, context = _a.context, forceUpdate = _a.forceUpdate;
+        var _this = _super.call(this, options, context) || this;
+        _this.previousData = {};
+        _this.currentObservable = {};
+        _this.runLazy = false;
+        _this.runLazyQuery = function (options) {
+            _this.cleanup();
+            _this.runLazy = true;
+            _this.lazyOptions = options;
+            _this.forceUpdate();
+        };
+        _this.getExecuteResult = function () {
+            var result = _this.getQueryResult();
+            _this.startQuerySubscription();
+            return result;
+        };
+        _this.obsRefetch = function (variables) {
+            return _this.currentObservable.query.refetch(variables);
+        };
+        _this.obsFetchMore = function (fetchMoreOptions) { return _this.currentObservable.query.fetchMore(fetchMoreOptions); };
+        _this.obsUpdateQuery = function (mapFn) { return _this.currentObservable.query.updateQuery(mapFn); };
+        _this.obsStartPolling = function (pollInterval) {
+            _this.currentObservable &&
+                _this.currentObservable.query &&
+                _this.currentObservable.query.startPolling(pollInterval);
+        };
+        _this.obsStopPolling = function () {
+            _this.currentObservable &&
+                _this.currentObservable.query &&
+                _this.currentObservable.query.stopPolling();
+        };
+        _this.obsSubscribeToMore = function (options) { return _this.currentObservable.query.subscribeToMore(options); };
+        _this.forceUpdate = forceUpdate;
+        return _this;
+    }
+    QueryData.prototype.execute = function () {
+        this.refreshClient();
+        var _a = this.getOptions(), skip = _a.skip, query = _a.query;
+        if (skip || query !== this.previousData.query) {
+            this.removeQuerySubscription();
+            this.previousData.query = query;
+        }
+        this.updateObservableQuery();
+        if (this.isMounted)
+            this.startQuerySubscription();
+        return this.getExecuteSsrResult() || this.getExecuteResult();
+    };
+    QueryData.prototype.executeLazy = function () {
+        return !this.runLazy
+            ? [
+                this.runLazyQuery,
+                {
+                    loading: false,
+                    networkStatus: apollo_client__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].ready,
+                    called: false,
+                    data: undefined
+                }
+            ]
+            : [this.runLazyQuery, this.execute()];
+    };
+    QueryData.prototype.fetchData = function () {
+        var options = this.getOptions();
+        if (options.skip || options.ssr === false)
+            return false;
+        var obs = this.currentObservable.query;
+        var currentResult = obs.getCurrentResult();
+        return currentResult.loading ? obs.result() : false;
+    };
+    QueryData.prototype.afterExecute = function (_a) {
+        var _this = this;
+        var _b = (_a === void 0 ? {} : _a).lazy, lazy = _b === void 0 ? false : _b;
+        this.isMounted = true;
+        if (!lazy || this.runLazy) {
+            this.handleErrorOrCompleted();
+            setTimeout(function () {
+                _this.currentObservable.query &&
+                    _this.currentObservable.query.resetQueryStoreErrors();
+            });
+        }
+        this.previousOptions = this.getOptions();
+        return this.unmount.bind(this);
+    };
+    QueryData.prototype.cleanup = function () {
+        this.removeQuerySubscription();
+        delete this.currentObservable.query;
+        delete this.previousData.result;
+    };
+    QueryData.prototype.getOptions = function () {
+        var options = _super.prototype.getOptions.call(this);
+        if (this.lazyOptions) {
+            options.variables = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options.variables), this.lazyOptions.variables);
+            options.context = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options.context), this.lazyOptions.context);
+        }
+        if (this.runLazy) {
+            delete options.skip;
+        }
+        return options;
+    };
+    QueryData.prototype.getExecuteSsrResult = function () {
+        var treeRenderingInitiated = this.context && this.context.renderPromises;
+        var ssrDisabled = this.getOptions().ssr === false;
+        var fetchDisabled = this.refreshClient().client.disableNetworkFetches;
+        var ssrLoading = {
+            loading: true,
+            networkStatus: apollo_client__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].loading,
+            called: true,
+            data: undefined
+        };
+        if (ssrDisabled && (treeRenderingInitiated || fetchDisabled)) {
+            return ssrLoading;
+        }
+        var result;
+        if (treeRenderingInitiated) {
+            result =
+                this.context.renderPromises.addQueryPromise(this, this.getExecuteResult) || ssrLoading;
+        }
+        return result;
+    };
+    QueryData.prototype.prepareObservableQueryOptions = function () {
+        var options = this.getOptions();
+        this.verifyDocumentType(options.query, _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Query);
+        var displayName = options.displayName || 'Query';
+        if (this.context &&
+            this.context.renderPromises &&
+            (options.fetchPolicy === 'network-only' ||
+                options.fetchPolicy === 'cache-and-network')) {
+            options.fetchPolicy = 'cache-first';
+        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { displayName: displayName, context: options.context, metadata: { reactComponent: { displayName: displayName } } });
+    };
+    QueryData.prototype.initializeObservableQuery = function () {
+        if (this.context && this.context.renderPromises) {
+            this.currentObservable.query = this.context.renderPromises.getSSRObservable(this.getOptions());
+        }
+        if (!this.currentObservable.query) {
+            var observableQueryOptions = this.prepareObservableQueryOptions();
+            this.previousData.observableQueryOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, observableQueryOptions), { children: null });
+            this.currentObservable.query = this.refreshClient().client.watchQuery(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, observableQueryOptions));
+            if (this.context && this.context.renderPromises) {
+                this.context.renderPromises.registerSSRObservable(this.currentObservable.query, observableQueryOptions);
+            }
+        }
+    };
+    QueryData.prototype.updateObservableQuery = function () {
+        if (!this.currentObservable.query) {
+            this.initializeObservableQuery();
+            return;
+        }
+        var newObservableQueryOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, this.prepareObservableQueryOptions()), { children: null });
+        if (!Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(newObservableQueryOptions, this.previousData.observableQueryOptions)) {
+            this.previousData.observableQueryOptions = newObservableQueryOptions;
+            this.currentObservable
+                .query.setOptions(newObservableQueryOptions)
+                .catch(function () { });
+        }
+    };
+    QueryData.prototype.startQuerySubscription = function () {
+        var _this = this;
+        if (this.currentObservable.subscription || this.getOptions().skip)
+            return;
+        var obsQuery = this.currentObservable.query;
+        this.currentObservable.subscription = obsQuery.subscribe({
+            next: function (_a) {
+                var loading = _a.loading, networkStatus = _a.networkStatus, data = _a.data;
+                var previousResult = _this.previousData.result;
+                if (previousResult &&
+                    previousResult.loading === loading &&
+                    previousResult.networkStatus === networkStatus &&
+                    Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(previousResult.data, data)) {
+                    return;
+                }
+                _this.forceUpdate();
+            },
+            error: function (error) {
+                _this.resubscribeToQuery();
+                if (!error.hasOwnProperty('graphQLErrors'))
+                    throw error;
+                var previousResult = _this.previousData.result;
+                if ((previousResult && previousResult.loading) ||
+                    !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(error, _this.previousData.error)) {
+                    _this.previousData.error = error;
+                    _this.forceUpdate();
+                }
+            }
+        });
+    };
+    QueryData.prototype.resubscribeToQuery = function () {
+        this.removeQuerySubscription();
+        var lastError = this.currentObservable.query.getLastError();
+        var lastResult = this.currentObservable.query.getLastResult();
+        this.currentObservable.query.resetLastResults();
+        this.startQuerySubscription();
+        Object.assign(this.currentObservable.query, {
+            lastError: lastError,
+            lastResult: lastResult
+        });
+    };
+    QueryData.prototype.getQueryResult = function () {
+        var result = this.observableQueryFields();
+        var options = this.getOptions();
+        if (options.skip) {
+            result = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, result), { data: undefined, error: undefined, loading: false, called: true });
+        }
+        else {
+            var currentResult = this.currentObservable.query.getCurrentResult();
+            var loading = currentResult.loading, partial = currentResult.partial, networkStatus = currentResult.networkStatus, errors = currentResult.errors;
+            var error = currentResult.error, data = currentResult.data;
+            if (errors && errors.length > 0) {
+                error = new apollo_client__WEBPACK_IMPORTED_MODULE_3__["ApolloError"]({ graphQLErrors: errors });
+            }
+            result = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, result), { loading: loading,
+                networkStatus: networkStatus,
+                error: error, called: true });
+            if (loading) {
+                var previousData = this.previousData.result && this.previousData.result.data;
+                result.data =
+                    previousData && data
+                        ? Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, previousData), data) : previousData || data;
+            }
+            else if (error) {
+                Object.assign(result, {
+                    data: (this.currentObservable.query.getLastResult() || {})
+                        .data
+                });
+            }
+            else {
+                var fetchPolicy = this.currentObservable.query.options.fetchPolicy;
+                var partialRefetch = options.partialRefetch;
+                if (partialRefetch &&
+                    !data &&
+                    partial &&
+                    fetchPolicy !== 'cache-only') {
+                    Object.assign(result, {
+                        loading: true,
+                        networkStatus: apollo_client__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].loading
+                    });
+                    result.refetch();
+                    return result;
+                }
+                result.data = data;
+            }
+        }
+        result.client = this.client;
+        this.previousData.loading =
+            (this.previousData.result && this.previousData.result.loading) || false;
+        this.previousData.result = result;
+        return result;
+    };
+    QueryData.prototype.handleErrorOrCompleted = function () {
+        var obsQuery = this.currentObservable.query;
+        if (!obsQuery)
+            return;
+        var _a = obsQuery.getCurrentResult(), data = _a.data, loading = _a.loading, error = _a.error;
+        if (!loading) {
+            var _b = this.getOptions(), query = _b.query, variables = _b.variables, onCompleted = _b.onCompleted, onError = _b.onError;
+            if (this.previousOptions &&
+                !this.previousData.loading &&
+                Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(this.previousOptions.query, query) &&
+                Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(this.previousOptions.variables, variables)) {
+                return;
+            }
+            if (onCompleted && !error) {
+                onCompleted(data);
+            }
+            else if (onError && error) {
+                onError(error);
+            }
+        }
+    };
+    QueryData.prototype.removeQuerySubscription = function () {
+        if (this.currentObservable.subscription) {
+            this.currentObservable.subscription.unsubscribe();
+            delete this.currentObservable.subscription;
+        }
+    };
+    QueryData.prototype.observableQueryFields = function () {
+        var observable = this.currentObservable.query;
+        return {
+            variables: observable.variables,
+            refetch: this.obsRefetch,
+            fetchMore: this.obsFetchMore,
+            updateQuery: this.obsUpdateQuery,
+            startPolling: this.obsStartPolling,
+            stopPolling: this.obsStopPolling,
+            subscribeToMore: this.obsSubscribeToMore
+        };
+    };
+    return QueryData;
+}(OperationData));
+
+function useDeepMemo(memoFn, key) {
+    var ref = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+    if (!ref.current || !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(key, ref.current.key)) {
+        ref.current = { key: key, value: memoFn() };
+    }
+    return ref.current.value;
+}
+
+function useBaseQuery(query, options, lazy) {
+    if (lazy === void 0) { lazy = false; }
+    var context = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"])());
+    var _a = Object(react__WEBPACK_IMPORTED_MODULE_2__["useReducer"])(function (x) { return x + 1; }, 0), tick = _a[0], forceUpdate = _a[1];
+    var updatedOptions = options ? Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { query: query }) : { query: query };
+    var queryDataRef = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+    if (!queryDataRef.current) {
+        queryDataRef.current = new QueryData({
+            options: updatedOptions,
+            context: context,
+            forceUpdate: forceUpdate
+        });
+    }
+    var queryData = queryDataRef.current;
+    queryData.setOptions(updatedOptions);
+    queryData.context = context;
+    var memo = {
+        options: Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, updatedOptions), { onError: undefined, onCompleted: undefined }),
+        context: context,
+        tick: tick
+    };
+    var result = useDeepMemo(function () { return (lazy ? queryData.executeLazy() : queryData.execute()); }, memo);
+    var queryResult = lazy
+        ? result[1]
+        : result;
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () { return queryData.afterExecute({ lazy: lazy }); }, [
+        queryResult.loading,
+        queryResult.networkStatus,
+        queryResult.error,
+        queryResult.data
+    ]);
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+        return function () { return queryData.cleanup(); };
+    }, []);
+    return result;
+}
+
+function useQuery(query, options) {
+    return useBaseQuery(query, options, false);
+}
+
+function useLazyQuery(query, options) {
+    return useBaseQuery(query, options, true);
+}
+
+var MutationData = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(MutationData, _super);
+    function MutationData(_a) {
+        var options = _a.options, context = _a.context, result = _a.result, setResult = _a.setResult;
+        var _this = _super.call(this, options, context) || this;
+        _this.runMutation = function (mutationFunctionOptions) {
+            if (mutationFunctionOptions === void 0) { mutationFunctionOptions = {}; }
+            _this.onMutationStart();
+            var mutationId = _this.generateNewMutationId();
+            return _this.mutate(mutationFunctionOptions)
+                .then(function (response) {
+                _this.onMutationCompleted(response, mutationId);
+                return response;
+            })
+                .catch(function (error) {
+                _this.onMutationError(error, mutationId);
+                if (!_this.getOptions().onError)
+                    throw error;
+            });
+        };
+        _this.verifyDocumentType(options.mutation, _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Mutation);
+        _this.result = result;
+        _this.setResult = setResult;
+        _this.mostRecentMutationId = 0;
+        return _this;
+    }
+    MutationData.prototype.execute = function (result) {
+        this.isMounted = true;
+        this.verifyDocumentType(this.getOptions().mutation, _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Mutation);
+        result.client = this.refreshClient().client;
+        return [this.runMutation, result];
+    };
+    MutationData.prototype.afterExecute = function () {
+        this.isMounted = true;
+        return this.unmount.bind(this);
+    };
+    MutationData.prototype.cleanup = function () {
+    };
+    MutationData.prototype.mutate = function (mutationFunctionOptions) {
+        var _a = this.getOptions(), mutation = _a.mutation, variables = _a.variables, optimisticResponse = _a.optimisticResponse, update = _a.update, _b = _a.context, mutationContext = _b === void 0 ? {} : _b, _c = _a.awaitRefetchQueries, awaitRefetchQueries = _c === void 0 ? false : _c, fetchPolicy = _a.fetchPolicy;
+        var mutateOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, mutationFunctionOptions);
+        var mutateVariables = Object.assign({}, variables, mutateOptions.variables);
+        delete mutateOptions.variables;
+        return this.refreshClient().client.mutate(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({ mutation: mutation,
+            optimisticResponse: optimisticResponse, refetchQueries: mutateOptions.refetchQueries || this.getOptions().refetchQueries, awaitRefetchQueries: awaitRefetchQueries,
+            update: update, context: mutationContext, fetchPolicy: fetchPolicy, variables: mutateVariables }, mutateOptions));
+    };
+    MutationData.prototype.onMutationStart = function () {
+        if (!this.result.loading && !this.getOptions().ignoreResults) {
+            this.updateResult({
+                loading: true,
+                error: undefined,
+                data: undefined,
+                called: true
+            });
+        }
+    };
+    MutationData.prototype.onMutationCompleted = function (response, mutationId) {
+        var _a = this.getOptions(), onCompleted = _a.onCompleted, ignoreResults = _a.ignoreResults;
+        var data = response.data, errors = response.errors;
+        var error = errors && errors.length > 0
+            ? new apollo_client__WEBPACK_IMPORTED_MODULE_3__["ApolloError"]({ graphQLErrors: errors })
+            : undefined;
+        var callOncomplete = function () {
+            return onCompleted ? onCompleted(data) : null;
+        };
+        if (this.isMostRecentMutation(mutationId) && !ignoreResults) {
+            this.updateResult({
+                called: true,
+                loading: false,
+                data: data,
+                error: error
+            });
+        }
+        callOncomplete();
+    };
+    MutationData.prototype.onMutationError = function (error, mutationId) {
+        var onError = this.getOptions().onError;
+        if (this.isMostRecentMutation(mutationId)) {
+            this.updateResult({
+                loading: false,
+                error: error,
+                data: undefined,
+                called: true
+            });
+        }
+        if (onError) {
+            onError(error);
+        }
+    };
+    MutationData.prototype.generateNewMutationId = function () {
+        return ++this.mostRecentMutationId;
+    };
+    MutationData.prototype.isMostRecentMutation = function (mutationId) {
+        return this.mostRecentMutationId === mutationId;
+    };
+    MutationData.prototype.updateResult = function (result) {
+        if (this.isMounted &&
+            (!this.previousResult || !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(this.previousResult, result))) {
+            this.setResult(result);
+            this.previousResult = result;
+        }
+    };
+    return MutationData;
+}(OperationData));
+
+function useMutation(mutation, options) {
+    var context = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"])());
+    var _a = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])({ called: false, loading: false }), result = _a[0], setResult = _a[1];
+    var updatedOptions = options ? Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { mutation: mutation }) : { mutation: mutation };
+    var mutationDataRef = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+    function getMutationDataRef() {
+        if (!mutationDataRef.current) {
+            mutationDataRef.current = new MutationData({
+                options: updatedOptions,
+                context: context,
+                result: result,
+                setResult: setResult
+            });
+        }
+        return mutationDataRef.current;
+    }
+    var mutationData = getMutationDataRef();
+    mutationData.setOptions(updatedOptions);
+    mutationData.context = context;
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () { return mutationData.afterExecute(); });
+    return mutationData.execute(result);
+}
+
+var SubscriptionData = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(SubscriptionData, _super);
+    function SubscriptionData(_a) {
+        var options = _a.options, context = _a.context, setResult = _a.setResult;
+        var _this = _super.call(this, options, context) || this;
+        _this.currentObservable = {};
+        _this.setResult = setResult;
+        _this.initialize(options);
+        return _this;
+    }
+    SubscriptionData.prototype.execute = function (result) {
+        if (this.getOptions().skip === true) {
+            this.cleanup();
+            return {
+                loading: false,
+                error: undefined,
+                data: undefined,
+                variables: this.getOptions().variables
+            };
+        }
+        var currentResult = result;
+        if (this.refreshClient().isNew) {
+            currentResult = this.getLoadingResult();
+        }
+        var shouldResubscribe = this.getOptions().shouldResubscribe;
+        if (typeof shouldResubscribe === 'function') {
+            shouldResubscribe = !!shouldResubscribe(this.getOptions());
+        }
+        if (shouldResubscribe !== false &&
+            this.previousOptions &&
+            Object.keys(this.previousOptions).length > 0 &&
+            (this.previousOptions.subscription !== this.getOptions().subscription ||
+                !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(this.previousOptions.variables, this.getOptions().variables) ||
+                this.previousOptions.skip !== this.getOptions().skip)) {
+            this.cleanup();
+            currentResult = this.getLoadingResult();
+        }
+        this.initialize(this.getOptions());
+        this.startSubscription();
+        this.previousOptions = this.getOptions();
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, currentResult), { variables: this.getOptions().variables });
+    };
+    SubscriptionData.prototype.afterExecute = function () {
+        this.isMounted = true;
+    };
+    SubscriptionData.prototype.cleanup = function () {
+        this.endSubscription();
+        delete this.currentObservable.query;
+    };
+    SubscriptionData.prototype.initialize = function (options) {
+        if (this.currentObservable.query || this.getOptions().skip === true)
+            return;
+        this.currentObservable.query = this.refreshClient().client.subscribe({
+            query: options.subscription,
+            variables: options.variables,
+            fetchPolicy: options.fetchPolicy
+        });
+    };
+    SubscriptionData.prototype.startSubscription = function () {
+        if (this.currentObservable.subscription)
+            return;
+        this.currentObservable.subscription = this.currentObservable.query.subscribe({
+            next: this.updateCurrentData.bind(this),
+            error: this.updateError.bind(this),
+            complete: this.completeSubscription.bind(this)
+        });
+    };
+    SubscriptionData.prototype.getLoadingResult = function () {
+        return {
+            loading: true,
+            error: undefined,
+            data: undefined
+        };
+    };
+    SubscriptionData.prototype.updateResult = function (result) {
+        if (this.isMounted) {
+            this.setResult(result);
+        }
+    };
+    SubscriptionData.prototype.updateCurrentData = function (result) {
+        var onSubscriptionData = this.getOptions().onSubscriptionData;
+        this.updateResult({
+            data: result.data,
+            loading: false,
+            error: undefined
+        });
+        if (onSubscriptionData) {
+            onSubscriptionData({
+                client: this.refreshClient().client,
+                subscriptionData: result
+            });
+        }
+    };
+    SubscriptionData.prototype.updateError = function (error) {
+        this.updateResult({
+            error: error,
+            loading: false
+        });
+    };
+    SubscriptionData.prototype.completeSubscription = function () {
+        var onSubscriptionComplete = this.getOptions().onSubscriptionComplete;
+        if (onSubscriptionComplete)
+            onSubscriptionComplete();
+        this.endSubscription();
+    };
+    SubscriptionData.prototype.endSubscription = function () {
+        if (this.currentObservable.subscription) {
+            this.currentObservable.subscription.unsubscribe();
+            delete this.currentObservable.subscription;
+        }
+    };
+    return SubscriptionData;
+}(OperationData));
+
+function useSubscription(subscription, options) {
+    var context = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"])());
+    var updatedOptions = options
+        ? Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { subscription: subscription }) : { subscription: subscription };
+    var _a = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])({
+        loading: !updatedOptions.skip,
+        error: undefined,
+        data: undefined
+    }), result = _a[0], setResult = _a[1];
+    var subscriptionDataRef = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+    function getSubscriptionDataRef() {
+        if (!subscriptionDataRef.current) {
+            subscriptionDataRef.current = new SubscriptionData({
+                options: updatedOptions,
+                context: context,
+                setResult: setResult
+            });
+        }
+        return subscriptionDataRef.current;
+    }
+    var subscriptionData = getSubscriptionDataRef();
+    subscriptionData.setOptions(updatedOptions, true);
+    subscriptionData.context = context;
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () { return subscriptionData.afterExecute(); });
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () { return subscriptionData.cleanup.bind(subscriptionData); }, []);
+    return subscriptionData.execute(result);
+}
+
+function useApolloClient() {
+    var client = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"])()).client;
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_5__["invariant"])(client, 'No Apollo Client instance can be found. Please ensure that you ' +
+        'have called `ApolloProvider` higher up in your tree.');
+    return client;
+}
+
+function makeDefaultQueryInfo() {
+    return {
+        seen: false,
+        observable: null
+    };
+}
+var RenderPromises = (function () {
+    function RenderPromises() {
+        this.queryPromises = new Map();
+        this.queryInfoTrie = new Map();
+    }
+    RenderPromises.prototype.registerSSRObservable = function (observable, props) {
+        this.lookupQueryInfo(props).observable = observable;
+    };
+    RenderPromises.prototype.getSSRObservable = function (props) {
+        return this.lookupQueryInfo(props).observable;
+    };
+    RenderPromises.prototype.addQueryPromise = function (queryInstance, finish) {
+        var info = this.lookupQueryInfo(queryInstance.getOptions());
+        if (!info.seen) {
+            this.queryPromises.set(queryInstance.getOptions(), new Promise(function (resolve) {
+                resolve(queryInstance.fetchData());
+            }));
+            return null;
+        }
+        return finish();
+    };
+    RenderPromises.prototype.hasPromises = function () {
+        return this.queryPromises.size > 0;
+    };
+    RenderPromises.prototype.consumeAndAwaitPromises = function () {
+        var _this = this;
+        var promises = [];
+        this.queryPromises.forEach(function (promise, queryInstance) {
+            _this.lookupQueryInfo(queryInstance).seen = true;
+            promises.push(promise);
+        });
+        this.queryPromises.clear();
+        return Promise.all(promises);
+    };
+    RenderPromises.prototype.lookupQueryInfo = function (props) {
+        var queryInfoTrie = this.queryInfoTrie;
+        var query = props.query, variables = props.variables;
+        var varMap = queryInfoTrie.get(query) || new Map();
+        if (!queryInfoTrie.has(query))
+            queryInfoTrie.set(query, varMap);
+        var variablesString = JSON.stringify(variables);
+        var info = varMap.get(variablesString) || makeDefaultQueryInfo();
+        if (!varMap.has(variablesString))
+            varMap.set(variablesString, info);
+        return info;
+    };
+    return RenderPromises;
+}());
+
+
+//# sourceMappingURL=react-hooks.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/react-ssr/lib/react-ssr.esm.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/react-ssr/lib/react-ssr.esm.js ***!
+  \*************************************************************/
+/*! exports provided: getDataFromTree, getMarkupFromTree, renderToStringWithData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDataFromTree", function() { return getDataFromTree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMarkupFromTree", function() { return getMarkupFromTree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderToStringWithData", function() { return renderToStringWithData; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+
+
+
+
+
+function getDataFromTree(tree, context) {
+    if (context === void 0) { context = {}; }
+    return getMarkupFromTree({
+        tree: tree,
+        context: context,
+        renderFunction: __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToStaticMarkup
+    });
+}
+function getMarkupFromTree(_a) {
+    var tree = _a.tree, _b = _a.context, context = _b === void 0 ? {} : _b, _c = _a.renderFunction, renderFunction = _c === void 0 ? __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToStaticMarkup : _c;
+    var renderPromises = new _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["RenderPromises"]();
+    function process() {
+        var ApolloContext = Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_2__["getApolloContext"])();
+        var html = renderFunction(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ApolloContext.Provider, { value: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), { renderPromises: renderPromises }) }, tree));
+        return renderPromises.hasPromises()
+            ? renderPromises.consumeAndAwaitPromises().then(process)
+            : html;
+    }
+    return Promise.resolve().then(process);
+}
+
+function renderToStringWithData(component) {
+    return getMarkupFromTree({
+        tree: component,
+        renderFunction: __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToString
+    });
+}
+
+
+//# sourceMappingURL=react-ssr.esm.js.map
 
 
 /***/ }),
@@ -47775,1866 +49277,6 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ "./node_modules/lodash.isequal/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/lodash.isequal/index.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, module) {/**
- * Lodash (Custom Build) <https://lodash.com/>
- * Build: `lodash modularize exports="npm" -o ./`
- * Copyright JS Foundation and other contributors <https://js.foundation/>
- * Released under MIT license <https://lodash.com/license>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- */
-
-/** Used as the size to enable large array optimizations. */
-var LARGE_ARRAY_SIZE = 200;
-
-/** Used to stand-in for `undefined` hash values. */
-var HASH_UNDEFINED = '__lodash_hash_undefined__';
-
-/** Used to compose bitmasks for value comparisons. */
-var COMPARE_PARTIAL_FLAG = 1,
-    COMPARE_UNORDERED_FLAG = 2;
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    asyncTag = '[object AsyncFunction]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    nullTag = '[object Null]',
-    objectTag = '[object Object]',
-    promiseTag = '[object Promise]',
-    proxyTag = '[object Proxy]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    symbolTag = '[object Symbol]',
-    undefinedTag = '[object Undefined]',
-    weakMapTag = '[object WeakMap]';
-
-var arrayBufferTag = '[object ArrayBuffer]',
-    dataViewTag = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
-
-/**
- * Used to match `RegExp`
- * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
- */
-var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-
-/** Used to detect host constructors (Safari). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/** Used to identify `toStringTag` values of typed arrays. */
-var typedArrayTags = {};
-typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-typedArrayTags[uint32Tag] = true;
-typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
-typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
-typedArrayTags[errorTag] = typedArrayTags[funcTag] =
-typedArrayTags[mapTag] = typedArrayTags[numberTag] =
-typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
-typedArrayTags[setTag] = typedArrayTags[stringTag] =
-typedArrayTags[weakMapTag] = false;
-
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-/** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-/** Used as a reference to the global object. */
-var root = freeGlobal || freeSelf || Function('return this')();
-
-/** Detect free variable `exports`. */
-var freeExports =  true && exports && !exports.nodeType && exports;
-
-/** Detect free variable `module`. */
-var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
-
-/** Detect the popular CommonJS extension `module.exports`. */
-var moduleExports = freeModule && freeModule.exports === freeExports;
-
-/** Detect free variable `process` from Node.js. */
-var freeProcess = moduleExports && freeGlobal.process;
-
-/** Used to access faster Node.js helpers. */
-var nodeUtil = (function() {
-  try {
-    return freeProcess && freeProcess.binding && freeProcess.binding('util');
-  } catch (e) {}
-}());
-
-/* Node.js helper references. */
-var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
-
-/**
- * A specialized version of `_.filter` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {Array} Returns the new filtered array.
- */
-function arrayFilter(array, predicate) {
-  var index = -1,
-      length = array == null ? 0 : array.length,
-      resIndex = 0,
-      result = [];
-
-  while (++index < length) {
-    var value = array[index];
-    if (predicate(value, index, array)) {
-      result[resIndex++] = value;
-    }
-  }
-  return result;
-}
-
-/**
- * Appends the elements of `values` to `array`.
- *
- * @private
- * @param {Array} array The array to modify.
- * @param {Array} values The values to append.
- * @returns {Array} Returns `array`.
- */
-function arrayPush(array, values) {
-  var index = -1,
-      length = values.length,
-      offset = array.length;
-
-  while (++index < length) {
-    array[offset + index] = values[index];
-  }
-  return array;
-}
-
-/**
- * A specialized version of `_.some` for arrays without support for iteratee
- * shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {boolean} Returns `true` if any element passes the predicate check,
- *  else `false`.
- */
-function arraySome(array, predicate) {
-  var index = -1,
-      length = array == null ? 0 : array.length;
-
-  while (++index < length) {
-    if (predicate(array[index], index, array)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * The base implementation of `_.times` without support for iteratee shorthands
- * or max array length checks.
- *
- * @private
- * @param {number} n The number of times to invoke `iteratee`.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the array of results.
- */
-function baseTimes(n, iteratee) {
-  var index = -1,
-      result = Array(n);
-
-  while (++index < n) {
-    result[index] = iteratee(index);
-  }
-  return result;
-}
-
-/**
- * The base implementation of `_.unary` without support for storing metadata.
- *
- * @private
- * @param {Function} func The function to cap arguments for.
- * @returns {Function} Returns the new capped function.
- */
-function baseUnary(func) {
-  return function(value) {
-    return func(value);
-  };
-}
-
-/**
- * Checks if a `cache` value for `key` exists.
- *
- * @private
- * @param {Object} cache The cache to query.
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function cacheHas(cache, key) {
-  return cache.has(key);
-}
-
-/**
- * Gets the value at `key` of `object`.
- *
- * @private
- * @param {Object} [object] The object to query.
- * @param {string} key The key of the property to get.
- * @returns {*} Returns the property value.
- */
-function getValue(object, key) {
-  return object == null ? undefined : object[key];
-}
-
-/**
- * Converts `map` to its key-value pairs.
- *
- * @private
- * @param {Object} map The map to convert.
- * @returns {Array} Returns the key-value pairs.
- */
-function mapToArray(map) {
-  var index = -1,
-      result = Array(map.size);
-
-  map.forEach(function(value, key) {
-    result[++index] = [key, value];
-  });
-  return result;
-}
-
-/**
- * Creates a unary function that invokes `func` with its argument transformed.
- *
- * @private
- * @param {Function} func The function to wrap.
- * @param {Function} transform The argument transform.
- * @returns {Function} Returns the new function.
- */
-function overArg(func, transform) {
-  return function(arg) {
-    return func(transform(arg));
-  };
-}
-
-/**
- * Converts `set` to an array of its values.
- *
- * @private
- * @param {Object} set The set to convert.
- * @returns {Array} Returns the values.
- */
-function setToArray(set) {
-  var index = -1,
-      result = Array(set.size);
-
-  set.forEach(function(value) {
-    result[++index] = value;
-  });
-  return result;
-}
-
-/** Used for built-in method references. */
-var arrayProto = Array.prototype,
-    funcProto = Function.prototype,
-    objectProto = Object.prototype;
-
-/** Used to detect overreaching core-js shims. */
-var coreJsData = root['__core-js_shared__'];
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to detect methods masquerading as native. */
-var maskSrcKey = (function() {
-  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-  return uid ? ('Symbol(src)_1.' + uid) : '';
-}());
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/** Built-in value references. */
-var Buffer = moduleExports ? root.Buffer : undefined,
-    Symbol = root.Symbol,
-    Uint8Array = root.Uint8Array,
-    propertyIsEnumerable = objectProto.propertyIsEnumerable,
-    splice = arrayProto.splice,
-    symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeGetSymbols = Object.getOwnPropertySymbols,
-    nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined,
-    nativeKeys = overArg(Object.keys, Object);
-
-/* Built-in method references that are verified to be native. */
-var DataView = getNative(root, 'DataView'),
-    Map = getNative(root, 'Map'),
-    Promise = getNative(root, 'Promise'),
-    Set = getNative(root, 'Set'),
-    WeakMap = getNative(root, 'WeakMap'),
-    nativeCreate = getNative(Object, 'create');
-
-/** Used to detect maps, sets, and weakmaps. */
-var dataViewCtorString = toSource(DataView),
-    mapCtorString = toSource(Map),
-    promiseCtorString = toSource(Promise),
-    setCtorString = toSource(Set),
-    weakMapCtorString = toSource(WeakMap);
-
-/** Used to convert symbols to primitives and strings. */
-var symbolProto = Symbol ? Symbol.prototype : undefined,
-    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
-
-/**
- * Creates a hash object.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function Hash(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-/**
- * Removes all key-value entries from the hash.
- *
- * @private
- * @name clear
- * @memberOf Hash
- */
-function hashClear() {
-  this.__data__ = nativeCreate ? nativeCreate(null) : {};
-  this.size = 0;
-}
-
-/**
- * Removes `key` and its value from the hash.
- *
- * @private
- * @name delete
- * @memberOf Hash
- * @param {Object} hash The hash to modify.
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function hashDelete(key) {
-  var result = this.has(key) && delete this.__data__[key];
-  this.size -= result ? 1 : 0;
-  return result;
-}
-
-/**
- * Gets the hash value for `key`.
- *
- * @private
- * @name get
- * @memberOf Hash
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function hashGet(key) {
-  var data = this.__data__;
-  if (nativeCreate) {
-    var result = data[key];
-    return result === HASH_UNDEFINED ? undefined : result;
-  }
-  return hasOwnProperty.call(data, key) ? data[key] : undefined;
-}
-
-/**
- * Checks if a hash value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf Hash
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function hashHas(key) {
-  var data = this.__data__;
-  return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
-}
-
-/**
- * Sets the hash `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf Hash
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the hash instance.
- */
-function hashSet(key, value) {
-  var data = this.__data__;
-  this.size += this.has(key) ? 0 : 1;
-  data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
-  return this;
-}
-
-// Add methods to `Hash`.
-Hash.prototype.clear = hashClear;
-Hash.prototype['delete'] = hashDelete;
-Hash.prototype.get = hashGet;
-Hash.prototype.has = hashHas;
-Hash.prototype.set = hashSet;
-
-/**
- * Creates an list cache object.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function ListCache(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-/**
- * Removes all key-value entries from the list cache.
- *
- * @private
- * @name clear
- * @memberOf ListCache
- */
-function listCacheClear() {
-  this.__data__ = [];
-  this.size = 0;
-}
-
-/**
- * Removes `key` and its value from the list cache.
- *
- * @private
- * @name delete
- * @memberOf ListCache
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function listCacheDelete(key) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
-
-  if (index < 0) {
-    return false;
-  }
-  var lastIndex = data.length - 1;
-  if (index == lastIndex) {
-    data.pop();
-  } else {
-    splice.call(data, index, 1);
-  }
-  --this.size;
-  return true;
-}
-
-/**
- * Gets the list cache value for `key`.
- *
- * @private
- * @name get
- * @memberOf ListCache
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function listCacheGet(key) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
-
-  return index < 0 ? undefined : data[index][1];
-}
-
-/**
- * Checks if a list cache value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf ListCache
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function listCacheHas(key) {
-  return assocIndexOf(this.__data__, key) > -1;
-}
-
-/**
- * Sets the list cache `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf ListCache
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the list cache instance.
- */
-function listCacheSet(key, value) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
-
-  if (index < 0) {
-    ++this.size;
-    data.push([key, value]);
-  } else {
-    data[index][1] = value;
-  }
-  return this;
-}
-
-// Add methods to `ListCache`.
-ListCache.prototype.clear = listCacheClear;
-ListCache.prototype['delete'] = listCacheDelete;
-ListCache.prototype.get = listCacheGet;
-ListCache.prototype.has = listCacheHas;
-ListCache.prototype.set = listCacheSet;
-
-/**
- * Creates a map cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function MapCache(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-/**
- * Removes all key-value entries from the map.
- *
- * @private
- * @name clear
- * @memberOf MapCache
- */
-function mapCacheClear() {
-  this.size = 0;
-  this.__data__ = {
-    'hash': new Hash,
-    'map': new (Map || ListCache),
-    'string': new Hash
-  };
-}
-
-/**
- * Removes `key` and its value from the map.
- *
- * @private
- * @name delete
- * @memberOf MapCache
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function mapCacheDelete(key) {
-  var result = getMapData(this, key)['delete'](key);
-  this.size -= result ? 1 : 0;
-  return result;
-}
-
-/**
- * Gets the map value for `key`.
- *
- * @private
- * @name get
- * @memberOf MapCache
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function mapCacheGet(key) {
-  return getMapData(this, key).get(key);
-}
-
-/**
- * Checks if a map value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf MapCache
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function mapCacheHas(key) {
-  return getMapData(this, key).has(key);
-}
-
-/**
- * Sets the map `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf MapCache
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the map cache instance.
- */
-function mapCacheSet(key, value) {
-  var data = getMapData(this, key),
-      size = data.size;
-
-  data.set(key, value);
-  this.size += data.size == size ? 0 : 1;
-  return this;
-}
-
-// Add methods to `MapCache`.
-MapCache.prototype.clear = mapCacheClear;
-MapCache.prototype['delete'] = mapCacheDelete;
-MapCache.prototype.get = mapCacheGet;
-MapCache.prototype.has = mapCacheHas;
-MapCache.prototype.set = mapCacheSet;
-
-/**
- *
- * Creates an array cache object to store unique values.
- *
- * @private
- * @constructor
- * @param {Array} [values] The values to cache.
- */
-function SetCache(values) {
-  var index = -1,
-      length = values == null ? 0 : values.length;
-
-  this.__data__ = new MapCache;
-  while (++index < length) {
-    this.add(values[index]);
-  }
-}
-
-/**
- * Adds `value` to the array cache.
- *
- * @private
- * @name add
- * @memberOf SetCache
- * @alias push
- * @param {*} value The value to cache.
- * @returns {Object} Returns the cache instance.
- */
-function setCacheAdd(value) {
-  this.__data__.set(value, HASH_UNDEFINED);
-  return this;
-}
-
-/**
- * Checks if `value` is in the array cache.
- *
- * @private
- * @name has
- * @memberOf SetCache
- * @param {*} value The value to search for.
- * @returns {number} Returns `true` if `value` is found, else `false`.
- */
-function setCacheHas(value) {
-  return this.__data__.has(value);
-}
-
-// Add methods to `SetCache`.
-SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
-SetCache.prototype.has = setCacheHas;
-
-/**
- * Creates a stack cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function Stack(entries) {
-  var data = this.__data__ = new ListCache(entries);
-  this.size = data.size;
-}
-
-/**
- * Removes all key-value entries from the stack.
- *
- * @private
- * @name clear
- * @memberOf Stack
- */
-function stackClear() {
-  this.__data__ = new ListCache;
-  this.size = 0;
-}
-
-/**
- * Removes `key` and its value from the stack.
- *
- * @private
- * @name delete
- * @memberOf Stack
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function stackDelete(key) {
-  var data = this.__data__,
-      result = data['delete'](key);
-
-  this.size = data.size;
-  return result;
-}
-
-/**
- * Gets the stack value for `key`.
- *
- * @private
- * @name get
- * @memberOf Stack
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function stackGet(key) {
-  return this.__data__.get(key);
-}
-
-/**
- * Checks if a stack value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf Stack
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function stackHas(key) {
-  return this.__data__.has(key);
-}
-
-/**
- * Sets the stack `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf Stack
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the stack cache instance.
- */
-function stackSet(key, value) {
-  var data = this.__data__;
-  if (data instanceof ListCache) {
-    var pairs = data.__data__;
-    if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
-      pairs.push([key, value]);
-      this.size = ++data.size;
-      return this;
-    }
-    data = this.__data__ = new MapCache(pairs);
-  }
-  data.set(key, value);
-  this.size = data.size;
-  return this;
-}
-
-// Add methods to `Stack`.
-Stack.prototype.clear = stackClear;
-Stack.prototype['delete'] = stackDelete;
-Stack.prototype.get = stackGet;
-Stack.prototype.has = stackHas;
-Stack.prototype.set = stackSet;
-
-/**
- * Creates an array of the enumerable property names of the array-like `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @param {boolean} inherited Specify returning inherited property names.
- * @returns {Array} Returns the array of property names.
- */
-function arrayLikeKeys(value, inherited) {
-  var isArr = isArray(value),
-      isArg = !isArr && isArguments(value),
-      isBuff = !isArr && !isArg && isBuffer(value),
-      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
-      skipIndexes = isArr || isArg || isBuff || isType,
-      result = skipIndexes ? baseTimes(value.length, String) : [],
-      length = result.length;
-
-  for (var key in value) {
-    if ((inherited || hasOwnProperty.call(value, key)) &&
-        !(skipIndexes && (
-           // Safari 9 has enumerable `arguments.length` in strict mode.
-           key == 'length' ||
-           // Node.js 0.10 has enumerable non-index properties on buffers.
-           (isBuff && (key == 'offset' || key == 'parent')) ||
-           // PhantomJS 2 has enumerable non-index properties on typed arrays.
-           (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
-           // Skip index properties.
-           isIndex(key, length)
-        ))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-/**
- * Gets the index at which the `key` is found in `array` of key-value pairs.
- *
- * @private
- * @param {Array} array The array to inspect.
- * @param {*} key The key to search for.
- * @returns {number} Returns the index of the matched value, else `-1`.
- */
-function assocIndexOf(array, key) {
-  var length = array.length;
-  while (length--) {
-    if (eq(array[length][0], key)) {
-      return length;
-    }
-  }
-  return -1;
-}
-
-/**
- * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
- * `keysFunc` and `symbolsFunc` to get the enumerable property names and
- * symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Function} keysFunc The function to get the keys of `object`.
- * @param {Function} symbolsFunc The function to get the symbols of `object`.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function baseGetAllKeys(object, keysFunc, symbolsFunc) {
-  var result = keysFunc(object);
-  return isArray(object) ? result : arrayPush(result, symbolsFunc(object));
-}
-
-/**
- * The base implementation of `getTag` without fallbacks for buggy environments.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-function baseGetTag(value) {
-  if (value == null) {
-    return value === undefined ? undefinedTag : nullTag;
-  }
-  return (symToStringTag && symToStringTag in Object(value))
-    ? getRawTag(value)
-    : objectToString(value);
-}
-
-/**
- * The base implementation of `_.isArguments`.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- */
-function baseIsArguments(value) {
-  return isObjectLike(value) && baseGetTag(value) == argsTag;
-}
-
-/**
- * The base implementation of `_.isEqual` which supports partial comparisons
- * and tracks traversed objects.
- *
- * @private
- * @param {*} value The value to compare.
- * @param {*} other The other value to compare.
- * @param {boolean} bitmask The bitmask flags.
- *  1 - Unordered comparison
- *  2 - Partial comparison
- * @param {Function} [customizer] The function to customize comparisons.
- * @param {Object} [stack] Tracks traversed `value` and `other` objects.
- * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
- */
-function baseIsEqual(value, other, bitmask, customizer, stack) {
-  if (value === other) {
-    return true;
-  }
-  if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
-    return value !== value && other !== other;
-  }
-  return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
-}
-
-/**
- * A specialized version of `baseIsEqual` for arrays and objects which performs
- * deep comparisons and tracks traversed objects enabling objects with circular
- * references to be compared.
- *
- * @private
- * @param {Object} object The object to compare.
- * @param {Object} other The other object to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
- * @param {Function} customizer The function to customize comparisons.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Object} [stack] Tracks traversed `object` and `other` objects.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
-  var objIsArr = isArray(object),
-      othIsArr = isArray(other),
-      objTag = objIsArr ? arrayTag : getTag(object),
-      othTag = othIsArr ? arrayTag : getTag(other);
-
-  objTag = objTag == argsTag ? objectTag : objTag;
-  othTag = othTag == argsTag ? objectTag : othTag;
-
-  var objIsObj = objTag == objectTag,
-      othIsObj = othTag == objectTag,
-      isSameTag = objTag == othTag;
-
-  if (isSameTag && isBuffer(object)) {
-    if (!isBuffer(other)) {
-      return false;
-    }
-    objIsArr = true;
-    objIsObj = false;
-  }
-  if (isSameTag && !objIsObj) {
-    stack || (stack = new Stack);
-    return (objIsArr || isTypedArray(object))
-      ? equalArrays(object, other, bitmask, customizer, equalFunc, stack)
-      : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
-  }
-  if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
-    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
-        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
-
-    if (objIsWrapped || othIsWrapped) {
-      var objUnwrapped = objIsWrapped ? object.value() : object,
-          othUnwrapped = othIsWrapped ? other.value() : other;
-
-      stack || (stack = new Stack);
-      return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack);
-    }
-  }
-  if (!isSameTag) {
-    return false;
-  }
-  stack || (stack = new Stack);
-  return equalObjects(object, other, bitmask, customizer, equalFunc, stack);
-}
-
-/**
- * The base implementation of `_.isNative` without bad shim checks.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
- *  else `false`.
- */
-function baseIsNative(value) {
-  if (!isObject(value) || isMasked(value)) {
-    return false;
-  }
-  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
-  return pattern.test(toSource(value));
-}
-
-/**
- * The base implementation of `_.isTypedArray` without Node.js optimizations.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
- */
-function baseIsTypedArray(value) {
-  return isObjectLike(value) &&
-    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
-}
-
-/**
- * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeys(object) {
-  if (!isPrototype(object)) {
-    return nativeKeys(object);
-  }
-  var result = [];
-  for (var key in Object(object)) {
-    if (hasOwnProperty.call(object, key) && key != 'constructor') {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for arrays with support for
- * partial deep comparisons.
- *
- * @private
- * @param {Array} array The array to compare.
- * @param {Array} other The other array to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
- * @param {Function} customizer The function to customize comparisons.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Object} stack Tracks traversed `array` and `other` objects.
- * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
- */
-function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
-  var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
-      arrLength = array.length,
-      othLength = other.length;
-
-  if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
-    return false;
-  }
-  // Assume cyclic values are equal.
-  var stacked = stack.get(array);
-  if (stacked && stack.get(other)) {
-    return stacked == other;
-  }
-  var index = -1,
-      result = true,
-      seen = (bitmask & COMPARE_UNORDERED_FLAG) ? new SetCache : undefined;
-
-  stack.set(array, other);
-  stack.set(other, array);
-
-  // Ignore non-index properties.
-  while (++index < arrLength) {
-    var arrValue = array[index],
-        othValue = other[index];
-
-    if (customizer) {
-      var compared = isPartial
-        ? customizer(othValue, arrValue, index, other, array, stack)
-        : customizer(arrValue, othValue, index, array, other, stack);
-    }
-    if (compared !== undefined) {
-      if (compared) {
-        continue;
-      }
-      result = false;
-      break;
-    }
-    // Recursively compare arrays (susceptible to call stack limits).
-    if (seen) {
-      if (!arraySome(other, function(othValue, othIndex) {
-            if (!cacheHas(seen, othIndex) &&
-                (arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
-              return seen.push(othIndex);
-            }
-          })) {
-        result = false;
-        break;
-      }
-    } else if (!(
-          arrValue === othValue ||
-            equalFunc(arrValue, othValue, bitmask, customizer, stack)
-        )) {
-      result = false;
-      break;
-    }
-  }
-  stack['delete'](array);
-  stack['delete'](other);
-  return result;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for comparing objects of
- * the same `toStringTag`.
- *
- * **Note:** This function only supports comparing values with tags of
- * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
- *
- * @private
- * @param {Object} object The object to compare.
- * @param {Object} other The other object to compare.
- * @param {string} tag The `toStringTag` of the objects to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
- * @param {Function} customizer The function to customize comparisons.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Object} stack Tracks traversed `object` and `other` objects.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
-  switch (tag) {
-    case dataViewTag:
-      if ((object.byteLength != other.byteLength) ||
-          (object.byteOffset != other.byteOffset)) {
-        return false;
-      }
-      object = object.buffer;
-      other = other.buffer;
-
-    case arrayBufferTag:
-      if ((object.byteLength != other.byteLength) ||
-          !equalFunc(new Uint8Array(object), new Uint8Array(other))) {
-        return false;
-      }
-      return true;
-
-    case boolTag:
-    case dateTag:
-    case numberTag:
-      // Coerce booleans to `1` or `0` and dates to milliseconds.
-      // Invalid dates are coerced to `NaN`.
-      return eq(+object, +other);
-
-    case errorTag:
-      return object.name == other.name && object.message == other.message;
-
-    case regexpTag:
-    case stringTag:
-      // Coerce regexes to strings and treat strings, primitives and objects,
-      // as equal. See http://www.ecma-international.org/ecma-262/7.0/#sec-regexp.prototype.tostring
-      // for more details.
-      return object == (other + '');
-
-    case mapTag:
-      var convert = mapToArray;
-
-    case setTag:
-      var isPartial = bitmask & COMPARE_PARTIAL_FLAG;
-      convert || (convert = setToArray);
-
-      if (object.size != other.size && !isPartial) {
-        return false;
-      }
-      // Assume cyclic values are equal.
-      var stacked = stack.get(object);
-      if (stacked) {
-        return stacked == other;
-      }
-      bitmask |= COMPARE_UNORDERED_FLAG;
-
-      // Recursively compare objects (susceptible to call stack limits).
-      stack.set(object, other);
-      var result = equalArrays(convert(object), convert(other), bitmask, customizer, equalFunc, stack);
-      stack['delete'](object);
-      return result;
-
-    case symbolTag:
-      if (symbolValueOf) {
-        return symbolValueOf.call(object) == symbolValueOf.call(other);
-      }
-  }
-  return false;
-}
-
-/**
- * A specialized version of `baseIsEqualDeep` for objects with support for
- * partial deep comparisons.
- *
- * @private
- * @param {Object} object The object to compare.
- * @param {Object} other The other object to compare.
- * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
- * @param {Function} customizer The function to customize comparisons.
- * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Object} stack Tracks traversed `object` and `other` objects.
- * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
- */
-function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
-  var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
-      objProps = getAllKeys(object),
-      objLength = objProps.length,
-      othProps = getAllKeys(other),
-      othLength = othProps.length;
-
-  if (objLength != othLength && !isPartial) {
-    return false;
-  }
-  var index = objLength;
-  while (index--) {
-    var key = objProps[index];
-    if (!(isPartial ? key in other : hasOwnProperty.call(other, key))) {
-      return false;
-    }
-  }
-  // Assume cyclic values are equal.
-  var stacked = stack.get(object);
-  if (stacked && stack.get(other)) {
-    return stacked == other;
-  }
-  var result = true;
-  stack.set(object, other);
-  stack.set(other, object);
-
-  var skipCtor = isPartial;
-  while (++index < objLength) {
-    key = objProps[index];
-    var objValue = object[key],
-        othValue = other[key];
-
-    if (customizer) {
-      var compared = isPartial
-        ? customizer(othValue, objValue, key, other, object, stack)
-        : customizer(objValue, othValue, key, object, other, stack);
-    }
-    // Recursively compare objects (susceptible to call stack limits).
-    if (!(compared === undefined
-          ? (objValue === othValue || equalFunc(objValue, othValue, bitmask, customizer, stack))
-          : compared
-        )) {
-      result = false;
-      break;
-    }
-    skipCtor || (skipCtor = key == 'constructor');
-  }
-  if (result && !skipCtor) {
-    var objCtor = object.constructor,
-        othCtor = other.constructor;
-
-    // Non `Object` object instances with different constructors are not equal.
-    if (objCtor != othCtor &&
-        ('constructor' in object && 'constructor' in other) &&
-        !(typeof objCtor == 'function' && objCtor instanceof objCtor &&
-          typeof othCtor == 'function' && othCtor instanceof othCtor)) {
-      result = false;
-    }
-  }
-  stack['delete'](object);
-  stack['delete'](other);
-  return result;
-}
-
-/**
- * Creates an array of own enumerable property names and symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function getAllKeys(object) {
-  return baseGetAllKeys(object, keys, getSymbols);
-}
-
-/**
- * Gets the data for `map`.
- *
- * @private
- * @param {Object} map The map to query.
- * @param {string} key The reference key.
- * @returns {*} Returns the map data.
- */
-function getMapData(map, key) {
-  var data = map.__data__;
-  return isKeyable(key)
-    ? data[typeof key == 'string' ? 'string' : 'hash']
-    : data.map;
-}
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = getValue(object, key);
-  return baseIsNative(value) ? value : undefined;
-}
-
-/**
- * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
- */
-function getRawTag(value) {
-  var isOwn = hasOwnProperty.call(value, symToStringTag),
-      tag = value[symToStringTag];
-
-  try {
-    value[symToStringTag] = undefined;
-    var unmasked = true;
-  } catch (e) {}
-
-  var result = nativeObjectToString.call(value);
-  if (unmasked) {
-    if (isOwn) {
-      value[symToStringTag] = tag;
-    } else {
-      delete value[symToStringTag];
-    }
-  }
-  return result;
-}
-
-/**
- * Creates an array of the own enumerable symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of symbols.
- */
-var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
-  if (object == null) {
-    return [];
-  }
-  object = Object(object);
-  return arrayFilter(nativeGetSymbols(object), function(symbol) {
-    return propertyIsEnumerable.call(object, symbol);
-  });
-};
-
-/**
- * Gets the `toStringTag` of `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-var getTag = baseGetTag;
-
-// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
-if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
-    (Map && getTag(new Map) != mapTag) ||
-    (Promise && getTag(Promise.resolve()) != promiseTag) ||
-    (Set && getTag(new Set) != setTag) ||
-    (WeakMap && getTag(new WeakMap) != weakMapTag)) {
-  getTag = function(value) {
-    var result = baseGetTag(value),
-        Ctor = result == objectTag ? value.constructor : undefined,
-        ctorString = Ctor ? toSource(Ctor) : '';
-
-    if (ctorString) {
-      switch (ctorString) {
-        case dataViewCtorString: return dataViewTag;
-        case mapCtorString: return mapTag;
-        case promiseCtorString: return promiseTag;
-        case setCtorString: return setTag;
-        case weakMapCtorString: return weakMapTag;
-      }
-    }
-    return result;
-  };
-}
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return !!length &&
-    (typeof value == 'number' || reIsUint.test(value)) &&
-    (value > -1 && value % 1 == 0 && value < length);
-}
-
-/**
- * Checks if `value` is suitable for use as unique object key.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
- */
-function isKeyable(value) {
-  var type = typeof value;
-  return (type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean')
-    ? (value !== '__proto__')
-    : (value === null);
-}
-
-/**
- * Checks if `func` has its source masked.
- *
- * @private
- * @param {Function} func The function to check.
- * @returns {boolean} Returns `true` if `func` is masked, else `false`.
- */
-function isMasked(func) {
-  return !!maskSrcKey && (maskSrcKey in func);
-}
-
-/**
- * Checks if `value` is likely a prototype object.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
- */
-function isPrototype(value) {
-  var Ctor = value && value.constructor,
-      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
-
-  return value === proto;
-}
-
-/**
- * Converts `value` to a string using `Object.prototype.toString`.
- *
- * @private
- * @param {*} value The value to convert.
- * @returns {string} Returns the converted string.
- */
-function objectToString(value) {
-  return nativeObjectToString.call(value);
-}
-
-/**
- * Converts `func` to its source code.
- *
- * @private
- * @param {Function} func The function to convert.
- * @returns {string} Returns the source code.
- */
-function toSource(func) {
-  if (func != null) {
-    try {
-      return funcToString.call(func);
-    } catch (e) {}
-    try {
-      return (func + '');
-    } catch (e) {}
-  }
-  return '';
-}
-
-/**
- * Performs a
- * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * comparison between two values to determine if they are equivalent.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to compare.
- * @param {*} other The other value to compare.
- * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
- * @example
- *
- * var object = { 'a': 1 };
- * var other = { 'a': 1 };
- *
- * _.eq(object, object);
- * // => true
- *
- * _.eq(object, other);
- * // => false
- *
- * _.eq('a', 'a');
- * // => true
- *
- * _.eq('a', Object('a'));
- * // => false
- *
- * _.eq(NaN, NaN);
- * // => true
- */
-function eq(value, other) {
-  return value === other || (value !== value && other !== other);
-}
-
-/**
- * Checks if `value` is likely an `arguments` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- *  else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
-    !propertyIsEnumerable.call(value, 'callee');
-};
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(document.body.children);
- * // => false
- *
- * _.isArray('abc');
- * // => false
- *
- * _.isArray(_.noop);
- * // => false
- */
-var isArray = Array.isArray;
-
-/**
- * Checks if `value` is array-like. A value is considered array-like if it's
- * not a function and has a `value.length` that's an integer greater than or
- * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- * @example
- *
- * _.isArrayLike([1, 2, 3]);
- * // => true
- *
- * _.isArrayLike(document.body.children);
- * // => true
- *
- * _.isArrayLike('abc');
- * // => true
- *
- * _.isArrayLike(_.noop);
- * // => false
- */
-function isArrayLike(value) {
-  return value != null && isLength(value.length) && !isFunction(value);
-}
-
-/**
- * Checks if `value` is a buffer.
- *
- * @static
- * @memberOf _
- * @since 4.3.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
- * @example
- *
- * _.isBuffer(new Buffer(2));
- * // => true
- *
- * _.isBuffer(new Uint8Array(2));
- * // => false
- */
-var isBuffer = nativeIsBuffer || stubFalse;
-
-/**
- * Performs a deep comparison between two values to determine if they are
- * equivalent.
- *
- * **Note:** This method supports comparing arrays, array buffers, booleans,
- * date objects, error objects, maps, numbers, `Object` objects, regexes,
- * sets, strings, symbols, and typed arrays. `Object` objects are compared
- * by their own, not inherited, enumerable properties. Functions and DOM
- * nodes are compared by strict equality, i.e. `===`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to compare.
- * @param {*} other The other value to compare.
- * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
- * @example
- *
- * var object = { 'a': 1 };
- * var other = { 'a': 1 };
- *
- * _.isEqual(object, other);
- * // => true
- *
- * object === other;
- * // => false
- */
-function isEqual(value, other) {
-  return baseIsEqual(value, other);
-}
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  if (!isObject(value)) {
-    return false;
-  }
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 9 which returns 'object' for typed arrays and other constructors.
-  var tag = baseGetTag(value);
-  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This method is loosely based on
- * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- * @example
- *
- * _.isLength(3);
- * // => true
- *
- * _.isLength(Number.MIN_VALUE);
- * // => false
- *
- * _.isLength(Infinity);
- * // => false
- *
- * _.isLength('3');
- * // => false
- */
-function isLength(value) {
-  return typeof value == 'number' &&
-    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(_.noop);
- * // => true
- *
- * _.isObject(null);
- * // => false
- */
-function isObject(value) {
-  var type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return value != null && typeof value == 'object';
-}
-
-/**
- * Checks if `value` is classified as a typed array.
- *
- * @static
- * @memberOf _
- * @since 3.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
- * @example
- *
- * _.isTypedArray(new Uint8Array);
- * // => true
- *
- * _.isTypedArray([]);
- * // => false
- */
-var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
-
-/**
- * Creates an array of the own enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * for more details.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
- *
- * _.keys('hi');
- * // => ['0', '1']
- */
-function keys(object) {
-  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
-}
-
-/**
- * This method returns a new empty array.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {Array} Returns the new empty array.
- * @example
- *
- * var arrays = _.times(2, _.stubArray);
- *
- * console.log(arrays);
- * // => [[], []]
- *
- * console.log(arrays[0] === arrays[1]);
- * // => false
- */
-function stubArray() {
-  return [];
-}
-
-/**
- * This method returns `false`.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {boolean} Returns `false`.
- * @example
- *
- * _.times(2, _.stubFalse);
- * // => [false, false]
- */
-function stubFalse() {
-  return false;
-}
-
-module.exports = isEqual;
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -72455,1229 +72097,63 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 
 /***/ }),
 
-/***/ "./node_modules/react-apollo/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
-/*!************************************************************************************************************!*\
-  !*** ./node_modules/react-apollo/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-var REACT_STATICS = {
-    childContextTypes: true,
-    contextType: true,
-    contextTypes: true,
-    defaultProps: true,
-    displayName: true,
-    getDefaultProps: true,
-    getDerivedStateFromError: true,
-    getDerivedStateFromProps: true,
-    mixins: true,
-    propTypes: true,
-    type: true
-};
-
-var KNOWN_STATICS = {
-    name: true,
-    length: true,
-    prototype: true,
-    caller: true,
-    callee: true,
-    arguments: true,
-    arity: true
-};
-
-var FORWARD_REF_STATICS = {
-    '$$typeof': true,
-    render: true,
-    defaultProps: true,
-    displayName: true,
-    propTypes: true
-};
-
-var MEMO_STATICS = {
-    '$$typeof': true,
-    compare: true,
-    defaultProps: true,
-    displayName: true,
-    propTypes: true,
-    type: true
-};
-
-var TYPE_STATICS = {};
-TYPE_STATICS[ReactIs.ForwardRef] = FORWARD_REF_STATICS;
-
-function getStatics(component) {
-    if (ReactIs.isMemo(component)) {
-        return MEMO_STATICS;
-    }
-    return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
-}
-
-var defineProperty = Object.defineProperty;
-var getOwnPropertyNames = Object.getOwnPropertyNames;
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectPrototype = Object.prototype;
-
-function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-    if (typeof sourceComponent !== 'string') {
-        // don't hoist over string (html) components
-
-        if (objectPrototype) {
-            var inheritedComponent = getPrototypeOf(sourceComponent);
-            if (inheritedComponent && inheritedComponent !== objectPrototype) {
-                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-            }
-        }
-
-        var keys = getOwnPropertyNames(sourceComponent);
-
-        if (getOwnPropertySymbols) {
-            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-        }
-
-        var targetStatics = getStatics(targetComponent);
-        var sourceStatics = getStatics(sourceComponent);
-
-        for (var i = 0; i < keys.length; ++i) {
-            var key = keys[i];
-            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
-                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-                try {
-                    // Avoid failures from read-only properties
-                    defineProperty(targetComponent, key, descriptor);
-                } catch (e) {}
-            }
-        }
-
-        return targetComponent;
-    }
-
-    return targetComponent;
-}
-
-module.exports = hoistNonReactStatics;
-
-
-/***/ }),
-
-/***/ "./node_modules/react-apollo/react-apollo.esm.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/react-apollo/react-apollo.esm.js ***!
-  \*******************************************************/
-/*! exports provided: ApolloConsumer, ApolloContext, ApolloProvider, Mutation, Query, RenderPromises, Subscription, compose, getDataFromTree, getMarkupFromTree, graphql, renderToStringWithData, withApollo, withMutation, withQuery, withSubscription */
+/***/ "./node_modules/react-apollo/lib/react-apollo.esm.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-apollo/lib/react-apollo.esm.js ***!
+  \***********************************************************/
+/*! exports provided: ApolloConsumer, ApolloProvider, getApolloContext, resetApolloContext, Mutation, Query, Subscription, graphql, withApollo, withMutation, withQuery, withSubscription, useApolloClient, useLazyQuery, useMutation, useQuery, useSubscription, getDataFromTree, getMarkupFromTree, renderToStringWithData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return ApolloConsumer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloContext", function() { return ApolloContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return ApolloProvider; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Mutation", function() { return Mutation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Query", function() { return Query; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RenderPromises", function() { return RenderPromises; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return Subscription; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDataFromTree", function() { return getDataFromTree; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMarkupFromTree", function() { return getMarkupFromTree; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "graphql", function() { return graphql; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderToStringWithData", function() { return renderToStringWithData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withApollo", function() { return withApollo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withMutation", function() { return withMutation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withQuery", function() { return withQuery; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withSubscription", function() { return withSubscription; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-client */ "./node_modules/apollo-client/bundle.esm.js");
-/* harmony import */ var lodash_isequal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash.isequal */ "./node_modules/lodash.isequal/index.js");
-/* harmony import */ var lodash_isequal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_isequal__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/react-apollo/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
-/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/react-common */ "./node_modules/@apollo/react-common/lib/react-common.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloConsumer", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloConsumer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloProvider", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["ApolloProvider"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetApolloContext", function() { return _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["resetApolloContext"]; });
+
+/* harmony import */ var _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-components */ "./node_modules/@apollo/react-components/lib/react-components.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Mutation", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Mutation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Query", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Query"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Subscription", function() { return _apollo_react_components__WEBPACK_IMPORTED_MODULE_1__["Subscription"]; });
+
+/* harmony import */ var _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hoc */ "./node_modules/@apollo/react-hoc/lib/react-hoc.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "graphql", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["graphql"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withApollo", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withApollo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withMutation", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withMutation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withQuery", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withSubscription", function() { return _apollo_react_hoc__WEBPACK_IMPORTED_MODULE_2__["withSubscription"]; });
+
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useApolloClient", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useApolloClient"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLazyQuery", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useLazyQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useMutation", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useSubscription", function() { return _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"]; });
+
+/* harmony import */ var _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-ssr */ "./node_modules/@apollo/react-ssr/lib/react-ssr.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDataFromTree", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["getDataFromTree"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMarkupFromTree", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["getMarkupFromTree"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "renderToStringWithData", function() { return _apollo_react_ssr__WEBPACK_IMPORTED_MODULE_4__["renderToStringWithData"]; });
 
 
 
 
-
-
-
-
-var ApolloContext = react__WEBPACK_IMPORTED_MODULE_0__["createContext"] &&
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(undefined);
-
-var ApolloConsumer = function (props, legacyContext) {
-    function finish(context) {
-        if (!context || !context.client) {
-            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_2__["InvariantError"]('Could not find "client" in the context of ApolloConsumer. ' +
-                'Wrap the root component in an <ApolloProvider>.');
-        }
-        return props.children(context.client);
-    }
-    return ApolloContext ? (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ApolloContext.Consumer, null, finish)) : (finish(legacyContext));
-};
-ApolloConsumer.contextTypes = {
-    client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-};
-ApolloConsumer.propTypes = {
-    children: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"].isRequired,
-};
-
-var ApolloProvider = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(ApolloProvider, _super);
-    function ApolloProvider(props, context) {
-        var _this = _super.call(this, props, context) || this;
-        _this.operations = new Map();
-         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(props.client, 'ApolloProvider was not passed a client instance. Make ' +
-            'sure you pass in your client via the "client" prop.');
-        if (!props.client.__operations_cache__) {
-            props.client.__operations_cache__ = _this.operations;
-        }
-        return _this;
-    }
-    ApolloProvider.prototype.getChildContext = function () {
-        return {
-            client: this.props.client,
-            operations: this.props.client.__operations_cache__,
-        };
-    };
-    ApolloProvider.prototype.render = function () {
-        return ApolloContext ? (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ApolloContext.Provider, { value: this.getChildContext() }, this.props.children)) : (this.props.children);
-    };
-    ApolloProvider.propTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-        children: prop_types__WEBPACK_IMPORTED_MODULE_1__["node"].isRequired,
-    };
-    ApolloProvider.childContextTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-        operations: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-    };
-    return ApolloProvider;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-
-var DocumentType;
-(function (DocumentType) {
-    DocumentType[DocumentType["Query"] = 0] = "Query";
-    DocumentType[DocumentType["Mutation"] = 1] = "Mutation";
-    DocumentType[DocumentType["Subscription"] = 2] = "Subscription";
-})(DocumentType || (DocumentType = {}));
-var cache = new Map();
-function parser(document) {
-    var cached = cache.get(document);
-    if (cached)
-        return cached;
-    var variables, type, name;
-     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(!!document && !!document.kind, "Argument of " + document + " passed to parser was not a valid GraphQL " +
-        "DocumentNode. You may need to use 'graphql-tag' or another method " +
-        "to convert your operation into a document");
-    var fragments = document.definitions.filter(function (x) { return x.kind === 'FragmentDefinition'; });
-    var queries = document.definitions.filter(function (x) { return x.kind === 'OperationDefinition' && x.operation === 'query'; });
-    var mutations = document.definitions.filter(function (x) { return x.kind === 'OperationDefinition' && x.operation === 'mutation'; });
-    var subscriptions = document.definitions.filter(function (x) { return x.kind === 'OperationDefinition' && x.operation === 'subscription'; });
-     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(!fragments.length || (queries.length || mutations.length || subscriptions.length), "Passing only a fragment to 'graphql' is not yet supported. " +
-        "You must include a query, subscription or mutation as well");
-     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(queries.length + mutations.length + subscriptions.length <= 1, "react-apollo only supports a query, subscription, or a mutation per HOC. " +
-        (document + " had " + queries.length + " queries, " + subscriptions.length + " ") +
-        ("subscriptions and " + mutations.length + " mutations. ") +
-        "You can use 'compose' to join multiple operation types to a component");
-    type = queries.length ? DocumentType.Query : DocumentType.Mutation;
-    if (!queries.length && !mutations.length)
-        type = DocumentType.Subscription;
-    var definitions = queries.length ? queries : mutations.length ? mutations : subscriptions;
-     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(definitions.length === 1, "react-apollo only supports one definition per HOC. " + document + " had " +
-        (definitions.length + " definitions. ") +
-        "You can use 'compose' to join multiple operation types to a component");
-    var definition = definitions[0];
-    variables = definition.variableDefinitions || [];
-    if (definition.name && definition.name.kind === 'Name') {
-        name = definition.name.value;
-    }
-    else {
-        name = 'data';
-    }
-    var payload = { name: name, type: type, variables: variables };
-    cache.set(document, payload);
-    return payload;
-}
-
-function getClient(props, context) {
-    var client = props.client || context.client;
-     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(!!client, 'Could not find "client" in the context or passed in as a prop. ' +
-        'Wrap the root component in an <ApolloProvider>, or pass an ' +
-        'ApolloClient instance in via props.');
-    return client;
-}
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-function is(x, y) {
-    if (x === y) {
-        return x !== 0 || y !== 0 || 1 / x === 1 / y;
-    }
-    return x !== x && y !== y;
-}
-function isObject(obj) {
-    return obj !== null && typeof obj === "object";
-}
-function shallowEqual(objA, objB) {
-    if (is(objA, objB)) {
-        return true;
-    }
-    if (!isObject(objA) || !isObject(objB)) {
-        return false;
-    }
-    var keys = Object.keys(objA);
-    if (keys.length !== Object.keys(objB).length) {
-        return false;
-    }
-    return keys.every(function (key) { return hasOwnProperty.call(objB, key) && is(objA[key], objB[key]); });
-}
-
-function observableQueryFields(observable) {
-    var fields = {
-        variables: observable.variables,
-        refetch: observable.refetch.bind(observable),
-        fetchMore: observable.fetchMore.bind(observable),
-        updateQuery: observable.updateQuery.bind(observable),
-        startPolling: observable.startPolling.bind(observable),
-        stopPolling: observable.stopPolling.bind(observable),
-        subscribeToMore: observable.subscribeToMore.bind(observable),
-    };
-    return fields;
-}
-var Query = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(Query, _super);
-    function Query(props, context) {
-        var _this = _super.call(this, props, context) || this;
-        _this.hasMounted = false;
-        _this.lastRenderedResult = null;
-        _this.startQuerySubscription = function () {
-            if (_this.querySubscription)
-                return;
-            _this.querySubscription = _this.queryObservable.subscribe({
-                next: function (result) {
-                    if (_this.lastRenderedResult &&
-                        _this.lastRenderedResult.loading === result.loading &&
-                        _this.lastRenderedResult.networkStatus === result.networkStatus &&
-                        shallowEqual(_this.lastRenderedResult.data, result.data)) {
-                        return;
-                    }
-                    _this.updateCurrentData();
-                },
-                error: function (error) {
-                    _this.resubscribeToQuery();
-                    if (!error.hasOwnProperty('graphQLErrors'))
-                        throw error;
-                    _this.updateCurrentData();
-                },
-            });
-        };
-        _this.removeQuerySubscription = function () {
-            if (_this.querySubscription) {
-                _this.querySubscription.unsubscribe();
-                delete _this.lastRenderedResult;
-                delete _this.querySubscription;
-            }
-        };
-        _this.updateCurrentData = function () {
-            _this.handleErrorOrCompleted();
-            if (_this.hasMounted)
-                _this.forceUpdate();
-        };
-        _this.handleErrorOrCompleted = function () {
-            var result = _this.queryObservable.currentResult();
-            var data = result.data, loading = result.loading, error = result.error;
-            var _a = _this.props, onCompleted = _a.onCompleted, onError = _a.onError;
-            if (onCompleted && !loading && !error) {
-                onCompleted(data);
-            }
-            else if (onError && !loading && error) {
-                onError(error);
-            }
-        };
-        _this.getQueryResult = function () {
-            var result = { data: Object.create(null) };
-            Object.assign(result, observableQueryFields(_this.queryObservable));
-            if (_this.props.skip) {
-                result = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, result, { data: undefined, error: undefined, loading: false });
-            }
-            else {
-                var currentResult = _this.queryObservable.currentResult();
-                var loading = currentResult.loading, partial = currentResult.partial, networkStatus = currentResult.networkStatus, errors = currentResult.errors;
-                var error = currentResult.error;
-                if (errors && errors.length > 0) {
-                    error = new apollo_client__WEBPACK_IMPORTED_MODULE_4__["ApolloError"]({ graphQLErrors: errors });
-                }
-                var fetchPolicy = _this.queryObservable.options.fetchPolicy;
-                Object.assign(result, { loading: loading, networkStatus: networkStatus, error: error });
-                var previousData = _this.lastRenderedResult ? _this.lastRenderedResult.data : {};
-                if (loading) {
-                    Object.assign(result.data, previousData, currentResult.data);
-                }
-                else if (error) {
-                    Object.assign(result, {
-                        data: (_this.queryObservable.getLastResult() || {}).data,
-                    });
-                }
-                else if (fetchPolicy === 'no-cache' &&
-                    Object.keys(currentResult.data).length === 0) {
-                    result.data = previousData;
-                }
-                else {
-                    var partialRefetch = _this.props.partialRefetch;
-                    if (partialRefetch &&
-                        currentResult.data !== null &&
-                        typeof currentResult.data === 'object' &&
-                        Object.keys(currentResult.data).length === 0 &&
-                        partial &&
-                        fetchPolicy !== 'cache-only') {
-                        Object.assign(result, { loading: true, networkStatus: apollo_client__WEBPACK_IMPORTED_MODULE_4__["NetworkStatus"].loading });
-                        result.refetch();
-                        _this.lastRenderedResult = result;
-                        return result;
-                    }
-                    Object.assign(result.data, currentResult.data);
-                }
-            }
-            if (!_this.querySubscription) {
-                var oldRefetch_1 = result.refetch;
-                result.refetch = function (args) {
-                    if (_this.querySubscription) {
-                        return oldRefetch_1(args);
-                    }
-                    else {
-                        return new Promise(function (r, f) {
-                            _this.refetcherQueue = { resolve: r, reject: f, args: args };
-                        });
-                    }
-                };
-            }
-            setTimeout(function () {
-                if (_this.queryObservable.resetQueryStoreErrors) {
-                    _this.queryObservable.resetQueryStoreErrors();
-                }
-                else {
-                    var _a = _this.queryObservable, queryManager = _a.queryManager, queryId = _a.queryId;
-                    var queryStore = queryManager.queryStore.get(queryId);
-                    if (queryStore) {
-                        queryStore.networkError = null;
-                        queryStore.graphQLErrors = [];
-                    }
-                }
-            });
-            result.client = _this.client;
-            _this.lastRenderedResult = result;
-            return result;
-        };
-        _this.client = getClient(props, context);
-        _this.initializeQueryObservable(props);
-        return _this;
-    }
-    Query.prototype.fetchData = function () {
-        if (this.props.skip)
-            return false;
-        var _a = this.props, children = _a.children, ssr = _a.ssr, displayName = _a.displayName, skip = _a.skip, client = _a.client, onCompleted = _a.onCompleted, onError = _a.onError, partialRefetch = _a.partialRefetch, opts = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__rest"])(_a, ["children", "ssr", "displayName", "skip", "client", "onCompleted", "onError", "partialRefetch"]);
-        var fetchPolicy = opts.fetchPolicy;
-        if (ssr === false)
-            return false;
-        if (fetchPolicy === 'network-only' || fetchPolicy === 'cache-and-network') {
-            fetchPolicy = 'cache-first';
-        }
-        var observable = this.client.watchQuery(Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, opts, { fetchPolicy: fetchPolicy }));
-        if (this.context && this.context.renderPromises) {
-            this.context.renderPromises.registerSSRObservable(this, observable);
-        }
-        var result = this.queryObservable.currentResult();
-        return result.loading ? observable.result() : false;
-    };
-    Query.prototype.componentDidMount = function () {
-        this.hasMounted = true;
-        if (this.props.skip)
-            return;
-        this.startQuerySubscription();
-        if (this.refetcherQueue) {
-            var _a = this.refetcherQueue, args = _a.args, resolve = _a.resolve, reject = _a.reject;
-            this.queryObservable.refetch(args)
-                .then(resolve)
-                .catch(reject);
-        }
-    };
-    Query.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
-        if (nextProps.skip && !this.props.skip) {
-            this.queryObservable.resetLastResults();
-            this.removeQuerySubscription();
-            return;
-        }
-        var nextClient = getClient(nextProps, nextContext);
-        if (shallowEqual(this.props, nextProps) && this.client === nextClient) {
-            return;
-        }
-        if (this.client !== nextClient) {
-            this.client = nextClient;
-            this.removeQuerySubscription();
-            this.queryObservable = null;
-        }
-        if (this.props.query !== nextProps.query) {
-            this.queryObservable.resetLastResults();
-            this.removeQuerySubscription();
-        }
-        this.updateQuery(nextProps);
-        if (nextProps.skip)
-            return;
-        this.startQuerySubscription();
-    };
-    Query.prototype.componentWillUnmount = function () {
-        this.removeQuerySubscription();
-        this.hasMounted = false;
-    };
-    Query.prototype.componentDidUpdate = function (prevProps) {
-        var isDiffRequest = !lodash_isequal__WEBPACK_IMPORTED_MODULE_5___default()(prevProps.query, this.props.query) ||
-            !lodash_isequal__WEBPACK_IMPORTED_MODULE_5___default()(prevProps.variables, this.props.variables);
-        if (isDiffRequest) {
-            this.handleErrorOrCompleted();
-        }
-    };
-    Query.prototype.render = function () {
-        var _this = this;
-        var context = this.context;
-        var finish = function () { return _this.props.children(_this.getQueryResult()); };
-        if (context && context.renderPromises) {
-            return context.renderPromises.addQueryPromise(this, finish);
-        }
-        return finish();
-    };
-    Query.prototype.extractOptsFromProps = function (props) {
-        this.operation = parser(props.query);
-         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(this.operation.type === DocumentType.Query, "The <Query /> component requires a graphql query, but got a " + (this.operation.type === DocumentType.Mutation ? 'mutation' : 'subscription') + ".");
-        var displayName = props.displayName || 'Query';
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, { displayName: displayName, context: props.context || {}, metadata: { reactComponent: { displayName: displayName } } });
-    };
-    Query.prototype.initializeQueryObservable = function (props) {
-        var opts = this.extractOptsFromProps(props);
-        this.setOperations(opts);
-        if (this.context && this.context.renderPromises) {
-            this.queryObservable = this.context.renderPromises.getSSRObservable(this);
-        }
-        if (!this.queryObservable) {
-            this.queryObservable = this.client.watchQuery(opts);
-        }
-    };
-    Query.prototype.setOperations = function (props) {
-        if (this.context.operations) {
-            this.context.operations.set(this.operation.name, {
-                query: props.query,
-                variables: props.variables,
-            });
-        }
-    };
-    Query.prototype.updateQuery = function (props) {
-        if (!this.queryObservable) {
-            this.initializeQueryObservable(props);
-        }
-        else {
-            this.setOperations(props);
-        }
-        this.queryObservable.setOptions(this.extractOptsFromProps(props))
-            .catch(function () { return null; });
-    };
-    Query.prototype.resubscribeToQuery = function () {
-        this.removeQuerySubscription();
-        var lastError = this.queryObservable.getLastError();
-        var lastResult = this.queryObservable.getLastResult();
-        this.queryObservable.resetLastResults();
-        this.startQuerySubscription();
-        Object.assign(this.queryObservable, { lastError: lastError, lastResult: lastResult });
-    };
-    Query.contextTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        operations: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        renderPromises: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-    };
-    Query.propTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        children: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"].isRequired,
-        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"],
-        notifyOnNetworkStatusChange: prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"],
-        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        onError: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        pollInterval: prop_types__WEBPACK_IMPORTED_MODULE_1__["number"],
-        query: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        ssr: prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"],
-        partialRefetch: prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"],
-        returnPartialData: prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"],
-    };
-    return Query;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-
-var initialState = {
-    loading: false,
-    called: false,
-    error: undefined,
-    data: undefined,
-};
-var Mutation = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(Mutation, _super);
-    function Mutation(props, context) {
-        var _this = _super.call(this, props, context) || this;
-        _this.hasMounted = false;
-        _this.runMutation = function (options) {
-            if (options === void 0) { options = {}; }
-            _this.onMutationStart();
-            var mutationId = _this.generateNewMutationId();
-            return _this.mutate(options)
-                .then(function (response) {
-                _this.onMutationCompleted(response, mutationId);
-                return response;
-            })
-                .catch(function (e) {
-                _this.onMutationError(e, mutationId);
-                if (!_this.props.onError)
-                    throw e;
-            });
-        };
-        _this.mutate = function (options) {
-            var _a = _this.props, mutation = _a.mutation, variables = _a.variables, optimisticResponse = _a.optimisticResponse, update = _a.update, _b = _a.context, context = _b === void 0 ? {} : _b, _c = _a.awaitRefetchQueries, awaitRefetchQueries = _c === void 0 ? false : _c, fetchPolicy = _a.fetchPolicy;
-            var mutateOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, options);
-            var refetchQueries = mutateOptions.refetchQueries || _this.props.refetchQueries;
-            if (refetchQueries && refetchQueries.length && Array.isArray(refetchQueries)) {
-                refetchQueries = refetchQueries.map(function (x) {
-                    if (typeof x === 'string' && _this.context.operations)
-                        return _this.context.operations.get(x) || x;
-                    return x;
-                });
-                delete mutateOptions.refetchQueries;
-            }
-            var mutateVariables = Object.assign({}, variables, mutateOptions.variables);
-            delete mutateOptions.variables;
-            return _this.client.mutate(Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({ mutation: mutation,
-                optimisticResponse: optimisticResponse,
-                refetchQueries: refetchQueries,
-                awaitRefetchQueries: awaitRefetchQueries,
-                update: update,
-                context: context,
-                fetchPolicy: fetchPolicy, variables: mutateVariables }, mutateOptions));
-        };
-        _this.onMutationStart = function () {
-            if (!_this.state.loading && !_this.props.ignoreResults) {
-                _this.setState({
-                    loading: true,
-                    error: undefined,
-                    data: undefined,
-                    called: true,
-                });
-            }
-        };
-        _this.onMutationCompleted = function (response, mutationId) {
-            var _a = _this.props, onCompleted = _a.onCompleted, ignoreResults = _a.ignoreResults;
-            var data = response.data, errors = response.errors;
-            var error = errors && errors.length > 0 ? new apollo_client__WEBPACK_IMPORTED_MODULE_4__["ApolloError"]({ graphQLErrors: errors }) : undefined;
-            var callOncomplete = function () { return (onCompleted ? onCompleted(data) : null); };
-            if (_this.hasMounted && _this.isMostRecentMutation(mutationId) && !ignoreResults) {
-                _this.setState({ loading: false, data: data, error: error }, callOncomplete);
-            }
-            else {
-                callOncomplete();
-            }
-        };
-        _this.onMutationError = function (error, mutationId) {
-            var onError = _this.props.onError;
-            var callOnError = function () { return (onError ? onError(error) : null); };
-            if (_this.hasMounted && _this.isMostRecentMutation(mutationId)) {
-                _this.setState({ loading: false, error: error }, callOnError);
-            }
-            else {
-                callOnError();
-            }
-        };
-        _this.generateNewMutationId = function () {
-            _this.mostRecentMutationId = _this.mostRecentMutationId + 1;
-            return _this.mostRecentMutationId;
-        };
-        _this.isMostRecentMutation = function (mutationId) {
-            return _this.mostRecentMutationId === mutationId;
-        };
-        _this.verifyDocumentIsMutation = function (mutation) {
-            var operation = parser(mutation);
-             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(operation.type === DocumentType.Mutation, "The <Mutation /> component requires a graphql mutation, but got a " + (operation.type === DocumentType.Query ? 'query' : 'subscription') + ".");
-        };
-        _this.client = getClient(props, context);
-        _this.verifyDocumentIsMutation(props.mutation);
-        _this.mostRecentMutationId = 0;
-        _this.state = initialState;
-        return _this;
-    }
-    Mutation.prototype.componentDidMount = function () {
-        this.hasMounted = true;
-    };
-    Mutation.prototype.componentWillUnmount = function () {
-        this.hasMounted = false;
-    };
-    Mutation.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
-        var nextClient = getClient(nextProps, nextContext);
-        if (shallowEqual(this.props, nextProps) && this.client === nextClient) {
-            return;
-        }
-        if (this.props.mutation !== nextProps.mutation) {
-            this.verifyDocumentIsMutation(nextProps.mutation);
-        }
-        if (this.client !== nextClient) {
-            this.client = nextClient;
-            this.setState(initialState);
-        }
-    };
-    Mutation.prototype.render = function () {
-        var children = this.props.children;
-        var _a = this.state, loading = _a.loading, data = _a.data, error = _a.error, called = _a.called;
-        var result = {
-            called: called,
-            loading: loading,
-            data: data,
-            error: error,
-            client: this.client,
-        };
-        return children(this.runMutation, result);
-    };
-    Mutation.contextTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        operations: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-    };
-    Mutation.propTypes = {
-        mutation: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        optimisticResponse: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        refetchQueries: Object(prop_types__WEBPACK_IMPORTED_MODULE_1__["oneOfType"])([
-            Object(prop_types__WEBPACK_IMPORTED_MODULE_1__["arrayOf"])(Object(prop_types__WEBPACK_IMPORTED_MODULE_1__["oneOfType"])([prop_types__WEBPACK_IMPORTED_MODULE_1__["string"], prop_types__WEBPACK_IMPORTED_MODULE_1__["object"]])),
-            prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        ]),
-        awaitRefetchQueries: prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"],
-        update: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        children: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"].isRequired,
-        onCompleted: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        onError: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        fetchPolicy: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"],
-    };
-    return Mutation;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-
-var Subscription = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(Subscription, _super);
-    function Subscription(props, context) {
-        var _this = _super.call(this, props, context) || this;
-        _this.initialize = function (props) {
-            if (_this.queryObservable)
-                return;
-            _this.queryObservable = _this.client.subscribe({
-                query: props.subscription,
-                variables: props.variables,
-                fetchPolicy: props.fetchPolicy,
-            });
-        };
-        _this.startSubscription = function () {
-            if (_this.querySubscription)
-                return;
-            _this.querySubscription = _this.queryObservable.subscribe({
-                next: _this.updateCurrentData,
-                error: _this.updateError,
-                complete: _this.completeSubscription
-            });
-        };
-        _this.getInitialState = function () { return ({
-            loading: true,
-            error: undefined,
-            data: undefined,
-        }); };
-        _this.updateCurrentData = function (result) {
-            var _a = _this, client = _a.client, onSubscriptionData = _a.props.onSubscriptionData;
-            _this.setState({
-                data: result.data,
-                loading: false,
-                error: undefined,
-            });
-            if (onSubscriptionData)
-                onSubscriptionData({ client: client, subscriptionData: result });
-        };
-        _this.updateError = function (error) {
-            _this.setState({
-                error: error,
-                loading: false,
-            });
-        };
-        _this.completeSubscription = function () {
-            var onSubscriptionComplete = _this.props.onSubscriptionComplete;
-            if (onSubscriptionComplete)
-                onSubscriptionComplete();
-            _this.endSubscription();
-        };
-        _this.endSubscription = function () {
-            if (_this.querySubscription) {
-                _this.querySubscription.unsubscribe();
-                delete _this.querySubscription;
-            }
-        };
-        _this.client = getClient(props, context);
-        _this.initialize(props);
-        _this.state = _this.getInitialState();
-        return _this;
-    }
-    Subscription.prototype.componentDidMount = function () {
-        this.startSubscription();
-    };
-    Subscription.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
-        var nextClient = getClient(nextProps, nextContext);
-        if (shallowEqual(this.props.variables, nextProps.variables) &&
-            this.client === nextClient &&
-            this.props.subscription === nextProps.subscription) {
-            return;
-        }
-        var shouldResubscribe = nextProps.shouldResubscribe;
-        if (typeof shouldResubscribe === 'function') {
-            shouldResubscribe = !!shouldResubscribe(this.props, nextProps);
-        }
-        var shouldNotResubscribe = shouldResubscribe === false;
-        if (this.client !== nextClient) {
-            this.client = nextClient;
-        }
-        if (!shouldNotResubscribe) {
-            this.endSubscription();
-            delete this.queryObservable;
-            this.initialize(nextProps);
-            this.startSubscription();
-            this.setState(this.getInitialState());
-            return;
-        }
-        this.initialize(nextProps);
-        this.startSubscription();
-    };
-    Subscription.prototype.componentWillUnmount = function () {
-        this.endSubscription();
-    };
-    Subscription.prototype.render = function () {
-        var renderFn = this.props.children;
-        if (!renderFn)
-            return null;
-        var result = Object.assign({}, this.state, {
-            variables: this.props.variables,
-        });
-        return renderFn(result);
-    };
-    Subscription.contextTypes = {
-        client: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-    };
-    Subscription.propTypes = {
-        subscription: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
-        variables: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        children: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        onSubscriptionData: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        onSubscriptionComplete: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
-        shouldResubscribe: Object(prop_types__WEBPACK_IMPORTED_MODULE_1__["oneOfType"])([prop_types__WEBPACK_IMPORTED_MODULE_1__["func"], prop_types__WEBPACK_IMPORTED_MODULE_1__["bool"]]),
-    };
-    return Subscription;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-
-var defaultMapPropsToOptions = function () { return ({}); };
-var defaultMapPropsToSkip = function () { return false; };
-function getDisplayName(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-function calculateVariablesFromProps(operation, props) {
-    var variables = {};
-    for (var _i = 0, _a = operation.variables; _i < _a.length; _i++) {
-        var _b = _a[_i], variable = _b.variable, type = _b.type;
-        if (!variable.name || !variable.name.value)
-            continue;
-        var variableName = variable.name.value;
-        var variableProp = props[variableName];
-        if (typeof variableProp !== 'undefined') {
-            variables[variableName] = variableProp;
-            continue;
-        }
-        if (type.kind !== 'NonNullType') {
-            variables[variableName] = undefined;
-        }
-    }
-    return variables;
-}
-var GraphQLBase = (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(GraphQLBase, _super);
-    function GraphQLBase(props) {
-        var _this = _super.call(this, props) || this;
-        _this.withRef = false;
-        _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
-        return _this;
-    }
-    GraphQLBase.prototype.getWrappedInstance = function () {
-         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(this.withRef, "To access the wrapped instance, you need to specify " + "{ withRef: true } in the options");
-        return this.wrappedInstance;
-    };
-    GraphQLBase.prototype.setWrappedInstance = function (ref) {
-        this.wrappedInstance = ref;
-    };
-    return GraphQLBase;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-
-function withQuery(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = parser(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function') {
-        mapPropsToOptions = function () { return options; };
-    }
-    var mapPropsToSkip = skip;
-    if (typeof mapPropsToSkip !== 'function') {
-        mapPropsToSkip = function () { return skip; };
-    }
-    var lastResultProps;
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(GraphQL, _super);
-            function GraphQL() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            GraphQL.prototype.render = function () {
-                var _this = this;
-                var props = this.props;
-                var shouldSkip = mapPropsToSkip(props);
-                var opts = shouldSkip ? Object.create(null) : Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, mapPropsToOptions(props));
-                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Query, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, query: document, warnUnhandledError: true }), function (_a) {
-                    var _b, _c;
-                    var _ = _a.client, data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__rest"])(_a, ["client", "data"]);
-                    if (operationOptions.withRef) {
-                        _this.withRef = true;
-                        props = Object.assign({}, props, {
-                            ref: _this.setWrappedInstance,
-                        });
-                    }
-                    if (shouldSkip) {
-                        return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, {})));
-                    }
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'data';
-                    var childProps = (_b = {}, _b[name] = result, _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = result,
-                            _c.ownProps = props,
-                            _c);
-                        lastResultProps = operationOptions.props(newResult, lastResultProps);
-                        childProps = lastResultProps;
-                    }
-                    return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, childProps)));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function withMutation(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = parser(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.alias, alias = _b === void 0 ? 'Apollo' : _b;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function')
-        mapPropsToOptions = function () { return options; };
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(GraphQL, _super);
-            function GraphQL() {
-                return _super !== null && _super.apply(this, arguments) || this;
-            }
-            GraphQL.prototype.render = function () {
-                var props = this.props;
-                var opts = mapPropsToOptions(props);
-                if (operationOptions.withRef) {
-                    this.withRef = true;
-                    props = Object.assign({}, props, {
-                        ref: this.setWrappedInstance,
-                    });
-                }
-                if (!opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Mutation, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, opts, { mutation: document, ignoreResults: true }), function (mutate, _a) {
-                    var _b, _c;
-                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__rest"])(_a, ["data"]);
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'mutate';
-                    var resultName = operationOptions.name ? name + "Result" : 'result';
-                    var childProps = (_b = {}, _b[name] = mutate, _b[resultName] = result, _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = mutate,
-                            _c[resultName] = result,
-                            _c.ownProps = props,
-                            _c);
-                        childProps = operationOptions.props(newResult);
-                    }
-                    return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, childProps)));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function withSubscription(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var operation = parser(document);
-    var _a = operationOptions.options, options = _a === void 0 ? defaultMapPropsToOptions : _a, _b = operationOptions.skip, skip = _b === void 0 ? defaultMapPropsToSkip : _b, _c = operationOptions.alias, alias = _c === void 0 ? 'Apollo' : _c, shouldResubscribe = operationOptions.shouldResubscribe;
-    var mapPropsToOptions = options;
-    if (typeof mapPropsToOptions !== 'function')
-        mapPropsToOptions = function () { return options; };
-    var mapPropsToSkip = skip;
-    if (typeof mapPropsToSkip !== 'function')
-        mapPropsToSkip = function () { return skip; };
-    var lastResultProps;
-    return function (WrappedComponent) {
-        var graphQLDisplayName = alias + "(" + getDisplayName(WrappedComponent) + ")";
-        var GraphQL = (function (_super) {
-            Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(GraphQL, _super);
-            function GraphQL(props) {
-                var _this = _super.call(this, props) || this;
-                _this.state = { resubscribe: false };
-                return _this;
-            }
-            GraphQL.prototype.componentWillReceiveProps = function (nextProps) {
-                if (!shouldResubscribe)
-                    return;
-                this.setState({
-                    resubscribe: shouldResubscribe(this.props, nextProps),
-                });
-            };
-            GraphQL.prototype.render = function () {
-                var _this = this;
-                var props = this.props;
-                var shouldSkip = mapPropsToSkip(props);
-                var opts = shouldSkip ? Object.create(null) : mapPropsToOptions(props);
-                if (!shouldSkip && !opts.variables && operation.variables.length > 0) {
-                    opts.variables = calculateVariablesFromProps(operation, props);
-                }
-                return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Subscription, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, opts, { displayName: graphQLDisplayName, skip: shouldSkip, subscription: document, shouldResubscribe: this.state.resubscribe }), function (_a) {
-                    var _b, _c;
-                    var data = _a.data, r = Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__rest"])(_a, ["data"]);
-                    if (operationOptions.withRef) {
-                        _this.withRef = true;
-                        props = Object.assign({}, props, {
-                            ref: _this.setWrappedInstance,
-                        });
-                    }
-                    if (shouldSkip) {
-                        return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, {})));
-                    }
-                    var result = Object.assign(r, data || {});
-                    var name = operationOptions.name || 'data';
-                    var childProps = (_b = {}, _b[name] = result, _b);
-                    if (operationOptions.props) {
-                        var newResult = (_c = {},
-                            _c[name] = result,
-                            _c.ownProps = props,
-                            _c);
-                        lastResultProps = operationOptions.props(newResult, lastResultProps);
-                        childProps = lastResultProps;
-                    }
-                    return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props, childProps)));
-                }));
-            };
-            GraphQL.displayName = graphQLDisplayName;
-            GraphQL.WrappedComponent = WrappedComponent;
-            return GraphQL;
-        }(GraphQLBase));
-        return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6___default()(GraphQL, WrappedComponent, {});
-    };
-}
-
-function graphql(document, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    switch (parser(document).type) {
-        case DocumentType.Mutation:
-            return withMutation(document, operationOptions);
-        case DocumentType.Subscription:
-            return withSubscription(document, operationOptions);
-        case DocumentType.Query:
-        default:
-            return withQuery(document, operationOptions);
-    }
-}
-
-function getDisplayName$1(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-function withApollo(WrappedComponent, operationOptions) {
-    if (operationOptions === void 0) { operationOptions = {}; }
-    var withDisplayName = "withApollo(" + getDisplayName$1(WrappedComponent) + ")";
-    var WithApollo = (function (_super) {
-        Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(WithApollo, _super);
-        function WithApollo(props) {
-            var _this = _super.call(this, props) || this;
-            _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
-            return _this;
-        }
-        WithApollo.prototype.getWrappedInstance = function () {
-             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_2__["invariant"])(operationOptions.withRef, "To access the wrapped instance, you need to specify " + "{ withRef: true } in the options");
-            return this.wrappedInstance;
-        };
-        WithApollo.prototype.setWrappedInstance = function (ref) {
-            this.wrappedInstance = ref;
-        };
-        WithApollo.prototype.render = function () {
-            var _this = this;
-            return (Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ApolloConsumer, null, function (client) {
-                var props = Object.assign({}, _this.props, {
-                    client: client,
-                    ref: operationOptions.withRef ? _this.setWrappedInstance : undefined,
-                });
-                return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(WrappedComponent, Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, props));
-            }));
-        };
-        WithApollo.displayName = withDisplayName;
-        WithApollo.WrappedComponent = WrappedComponent;
-        return WithApollo;
-    }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_6___default()(WithApollo, WrappedComponent, {});
-}
-
-function makeDefaultQueryInfo() {
-    return {
-        seen: false,
-        observable: null,
-    };
-}
-var RenderPromises = (function () {
-    function RenderPromises() {
-        this.queryPromises = new Map();
-        this.queryInfoTrie = new Map();
-    }
-    RenderPromises.prototype.registerSSRObservable = function (queryInstance, observable) {
-        this.lookupQueryInfo(queryInstance).observable = observable;
-    };
-    RenderPromises.prototype.getSSRObservable = function (queryInstance) {
-        return this.lookupQueryInfo(queryInstance).observable;
-    };
-    RenderPromises.prototype.addQueryPromise = function (queryInstance, finish) {
-        var info = this.lookupQueryInfo(queryInstance);
-        if (!info.seen) {
-            this.queryPromises.set(queryInstance, new Promise(function (resolve) {
-                resolve(queryInstance.fetchData());
-            }));
-            return null;
-        }
-        return finish();
-    };
-    RenderPromises.prototype.hasPromises = function () {
-        return this.queryPromises.size > 0;
-    };
-    RenderPromises.prototype.consumeAndAwaitPromises = function () {
-        var _this = this;
-        var promises = [];
-        this.queryPromises.forEach(function (promise, queryInstance) {
-            _this.lookupQueryInfo(queryInstance).seen = true;
-            promises.push(promise);
-        });
-        this.queryPromises.clear();
-        return Promise.all(promises);
-    };
-    RenderPromises.prototype.lookupQueryInfo = function (queryInstance) {
-        var queryInfoTrie = this.queryInfoTrie;
-        var _a = queryInstance.props, query = _a.query, variables = _a.variables;
-        var varMap = queryInfoTrie.get(query) || new Map();
-        if (!queryInfoTrie.has(query))
-            queryInfoTrie.set(query, varMap);
-        var variablesString = JSON.stringify(variables);
-        var info = varMap.get(variablesString) || makeDefaultQueryInfo();
-        if (!varMap.has(variablesString))
-            varMap.set(variablesString, info);
-        return info;
-    };
-    return RenderPromises;
-}());
-function getDataFromTree(tree, context) {
-    if (context === void 0) { context = {}; }
-    return getMarkupFromTree({
-        tree: tree,
-        context: context,
-        renderFunction: __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToStaticMarkup,
-    });
-}
-function getMarkupFromTree(_a) {
-    var tree = _a.tree, _b = _a.context, context = _b === void 0 ? {} : _b, _c = _a.renderFunction, renderFunction = _c === void 0 ? __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToStaticMarkup : _c;
-    var renderPromises = new RenderPromises();
-    var RenderPromisesProvider = (function (_super) {
-        Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__extends"])(RenderPromisesProvider, _super);
-        function RenderPromisesProvider() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        RenderPromisesProvider.prototype.getChildContext = function () {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_3__["__assign"])({}, context, { renderPromises: renderPromises });
-        };
-        RenderPromisesProvider.prototype.render = function () {
-            return tree;
-        };
-        RenderPromisesProvider.childContextTypes = {
-            renderPromises: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-        };
-        return RenderPromisesProvider;
-    }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-    Object.keys(context).forEach(function (key) {
-        RenderPromisesProvider.childContextTypes[key] = prop_types__WEBPACK_IMPORTED_MODULE_1__["any"];
-    });
-    function process() {
-        var html = renderFunction(Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RenderPromisesProvider));
-        return renderPromises.hasPromises()
-            ? renderPromises.consumeAndAwaitPromises().then(process)
-            : html;
-    }
-    return Promise.resolve().then(process);
-}
-
-function renderToStringWithData(component) {
-    return getMarkupFromTree({
-        tree: component,
-        renderFunction: __webpack_require__(/*! react-dom/server */ "./node_modules/react-dom/server.browser.js").renderToString,
-    });
-}
-
-function compose() {
-    var funcs = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        funcs[_i] = arguments[_i];
-    }
-    var functions = funcs.reverse();
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var firstFunction = functions[0], restFunctions = functions.slice(1);
-        var result = firstFunction.apply(null, args);
-        restFunctions.forEach(function (fnc) {
-            result = fnc.call(null, result);
-        });
-        return result;
-    };
-}
 
 
 //# sourceMappingURL=react-apollo.esm.js.map
