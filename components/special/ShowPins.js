@@ -1,19 +1,19 @@
-import withContainers from '../wrappers/withContainer';
+import withContainers from "../wrappers/withContainer";
 
-import { Global as globalState } from './Global';
-import React, { Component } from 'react';
-import { Subscribe } from 'unstated';
+import { Global as globalState } from "./Global";
+import React, { Component } from "react";
+import { Subscribe } from "unstated";
 
-import { getIframeScrollPosition } from '../../lib/helpers';
+import { getIframeScrollPosition } from "../../lib/helpers";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import SickButton from '../styles/SickButton';
-import Pin from './Pin';
+import SickButton from "../styles/SickButton";
+import Pin from "./Pin";
 
 const ShowPinsDiv = styled.div`
   position: absolute;
-  top: ${props => (props.scrollTop ? props.scrollTop : '0px')};
+  top: ${props => (props.scrollTop ? props.scrollTop : "0px")};
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -21,46 +21,50 @@ const ShowPinsDiv = styled.div`
   pointer-events: none;
 `;
 
-var timeout = '';
+var timeout = "";
 
 class ShowPins extends Component {
   state = {
-    scrollTop: 0,
+    scrollTop: 0
   };
 
   componentDidMount() {
     //get initial scroll pos
 
-    this._updateScrollPosition();
-    //attach scroll listener
-    var iframeScrollPosition = document
-      .getElementById('iframe')
-      .contentWindow.document.addEventListener(
-        'scroll',
-        this._handleScroll,
-        false,
-      );
+    //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
+    setTimeout(() => {
+      this._updateScrollPosition();
+
+      //attach scroll listener
+      document
+        .getElementById("iframe")
+        .contentWindow.document.addEventListener(
+          "scroll",
+          this._handleScroll,
+          false
+        );
+    }, 2000);
   }
 
   //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
   _updateScrollPosition = event => {
-    var scroll = '';
+    var scroll = "";
     var iframeScrollPosition = document
-      .getElementById('iframe')
-      .contentWindow.document.getElementById('iframeScrollPosition');
+      .getElementById("iframe")
+      .contentWindow.document.getElementById("iframeScrollPosition");
 
-    if (iframeScrollPosition.getAttribute('y')) {
-      scroll = -iframeScrollPosition.getAttribute('y');
+    if (iframeScrollPosition.getAttribute("y")) {
+      scroll = -iframeScrollPosition.getAttribute("y");
     } else {
       scroll = 0;
     }
 
-    this.setState({ scrollTop: scroll + 'px' });
+    this.setState({ scrollTop: scroll + "px" });
   };
 
-  _handleScroll = () => {
+  _handleScroll = me => {
     window.clearTimeout(timeout);
     timeout = setTimeout(() => {
       this._updateScrollPosition();

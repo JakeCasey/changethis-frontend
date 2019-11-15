@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import SickButton from '../styles/SickButton';
-import styled from 'styled-components';
-import withContainers from '../wrappers/withContainer';
-import { Global as globalState } from './Global';
-import ToolbarOverlay from './ToolbarOverlay';
-import BlockList from './BlockList';
-import btoa from 'btoa';
-import Clipboard from 'react-clipboard.js';
+import React, { Component } from "react";
+import SickButton from "../styles/SickButton";
+import styled from "styled-components";
+import withContainers from "../wrappers/withContainer";
+import { Global as globalState } from "./Global";
+import ToolbarOverlay from "./ToolbarOverlay";
+import BlockList from "./BlockList";
+import btoa from "btoa";
+import Clipboard from "react-clipboard.js";
 
 // Blocks
-import SimpleTextBlock from './SimpleTextBlock';
-import PinBlock from './PinBlock';
+import SimpleTextBlock from "./SimpleTextBlock";
+import PinBlock from "./PinBlock";
 
 const ToolbarDiv = styled.div`
   width: 100%;
@@ -31,7 +31,7 @@ class Toolbar extends Component {
   // };
 
   state = {
-    base64: '',
+    base64: ""
   };
 
   showBlocks = () => {
@@ -53,18 +53,18 @@ class Toolbar extends Component {
   };
 
   render() {
-    var canvas = this.props.test;
+    let canvas = this.props.test;
     // var toolbar = this.props.test.state.toolbar;
     return (
       <ToolbarDiv>
-        {this.props.test &&
-          this.props.test.state.toolbar.map((block, i) => {
+        {canvas &&
+          canvas.state.toolbar.map((block, i) => {
             var type = block.type;
             switch (type) {
-              case 'text':
+              case "text":
                 return <SimpleTextBlock key={i} block={block} />;
                 break;
-              case 'pin':
+              case "pin":
                 return <PinBlock key={i} block={block} />;
                 break;
             }
@@ -75,9 +75,7 @@ class Toolbar extends Component {
         {this.props.test && (
           <Clipboard
             component={SickButton}
-            data-clipboard-text={btoa(
-              JSON.stringify(this.props.test.state),
-            )}
+            data-clipboard-text={btoa(JSON.stringify(this.props.test.state))}
           >
             copy to clipboard
           </Clipboard>
@@ -86,7 +84,7 @@ class Toolbar extends Component {
         <textarea onChange={e => this.handlebase64Update(e)} />
 
         <SickButton onClick={() => this._updateState()}>
-          {' '}
+          {" "}
           Update State From String
         </SickButton>
 

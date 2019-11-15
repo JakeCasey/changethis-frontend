@@ -1,13 +1,13 @@
-import withContainers from '../wrappers/withContainer';
+import withContainers from "../wrappers/withContainer";
 
-import { Global as globalState } from './Global';
-import React, { Component } from 'react';
-import { Subscribe } from 'unstated';
+import { Global as globalState } from "./Global";
+import React, { Component } from "react";
+import { Subscribe } from "unstated";
 
-import styled from 'styled-components';
-import shortid from 'shortid';
+import styled from "styled-components";
+import shortid from "shortid";
 
-import SickButton from '../styles/SickButton';
+import SickButton from "../styles/SickButton";
 
 const PinOverlayDiv = styled.div`
   position: absolute;
@@ -16,23 +16,23 @@ const PinOverlayDiv = styled.div`
   right: 0px;
   bottom: 0px;
   z-index: 2;
-  pointer-events: ${props => (props.showPointerEvents ? 'auto' : 'none')};
+  pointer-events: ${props => (props.showPointerEvents ? "auto" : "none")};
 `;
 
 class PinOverlay extends Component {
   state = {
     showPointerEvents: true,
-    pin: { x: '', y: '' },
+    pin: { x: "", y: "" }
   };
 
   componentDidMount() {
     this.setState({
       pin: {
         belongsTo: this.props.id,
-        x: '',
-        y: '',
-        comment: '',
-      },
+        x: "",
+        y: "",
+        comment: ""
+      }
     });
   }
 
@@ -45,18 +45,18 @@ class PinOverlay extends Component {
     var scroll;
 
     var iframeScrollPosition = document
-      .getElementById('iframe')
-      .contentWindow.document.getElementById('iframeScrollPosition');
+      .getElementById("iframe")
+      .contentWindow.document.getElementById("iframeScrollPosition");
 
-    if (iframeScrollPosition.getAttribute('y')) {
-      scroll = iframeScrollPosition.getAttribute('y');
+    if (iframeScrollPosition) {
+      scroll = iframeScrollPosition.getAttribute("y");
     } else {
-      scroll = '0';
+      scroll = "0";
     }
 
     // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
     this.setState({
-      pin: { ...this.state.pin, x: x, y: y, scrollPosition: { y: scroll } },
+      pin: { ...this.state.pin, x: x, y: y, scrollPosition: { y: scroll } }
     });
   };
 
@@ -75,10 +75,10 @@ class PinOverlay extends Component {
     return (
       <div>
         <Subscribe to={[globalState]}>
-          {test => (
+          {globalState => (
             <PinOverlayDiv
               showPointerEvents={this.state.showPointerEvents}
-              onClick={() => this._handlePinClick(test)}
+              onClick={() => this._handlePinClick(globalState)}
               onMouseMove={e => this._onMouseMove(e)}
             >
               {this.state.pin.x}" "{this.state.pin.y}

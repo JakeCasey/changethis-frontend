@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -700,8 +700,8 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       overIframe: [],
-      currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
-      showPins: false,
+      currentIframe: frontendUrl + "/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t",
+      showPins: true,
       showCanvas: false,
       canvas: null,
       iframe: {
@@ -711,20 +711,20 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
         }
       },
       showToolbarOverlay: false,
-      toolbarOverlayContents: '',
+      toolbarOverlayContents: "",
       toolbar: [],
       isPlacingPin: false,
       pins: [],
-      text: 'This is some text'
+      text: "This is some text"
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "addSimpleTextBlock", () => {
       this.toggleToolbarOverlay();
       var simpleText = {
         id: shortid__WEBPACK_IMPORTED_MODULE_6___default.a.generate(),
-        type: 'text',
-        value: 'test',
-        label: 'test'
+        type: "text",
+        value: "test",
+        label: "test"
       };
       var toolbar = this.state.toolbar;
       toolbar.push(simpleText);
@@ -737,13 +737,13 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
       this.toggleToolbarOverlay();
       this.setState({
         overIframe: [...this.state.overIframe, {
-          belongsTo: 'test',
+          belongsTo: "test",
           component: _ShowPins__WEBPACK_IMPORTED_MODULE_5__["default"]
         }]
       });
       var pin = {
         id: shortid__WEBPACK_IMPORTED_MODULE_6___default.a.generate(),
-        type: 'pin'
+        type: "pin"
       }; //place pin view over iframe
 
       var toolbar = this.state.toolbar;
@@ -788,7 +788,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "addPath", () => {
       var canvas = this.state.canvas;
-      var path = new fabric.Path('M 0 0 L 200 100 L 170 200 z');
+      var path = new fabric.Path("M 0 0 L 200 100 L 170 200 z");
       path.set({
         left: 120,
         top: 120
@@ -801,7 +801,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "addArrow", () => {
       var canvas = this.state.canvas;
-      fabric.loadSVGFromURL('/static/images/arrow.svg', function (objects, options) {
+      fabric.loadSVGFromURL("/static/images/arrow.svg", function (objects, options) {
         var obj = fabric.util.groupSVGElements(objects, options);
         canvas.add(obj).renderAll();
       });
@@ -844,6 +844,8 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
       this.setState({
         pins
       });
+      console.log("Pin placed.");
+      console.log(this.state);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_updatePinCommentByID", (id, text, previousState) => {
@@ -857,19 +859,23 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_loadStateFromHash", hash => {
-      var test = atob(hash);
+      var hash = atob(hash);
       var previousState = this.state;
-      test = JSON.parse(test);
+      hash = JSON.parse(hash);
+      console.log("Hash loaded.");
+      console.log(hash);
 
-      if (test.pins.length > 0) {
+      if (hash.pins.length > 0) {
         previousState.overIframe = [...this.state.overIframe, {
-          belongsTo: 'test',
+          belongsTo: "test",
           component: _ShowPins__WEBPACK_IMPORTED_MODULE_5__["default"]
         }];
       }
 
-      previousState.pins = test.pins;
-      previousState.toolbar = test.toolbar;
+      previousState.pins = hash.pins;
+      previousState.toolbar = hash.toolbar;
+      previousState.currentIframe = hash.currentIframe;
+      previousState.isPlacingPin = false;
       this.setState(Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, previousState));
     });
 
@@ -1073,7 +1079,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const PinOverlayDiv = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
   displayName: "PinOverlay__PinOverlayDiv",
   componentId: "sgig1q-0"
-})(["position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;pointer-events:", ";"], props => props.showPointerEvents ? 'auto' : 'none');
+})(["position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;pointer-events:", ";"], props => props.showPointerEvents ? "auto" : "none");
 
 class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
   constructor(...args) {
@@ -1082,8 +1088,8 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       showPointerEvents: true,
       pin: {
-        x: '',
-        y: ''
+        x: "",
+        y: ""
       }
     });
 
@@ -1095,12 +1101,12 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       //get scroll position;
 
       var scroll;
-      var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition.getAttribute('y')) {
-        scroll = iframeScrollPosition.getAttribute('y');
+      if (iframeScrollPosition) {
+        scroll = iframeScrollPosition.getAttribute("y");
       } else {
-        scroll = '0';
+        scroll = "0";
       } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
@@ -1131,9 +1137,9 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     this.setState({
       pin: {
         belongsTo: this.props.id,
-        x: '',
-        y: '',
-        comment: ''
+        x: "",
+        y: "",
+        comment: ""
       }
     });
   }
@@ -1153,9 +1159,9 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
         lineNumber: 77
       },
       __self: this
-    }, test => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
+    }, globalState => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
       showPointerEvents: this.state.showPointerEvents,
-      onClick: () => this._handlePinClick(test),
+      onClick: () => this._handlePinClick(globalState),
       onMouseMove: e => this._onMouseMove(e),
       __source: {
         fileName: _jsxFileName,
@@ -1261,15 +1267,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
-      url: 'http://bugherd.com',
-      urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
+      url: "http://bugherd.com",
+      urlSelected: frontendUrl + "/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t"
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
-      var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url); // if (this.props.test) {
-
-      this.props.test.setCurrentIframe(urlString); // }
-
+      var urlString = frontendUrl + "/api/proxy?url=" + btoa(this.state.url);
+      this.props.test.setCurrentIframe(urlString);
       this.setState({
         urlSelected: urlString
       });
@@ -1283,7 +1287,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleKeyDown", e => {
-      if (e.key === 'Enter') {
+      if (e.key === "Enter") {
         this.reloadIframe();
       }
     });
@@ -1296,13 +1300,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 93
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 94
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
@@ -1314,7 +1318,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 95
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -1323,19 +1327,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105
+        lineNumber: 103
       },
       __self: this
     }, "Go")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 111
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 112
       },
       __self: this
     }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
@@ -1345,23 +1349,23 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 117
         },
         __self: this
       });
-    }), ' ', this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
+    }), " ", this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
       id: "iframe",
       width: this.props.test.state.iframe.size.width,
       src: this.props.test.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 121
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 129
       },
       __self: this
     })));
@@ -1407,8 +1411,8 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
   displayName: "ShowPins__ShowPinsDiv",
   componentId: "sc-1acb6tt-0"
-})(["position:absolute;top:", ";left:0px;right:0px;bottom:0px;z-index:2;pointer-events:none;"], props => props.scrollTop ? props.scrollTop : '0px');
-var timeout = '';
+})(["position:absolute;top:", ";left:0px;right:0px;bottom:0px;z-index:2;pointer-events:none;"], props => props.scrollTop ? props.scrollTop : "0px");
+var timeout = "";
 
 class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   constructor(...args) {
@@ -1419,21 +1423,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateScrollPosition", event => {
-      var scroll = '';
-      var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+      var scroll = "";
+      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition.getAttribute('y')) {
-        scroll = -iframeScrollPosition.getAttribute('y');
+      if (iframeScrollPosition.getAttribute("y")) {
+        scroll = -iframeScrollPosition.getAttribute("y");
       } else {
         scroll = 0;
       }
 
       this.setState({
-        scrollTop: scroll + 'px'
+        scrollTop: scroll + "px"
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_handleScroll", () => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_handleScroll", me => {
       window.clearTimeout(timeout);
       timeout = setTimeout(() => {
         this._updateScrollPosition();
@@ -1447,10 +1451,13 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
   componentDidMount() {
     //get initial scroll pos
-    this._updateScrollPosition(); //attach scroll listener
+    //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
+    setTimeout(() => {
+      this._updateScrollPosition(); //attach scroll listener
 
 
-    var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.addEventListener('scroll', this._handleScroll, false);
+      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
+    }, 2000);
   } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
@@ -1463,21 +1470,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 82
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 83
       },
       __self: this
     }, test => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 85
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
@@ -1487,7 +1494,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 87
         },
         __self: this
       });
@@ -1603,7 +1610,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
-      base64: ''
+      base64: ""
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "showBlocks", () => {
@@ -1633,7 +1640,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   }
 
   render() {
-    var canvas = this.props.test; // var toolbar = this.props.test.state.toolbar;
+    let canvas = this.props.test; // var toolbar = this.props.test.state.toolbar;
 
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
@@ -1641,11 +1648,11 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 59
       },
       __self: this
-    }, this.props.test && this.props.test.state.toolbar.map((block, i) => {
+    }, canvas && canvas.state.toolbar.map((block, i) => {
       var type = block.type;
 
       switch (type) {
-        case 'text':
+        case "text":
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_SimpleTextBlock__WEBPACK_IMPORTED_MODULE_11__["default"], {
             key: i,
             block: block,
@@ -1657,7 +1664,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
           });
           break;
 
-        case 'pin':
+        case "pin":
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PinBlock__WEBPACK_IMPORTED_MODULE_12__["default"], {
             key: i,
             block: block,
@@ -1695,20 +1702,20 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 84
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88
+        lineNumber: 86
       },
       __self: this
-    }, ' ', "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, " ", "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 91
       },
       __self: this
     }));
@@ -2031,24 +2038,15 @@ function withContainers(Containers) {
           },
           __self: this
         }, (...containers) => {
-          const containerObject = {}; // Object.values(containers).forEach(container => {
-          //   let key = container.key;
-          //   if (!key) {
-          //     key = container.constructor.name;
-          //   }
-          //   // key = 'test';
-          //   containerObject[key] = container;
-          //   // containerObject[key] = 'test';
-          // });
-
+          const containerObject = {};
           containers.forEach((container, index) => {
-            var a = 'test';
+            var a = "test";
             containerObject[a] = container;
           });
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, this.props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 26
+              lineNumber: 17
             },
             __self: this
           }));
@@ -2323,25 +2321,19 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
     lineNumber: 6
   },
   __self: undefined
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_special_Reporting__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 7
   },
   __self: undefined
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_special_Reporting__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 8
-  },
-  __self: undefined
-})));
+}));
 
 /* harmony default export */ __webpack_exports__["default"] = (ProtectedPage);
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

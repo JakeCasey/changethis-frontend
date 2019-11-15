@@ -807,8 +807,8 @@ function (_Container) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
       overIframe: [],
-      currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
-      showPins: false,
+      currentIframe: frontendUrl + "/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t",
+      showPins: true,
       showCanvas: false,
       canvas: null,
       iframe: {
@@ -818,11 +818,11 @@ function (_Container) {
         }
       },
       showToolbarOverlay: false,
-      toolbarOverlayContents: '',
+      toolbarOverlayContents: "",
       toolbar: [],
       isPlacingPin: false,
       pins: [],
-      text: 'This is some text'
+      text: "This is some text"
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "addSimpleTextBlock", function () {
@@ -830,9 +830,9 @@ function (_Container) {
 
       var simpleText = {
         id: shortid__WEBPACK_IMPORTED_MODULE_12___default.a.generate(),
-        type: 'text',
-        value: 'test',
-        label: 'test'
+        type: "text",
+        value: "test",
+        label: "test"
       };
       var toolbar = _this.state.toolbar;
       toolbar.push(simpleText);
@@ -847,14 +847,14 @@ function (_Container) {
 
       _this.setState({
         overIframe: [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.overIframe), [{
-          belongsTo: 'test',
+          belongsTo: "test",
           component: _ShowPins__WEBPACK_IMPORTED_MODULE_11__["default"]
         }])
       });
 
       var pin = {
         id: shortid__WEBPACK_IMPORTED_MODULE_12___default.a.generate(),
-        type: 'pin'
+        type: "pin"
       }; //place pin view over iframe
 
       var toolbar = _this.state.toolbar;
@@ -901,7 +901,7 @@ function (_Container) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "addPath", function () {
       var canvas = _this.state.canvas;
-      var path = new fabric.Path('M 0 0 L 200 100 L 170 200 z');
+      var path = new fabric.Path("M 0 0 L 200 100 L 170 200 z");
       path.set({
         left: 120,
         top: 120
@@ -915,7 +915,7 @@ function (_Container) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "addArrow", function () {
       var canvas = _this.state.canvas;
-      fabric.loadSVGFromURL('/static/images/arrow.svg', function (objects, options) {
+      fabric.loadSVGFromURL("/static/images/arrow.svg", function (objects, options) {
         var obj = fabric.util.groupSVGElements(objects, options);
         canvas.add(obj).renderAll();
       });
@@ -962,6 +962,9 @@ function (_Container) {
       _this.setState({
         pins: pins
       });
+
+      console.log("Pin placed.");
+      console.log(_this.state);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "_updatePinCommentByID", function (id, text, previousState) {
@@ -976,19 +979,23 @@ function (_Container) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "_loadStateFromHash", function (hash) {
-      var test = atob(hash);
+      var hash = atob(hash);
       var previousState = _this.state;
-      test = JSON.parse(test);
+      hash = JSON.parse(hash);
+      console.log("Hash loaded.");
+      console.log(hash);
 
-      if (test.pins.length > 0) {
+      if (hash.pins.length > 0) {
         previousState.overIframe = [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.overIframe), [{
-          belongsTo: 'test',
+          belongsTo: "test",
           component: _ShowPins__WEBPACK_IMPORTED_MODULE_11__["default"]
         }]);
       }
 
-      previousState.pins = test.pins;
-      previousState.toolbar = test.toolbar;
+      previousState.pins = hash.pins;
+      previousState.toolbar = hash.toolbar;
+      previousState.currentIframe = hash.currentIframe;
+      previousState.isPlacingPin = false;
 
       _this.setState(Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, previousState));
     });
@@ -1277,7 +1284,7 @@ var PinOverlayDiv = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].d
   displayName: "PinOverlay__PinOverlayDiv",
   componentId: "sgig1q-0"
 })(["position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;pointer-events:", ";"], function (props) {
-  return props.showPointerEvents ? 'auto' : 'none';
+  return props.showPointerEvents ? "auto" : "none";
 });
 
 var PinOverlay =
@@ -1301,8 +1308,8 @@ function (_Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
       showPointerEvents: true,
       pin: {
-        x: '',
-        y: ''
+        x: "",
+        y: ""
       }
     });
 
@@ -1314,12 +1321,12 @@ function (_Component) {
       //get scroll position;
 
       var scroll;
-      var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition.getAttribute('y')) {
-        scroll = iframeScrollPosition.getAttribute('y');
+      if (iframeScrollPosition) {
+        scroll = iframeScrollPosition.getAttribute("y");
       } else {
-        scroll = '0';
+        scroll = "0";
       } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
@@ -1354,9 +1361,9 @@ function (_Component) {
       this.setState({
         pin: {
           belongsTo: this.props.id,
-          x: '',
-          y: '',
-          comment: ''
+          x: "",
+          y: "",
+          comment: ""
         }
       });
     }
@@ -1379,11 +1386,11 @@ function (_Component) {
           lineNumber: 77
         },
         __self: this
-      }, function (test) {
+      }, function (globalState) {
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(PinOverlayDiv, {
           showPointerEvents: _this2.state.showPointerEvents,
           onClick: function onClick() {
-            return _this2._handlePinClick(test);
+            return _this2._handlePinClick(globalState);
           },
           onMouseMove: function onMouseMove(e) {
             return _this2._onMouseMove(e);
@@ -1522,15 +1529,14 @@ function (_Component) {
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Reporting)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      url: 'http://bugherd.com',
-      urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t'
+      url: "http://bugherd.com",
+      urlSelected: frontendUrl + "/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t"
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "reloadIframe", function () {
-      var urlString = frontendUrl + '/api/proxy?url=' + btoa(_this.state.url); // if (this.props.test) {
+      var urlString = frontendUrl + "/api/proxy?url=" + btoa(_this.state.url);
 
-      _this.props.test.setCurrentIframe(urlString); // }
-
+      _this.props.test.setCurrentIframe(urlString);
 
       _this.setState({
         urlSelected: urlString
@@ -1546,7 +1552,7 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleKeyDown", function (e) {
-      if (e.key === 'Enter') {
+      if (e.key === "Enter") {
         _this.reloadIframe();
       }
     });
@@ -1565,13 +1571,13 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UrlBar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 94
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(URL, {
@@ -1585,7 +1591,7 @@ function (_Component) {
         type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 95
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_14__["default"], {
@@ -1594,19 +1600,19 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 103
         },
         __self: this
       }, "Go")), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(WorkArea, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 111
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(CanvasContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 112
         },
         __self: this
       }, this.props.test && this.props.test.state.overIframe.map(function (OverIframe, i) {
@@ -1616,23 +1622,23 @@ function (_Component) {
           id: OverIframe.belongsTo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 117
           },
           __self: this
         });
-      }), ' ', this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Frame, {
+      }), " ", this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Frame, {
         id: "iframe",
         width: this.props.test.state.iframe.size.width,
         src: this.props.test.state.currentIframe,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 121
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_17__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 129
         },
         __self: this
       })));
@@ -1691,9 +1697,9 @@ var ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div
   displayName: "ShowPins__ShowPinsDiv",
   componentId: "sc-1acb6tt-0"
 })(["position:absolute;top:", ";left:0px;right:0px;bottom:0px;z-index:2;pointer-events:none;"], function (props) {
-  return props.scrollTop ? props.scrollTop : '0px';
+  return props.scrollTop ? props.scrollTop : "0px";
 });
-var timeout = '';
+var timeout = "";
 
 var ShowPins =
 /*#__PURE__*/
@@ -1718,21 +1724,21 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateScrollPosition", function (event) {
-      var scroll = '';
-      var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+      var scroll = "";
+      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition.getAttribute('y')) {
-        scroll = -iframeScrollPosition.getAttribute('y');
+      if (iframeScrollPosition.getAttribute("y")) {
+        scroll = -iframeScrollPosition.getAttribute("y");
       } else {
         scroll = 0;
       }
 
       _this.setState({
-        scrollTop: scroll + 'px'
+        scrollTop: scroll + "px"
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_handleScroll", function () {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_handleScroll", function (me) {
       window.clearTimeout(timeout);
       timeout = setTimeout(function () {
         _this._updateScrollPosition();
@@ -1749,11 +1755,16 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ShowPins, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       //get initial scroll pos
-      this._updateScrollPosition(); //attach scroll listener
+      //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
+      setTimeout(function () {
+        _this2._updateScrollPosition(); //attach scroll listener
 
 
-      var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.addEventListener('scroll', this._handleScroll, false);
+        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
+      }, 2000);
     } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
     //that runs several more times over a few seconds.
 
@@ -1764,28 +1775,28 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var block = this.props.block;
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 82
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 83
         },
         __self: this
       }, function (test) {
         return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShowPinsDiv, {
-          scrollTop: _this2.state.scrollTop,
+          scrollTop: _this3.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 85
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
@@ -1795,7 +1806,7 @@ function (_Component) {
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 87
             },
             __self: this
           });
@@ -1971,7 +1982,7 @@ function (_Component) {
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Toolbar)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "state", {
-      base64: ''
+      base64: ""
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "showBlocks", function () {
@@ -2016,11 +2027,11 @@ function (_Component) {
           lineNumber: 59
         },
         __self: this
-      }, this.props.test && this.props.test.state.toolbar.map(function (block, i) {
+      }, canvas && canvas.state.toolbar.map(function (block, i) {
         var type = block.type;
 
         switch (type) {
-          case 'text':
+          case "text":
             return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_SimpleTextBlock__WEBPACK_IMPORTED_MODULE_17__["default"], {
               key: i,
               block: block,
@@ -2032,7 +2043,7 @@ function (_Component) {
             });
             break;
 
-          case 'pin':
+          case "pin":
             return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_PinBlock__WEBPACK_IMPORTED_MODULE_18__["default"], {
               key: i,
               block: block,
@@ -2076,7 +2087,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 84
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2085,13 +2096,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 86
         },
         __self: this
-      }, ' ', "Update State From String"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      }, " ", "Update State From String"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 91
         },
         __self: this
       }));
@@ -2545,28 +2556,20 @@ function withContainers(Containers) {
               },
               __self: this
             }, function () {
-              var containerObject = {}; // Object.values(containers).forEach(container => {
-              //   let key = container.key;
-              //   if (!key) {
-              //     key = container.constructor.name;
-              //   }
-              //   // key = 'test';
-              //   containerObject[key] = container;
-              //   // containerObject[key] = 'test';
-              // });
+              var containerObject = {};
 
               for (var _len = arguments.length, containers = new Array(_len), _key = 0; _key < _len; _key++) {
                 containers[_key] = arguments[_key];
               }
 
               containers.forEach(function (container, index) {
-                var a = 'test';
+                var a = "test";
                 containerObject[a] = container;
               });
               return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, _this.props, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 26
+                  lineNumber: 17
                 },
                 __self: this
               }));
@@ -15926,7 +15929,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 1);
+  var jsdom = __webpack_require__(/*! jsdom */ 3);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -15936,8 +15939,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 2).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 3).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 4).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 5).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -88350,26 +88353,20 @@ var ProtectedPage = function ProtectedPage(props) {
       lineNumber: 6
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_special_Reporting__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_special_Reporting__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  })));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProtectedPage);
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -88381,7 +88378,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -88392,7 +88389,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -88403,7 +88400,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -88425,5 +88422,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map

@@ -1,5 +1,5 @@
-import { Subscribe } from 'unstated';
-import React, { Fragment } from 'react';
+import { Subscribe } from "unstated";
+import React, { Fragment } from "react";
 
 function withContainers(Containers) {
   return function(Component) {
@@ -9,17 +9,8 @@ function withContainers(Containers) {
           <Subscribe to={Containers}>
             {(...containers) => {
               const containerObject = {};
-              // Object.values(containers).forEach(container => {
-              //   let key = container.key;
-              //   if (!key) {
-              //     key = container.constructor.name;
-              //   }
-              //   // key = 'test';
-              //   containerObject[key] = container;
-              //   // containerObject[key] = 'test';
-              // });
               containers.forEach((container, index) => {
-                var a = 'test';
+                var a = "test";
                 containerObject[a] = container;
               });
 

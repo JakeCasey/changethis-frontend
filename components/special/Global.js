@@ -1,29 +1,29 @@
-import React, { Fragment } from 'react';
-import { Container, Subscribe } from 'unstated';
-import PinOverlay from './PinOverlay';
-import ShowPins from './ShowPins';
-import shortId from 'shortid';
-import _ from 'lodash';
-import { frontend, prodFrontend } from '../../config';
+import React, { Fragment } from "react";
+import { Container, Subscribe } from "unstated";
+import PinOverlay from "./PinOverlay";
+import ShowPins from "./ShowPins";
+import shortId from "shortid";
+import _ from "lodash";
+import { frontend, prodFrontend } from "../../config";
 
 var frontendUrl =
-  process.env.NODE_ENV === 'development' ? frontend : prodFrontend;
+  process.env.NODE_ENV === "development" ? frontend : prodFrontend;
 class Global extends Container {
   state = {
     overIframe: [],
-    currentIframe: frontendUrl + '/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t',
-    showPins: false,
+    currentIframe: frontendUrl + "/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t",
+    showPins: true,
     showCanvas: false,
     canvas: null,
     iframe: {
-      size: { height: 0, width: 200 },
+      size: { height: 0, width: 200 }
     },
     showToolbarOverlay: false,
-    toolbarOverlayContents: '',
+    toolbarOverlayContents: "",
     toolbar: [],
     isPlacingPin: false,
     pins: [],
-    text: 'This is some text',
+    text: "This is some text"
   };
 
   addSimpleTextBlock = () => {
@@ -31,9 +31,9 @@ class Global extends Container {
 
     var simpleText = {
       id: shortId.generate(),
-      type: 'text',
-      value: 'test',
-      label: 'test',
+      type: "text",
+      value: "test",
+      label: "test"
     };
 
     var toolbar = this.state.toolbar;
@@ -49,13 +49,13 @@ class Global extends Container {
     this.setState({
       overIframe: [
         ...this.state.overIframe,
-        { belongsTo: 'test', component: ShowPins },
-      ],
+        { belongsTo: "test", component: ShowPins }
+      ]
     });
 
     var pin = {
       id: shortId.generate(),
-      type: 'pin',
+      type: "pin"
     };
 
     //place pin view over iframe
@@ -85,22 +85,22 @@ class Global extends Container {
 
       this.setState({
         overIframe: stat,
-        isPlacingPin: false,
+        isPlacingPin: false
       });
     } else {
       this.setState({
         overIframe: [
           ...this.state.overIframe,
-          { belongsTo: id, component: PinOverlay },
+          { belongsTo: id, component: PinOverlay }
         ],
-        isPlacingPin: true,
+        isPlacingPin: true
       });
     }
   };
 
   addPath = () => {
     var canvas = this.state.canvas;
-    var path = new fabric.Path('M 0 0 L 200 100 L 170 200 z');
+    var path = new fabric.Path("M 0 0 L 200 100 L 170 200 z");
     path.set({ left: 120, top: 120 });
     canvas.add(path);
     this.setState({ canvas });
@@ -108,9 +108,9 @@ class Global extends Container {
 
   addArrow = () => {
     var canvas = this.state.canvas;
-    fabric.loadSVGFromURL('/static/images/arrow.svg', function(
+    fabric.loadSVGFromURL("/static/images/arrow.svg", function(
       objects,
-      options,
+      options
     ) {
       var obj = fabric.util.groupSVGElements(objects, options);
       canvas.add(obj).renderAll();
@@ -142,6 +142,9 @@ class Global extends Container {
     var pins = this.state.pins;
     pins.push(pin);
     this.setState({ pins });
+
+    console.log("Pin placed.");
+    console.log(this.state);
   };
 
   _updatePinCommentByID = (id, text, previousState) => {
@@ -151,17 +154,25 @@ class Global extends Container {
   };
 
   _loadStateFromHash = hash => {
-    var test = atob(hash);
+    var hash = atob(hash);
     var previousState = this.state;
-    test = JSON.parse(test);
-    if (test.pins.length > 0) {
+    hash = JSON.parse(hash);
+    console.log("Hash loaded.");
+    console.log(hash);
+
+    if (hash.pins.length > 0) {
       previousState.overIframe = [
         ...this.state.overIframe,
-        { belongsTo: 'test', component: ShowPins },
+        {
+          belongsTo: "test",
+          component: ShowPins
+        }
       ];
     }
-    previousState.pins = test.pins;
-    previousState.toolbar = test.toolbar;
+    previousState.pins = hash.pins;
+    previousState.toolbar = hash.toolbar;
+    previousState.currentIframe = hash.currentIframe;
+    previousState.isPlacingPin = false;
     this.setState({ ...previousState });
   };
 

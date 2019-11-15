@@ -1,17 +1,17 @@
-import Error from '../ErrorMessage';
-import React, { Component } from 'react';
-import { useRouter } from 'next/router';
-import gql from 'graphql-tag';
+import Error from "../ErrorMessage";
+import React, { Component } from "react";
+import { useRouter } from "next/router";
+import gql from "graphql-tag";
 
-import withContainers from '../wrappers/withContainer';
-import { Global as globalState } from './Global';
+import withContainers from "../wrappers/withContainer";
+import { Global as globalState } from "./Global";
 
-import SickButton from '../styles/SickButton';
-import styled from 'styled-components';
-import DesignCanvas from './DesignCanvas';
-import Toolbar from './Toolbar.js';
-import { Url } from 'url';
-import { frontend, prodFrontend } from '../../config';
+import SickButton from "../styles/SickButton";
+import styled from "styled-components";
+import DesignCanvas from "./DesignCanvas";
+import Toolbar from "./Toolbar.js";
+import { Url } from "url";
+import { frontend, prodFrontend } from "../../config";
 
 const Frame = styled.iframe`
   position: absolute;
@@ -59,19 +59,17 @@ const Test = props => {
 };
 
 const frontendUrl =
-  process.env.NODE_ENV === 'development' ? frontend : prodFrontend;
+  process.env.NODE_ENV === "development" ? frontend : prodFrontend;
 
 class Reporting extends Component {
   state = {
-    url: 'http://bugherd.com',
-    urlSelected: frontendUrl + '/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t',
+    url: "http://bugherd.com",
+    urlSelected: frontendUrl + "/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t"
   };
 
   reloadIframe = () => {
-    var urlString = frontendUrl + '/api/proxy?url=' + btoa(this.state.url);
-    // if (this.props.test) {
+    var urlString = frontendUrl + "/api/proxy?url=" + btoa(this.state.url);
     this.props.test.setCurrentIframe(urlString);
-    // }
 
     this.setState({ urlSelected: urlString });
   };
@@ -82,7 +80,7 @@ class Reporting extends Component {
   };
 
   handleKeyDown = e => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       this.reloadIframe();
     }
   };
@@ -118,7 +116,7 @@ class Reporting extends Component {
                 return (
                   <OverIframeComponent key={i} id={OverIframe.belongsTo} />
                 );
-              })}{' '}
+              })}{" "}
             {this.props.test && this.props.test.state && (
               <Frame
                 id="iframe"

@@ -295,21 +295,21 @@ var Nav = function Nav() {
         lineNumber: 14
       },
       __self: this
-    }, me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/permissions",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/reporting",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 15
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 16
       },
       __self: this
-    }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/plans",
+    }, "Reporting")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/permissions",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
@@ -321,8 +321,8 @@ var Nav = function Nav() {
         lineNumber: 21
       },
       __self: this
-    }, "Plans")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "/reporting",
+    }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/plans",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 23
@@ -334,7 +334,7 @@ var Nav = function Nav() {
         lineNumber: 24
       },
       __self: this
-    }, "Reporting")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignoutButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "Plans")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignoutButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26

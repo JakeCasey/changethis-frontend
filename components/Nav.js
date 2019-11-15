@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import NavStyles from './styles/NavStyles';
-import User from './wrappers/User';
-import SignoutButton from './SignoutButton';
-import styled from 'styled-components';
+import Link from "next/link";
+import NavStyles from "./styles/NavStyles";
+import User from "./wrappers/User";
+import SignoutButton from "./SignoutButton";
+import styled from "styled-components";
 
 const Nav = () => (
   <User>
@@ -12,6 +12,9 @@ const Nav = () => (
 
       return (
         <NavStyles data-test="nav">
+          <Link href="/reporting">
+            <a>Reporting</a>
+          </Link>
           {me && (
             <>
               <Link href="/permissions">
@@ -19,9 +22,6 @@ const Nav = () => (
               </Link>
               <Link href="/plans">
                 <a>Plans</a>
-              </Link>
-              <Link href="/reporting">
-                <a>Reporting</a>
               </Link>
               <SignoutButton />
             </>
