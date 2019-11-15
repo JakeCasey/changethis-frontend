@@ -77,7 +77,7 @@ class Toolbar extends Component {
             component={SickButton}
             data-clipboard-text={btoa(JSON.stringify(this.props.test.state))}
           >
-            copy to clipboard
+            copy application state to clipboard
           </Clipboard>
         )}
 

@@ -2081,7 +2081,7 @@ function (_Component) {
           lineNumber: 76
         },
         __self: this
-      }, "copy to clipboard"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("textarea", {
+      }, "copy application state to clipboard"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("textarea", {
         onChange: function onChange(e) {
           return _this2.handlebase64Update(e);
         },
