@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -161,10 +161,10 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __self: this
     }, "An end-user testing and client feedback tool that lets people say what they really mean.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: '/static/images/hero.svg',
+      src: "/static/images/hero.svg",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 46
       },
       __self: this
     })));
@@ -208,7 +208,7 @@ const Home = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

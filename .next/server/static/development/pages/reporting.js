@@ -1599,11 +1599,31 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
  // Blocks
 
 
+ // const ToolbarDiv = styled.div`
+//   width: 100%;
+//   max-width: 300px;
+//   z-index: 10;
+//   background-color: #d2ddec;
+//   padding: 40px;
+//   position: relative;
+//   p {
+//     margin: 0px;
+//   }
+// `;
 
-const ToolbarDiv = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
-  displayName: "Toolbar__ToolbarDiv",
-  componentId: "sc-19q79xv-0"
-})(["width:100%;max-width:300px;z-index:10;background-color:#d2ddec;padding:40px;position:relative;p{margin:0px;}"]);
+class ToolbarDiv extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "container w-1/5 py-8 px-16",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, this.props.children);
+  }
+
+}
 
 class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   constructor(...args) {
@@ -1618,7 +1638,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       this.props.test.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 47
         },
         __self: this
       })); //open toolbar
@@ -1645,7 +1665,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 67
       },
       __self: this
     }, canvas && canvas.state.toolbar.map((block, i) => {
@@ -1658,7 +1678,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 65
+              lineNumber: 73
             },
             __self: this
           });
@@ -1670,7 +1690,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 68
+              lineNumber: 76
             },
             __self: this
           });
@@ -1680,14 +1700,14 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       onClick: () => this.showBlocks(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 81
       },
       __self: this
     }, "Add Block"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       ref: textarea => this.textArea = textarea,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 82
       },
       __self: this
     }), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
@@ -1695,27 +1715,27 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 84
       },
       __self: this
     }, "copy application state to clipboard"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 92
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 94
       },
       __self: this
     }, " ", "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91
+        lineNumber: 99
       },
       __self: this
     }));
@@ -1940,13 +1960,39 @@ const media = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODUL
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/styles/SickButton.js";
+ // const SickButton = styled.button`
+//   background: ${props => props.theme.button_color};
+//   color: white;
+//   font-weight: 500;
+//   border: 0;
+//   border-radius: 0;
+//   text-transform: uppercase;
+//   font-size: 16px;
+//   padding: 0.8rem 1.5rem;
+//   display: inline-block;
+//   transition: all 0.5s;
+//   &[disabled] {
+//     opacity: 0.5;
+//   }
+// `;
 
-const SickButton = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
-  displayName: "SickButton",
-  componentId: "sc-4y3vr4-0"
-})(["background:", ";color:white;font-weight:500;border:0;border-radius:0;text-transform:uppercase;font-size:16px;padding:0.8rem 1.5rem;display:inline-block;transition:all 0.5s;&[disabled]{opacity:0.5;}"], props => props.theme.button_color);
+class SickButton extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "bg-blue-100 text-blue-700 py-2 px-4 rounded",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, this.props.children);
+  }
+
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (SickButton);
 
 /***/ }),

@@ -12,18 +12,26 @@ import Clipboard from "react-clipboard.js";
 import SimpleTextBlock from "./SimpleTextBlock";
 import PinBlock from "./PinBlock";
 
-const ToolbarDiv = styled.div`
-  width: 100%;
-  max-width: 300px;
-  z-index: 10;
-  background-color: #d2ddec;
-  padding: 40px;
-  position: relative;
+// const ToolbarDiv = styled.div`
+//   width: 100%;
+//   max-width: 300px;
+//   z-index: 10;
+//   background-color: #d2ddec;
+//   padding: 40px;
+//   position: relative;
 
-  p {
-    margin: 0px;
+//   p {
+//     margin: 0px;
+//   }
+// `;
+
+class ToolbarDiv extends Component {
+  render() {
+    return (
+      <div className="container w-1/5 py-8 px-16">{this.props.children}</div>
+    );
   }
-`;
+}
 
 class Toolbar extends Component {
   // state = {

@@ -284,14 +284,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _static_tailwind_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../static/tailwind.css */ "./static/tailwind.css");
+/* harmony import */ var _static_tailwind_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_static_tailwind_css__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Meta.js";
+
 
 
 
 const Meta = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 4
+    lineNumber: 5
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -299,14 +302,14 @@ const Meta = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ne
   content: "width=device-width, initial-scale=1",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 6
   },
   __self: undefined
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
   charSet: "utf-8",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 7
   },
   __self: undefined
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -315,13 +318,13 @@ const Meta = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ne
   href: "/static/nprogress.css",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 9
   },
   __self: undefined
 }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9
+    lineNumber: 10
   },
   __self: undefined
 }, "CHANGETHIS"));
@@ -632,10 +635,35 @@ class SignoutButton extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         onClick: () => signout(),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 24
         },
         __self: this
-      }, "Sign Out");
+      }, "Sign Out", " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+        className: "w-8 h-8 ml-4",
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 24 24",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        className: "text-gray-600 fill-current",
+        d: "M11 4h3a1 1 0 011 1v3a1 1 0 01-2 0V6h-2v12h2v-2a1 1 0 012 0v3a1 1 0 01-1 1h-3v1a1 1 0 01-1.27.96l-6.98-2A1 1 0 012 19V5a1 1 0 01.75-.97l6.98-2A1 1 0 0111 3v1z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+        className: "text-gray-400 fill-current",
+        d: "M18.59 11l-1.3-1.3c-.94-.94.47-2.35 1.42-1.4l3 3a1 1 0 010 1.4l-3 3c-.95.95-2.36-.46-1.42-1.4l1.3-1.3H14a1 1 0 010-2h4.59z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: this
+      })));
     });
   }
 
@@ -1805,6 +1833,17 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withData__WEBPACK_IMPORTED_MODULE_5__["default"])(MyApp));
+
+/***/ }),
+
+/***/ "./static/tailwind.css":
+/*!*****************************!*\
+  !*** ./static/tailwind.css ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

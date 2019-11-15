@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
 const Tagline = styled.h1`
   line-height: 1.1;
@@ -42,7 +42,8 @@ export default class HomePage extends Component {
               what they really mean.
             </SubTagline>
           </div>
-          <img src={'/static/images/hero.svg'} />
+
+          <img src={"/static/images/hero.svg"} />
         </HeroContainer>
       </div>
     );

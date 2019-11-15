@@ -90,10 +90,10 @@ function (_Component) {
         },
         __self: this
       }, "An end-user testing and client feedback tool that lets people say what they really mean.")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("img", {
-        src: '/static/images/hero.svg',
+        src: "/static/images/hero.svg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         },
         __self: this
       })));
@@ -7705,7 +7705,7 @@ var Home = function Home(props) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 7:
 /*!**************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Findex.js ***!
   \**************************************************************************************************************************************************************/
@@ -7728,5 +7728,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[7,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
