@@ -543,24 +543,11 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
     font-weight: 800;
   }
   html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
+    font-size: 10px;
   }
   body {
-    padding: 0;
-    margin: 0;
     font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
-    font-size: 16px;
-    /* font-family:  */
-   /* font-family: 'radnika_next' */
   }
-  a {
-    text-decoration: none;
-    color: ${theme.black};
-  }
-
 `;
 
 class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
@@ -569,32 +556,32 @@ class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89
+        lineNumber: 76
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90
+        lineNumber: 77
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91
+        lineNumber: 78
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "p-12",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 79
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 80
       },
       __self: this
     }), this.props.children)));

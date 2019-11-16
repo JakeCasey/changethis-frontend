@@ -408,7 +408,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Page.js";
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Regular.woff') format('woff');\n    font-weight: normal;\n  }\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Medium.woff') format('woff');\n    font-weight: 500;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');\n    font-weight: 600;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Bold.woff') format('woff');\n    font-weight: bold;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Black.woff') format('woff');\n    font-weight: 800;\n  }\n  html {\n    box-sizing: border-box;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 0;\n    margin: 0;\n    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;\n    font-size: 16px;\n    /* font-family:  */\n   /* font-family: 'radnika_next' */\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Regular.woff') format('woff');\n    font-weight: normal;\n  }\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Medium.woff') format('woff');\n    font-weight: 500;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');\n    font-weight: 600;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Bold.woff') format('woff');\n    font-weight: bold;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Black.woff') format('woff');\n    font-weight: 800;\n  }\n  html {\n    font-size: 10px;\n  }\n  body {\n    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -446,7 +446,7 @@ var Inner = styled_components__WEBPACK_IMPORTED_MODULE_7__["default"].div.withCo
 })(["max-width:", ";margin:0 auto;padding:2rem;"], function (props) {
   return props.theme.maxWidth;
 });
-Object(styled_components__WEBPACK_IMPORTED_MODULE_7__["injectGlobal"])(_templateObject(), theme.black);
+Object(styled_components__WEBPACK_IMPORTED_MODULE_7__["injectGlobal"])(_templateObject());
 
 var Page =
 /*#__PURE__*/
@@ -466,32 +466,32 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 76
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 77
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 78
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "p-12",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 79
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 80
         },
         __self: this
       }), this.props.children)));

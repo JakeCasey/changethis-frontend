@@ -63,24 +63,11 @@ injectGlobal`
     font-weight: 800;
   }
   html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
+    font-size: 10px;
   }
   body {
-    padding: 0;
-    margin: 0;
     font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
-    font-size: 16px;
-    /* font-family:  */
-   /* font-family: 'radnika_next' */
   }
-  a {
-    text-decoration: none;
-    color: ${theme.black};
-  }
-
 `;
 
 class Page extends Component {
