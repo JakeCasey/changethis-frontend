@@ -408,7 +408,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Page.js";
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter-Regular.woff') format('woff');\n  }\n  html {\n    box-sizing: border-box;\n    font-size: 10px;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 0;\n    margin: 0;\n    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;\n    /* font-family:  */\n   /* font-family: 'radnika_next' */\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Regular.woff') format('woff');\n    font-weight: normal;\n  }\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Medium.woff') format('woff');\n    font-weight: 500;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');\n    font-weight: 600;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Bold.woff') format('woff');\n    font-weight: bold;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Black.woff') format('woff');\n    font-weight: 800;\n  }\n\n  html {\n    box-sizing: border-box;\n    font-size: 10px;\n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 0;\n    margin: 0;\n    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;\n    /* font-family:  */\n   /* font-family: 'radnika_next' */\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -466,32 +466,32 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 90
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 91
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 92
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "p-12",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 94
         },
         __self: this
       }), this.props.children)));

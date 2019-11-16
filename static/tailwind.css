@@ -11,5 +11,5 @@
 }
 
 .nav-link {
-  @apply px-10 font-black;
+  @apply px-10 font-black leading-none;
 }

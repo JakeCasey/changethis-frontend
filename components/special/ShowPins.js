@@ -69,7 +69,7 @@ class ShowPins extends Component {
     timeout = setTimeout(() => {
       this._updateScrollPosition();
       setTimeout(this._updateScrollPosition(), 150);
-    }, 150);
+    }, 200);
     this._updateScrollPosition();
   };
 

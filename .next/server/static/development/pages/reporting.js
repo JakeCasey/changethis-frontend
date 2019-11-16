@@ -1519,7 +1519,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         this._updateScrollPosition();
 
         setTimeout(this._updateScrollPosition(), 150);
-      }, 150);
+      }, 200);
 
       this._updateScrollPosition();
     });
@@ -1690,7 +1690,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 class ToolbarDiv extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "container w-1/5 flex flex-col  ml-8 py-8",
+      className: "container w-1/5 flex flex-col  ml-8",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31
@@ -1744,7 +1744,41 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 69
       },
       __self: this
-    }, canvas && canvas.state.toolbar.map((block, i) => {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      onClick: () => this.showBlocks(),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 70
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      class: "icon-add-circle h-16 w-16",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "10",
+      className: "fill-current text-gray-300",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
+      className: "fill-current text-gray-500",
+      d: "M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82
+      },
+      __self: this
+    }))), canvas && canvas.state.toolbar.map((block, i) => {
       var type = block.type;
 
       switch (type) {
@@ -1754,7 +1788,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 93
             },
             __self: this
           });
@@ -1766,7 +1800,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 96
             },
             __self: this
           });
@@ -1776,14 +1810,14 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "toolbar_card",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 101
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "flex justify-between mb-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 102
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
@@ -1792,7 +1826,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "w-10 h-10 mr-4",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 103
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
@@ -1800,7 +1834,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       d: "M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90
+        lineNumber: 108
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
@@ -1808,7 +1842,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       d: "M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 112
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("polygon", {
@@ -1816,84 +1850,49 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       points: "14 2 20 8 14 8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 116
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       className: "toolbar_header",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 118
       },
       __self: this
-    }, "Save")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-      ref: textarea => this.textArea = textarea,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 102
-      },
-      __self: this
-    }), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
-      component: _styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"],
+    }, "Save")), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
+      className: "bg-blue-100 text-blue-700 py-2 px-4 rounded ",
       "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 122
       },
       __self: this
-    }, "copy application state to clipboard"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+      className: "font-bold",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 128
+      },
+      __self: this
+    }, "Copy State"))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 133
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 135
       },
       __self: this
-    }, " ", "Update State From String")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-      className: "mt-8",
-      onClick: () => this.showBlocks(),
+    }, " ", "Update State")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 24 24",
-      class: "icon-add-circle h-16 w-16",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 121
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("circle", {
-      cx: "12",
-      cy: "12",
-      r: "10",
-      className: "fill-current text-gray-300",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 126
-      },
-      __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
-      className: "fill-current text-gray-500",
-      d: "M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 132
-      },
-      __self: this
-    }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 139
+        lineNumber: 141
       },
       __self: this
     }));

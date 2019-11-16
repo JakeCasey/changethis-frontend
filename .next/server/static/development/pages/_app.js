@@ -518,8 +518,31 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
 
   @font-face {
     font-family: 'Inter';
-    src: url('/static/Inter-Regular.woff') format('woff');
+    src: url('/static/Inter/Inter-Regular.woff') format('woff');
+    font-weight: normal;
   }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Medium.woff') format('woff');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Bold.woff') format('woff');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Black.woff') format('woff');
+    font-weight: 800;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -547,32 +570,32 @@ class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 90
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 91
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 92
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "p-12",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 93
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 94
       },
       __self: this
     }), this.props.children)));

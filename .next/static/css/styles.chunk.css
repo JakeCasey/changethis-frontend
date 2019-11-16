@@ -11428,6 +11428,7 @@ video {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   font-weight: 900;
+  line-height: 1;
 }
 
 @media (min-width: 640px) {

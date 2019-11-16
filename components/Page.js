@@ -38,8 +38,31 @@ injectGlobal`
 
   @font-face {
     font-family: 'Inter';
-    src: url('/static/Inter-Regular.woff') format('woff');
+    src: url('/static/Inter/Inter-Regular.woff') format('woff');
+    font-weight: normal;
   }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Medium.woff') format('woff');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Bold.woff') format('woff');
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/static/Inter/Inter-Black.woff') format('woff');
+    font-weight: 800;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 10px;
