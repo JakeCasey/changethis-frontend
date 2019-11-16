@@ -72,6 +72,7 @@ injectGlobal`
     padding: 0;
     margin: 0;
     font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
+    font-size: 16px;
     /* font-family:  */
    /* font-family: 'radnika_next' */
   }
