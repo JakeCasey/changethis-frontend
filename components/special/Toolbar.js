@@ -113,7 +113,10 @@ class Toolbar extends Component {
                 className="fill-current text-gray-500"
                 d="M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z"
               />
-              <polygon class="secondary" points="14 2 20 8 14 8" />
+              <polygon
+                className="fill-current text-gray-500"
+                points="14 2 20 8 14 8"
+              />
             </svg>
             <p className="toolbar_header">Save</p>
           </div>

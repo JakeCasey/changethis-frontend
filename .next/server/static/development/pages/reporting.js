@@ -1846,7 +1846,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("polygon", {
-      class: "secondary",
+      className: "fill-current text-gray-500",
       points: "14 2 20 8 14 8",
       __source: {
         fileName: _jsxFileName,
@@ -1857,7 +1857,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "toolbar_header",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 121
       },
       __self: this
     }, "Save")), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
@@ -1865,34 +1865,34 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 125
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
       className: "font-bold",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 131
       },
       __self: this
     }, "Copy State"))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133
+        lineNumber: 136
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135
+        lineNumber: 138
       },
       __self: this
     }, " ", "Update State")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141
+        lineNumber: 144
       },
       __self: this
     }));

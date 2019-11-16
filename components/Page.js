@@ -62,10 +62,8 @@ injectGlobal`
     src: url('/static/Inter/Inter-Black.woff') format('woff');
     font-weight: 800;
   }
-
   html {
     box-sizing: border-box;
-    font-size: 10px;
   }
   *, *:before, *:after {
     box-sizing: inherit;
