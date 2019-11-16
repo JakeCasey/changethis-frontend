@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -541,7 +541,7 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_getPlaceholder", () => {
-      var placeholders = ['This needs more SPARKLE.', 'Can I get this in comic-sans?', 'I like everything about how this looks, except for how it looks.', 'How can we “spice” this page up?', 'Why don’t we add a few more colors into the mix?', 'This shit is gonna go viral', 'How about we just “spruce” this up a bit?'];
+      var placeholders = ["This needs more SPARKLE.", "Can I get this in comic-sans?", "I like everything about how this looks, except for how it looks.", "How can we “spice” this page up?", "Why don’t we add a few more colors into the mix?", "This shit is gonna go viral", "How about we just “spruce” this up a bit?"];
       return lodash__WEBPACK_IMPORTED_MODULE_4___default.a.sample(placeholders); // return 'test';
     });
 
@@ -554,6 +554,7 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Commentarea, {
+      className: "bg-gray-100",
       value: this.props.pin.comment,
       onChange: e => this._updateComment(this.props.test, e),
       placeholder: this._getPlaceholder(),
@@ -1017,13 +1018,59 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
   render() {
     var block = this.props.block;
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, this.props.test && this.props.test.state.pins.map((p, index) => {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: "toolbar_card",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: "flex justify-between mb-8",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      className: "w-10 h-10 mr-4",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+      className: "fill-current text-gray-300",
+      d: "M2.24 20.35l6.5-7.5a1 1 0 0 1 1.47-.06l1 1a1 1 0 0 1-.06 1.47l-7.5 6.5c-.93.8-2.22-.48-1.4-1.41z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+      className: "fill-current text-gray-500",
+      d: "M15 15.41V18a1 1 0 0 1-.3.7l-1 1a1 1 0 0 1-1.4 0l-8-8a1 1 0 0 1 0-1.4l1-1A1 1 0 0 1 6 9h2.59L13 4.59V3a1 1 0 0 1 1.7-.7l7 7A1 1 0 0 1 21 11h-1.59L15 15.41z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+      className: "toolbar_header",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }, "Pin")), this.props.test && this.props.test.state.pins.map((p, index) => {
       if (p.belongsTo == this.props.block.id) {
         return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 35
           },
           __self: this
         }, p.comment);
@@ -1032,10 +1079,10 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       onClick: () => this.props.test.togglePinPlacement(this.props.block.id),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 38
       },
       __self: this
-    }, this.props.test && this.props.test.state.isPlacingPin ? 'Stop Placing Pins' : 'Place Pin'));
+    }, this.props.test && this.props.test.state.isPlacingPin ? "Stop Placing Pins" : "Place Pin"));
   }
 
 }
@@ -1310,6 +1357,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
+      className: "bg-gray-100 px-8 mr-8 rounded",
       value: this.state.url,
       onChange: e => {
         this.updateUrl(e);
@@ -1321,25 +1369,53 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         lineNumber: 95
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
+      className: " text-green-700 mr-4 rounded ",
       onClick: () => {
         this.reloadIframe();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 104
       },
       __self: this
-    }, "Go")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      className: "icon-arrow-thick-right-circle w-16 h-16",
+      viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111
+        lineNumber: 110
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "10",
+      className: "fill-current text-green-300",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+      d: "M12 14H7a1 1 0 01-1-1v-2a1 1 0 011-1h5V8a1 1 0 011.7-.7l4 4a1 1 0 010 1.4l-4 4A1 1 0 0112 16v-2z",
+      className: "text-green-500 fill-current",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 121
+      },
+      __self: this
+    })))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 128
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 129
       },
       __self: this
     }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
@@ -1349,7 +1425,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 134
         },
         __self: this
       });
@@ -1359,13 +1435,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       src: this.props.test.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 138
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 146
       },
       __self: this
     })));
@@ -1614,7 +1690,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 class ToolbarDiv extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "container w-1/5 py-8 px-16",
+      className: "container w-1/5 flex flex-col  ml-8 py-8",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31
@@ -1638,7 +1714,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       this.props.test.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 49
         },
         __self: this
       })); //open toolbar
@@ -1665,7 +1741,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 69
       },
       __self: this
     }, canvas && canvas.state.toolbar.map((block, i) => {
@@ -1678,7 +1754,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 75
             },
             __self: this
           });
@@ -1690,24 +1766,71 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
             block: block,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 76
+              lineNumber: 78
             },
             __self: this
           });
           break;
       }
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      onClick: () => this.showBlocks(),
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "toolbar_card",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 83
       },
       __self: this
-    }, "Add Block"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "flex justify-between mb-8",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 84
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      className: "w-10 h-10 mr-4",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 85
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
+      className: "fill-current text-gray-300",
+      d: "M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 90
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
+      className: "fill-current text-gray-500",
+      d: "M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("polygon", {
+      class: "secondary",
+      points: "14 2 20 8 14 8",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 98
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+      className: "toolbar_header",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: this
+    }, "Save")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
       ref: textarea => this.textArea = textarea,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 102
       },
       __self: this
     }), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
@@ -1715,27 +1838,62 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 104
       },
       __self: this
     }, "copy application state to clipboard"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("textarea", {
       onChange: e => this.handlebase64Update(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 112
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: () => this._updateState(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 114
       },
       __self: this
-    }, " ", "Update State From String"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, " ", "Update State From String")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+      className: "mt-8",
+      onClick: () => this.showBlocks(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 120
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      class: "icon-add-circle h-16 w-16",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 121
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "10",
+      className: "fill-current text-gray-300",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 126
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
+      className: "fill-current text-gray-500",
+      d: "M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 132
+      },
+      __self: this
+    }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 139
       },
       __self: this
     }));
@@ -1877,14 +2035,15 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const Tip = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "TooltipWrapper__Tip",
   componentId: "sc-1fwot0u-0"
-})(["min-width:300px;min-height:300px;padding:20px;border-radius:10px;background:white;"]);
+})([""]);
 
 class TooltipWrapper extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tip, {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "rounded shadow p-8 bg-gray-100",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 12
       },
       __self: this
     }, this.props.children);
@@ -1914,7 +2073,7 @@ const loading = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes
 const Form = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.form.withConfig({
   displayName: "Form",
   componentId: "sc-1oofk7n-0"
-})(["display:flex;justify-content:center;width:100%;border-radius:", ";box-shadow:0 5px 15px hsla(0,0%,0%,0.2);background:rgba(0,0,0,0.02);font-size:1.5rem;line-height:1.5;font-weight:600;.img-form{width:100%;display:flex;.img-container{width:50%;", "}.form-container{width:50%;display:flex;align-items:center;", "}", "}h2{font-size:32px;}img{width:100%;height:100%;border-top-left-radius:", ";border-bottom-left-radius:", ";}label{display:block;margin:24px 0px;}input,textarea,select{background-color:#f1f1f1;width:100%;padding:8px;font-size:1rem;border-radius:", ";border:1px solid #e1e1e1;&:focus{outline:0;border-color:", ";}}button,input[type='submit']{width:100%;border-radius:", ";background:", ";color:white;border:0;font-size:16px;text-transform:uppercase;font-weight:600;padding:0.5rem 1.2rem;}fieldset{border:0;padding:24px;width:100%;a &[disabled]{opacity:0.5;}&[aria-busy='true']::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], props => props.theme.borders, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`width: 100%`, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`width: 100%`, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`flex-direction: column`, props => props.theme.borders, props => props.theme.borders, props => props.theme.borders, props => props.theme.primary, props => props.theme.button_borders, props => props.theme.button_color, loading);
+})(["display:flex;justify-content:center;width:100%;border-radius:", ";box-shadow:0 5px 15px hsla(0,0%,0%,0.2);background:rgba(0,0,0,0.02);font-size:1.5rem;font-weight:600;.img-form{width:100%;display:flex;.img-container{width:50%;", "}.form-container{width:50%;display:flex;align-items:center;", "}", "}h2{font-size:32px;}img{width:100%;height:100%;border-top-left-radius:", ";border-bottom-left-radius:", ";}label{display:block;margin:24px 0px;}input,textarea,select{background-color:#f1f1f1;width:100%;padding:8px;font-size:1rem;border-radius:", ";border:1px solid #e1e1e1;&:focus{outline:0;border-color:", ";}}button,input[type=\"submit\"]{width:100%;border-radius:", ";background:", ";color:white;border:0;font-size:16px;text-transform:uppercase;font-weight:600;padding:0.5rem 1.2rem;}fieldset{border:0;padding:24px;width:100%;a &[disabled]{opacity:0.5;}&[aria-busy=\"true\"]::before{background-size:50% auto;animation:", " 0.5s linear infinite;}}"], props => props.theme.borders, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`width: 100%`, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`width: 100%`, _styles_MediaQueries__WEBPACK_IMPORTED_MODULE_1__["media"].mobile`flex-direction: column`, props => props.theme.borders, props => props.theme.borders, props => props.theme.borders, props => props.theme.primary, props => props.theme.button_borders, props => props.theme.button_color, loading);
 /* harmony default export */ __webpack_exports__["default"] = (Form);
 
 /***/ }),
@@ -1982,13 +2141,21 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 class SickButton extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "bg-blue-100 text-blue-700 py-2 px-4 rounded",
+      onClick: () => this.props.onClick(),
+      className: "bg-blue-100 text-blue-700 py-2 px-4 rounded ",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 22
       },
       __self: this
-    }, this.props.children);
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-bold",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }, " ", this.props.children, " "));
   }
 
 }
@@ -2379,7 +2546,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

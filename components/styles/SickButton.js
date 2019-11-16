@@ -19,8 +19,11 @@ import React, { Component } from "react";
 class SickButton extends Component {
   render() {
     return (
-      <button className="bg-blue-100 text-blue-700 py-2 px-4 rounded">
-        {this.props.children}
+      <button
+        onClick={() => this.props.onClick()}
+        className="bg-blue-100 text-blue-700 py-2 px-4 rounded "
+      >
+        <span className="font-bold"> {this.props.children} </span>
       </button>
     );
   }

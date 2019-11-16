@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Tagline = styled.h1`
-  line-height: 1.1;
   margin-bottom: 0px;
   font-weight: bold;
 `;
 
 const SubTagline = styled.h2`
   margin-top: 12px;
-  line-height: 1.1;
   font-weight: 200;
 `;
 

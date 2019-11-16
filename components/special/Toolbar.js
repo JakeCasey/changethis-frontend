@@ -28,7 +28,9 @@ import PinBlock from "./PinBlock";
 class ToolbarDiv extends Component {
   render() {
     return (
-      <div className="container w-1/5 py-8 px-16">{this.props.children}</div>
+      <div className="container w-1/5 flex flex-col  ml-8 py-8">
+        {this.props.children}
+      </div>
     );
   }
 }
@@ -78,23 +80,61 @@ class Toolbar extends Component {
             }
           })}
 
-        <SickButton onClick={() => this.showBlocks()}>Add Block</SickButton>
-        <p ref={textarea => (this.textArea = textarea)}>{}</p>
-        {this.props.test && (
-          <Clipboard
-            component={SickButton}
-            data-clipboard-text={btoa(JSON.stringify(this.props.test.state))}
+        <div className="toolbar_card">
+          <div className="flex justify-between mb-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="w-10 h-10 mr-4"
+            >
+              <path
+                className="fill-current text-gray-300"
+                d="M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z"
+              />
+              <path
+                className="fill-current text-gray-500"
+                d="M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z"
+              />
+              <polygon class="secondary" points="14 2 20 8 14 8" />
+            </svg>
+            <p className="toolbar_header">Save</p>
+          </div>
+          <p ref={textarea => (this.textArea = textarea)}>{}</p>
+          {this.props.test && (
+            <Clipboard
+              component={SickButton}
+              data-clipboard-text={btoa(JSON.stringify(this.props.test.state))}
+            >
+              copy application state to clipboard
+            </Clipboard>
+          )}
+
+          <textarea onChange={e => this.handlebase64Update(e)} />
+
+          <SickButton onClick={() => this._updateState()}>
+            {" "}
+            Update State From String
+          </SickButton>
+        </div>
+
+        <button className="mt-8" onClick={() => this.showBlocks()}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="icon-add-circle h-16 w-16"
           >
-            copy application state to clipboard
-          </Clipboard>
-        )}
-
-        <textarea onChange={e => this.handlebase64Update(e)} />
-
-        <SickButton onClick={() => this._updateState()}>
-          {" "}
-          Update State From String
-        </SickButton>
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              className="fill-current text-gray-300"
+            />
+            <path
+              className="fill-current text-gray-500"
+              d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z"
+            />
+          </svg>
+        </button>
 
         <ToolbarOverlay />
 

@@ -93,6 +93,7 @@ class Reporting extends Component {
       <div>
         <UrlBar>
           <URL
+            className="bg-gray-100 px-8 mr-8 rounded"
             value={this.state.url}
             onChange={e => {
               this.updateUrl(e);
@@ -100,13 +101,29 @@ class Reporting extends Component {
             onKeyDown={e => this.handleKeyDown(e)}
             type="text"
           />
-          <SickButton
+          <button
+            className=" text-green-700 mr-4 rounded "
             onClick={() => {
               this.reloadIframe();
             }}
           >
-            Go
-          </SickButton>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon-arrow-thick-right-circle w-16 h-16"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                className="fill-current text-green-300"
+              ></circle>
+              <path
+                d="M12 14H7a1 1 0 01-1-1v-2a1 1 0 011-1h5V8a1 1 0 011.7-.7l4 4a1 1 0 010 1.4l-4 4A1 1 0 0112 16v-2z"
+                className="text-green-500 fill-current"
+              ></path>
+            </svg>
+          </button>
         </UrlBar>
         <WorkArea>
           <CanvasContainer>

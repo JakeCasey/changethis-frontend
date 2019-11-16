@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import Nav from './Nav';
-import Router from 'next/router';
-import NProgress from 'nprogress';
+import Link from "next/link";
+import styled from "styled-components";
+import Nav from "./Nav";
+import Router from "next/router";
+import NProgress from "nprogress";
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -15,29 +15,10 @@ Router.onRouteChangeError = () => {
   NProgress.done();
 };
 
-const Logo = styled.h1`
-  font-size: 3rem;
-  margin: 0em 0em 0em 2em;
-  position: relative;
-  z-index: 2;
-
-  a {
-    padding: 0.5rem 1rem;
-    /* background: ${props => props.theme.primary}; */
-    color: ${props => props.theme.black};
-    text-transform: lowercase;
-    font-weight: 800;
-    text-decoration: none;
-  }
-  @media (max-width: 1300px) {
-    margin: 0;
-    text-align: center;
-  }
-`;
+const Logo = styled.h1``;
 
 const StyledHeader = styled.header`
   .bar {
-    margin-top: 2em;
    /* border-bottom: 10px solid ${props => props.theme.black}; */
    /* box-shadow: ${props => props.theme.bs}; */
     display: grid;
@@ -63,8 +44,8 @@ const StyledHeader = styled.header`
 
 const Header = () => (
   <StyledHeader>
-    <div className="bar">
-      <Logo>
+    <div className="bar my-10">
+      <Logo className="text-5xl leading-none lowercase">
         <Link href="/">
           <a>CHANGETHIS</a>
         </Link>

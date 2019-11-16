@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NavStyles from "./styles/NavStyles";
 import User from "./wrappers/User";
 import SignoutButton from "./SignoutButton";
 import styled from "styled-components";
@@ -11,17 +10,17 @@ const Nav = () => (
       let me = data.me;
 
       return (
-        <NavStyles data-test="nav">
+        <div className="flex justify-end items-end">
           <Link href="/reporting">
-            <a>Reporting</a>
+            <a className="nav-link">Reporting</a>
           </Link>
           {me && (
             <>
               <Link href="/permissions">
-                <a>Permissions</a>
+                <a className="nav-link">Permissions</a>
               </Link>
               <Link href="/plans">
-                <a>Plans</a>
+                <a className="nav-link">Plans</a>
               </Link>
               <SignoutButton />
             </>
@@ -29,14 +28,14 @@ const Nav = () => (
           {!me && (
             <>
               <Link href="/pricing">
-                <a>Sign Up</a>
+                <a className="nav-link">Sign Up</a>
               </Link>
               <Link href="/signin">
-                <a className="menu_button">Sign In</a>
+                <a className="nav-link">Sign In</a>
               </Link>
             </>
           )}
-        </NavStyles>
+        </div>
       );
     }}
   </User>

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.toolbar_card {
+  @apply flex flex-col my-4 py-8 px-8 shadow;
+}
+
+.toolbar_header {
+  @apply leading-loose uppercase tracking-widest text-lg text-gray-500;
+}
+
+.nav-link {
+  @apply px-10 font-black;
+}

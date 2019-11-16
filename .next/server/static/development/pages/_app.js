@@ -221,48 +221,49 @@ next_router__WEBPACK_IMPORTED_MODULE_4___default.a.onRouteChangeError = () => {
 const Logo = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.h1.withConfig({
   displayName: "Header__Logo",
   componentId: "x8cysd-0"
-})(["font-size:3rem;margin:0em 0em 0em 2em;position:relative;z-index:2;a{padding:0.5rem 1rem;color:", ";text-transform:lowercase;font-weight:800;text-decoration:none;}@media (max-width:1300px){margin:0;text-align:center;}"], props => props.theme.black);
+})([""]);
 const StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.header.withConfig({
   displayName: "Header__StyledHeader",
   componentId: "x8cysd-1"
-})([".bar{margin-top:2em;display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid ", ";}"], props => props.theme.lightgrey);
+})([".bar{display:grid;grid-template-columns:auto 1fr;justify-content:space-between;align-items:stretch;@media (max-width:1300px){grid-template-columns:1fr;justify-content:center;}}.sub-bar{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid ", ";}"], props => props.theme.lightgrey);
 
 const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 65
+    lineNumber: 46
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "bar",
+  className: "bar my-10",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 66
+    lineNumber: 47
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Logo, {
+  className: "text-5xl leading-none lowercase",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 67
+    lineNumber: 48
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 68
+    lineNumber: 49
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 69
+    lineNumber: 50
   },
   __self: undefined
 }, "CHANGETHIS"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 72
+    lineNumber: 53
   },
   __self: undefined
 })));
@@ -346,11 +347,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/NavStyles */ "./components/styles/NavStyles.js");
-/* harmony import */ var _wrappers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wrappers/User */ "./components/wrappers/User.js");
-/* harmony import */ var _SignoutButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SignoutButton */ "./components/SignoutButton.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wrappers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wrappers/User */ "./components/wrappers/User.js");
+/* harmony import */ var _SignoutButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SignoutButton */ "./components/SignoutButton.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Nav.js";
 
 
@@ -358,11 +358,10 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 
 
-
-const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wrappers_User__WEBPACK_IMPORTED_MODULE_3__["default"], {
+const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wrappers_User__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 7
   },
   __self: undefined
 }, ({
@@ -373,88 +372,92 @@ const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wr
   if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 9
     },
     __self: undefined
   }, " loading ... ");
   let me = data.me;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    "data-test": "nav",
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex justify-end items-end",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/reporting",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 14
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 15
     },
     __self: undefined
   }, "Reporting")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/permissions",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 19
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 20
     },
     __self: undefined
   }, "Permissions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/plans",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 22
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 23
     },
     __self: undefined
-  }, "Plans")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignoutButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Plans")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SignoutButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 25
     },
     __self: undefined
   })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/pricing",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: undefined
   }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/signin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 33
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "menu_button",
+    className: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 34
     },
     __self: undefined
   }, "Sign In"))));
@@ -485,17 +488,17 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 
 const theme = {
-  primary: 'lightskyblue',
-  red: '#FF0000',
-  black: '#393939',
-  grey: '#3A3A3A',
-  lightgrey: '#E1E1E1',
-  offWhite: '#EDEDED',
-  maxWidth: '100vw',
-  bs: '0 5px 15px hsla(0, 0%, 0%, 0.2)',
-  borders: '4px',
-  button_borders: '4px',
-  button_color: 'lightskyblue'
+  primary: "lightskyblue",
+  red: "#FF0000",
+  black: "#393939",
+  grey: "#3A3A3A",
+  lightgrey: "#E1E1E1",
+  offWhite: "#EDEDED",
+  maxWidth: "100vw",
+  bs: "0 5px 15px hsla(0, 0%, 0%, 0.2)",
+  borders: "4px",
+  button_borders: "4px",
+  button_color: "lightskyblue"
 };
 const StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "Page__StyledPage",
@@ -516,8 +519,6 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
   @font-face {
     font-family: 'Inter';
     src: url('/static/Inter-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
   }
   html {
     box-sizing: border-box;
@@ -529,8 +530,6 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 2;
     font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
     /* font-family:  */
    /* font-family: 'radnika_next' */
@@ -548,34 +547,35 @@ class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 67
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 68
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 69
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "p-12",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 70
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 71
       },
       __self: this
-    }, this.props.children)));
+    }), this.props.children)));
   }
 
 }
@@ -668,26 +668,6 @@ class SignoutButton extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
 }
-
-/***/ }),
-
-/***/ "./components/styles/NavStyles.js":
-/*!****************************************!*\
-  !*** ./components/styles/NavStyles.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-const NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.ul.withConfig({
-  displayName: "NavStyles",
-  componentId: "sc-1nqau96-0"
-})(["margin:0em 2em 0em 0em;padding:0;display:flex;justify-self:end;font-size:2rem;a,button{color:", ";padding:0px 16px;display:flex;align-items:center;position:relative;font-weight:300;letter-spacing:0.25px;font-size:1em;background:none;border:0;cursor:pointer;@media (max-width:700px){font-size:10px;padding:0 10px;}&:after{height:2px;background:", ";content:'';width:0;position:absolute;transform:translateX(-50%);transition:width 0.4s;transition-timing-function:cubic-bezier(1,-0.65,0,2.31);left:50%;margin-top:2rem;}&:hover,&:focus{outline:none;&:after{width:calc(100% - 60px);}}}@media (max-width:1300px){border-top:1px solid ", ";width:100%;justify-content:center;font-size:1.5rem;}"], props => props.theme.black, props => props.theme.primary, props => props.theme.lightgrey);
-/* harmony default export */ __webpack_exports__["default"] = (NavStyles);
 
 /***/ }),
 

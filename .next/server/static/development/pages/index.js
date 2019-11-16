@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -113,11 +113,11 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const Tagline = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.h1.withConfig({
   displayName: "HomePage__Tagline",
   componentId: "sc-4bsfv0-0"
-})(["line-height:1.1;margin-bottom:0px;font-weight:bold;"]);
+})(["margin-bottom:0px;font-weight:bold;"]);
 const SubTagline = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.h2.withConfig({
   displayName: "HomePage__SubTagline",
   componentId: "sc-4bsfv0-1"
-})(["margin-top:12px;line-height:1.1;font-weight:200;"]);
+})(["margin-top:12px;font-weight:200;"]);
 const HeroContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "HomePage__HeroContainer",
   componentId: "sc-4bsfv0-2"
@@ -127,44 +127,44 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 31
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HeroContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 32
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 33
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tagline, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 34
       },
       __self: this
     }, "Kill confusing email chains.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 35
       },
       __self: this
     }), " Leave feedback on the real thing."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SubTagline, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 38
       },
       __self: this
     }, "An end-user testing and client feedback tool that lets people say what they really mean.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "/static/images/hero.svg",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 44
       },
       __self: this
     })));
@@ -208,7 +208,7 @@ const Home = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
