@@ -16,7 +16,7 @@ class PinBlock extends Component {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-10 h-10 mr-4"
+            className="w-6 h-6 mr-4"
           >
             <path
               className="fill-current text-gray-300"

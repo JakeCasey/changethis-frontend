@@ -1225,7 +1225,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
-        className: "w-10 h-10 mr-4",
+        className: "w-6 h-6 mr-4",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 16
@@ -1528,7 +1528,7 @@ var WorkArea = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.wi
 var UrlBar = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "Reporting__UrlBar",
   componentId: "sc-5smu6h-2"
-})(["display:flex;padding:40px 0px;"]);
+})(["display:flex;"]);
 var URL = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].input.withConfig({
   displayName: "Reporting__URL",
   componentId: "sc-5smu6h-3"
@@ -1543,13 +1543,13 @@ var Test = function Test(props) {
   return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 52
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 53
     },
     __self: this
   }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_7___default()(router.query), props.children);
@@ -1618,13 +1618,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 92
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UrlBar, {
+        className: "mb-8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(URL, {
@@ -1639,7 +1640,7 @@ function (_Component) {
         type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 94
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("button", {
@@ -1649,16 +1650,16 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 103
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
-        className: "icon-arrow-thick-right-circle w-16 h-16",
+        className: "icon-arrow-thick-right-circle w-10 h-10",
         viewBox: "0 0 24 24",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 109
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("circle", {
@@ -1668,7 +1669,7 @@ function (_Component) {
         className: "fill-current text-green-300",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 114
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("path", {
@@ -1676,19 +1677,19 @@ function (_Component) {
         className: "text-green-500 fill-current",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 120
         },
         __self: this
       })))), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(WorkArea, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 127
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(CanvasContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 128
         },
         __self: this
       }, this.props.test && this.props.test.state.overIframe.map(function (OverIframe, i) {
@@ -1698,7 +1699,7 @@ function (_Component) {
           id: OverIframe.belongsTo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 133
           },
           __self: this
         });
@@ -1708,13 +1709,13 @@ function (_Component) {
         src: this.props.test.state.currentIframe,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 137
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_17__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 145
         },
         __self: this
       })));
@@ -2149,7 +2150,7 @@ function (_Component2) {
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
-        "class": "icon-add-circle h-16 w-16",
+        "class": "icon-add-circle h-12 w-12",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 71
@@ -2218,7 +2219,7 @@ function (_Component2) {
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24",
-        className: "w-10 h-10 mr-4",
+        className: "w-6 h-6 mr-4",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 103
@@ -2854,12 +2855,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-var endpoint = "http://localhost:4444";
-var prodEndPoint = "https://changethisbackend.deva.io"; // export const prodEndPoint = `http://localhost:4444`;
+var endpoint = "http://localhost:4444"; // export const prodEndPoint = `https://changethisbackend.deva.io`;
 
-var frontend = "http://localhost:7777";
-var prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
+var prodEndPoint = "http://localhost:4444";
+var frontend = "http://localhost:7777"; // export const prodFrontend = 'https://changethisfrontend.deva.io';
 
+var prodFrontend = "http://localhost:7777";
 var perPage = 4;
 var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 
@@ -16180,7 +16181,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 2);
+  var jsdom = __webpack_require__(/*! jsdom */ 4);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -16190,8 +16191,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 3).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 4).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 5).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 6).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -88617,7 +88618,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -88629,7 +88630,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -88640,7 +88641,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -88651,7 +88652,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 6:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -88673,5 +88674,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map

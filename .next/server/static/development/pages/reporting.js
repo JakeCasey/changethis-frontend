@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1035,7 +1035,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      className: "w-10 h-10 mr-4",
+      className: "w-6 h-6 mr-4",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -1280,7 +1280,7 @@ const WorkArea = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.div.wi
 const UrlBar = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.div.withConfig({
   displayName: "Reporting__UrlBar",
   componentId: "sc-5smu6h-2"
-})(["display:flex;padding:40px 0px;"]);
+})(["display:flex;"]);
 const URL = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.input.withConfig({
   displayName: "Reporting__URL",
   componentId: "sc-5smu6h-3"
@@ -1295,13 +1295,13 @@ const Test = props => {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 52
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 53
     },
     __self: undefined
   }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(router.query), props.children);
@@ -1347,13 +1347,14 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 92
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
+      className: "mb-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 93
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
@@ -1366,7 +1367,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 94
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
@@ -1376,16 +1377,16 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 103
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      className: "icon-arrow-thick-right-circle w-16 h-16",
+      className: "icon-arrow-thick-right-circle w-10 h-10",
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("circle", {
@@ -1395,7 +1396,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       className: "fill-current text-green-300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 114
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
@@ -1403,19 +1404,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       className: "text-green-500 fill-current",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 120
       },
       __self: this
     })))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 127
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 128
       },
       __self: this
     }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
@@ -1425,7 +1426,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 133
         },
         __self: this
       });
@@ -1435,13 +1436,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       src: this.props.test.state.currentIframe,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 138
+        lineNumber: 137
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 145
       },
       __self: this
     })));
@@ -1754,7 +1755,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      class: "icon-add-circle h-16 w-16",
+      class: "icon-add-circle h-12 w-12",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 71
@@ -1823,7 +1824,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      className: "w-10 h-10 mr-4",
+      className: "w-6 h-6 mr-4",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 103
@@ -2289,12 +2290,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-const endpoint = `http://localhost:4444`;
-const prodEndPoint = `https://changethisbackend.deva.io`; // export const prodEndPoint = `http://localhost:4444`;
+const endpoint = `http://localhost:4444`; // export const prodEndPoint = `https://changethisbackend.deva.io`;
 
-const frontend = `http://localhost:7777`;
-const prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
+const prodEndPoint = `http://localhost:4444`;
+const frontend = `http://localhost:7777`; // export const prodFrontend = 'https://changethisfrontend.deva.io';
 
+const prodFrontend = "http://localhost:7777";
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 
@@ -2545,7 +2546,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

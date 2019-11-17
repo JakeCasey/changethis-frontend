@@ -31,7 +31,6 @@ const WorkArea = styled.div`
 
 const UrlBar = styled.div`
   display: flex;
-  padding: 40px 0px;
 `;
 
 const URL = styled.input`
@@ -91,7 +90,7 @@ class Reporting extends Component {
     // if (!this.props.test) return <p>Loading...</p>;
     return (
       <div>
-        <UrlBar>
+        <UrlBar className="mb-8">
           <URL
             className="bg-gray-100 px-8 mr-8 rounded"
             value={this.state.url}
@@ -109,7 +108,7 @@ class Reporting extends Component {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="icon-arrow-thick-right-circle w-16 h-16"
+              className="icon-arrow-thick-right-circle w-10 h-10"
               viewBox="0 0 24 24"
             >
               <circle

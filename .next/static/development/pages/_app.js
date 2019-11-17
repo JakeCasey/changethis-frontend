@@ -408,7 +408,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Page.js";
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Regular.woff') format('woff');\n    font-weight: normal;\n  }\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Medium.woff') format('woff');\n    font-weight: 500;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');\n    font-weight: 600;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Bold.woff') format('woff');\n    font-weight: bold;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Black.woff') format('woff');\n    font-weight: 800;\n  }\n  html {\n    font-size: 10px;\n  }\n  body {\n    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_5__["default"])(["\n  /* @font-face {\n    font-family: 'radnika_next';\n    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');\n    font-weight: normal;\n    font-style: normal;\n  } */\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Regular.woff') format('woff');\n    font-weight: normal;\n  }\n\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Medium.woff') format('woff');\n    font-weight: 500;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-SemiBold.woff') format('woff');\n    font-weight: 600;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Bold.woff') format('woff');\n    font-weight: bold;\n  }\n  @font-face {\n    font-family: 'Inter';\n    src: url('/static/Inter/Inter-Black.woff') format('woff');\n    font-weight: 800;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -466,32 +466,32 @@ function (_Component) {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 70
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(StyledPage, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 72
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
-        className: "p-12",
+        className: "p-8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 74
         },
         __self: this
       }), this.props.children)));
@@ -702,12 +702,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-var endpoint = "http://localhost:4444";
-var prodEndPoint = "https://changethisbackend.deva.io"; // export const prodEndPoint = `http://localhost:4444`;
+var endpoint = "http://localhost:4444"; // export const prodEndPoint = `https://changethisbackend.deva.io`;
 
-var frontend = "http://localhost:7777";
-var prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
+var prodEndPoint = "http://localhost:4444";
+var frontend = "http://localhost:7777"; // export const prodFrontend = 'https://changethisfrontend.deva.io';
 
+var prodFrontend = "http://localhost:7777";
 var perPage = 4;
 var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 
@@ -8121,7 +8121,7 @@ function previouslyCompared(a, b) {
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument, gql, HttpLink, default */
+/*! exports provided: gql, HttpLink, default, ApolloClient, ApolloError, FetchType, NetworkStatus, ObservableQuery, isApolloError, Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

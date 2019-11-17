@@ -7,9 +7,9 @@
 }
 
 .toolbar_header {
-  @apply leading-loose uppercase tracking-widest text-base text-gray-500;
+  @apply leading-loose uppercase tracking-widest text-xs text-gray-500;
 }
 
 .nav-link {
-  @apply px-10 font-black leading-none;
+  @apply px-6 font-black leading-none;
 }

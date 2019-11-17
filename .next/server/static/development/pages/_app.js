@@ -542,12 +542,6 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
     src: url('/static/Inter/Inter-Black.woff') format('woff');
     font-weight: 800;
   }
-  html {
-    font-size: 10px;
-  }
-  body {
-    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
-  }
 `;
 
 class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
@@ -556,32 +550,32 @@ class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 70
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 71
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 72
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "p-12",
+      className: "p-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 73
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 74
       },
       __self: this
     }), this.props.children)));
@@ -752,12 +746,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STRIPE_PUBLIC_KEY", function() { return STRIPE_PUBLIC_KEY; });
 // This is client side config only - don't put anything in here that shouldn't be public!
-const endpoint = `http://localhost:4444`;
-const prodEndPoint = `https://changethisbackend.deva.io`; // export const prodEndPoint = `http://localhost:4444`;
+const endpoint = `http://localhost:4444`; // export const prodEndPoint = `https://changethisbackend.deva.io`;
 
-const frontend = `http://localhost:7777`;
-const prodFrontend = 'https://changethisfrontend.deva.io'; // export const prodFrontend = 'http://localhost:7777';
+const prodEndPoint = `http://localhost:4444`;
+const frontend = `http://localhost:7777`; // export const prodFrontend = 'https://changethisfrontend.deva.io';
 
+const prodFrontend = "http://localhost:7777";
 const perPage = 4;
 const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 

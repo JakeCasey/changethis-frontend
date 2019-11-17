@@ -62,12 +62,6 @@ injectGlobal`
     src: url('/static/Inter/Inter-Black.woff') format('woff');
     font-weight: 800;
   }
-  html {
-    font-size: 10px;
-  }
-  body {
-    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
-  }
 `;
 
 class Page extends Component {
@@ -76,7 +70,7 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
-          <div className="p-12">
+          <div className="p-8">
             <Header />
             {this.props.children}
           </div>
