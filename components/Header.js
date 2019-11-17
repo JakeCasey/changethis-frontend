@@ -44,7 +44,7 @@ const StyledHeader = styled.header`
 
 const Header = () => (
   <StyledHeader>
-    <div className="bar my-10">
+    <div className="bar mb-12">
       <Logo className="text-5xl leading-none lowercase">
         <Link href="/">
           <a>CHANGETHIS</a>

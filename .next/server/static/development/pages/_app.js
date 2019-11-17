@@ -234,7 +234,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "bar my-10",
+  className: "bar mb-12",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 47
