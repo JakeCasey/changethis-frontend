@@ -28,7 +28,7 @@ import PinBlock from "./PinBlock";
 class ToolbarDiv extends Component {
   render() {
     return (
-      <div className="container w-1/5 flex flex-col  ml-8">
+      <div className="container relative w-1/5 flex flex-col  ml-8">
         {this.props.children}
       </div>
     );
@@ -71,7 +71,7 @@ class Toolbar extends Component {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            class="icon-add-circle h-12 w-12"
+            className="icon-add-circle h-12 w-12"
           >
             <circle
               cx="12"
@@ -142,30 +142,6 @@ class Toolbar extends Component {
         </div>
 
         <ToolbarOverlay />
-
-        {/* <ToolbarOverlay>
-          <SickButton
-            onClick={() => {
-              canvas.addPath();
-            }}
-          >
-            Add Rectangle
-          </SickButton>
-          <SickButton
-            onClick={() => {
-              canvas.clear();
-            }}
-          >
-            Clear
-          </SickButton>
-          <SickButton
-            onClick={() => {
-              canvas.addArrow();
-            }}
-          >
-            Add Arrow
-          </SickButton>
-        </ToolbarOverlay> */}
       </ToolbarDiv>
     );
   }

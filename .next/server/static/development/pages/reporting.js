@@ -711,7 +711,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
           width: 200
         }
       },
-      showToolbarOverlay: false,
+      showToolbarOverlay: true,
       toolbarOverlayContents: "",
       toolbar: [],
       isPlacingPin: false,
@@ -1614,16 +1614,62 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
   render() {
     var block = this.props.block;
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: "toolbar_card",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: "flex justify-between mb-8",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 12
       },
       __self: this
-    }, block.label), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      className: "w-6 h-6 mr-4",
+      viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+      d: "M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V4c0-1.1.9-2 2-2zm2 11a1 1 0 000 2h8a1 1 0 000-2H8zm0 4a1 1 0 000 2h4a1 1 0 000-2H8z",
+      className: "fill-current text-gray-300",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+      d: "M14 2L20 8 14 8z",
+      className: "fill-current text-gray-500",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+      className: "toolbar_header",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, "Text")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }, block.label), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
       },
       __self: this
     }, block.value));
@@ -1691,7 +1737,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 class ToolbarDiv extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "container w-1/5 flex flex-col  ml-8",
+      className: "container relative w-1/5 flex flex-col  ml-8",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31
@@ -1755,7 +1801,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      class: "icon-add-circle h-12 w-12",
+      className: "icon-add-circle h-12 w-12",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 71
@@ -1931,14 +1977,14 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const ToolbarOverlayDiv = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "ToolbarOverlay__ToolbarOverlayDiv",
   componentId: "sc-1wlttng-0"
-})(["padding:40px;background:#edf1f5;position:absolute;transform:translate3d(", " + '%',0,0);top:0;left:0;right:0;bottom:0;"], props => props.transform3d);
+})(["transform:translate3d(", " + \"%\",0,0);"], props => props.transform3d);
 
 class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 14
       },
       __self: this
     }, this.props.test && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
@@ -1954,53 +2000,53 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 16
       },
       __self: this
     }, show => show && (props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ToolbarOverlayDiv, {
+      className: "absolute bottom-0 left-0 right-0 top-0 bg-white",
       style: props,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 27
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      width: "48",
-      height: "48",
+      className: "icon-add-circle h-12 w-12",
       viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "#000000",
-      strokeWidth: "3",
-      strokeLinecap: "square",
-      strokeLinejoin: "arcs",
       onClick: () => this.props.test.toggleToolbarOverlay(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 31
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
-      x1: "18",
-      y1: "6",
-      x2: "6",
-      y2: "18",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "10",
+      className: "fill-current text-gray-300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 37
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
-      x1: "6",
-      y1: "6",
-      x2: "18",
-      y2: "18",
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+      d: "M13.41 12l2.83 2.83a1 1 0 01-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 11-1.41-1.41L10.59 12 7.76 9.17a1 1 0 011.41-1.41L12 10.59l2.83-2.83a1 1 0 011.41 1.41L13.41 12z",
+      className: "fill-current text-gray-500",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 44
       },
       __self: this
-    })), this.props.test.state.toolbarOverlayContents))));
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "flex flex-col my-4 py-8 px-8 mt-16 shadow absolute bottom-0 left-0 right-0 top-0",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: this
+    }, this.props.test.state.toolbarOverlayContents)))));
   }
 
 }

@@ -18,7 +18,7 @@ class Global extends Container {
     iframe: {
       size: { height: 0, width: 200 }
     },
-    showToolbarOverlay: false,
+    showToolbarOverlay: true,
     toolbarOverlayContents: "",
     toolbar: [],
     isPlacingPin: false,

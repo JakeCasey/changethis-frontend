@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Transition } from 'react-spring';
-import withContainers from '../wrappers/withContainer';
-import { Global as globalState } from './Global';
+import React, { Component } from "react";
+import styled, { keyframes } from "styled-components";
+import { Transition } from "react-spring";
+import withContainers from "../wrappers/withContainer";
+import { Global as globalState } from "./Global";
 
 const ToolbarOverlayDiv = styled.div`
-  padding: 40px;
-  background: #edf1f5;
-  position: absolute;
-  transform: translate3d(${props => props.transform3d} + '%', 0, 0);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  transform: translate3d(${props => props.transform3d} + "%", 0, 0);
 `;
 
 class ToolbarOverlay extends Component {
@@ -23,7 +16,7 @@ class ToolbarOverlay extends Component {
           <Transition
             items={this.props.test.state.showToolbarOverlay}
             from={{
-              opacity: 0,
+              opacity: 0
             }}
             enter={{ opacity: 1 }}
             leave={{ opacity: 0 }}
@@ -31,23 +24,31 @@ class ToolbarOverlay extends Component {
             {show =>
               show &&
               (props => (
-                <ToolbarOverlayDiv style={props}>
+                <ToolbarOverlayDiv
+                  className="absolute bottom-0 left-0 right-0 top-0 bg-white"
+                  style={props}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
+                    className="icon-add-circle h-12 w-12"
                     viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#000000"
-                    strokeWidth="3"
-                    strokeLinecap="square"
-                    strokeLinejoin="arcs"
                     onClick={() => this.props.test.toggleToolbarOverlay()}
                   >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      className="fill-current text-gray-300"
+                    ></circle>
+
+                    <path
+                      d="M13.41 12l2.83 2.83a1 1 0 01-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 11-1.41-1.41L10.59 12 7.76 9.17a1 1 0 011.41-1.41L12 10.59l2.83-2.83a1 1 0 011.41 1.41L13.41 12z"
+                      className="fill-current text-gray-500"
+                    ></path>
                   </svg>
-                  {this.props.test.state.toolbarOverlayContents}
+                  <div className="flex flex-col my-4 py-8 px-8 mt-16 shadow absolute bottom-0 left-0 right-0 top-0">
+                    {this.props.test.state.toolbarOverlayContents}
+                  </div>
                 </ToolbarOverlayDiv>
               ))
             }
