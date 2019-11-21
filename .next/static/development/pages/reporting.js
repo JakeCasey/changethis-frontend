@@ -1801,6 +1801,7 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateScrollPosition", function (event) {
+      console.log("update scroll position");
       var scroll = "";
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
@@ -1816,6 +1817,7 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_handleScroll", function (me) {
+      console.log("Scroll listener.");
       window.clearTimeout(timeout);
       timeout = setTimeout(function () {
         _this._updateScrollPosition();
@@ -1836,12 +1838,33 @@ function (_Component) {
 
       //get initial scroll pos
       //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-      setTimeout(function () {
-        _this2._updateScrollPosition(); //attach scroll listener
+      var interval = setInterval(function () {
+        var element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+
+        if (typeof element !== "undefined") {
+          clearInterval(interval);
+
+          _this2._updateScrollPosition(); //attach scroll listener
 
 
-        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
-      }, 2000);
+          document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
+        }
+      }, 500); // console.log(
+      //   document
+      //     .getElementById("iframe")
+      //     .contentWindow.document.getElementById("iframeScrollPosition")
+      // );
+      // setTimeout(() => {
+      //   this._updateScrollPosition();
+      //   //attach scroll listener
+      //   document
+      //     .getElementById("iframe")
+      //     .contentWindow.document.addEventListener(
+      //       "scroll",
+      //       this._handleScroll,
+      //       false
+      //     );
+      // }, 2000);
     } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
     //that runs several more times over a few seconds.
 
@@ -1858,14 +1881,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 109
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 110
         },
         __self: this
       }, function (test) {
@@ -1873,7 +1896,7 @@ function (_Component) {
           scrollTop: _this3.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 112
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
@@ -1883,7 +1906,7 @@ function (_Component) {
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 114
             },
             __self: this
           });
@@ -16227,7 +16250,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 4);
+  var jsdom = __webpack_require__(/*! jsdom */ 3);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -16237,8 +16260,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 5).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 6).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 4).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 5).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -88664,7 +88687,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -88676,7 +88699,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -88687,7 +88710,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -88698,7 +88721,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -88720,5 +88743,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map

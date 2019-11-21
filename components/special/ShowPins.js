@@ -32,24 +32,50 @@ class ShowPins extends Component {
     //get initial scroll pos
 
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-    setTimeout(() => {
-      this._updateScrollPosition();
 
-      //attach scroll listener
-      document
+    let interval = setInterval(() => {
+      let element = document
         .getElementById("iframe")
-        .contentWindow.document.addEventListener(
-          "scroll",
-          this._handleScroll,
-          false
-        );
-    }, 2000);
+        .contentWindow.document.getElementById("iframeScrollPosition");
+
+      if (typeof element !== "undefined") {
+        clearInterval(interval);
+        this._updateScrollPosition();
+        //attach scroll listener
+        document
+          .getElementById("iframe")
+          .contentWindow.document.addEventListener(
+            "scroll",
+            this._handleScroll,
+            false
+          );
+      }
+    }, 500);
+
+    // console.log(
+    //   document
+    //     .getElementById("iframe")
+    //     .contentWindow.document.getElementById("iframeScrollPosition")
+    // );
+
+    // setTimeout(() => {
+    //   this._updateScrollPosition();
+    //   //attach scroll listener
+    //   document
+    //     .getElementById("iframe")
+    //     .contentWindow.document.addEventListener(
+    //       "scroll",
+    //       this._handleScroll,
+    //       false
+    //     );
+    // }, 2000);
   }
 
   //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
   _updateScrollPosition = event => {
+    console.log("update scroll position");
     var scroll = "";
     var iframeScrollPosition = document
       .getElementById("iframe")
@@ -65,6 +91,7 @@ class ShowPins extends Component {
   };
 
   _handleScroll = me => {
+    console.log("Scroll listener.");
     window.clearTimeout(timeout);
     timeout = setTimeout(() => {
       this._updateScrollPosition();

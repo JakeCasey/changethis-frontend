@@ -1500,6 +1500,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateScrollPosition", event => {
+      console.log("update scroll position");
       var scroll = "";
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
@@ -1515,6 +1516,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_handleScroll", me => {
+      console.log("Scroll listener.");
       window.clearTimeout(timeout);
       timeout = setTimeout(() => {
         this._updateScrollPosition();
@@ -1529,12 +1531,33 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   componentDidMount() {
     //get initial scroll pos
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-    setTimeout(() => {
-      this._updateScrollPosition(); //attach scroll listener
+    let interval = setInterval(() => {
+      let element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+
+      if (typeof element !== "undefined") {
+        clearInterval(interval);
+
+        this._updateScrollPosition(); //attach scroll listener
 
 
-      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
-    }, 2000);
+        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
+      }
+    }, 500); // console.log(
+    //   document
+    //     .getElementById("iframe")
+    //     .contentWindow.document.getElementById("iframeScrollPosition")
+    // );
+    // setTimeout(() => {
+    //   this._updateScrollPosition();
+    //   //attach scroll listener
+    //   document
+    //     .getElementById("iframe")
+    //     .contentWindow.document.addEventListener(
+    //       "scroll",
+    //       this._handleScroll,
+    //       false
+    //     );
+    // }, 2000);
   } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
@@ -1547,21 +1570,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 110
       },
       __self: this
     }, test => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 112
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
@@ -1571,7 +1594,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 114
         },
         __self: this
       });
