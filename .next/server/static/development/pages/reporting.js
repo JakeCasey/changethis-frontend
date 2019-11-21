@@ -846,7 +846,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
         pins
       });
       console.log("Pin placed.");
-      console.log(this.state);
+      console.log(pin);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_updatePinCommentByID", (id, text, previousState) => {
@@ -1147,13 +1147,11 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       var y = e.clientY - rect.top; //y position within the element.
       //get scroll position;
 
-      var scroll;
+      var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
       if (iframeScrollPosition) {
         scroll = iframeScrollPosition.getAttribute("y");
-      } else {
-        scroll = "0";
       } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
@@ -1196,14 +1194,14 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 74
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_5__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_3__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 75
       },
       __self: this
     }, globalState => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
@@ -1212,7 +1210,7 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onMouseMove: e => this._onMouseMove(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 77
       },
       __self: this
     }, this.state.pin.x, "\" \"", this.state.pin.y)));
@@ -1533,9 +1531,11 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
     let interval = setInterval(() => {
       let element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+      console.log("running interval");
 
       if (typeof element !== "undefined") {
         clearInterval(interval);
+        console.log("Interval cleared");
 
         this._updateScrollPosition(); //attach scroll listener
 
@@ -1570,21 +1570,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109
+        lineNumber: 112
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 113
       },
       __self: this
     }, test => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 115
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
@@ -1594,7 +1594,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 117
         },
         __self: this
       });

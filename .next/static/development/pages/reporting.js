@@ -965,7 +965,7 @@ function (_Container) {
       });
 
       console.log("Pin placed.");
-      console.log(_this.state);
+      console.log(pin);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "_updatePinCommentByID", function (id, text, previousState) {
@@ -1367,13 +1367,11 @@ function (_Component) {
       var y = e.clientY - rect.top; //y position within the element.
       //get scroll position;
 
-      var scroll;
+      var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
       if (iframeScrollPosition) {
         scroll = iframeScrollPosition.getAttribute("y");
-      } else {
-        scroll = "0";
       } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
@@ -1423,14 +1421,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 74
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_11__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_9__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 75
         },
         __self: this
       }, function (globalState) {
@@ -1444,7 +1442,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 77
           },
           __self: this
         }, _this2.state.pin.x, "\" \"", _this2.state.pin.y);
@@ -1840,9 +1838,11 @@ function (_Component) {
       //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
       var interval = setInterval(function () {
         var element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+        console.log("running interval");
 
         if (typeof element !== "undefined") {
           clearInterval(interval);
+          console.log("Interval cleared");
 
           _this2._updateScrollPosition(); //attach scroll listener
 
@@ -1881,14 +1881,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 112
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 113
         },
         __self: this
       }, function (test) {
@@ -1896,7 +1896,7 @@ function (_Component) {
           scrollTop: _this3.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112
+            lineNumber: 115
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
@@ -1906,7 +1906,7 @@ function (_Component) {
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 114
+              lineNumber: 117
             },
             __self: this
           });

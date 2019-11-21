@@ -144,7 +144,7 @@ class Global extends Container {
     this.setState({ pins });
 
     console.log("Pin placed.");
-    console.log(this.state);
+    console.log(pin);
   };
 
   _updatePinCommentByID = (id, text, previousState) => {

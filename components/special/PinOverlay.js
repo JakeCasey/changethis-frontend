@@ -42,7 +42,7 @@ class PinOverlay extends Component {
     var y = e.clientY - rect.top; //y position within the element.
 
     //get scroll position;
-    var scroll;
+    var scroll = 0;
 
     var iframeScrollPosition = document
       .getElementById("iframe")
@@ -50,8 +50,6 @@ class PinOverlay extends Component {
 
     if (iframeScrollPosition) {
       scroll = iframeScrollPosition.getAttribute("y");
-    } else {
-      scroll = "0";
     }
 
     // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });

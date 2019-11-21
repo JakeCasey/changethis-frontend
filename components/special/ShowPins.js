@@ -38,8 +38,11 @@ class ShowPins extends Component {
         .getElementById("iframe")
         .contentWindow.document.getElementById("iframeScrollPosition");
 
+      console.log("running interval");
+
       if (typeof element !== "undefined") {
         clearInterval(interval);
+        console.log("Interval cleared");
         this._updateScrollPosition();
         //attach scroll listener
         document
