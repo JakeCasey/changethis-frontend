@@ -778,13 +778,12 @@ __webpack_require__.r(__webpack_exports__);
 function createClient({
   headers
 }) {
-  console.log(headers);
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1___default.a({
     uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: operation => {
       operation.setContext({
         fetchOptions: {
-          credentials: 'include'
+          credentials: "include"
         },
         headers: {
           cookie: headers && headers.cookie

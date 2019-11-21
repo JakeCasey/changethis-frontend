@@ -965,7 +965,6 @@ function (_Container) {
       });
 
       console.log("Pin placed.");
-      console.log(pin);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "_updatePinCommentByID", function (id, text, previousState) {
@@ -984,16 +983,15 @@ function (_Container) {
       var previousState = _this.state;
       hash = JSON.parse(hash);
       console.log("Hash loaded.");
-      console.log(hash);
 
       if (hash.pins.length > 0) {
-        previousState.overIframe = [].concat(Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.overIframe), [{
+        previousState.overIframe = [{
           belongsTo: "test",
           component: _ShowPins__WEBPACK_IMPORTED_MODULE_11__["default"]
-        }]);
+        }];
       }
 
-      previousState.pins = hash.pins;
+      previousState.pins = lodash__WEBPACK_IMPORTED_MODULE_13___default.a.cloneDeep(hash.pins);
       previousState.toolbar = hash.toolbar;
       previousState.currentIframe = hash.currentIframe;
       previousState.isPlacingPin = false;
@@ -1358,7 +1356,10 @@ function (_Component) {
       showPointerEvents: true,
       pin: {
         x: "",
-        y: ""
+        y: "",
+        scrollPosition: {
+          y: 0
+        }
       }
     });
 
@@ -1414,6 +1415,9 @@ function (_Component) {
           belongsTo: this.props.id,
           x: "",
           y: "",
+          scrollPosition: {
+            y: 0
+          },
           comment: ""
         }
       });
@@ -1427,14 +1431,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 79
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_11__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_9__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 80
         },
         __self: this
       }, function (globalState) {
@@ -1448,7 +1452,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 82
           },
           __self: this
         }, _this2.state.pin.x, "\" \"", _this2.state.pin.y);
@@ -1804,8 +1808,13 @@ function (_Component) {
       scrollTop: 0
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_eventListenerThing", function () {
+      document.getElementById("iframe").contentWindow.document.removeEventListener("scroll", _this._handleScroll, false); //attach scroll listener
+
+      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this._handleScroll, false);
+    });
+
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateScrollPosition", function (event) {
-      console.log("update scroll position");
       var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
@@ -1821,7 +1830,6 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_handleScroll", function (me) {
-      console.log("Scroll listener.");
       window.clearTimeout(timeout);
       timeout = setTimeout(function () {
         _this._updateScrollPosition();
@@ -1843,14 +1851,14 @@ function (_Component) {
       //get initial scroll pos
       //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
       Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_14__["waitForIframeScrollPosition"])(document, function () {
-        _this2._updateScrollPosition(); //attach scroll listener
+        _this2._updateScrollPosition(); //constantly look to attach scroll listener to iframe;
 
 
-        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
+        setInterval(function () {
+          _this2._eventListenerThing();
+        }, 1000);
       });
-    } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
-    //that runs several more times over a few seconds.
-
+    }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {// window.removeEventListener('scroll', this._updateScrollPosition, false);
@@ -1864,14 +1872,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 95
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_9__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 96
         },
         __self: this
       }, function (test) {
@@ -1879,7 +1887,7 @@ function (_Component) {
           scrollTop: _this3.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 98
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
@@ -1889,7 +1897,7 @@ function (_Component) {
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 87
+              lineNumber: 100
             },
             __self: this
           });
@@ -2174,6 +2182,10 @@ function (_Component2) {
       _this.props.test._loadStateFromHash(_this.state.base64);
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this), "_copyState", function () {
+      return btoa__WEBPACK_IMPORTED_MODULE_15___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(_this.props.test.state));
+    });
+
     return _this;
   }
 
@@ -2187,7 +2199,7 @@ function (_Component2) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ToolbarDiv, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("button", {
@@ -2196,7 +2208,7 @@ function (_Component2) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 74
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("svg", {
@@ -2205,7 +2217,7 @@ function (_Component2) {
         className: "icon-add-circle h-12 w-12",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 75
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("circle", {
@@ -2215,7 +2227,7 @@ function (_Component2) {
         className: "fill-current text-gray-300",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 80
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("path", {
@@ -2223,7 +2235,7 @@ function (_Component2) {
         d: "M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 86
         },
         __self: this
       }))), canvas && canvas.state.toolbar.map(function (block, i) {
@@ -2236,7 +2248,7 @@ function (_Component2) {
               block: block,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 93
+                lineNumber: 97
               },
               __self: this
             });
@@ -2248,7 +2260,7 @@ function (_Component2) {
               block: block,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 100
               },
               __self: this
             });
@@ -2258,14 +2270,14 @@ function (_Component2) {
         className: "toolbar_card",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 105
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "flex justify-between mb-8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 106
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("svg", {
@@ -2274,7 +2286,7 @@ function (_Component2) {
         className: "w-6 h-6 mr-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 107
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("path", {
@@ -2282,7 +2294,7 @@ function (_Component2) {
         d: "M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 112
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("path", {
@@ -2290,7 +2302,7 @@ function (_Component2) {
         d: "M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 116
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("polygon", {
@@ -2298,29 +2310,29 @@ function (_Component2) {
         points: "14 2 20 8 14 8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 120
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("p", {
         className: "toolbar_header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 125
         },
         __self: this
       }, "Save")), this.props.test && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_16___default.a, {
         className: "bg-blue-100 text-blue-700 py-2 px-4 rounded ",
-        "data-clipboard-text": btoa__WEBPACK_IMPORTED_MODULE_15___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state)),
+        "data-clipboard-text": this._copyState(),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 129
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
         className: "font-bold",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 133
         },
         __self: this
       }, "Copy State"))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("textarea", {
@@ -2329,7 +2341,7 @@ function (_Component2) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 138
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2338,13 +2350,13 @@ function (_Component2) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 140
         },
         __self: this
       }, " ", "Update State")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ToolbarOverlay__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 146
         },
         __self: this
       }));
@@ -2930,8 +2942,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "waitForIframeScrollPosition", function() { return waitForIframeScrollPosition; });
 var waitForIframeScrollPosition = function waitForIframeScrollPosition(document, callback) {
   var element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+  console.log(element);
 
-  if (typeof element === "undefined") {
+  if (typeof element === "undefined" || element === null) {
     var interval = setInterval(function () {
       console.log("interval hit"); //get element again
 
@@ -2942,7 +2955,7 @@ var waitForIframeScrollPosition = function waitForIframeScrollPosition(document,
       } //check if it exists yet.
 
 
-      if (typeof element !== "undefined") {
+      if (typeof element !== "undefined" && typeof element !== "null") {
         //if it does kill the interval and run callback
         clearInterval(interval);
         console.log("Interval cleared");

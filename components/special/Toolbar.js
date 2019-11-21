@@ -62,6 +62,10 @@ class Toolbar extends Component {
     this.props.test._loadStateFromHash(this.state.base64);
   };
 
+  _copyState = () => {
+    return btoa(JSON.stringify(this.props.test.state));
+  };
+
   render() {
     let canvas = this.props.test;
     // var toolbar = this.props.test.state.toolbar;
@@ -124,9 +128,7 @@ class Toolbar extends Component {
             <>
               <Clipboard
                 className="bg-blue-100 text-blue-700 py-2 px-4 rounded "
-                data-clipboard-text={btoa(
-                  JSON.stringify(this.props.test.state)
-                )}
+                data-clipboard-text={this._copyState()}
               >
                 <span className="font-bold">Copy State</span>
               </Clipboard>

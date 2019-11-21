@@ -33,22 +33,36 @@ class ShowPins extends Component {
 
     waitForIframeScrollPosition(document, () => {
       this._updateScrollPosition();
-      //attach scroll listener
-      document
-        .getElementById("iframe")
-        .contentWindow.document.addEventListener(
-          "scroll",
-          this._handleScroll,
-          false
-        );
+
+      //constantly look to attach scroll listener to iframe;
+      setInterval(() => {
+        this._eventListenerThing();
+      }, 1000);
     });
   }
+
+  _eventListenerThing = () => {
+    document
+      .getElementById("iframe")
+      .contentWindow.document.removeEventListener(
+        "scroll",
+        this._handleScroll,
+        false
+      );
+    //attach scroll listener
+    document
+      .getElementById("iframe")
+      .contentWindow.document.addEventListener(
+        "scroll",
+        this._handleScroll,
+        false
+      );
+  };
 
   //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
   _updateScrollPosition = event => {
-    console.log("update scroll position");
     var scroll = 0;
     var iframeScrollPosition = document
       .getElementById("iframe")
@@ -64,7 +78,6 @@ class ShowPins extends Component {
   };
 
   _handleScroll = me => {
-    console.log("Scroll listener.");
     window.clearTimeout(timeout);
     timeout = setTimeout(() => {
       this._updateScrollPosition();

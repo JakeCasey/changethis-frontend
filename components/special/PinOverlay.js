@@ -23,7 +23,7 @@ const PinOverlayDiv = styled.div`
 class PinOverlay extends Component {
   state = {
     showPointerEvents: true,
-    pin: { x: "", y: "" }
+    pin: { x: "", y: "", scrollPosition: { y: 0 } }
   };
 
   componentDidMount() {
@@ -32,6 +32,7 @@ class PinOverlay extends Component {
         belongsTo: this.props.id,
         x: "",
         y: "",
+        scrollPosition: { y: 0 },
         comment: ""
       }
     });

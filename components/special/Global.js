@@ -144,7 +144,6 @@ class Global extends Container {
     this.setState({ pins });
 
     console.log("Pin placed.");
-    console.log(pin);
   };
 
   _updatePinCommentByID = (id, text, previousState) => {
@@ -158,18 +157,16 @@ class Global extends Container {
     var previousState = this.state;
     hash = JSON.parse(hash);
     console.log("Hash loaded.");
-    console.log(hash);
 
     if (hash.pins.length > 0) {
       previousState.overIframe = [
-        ...this.state.overIframe,
         {
           belongsTo: "test",
           component: ShowPins
         }
       ];
     }
-    previousState.pins = hash.pins;
+    previousState.pins = _.cloneDeep(hash.pins);
     previousState.toolbar = hash.toolbar;
     previousState.currentIframe = hash.currentIframe;
     previousState.isPlacingPin = false;
