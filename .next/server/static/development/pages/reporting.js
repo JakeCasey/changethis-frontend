@@ -2368,8 +2368,14 @@ const waitForIframeScrollPosition = (document, callback) => {
 
   if (typeof element === "undefined") {
     let interval = setInterval(() => {
-      //get element again
-      element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition"); //check if it exists yet.
+      console.log("interval hit"); //get element again
+
+      try {
+        element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+      } catch (error) {
+        if (error) console.log(error);
+      } //check if it exists yet.
+
 
       if (typeof element !== "undefined") {
         //if it does kill the interval and run callback
