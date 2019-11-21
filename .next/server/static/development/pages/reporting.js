@@ -927,7 +927,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 const PinDiv = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Pin__PinDiv",
   componentId: "sc-1edaed1-0"
-})(["width:", ";height:", ";background-color:lightskyblue;position:absolute;top:", ";left:", ";transform:translateX(", ") translateY(", ");pointer-events:auto;"], props => props.width + 'px', props => props.height + 'px', props => props.pin.y + _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(props.pin.scrollPosition.y) + 'px', props => props.pin.x + 'px', props => -props.width / 2 + 'px', props => -props.height / 2 + 'px');
+})(["width:", ";height:", ";background-color:lightskyblue;position:absolute;top:", ";left:", ";transform:translateX(", ") translateY(", ");pointer-events:auto;"], props => props.width + "px", props => props.height + "px", props => props.pin.y + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(props.pin.scrollPosition.y) ? _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(props.pin.scrollPosition.y) : 0) + "px", props => props.pin.x + "px", props => -props.width / 2 + "px", props => -props.height / 2 + "px");
 const Pop = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "Pin__Pop",
   componentId: "sc-1edaed1-1"
@@ -942,7 +942,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       pin: this.props.pin,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 34
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_tippy__WEBPACK_IMPORTED_MODULE_5__["Tooltip"], {
@@ -951,7 +951,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       html: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_TooltipWrapper__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 39
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -959,23 +959,23 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
         test: this.props.test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 40
         },
         __self: this
       })),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       style: {
-        width: '100%',
-        height: '100%'
+        width: "100%",
+        height: "100%"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 44
       },
       __self: this
     })));
@@ -1505,7 +1505,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateScrollPosition", event => {
       console.log("update scroll position");
-      var scroll = "";
+      var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
       if (iframeScrollPosition.getAttribute("y")) {

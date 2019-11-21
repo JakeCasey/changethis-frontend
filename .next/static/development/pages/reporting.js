@@ -1060,17 +1060,17 @@ var PinDiv = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withC
   displayName: "Pin__PinDiv",
   componentId: "sc-1edaed1-0"
 })(["width:", ";height:", ";background-color:lightskyblue;position:absolute;top:", ";left:", ";transform:translateX(", ") translateY(", ");pointer-events:auto;"], function (props) {
-  return props.width + 'px';
+  return props.width + "px";
 }, function (props) {
-  return props.height + 'px';
+  return props.height + "px";
 }, function (props) {
-  return props.pin.y + _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_5___default()(props.pin.scrollPosition.y) + 'px';
+  return props.pin.y + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_5___default()(props.pin.scrollPosition.y) ? _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_5___default()(props.pin.scrollPosition.y) : 0) + "px";
 }, function (props) {
-  return props.pin.x + 'px';
+  return props.pin.x + "px";
 }, function (props) {
-  return -props.width / 2 + 'px';
+  return -props.width / 2 + "px";
 }, function (props) {
-  return -props.height / 2 + 'px';
+  return -props.height / 2 + "px";
 });
 var Pop = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
   displayName: "Pin__Pop",
@@ -1098,7 +1098,7 @@ function (_Component) {
         pin: this.props.pin,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_tippy__WEBPACK_IMPORTED_MODULE_10__["Tooltip"], {
@@ -1107,7 +1107,7 @@ function (_Component) {
         html: react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_TooltipWrapper__WEBPACK_IMPORTED_MODULE_11__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 39
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -1115,23 +1115,23 @@ function (_Component) {
           test: this.props.test,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 40
           },
           __self: this
         })),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 35
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         style: {
-          width: '100%',
-          height: '100%'
+          width: "100%",
+          height: "100%"
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 44
         },
         __self: this
       })));
@@ -1806,7 +1806,7 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateScrollPosition", function (event) {
       console.log("update scroll position");
-      var scroll = "";
+      var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
       if (iframeScrollPosition.getAttribute("y")) {

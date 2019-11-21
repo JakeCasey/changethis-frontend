@@ -49,7 +49,7 @@ class ShowPins extends Component {
 
   _updateScrollPosition = event => {
     console.log("update scroll position");
-    var scroll = "";
+    var scroll = 0;
     var iframeScrollPosition = document
       .getElementById("iframe")
       .contentWindow.document.getElementById("iframeScrollPosition");
