@@ -1,15 +1,13 @@
-import withContainers from "../wrappers/withContainer";
-
 import { Global as globalState } from "./Global";
 import React, { Component } from "react";
 import { Subscribe } from "unstated";
-
-import { getIframeScrollPosition } from "../../lib/helpers";
 
 import styled from "styled-components";
 
 import SickButton from "../styles/SickButton";
 import Pin from "./Pin";
+import withContainers from "../wrappers/withContainer";
+import { waitForIframeScrollPosition } from "../../lib/helpers";
 
 const ShowPinsDiv = styled.div`
   position: absolute;
@@ -33,45 +31,17 @@ class ShowPins extends Component {
 
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
 
-    let interval = setInterval(() => {
-      let element = document
+    waitForIframeScrollPosition(document, () => {
+      this._updateScrollPosition();
+      //attach scroll listener
+      document
         .getElementById("iframe")
-        .contentWindow.document.getElementById("iframeScrollPosition");
-
-      console.log("running interval");
-
-      if (typeof element !== "undefined") {
-        clearInterval(interval);
-        console.log("Interval cleared");
-        this._updateScrollPosition();
-        //attach scroll listener
-        document
-          .getElementById("iframe")
-          .contentWindow.document.addEventListener(
-            "scroll",
-            this._handleScroll,
-            false
-          );
-      }
-    }, 500);
-
-    // console.log(
-    //   document
-    //     .getElementById("iframe")
-    //     .contentWindow.document.getElementById("iframeScrollPosition")
-    // );
-
-    // setTimeout(() => {
-    //   this._updateScrollPosition();
-    //   //attach scroll listener
-    //   document
-    //     .getElementById("iframe")
-    //     .contentWindow.document.addEventListener(
-    //       "scroll",
-    //       this._handleScroll,
-    //       false
-    //     );
-    // }, 2000);
+        .contentWindow.document.addEventListener(
+          "scroll",
+          this._handleScroll,
+          false
+        );
+    });
   }
 
   //polling is almost accurate but needs a trail off perhaps an interval or a while statement

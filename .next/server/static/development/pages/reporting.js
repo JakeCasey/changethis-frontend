@@ -1113,9 +1113,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! shortid */ "shortid");
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(shortid__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
 
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/PinOverlay.js";
+
 
 
 
@@ -1147,22 +1149,26 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       var y = e.clientY - rect.top; //y position within the element.
       //get scroll position;
 
-      var scroll = 0;
-      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+      var scroll;
+      Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_9__["waitForIframeScrollPosition"])(document, () => {
+        var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition) {
-        scroll = iframeScrollPosition.getAttribute("y");
-      } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
+        if (typeof iframeScrollPosition !== "undefined") {
+          scroll = iframeScrollPosition.getAttribute("y");
+        } else {
+          scroll = "0";
+        } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
-      this.setState({
-        pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.pin, {
-          x: x,
-          y: y,
-          scrollPosition: {
-            y: scroll
-          }
-        })
+        this.setState({
+          pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.pin, {
+            x: x,
+            y: y,
+            scrollPosition: {
+              y: scroll
+            }
+          })
+        });
       });
     });
 
@@ -1194,14 +1200,14 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 78
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_5__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_3__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 79
       },
       __self: this
     }, globalState => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
@@ -1210,7 +1216,7 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onMouseMove: e => this._onMouseMove(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 81
       },
       __self: this
     }, this.state.pin.x, "\" \"", this.state.pin.y)));
@@ -1462,17 +1468,17 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
-/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! unstated */ "unstated");
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(unstated__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var _Pin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Pin */ "./components/special/Pin.js");
+/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! unstated */ "unstated");
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(unstated__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _Pin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Pin */ "./components/special/Pin.js");
+/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
+/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/ShowPins.js";
 
@@ -1483,13 +1489,13 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 
 
-const ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.div.withConfig({
+const ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "ShowPins__ShowPinsDiv",
   componentId: "sc-1acb6tt-0"
 })(["position:absolute;top:", ";left:0px;right:0px;bottom:0px;z-index:2;pointer-events:none;"], props => props.scrollTop ? props.scrollTop : "0px");
 var timeout = "";
 
-class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
+class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   constructor(...args) {
     super(...args);
 
@@ -1529,35 +1535,12 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   componentDidMount() {
     //get initial scroll pos
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-    let interval = setInterval(() => {
-      let element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
-      console.log("running interval");
-
-      if (typeof element !== "undefined") {
-        clearInterval(interval);
-        console.log("Interval cleared");
-
-        this._updateScrollPosition(); //attach scroll listener
+    Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_8__["waitForIframeScrollPosition"])(document, () => {
+      this._updateScrollPosition(); //attach scroll listener
 
 
-        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
-      }
-    }, 500); // console.log(
-    //   document
-    //     .getElementById("iframe")
-    //     .contentWindow.document.getElementById("iframeScrollPosition")
-    // );
-    // setTimeout(() => {
-    //   this._updateScrollPosition();
-    //   //attach scroll listener
-    //   document
-    //     .getElementById("iframe")
-    //     .contentWindow.document.addEventListener(
-    //       "scroll",
-    //       this._handleScroll,
-    //       false
-    //     );
-    // }, 2000);
+      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
+    });
   } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.
 
@@ -1567,34 +1550,34 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
   render() {
     var block = this.props.block;
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 82
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_4__["Subscribe"], {
-      to: [_Global__WEBPACK_IMPORTED_MODULE_2__["Global"]],
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_3__["Subscribe"], {
+      to: [_Global__WEBPACK_IMPORTED_MODULE_1__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 83
       },
       __self: this
-    }, test => react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ShowPinsDiv, {
+    }, test => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 85
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
-      return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_6__["default"], {
         key: i,
         pin: pin,
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 87
         },
         __self: this
       });
@@ -2374,22 +2357,31 @@ const STRIPE_PUBLIC_KEY = `pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N`;
 /*!************************!*\
   !*** ./lib/helpers.js ***!
   \************************/
-/*! exports provided: getIframeScrollPosition */
+/*! exports provided: waitForIframeScrollPosition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIframeScrollPosition", function() { return getIframeScrollPosition; });
-var getIframeScrollPosition = () => {
-  var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "waitForIframeScrollPosition", function() { return waitForIframeScrollPosition; });
+const waitForIframeScrollPosition = (document, callback) => {
+  let element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-  if (iframeScrollPosition.getAttribute('y')) {
-    scroll = iframeScrollPosition.getAttribute('y');
+  if (typeof element === "undefined") {
+    let interval = setInterval(() => {
+      //get element again
+      element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition"); //check if it exists yet.
+
+      if (typeof element !== "undefined") {
+        //if it does kill the interval and run callback
+        clearInterval(interval);
+        console.log("Interval cleared");
+        callback();
+      } //if it doesn't keep checking.
+
+    }, 500);
   } else {
-    scroll = '0';
+    callback();
   }
-
-  return scroll;
 };
 
 

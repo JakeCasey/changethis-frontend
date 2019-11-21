@@ -1311,6 +1311,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! shortid */ "./node_modules/shortid/index.js");
 /* harmony import */ var shortid__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(shortid__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
 
 
 
@@ -1320,6 +1321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/PinOverlay.js";
+
 
 
 
@@ -1367,22 +1369,26 @@ function (_Component) {
       var y = e.clientY - rect.top; //y position within the element.
       //get scroll position;
 
-      var scroll = 0;
-      var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+      var scroll;
+      Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_15__["waitForIframeScrollPosition"])(document, function () {
+        var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-      if (iframeScrollPosition) {
-        scroll = iframeScrollPosition.getAttribute("y");
-      } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
+        if (typeof iframeScrollPosition !== "undefined") {
+          scroll = iframeScrollPosition.getAttribute("y");
+        } else {
+          scroll = "0";
+        } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
 
-      _this.setState({
-        pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.state.pin, {
-          x: x,
-          y: y,
-          scrollPosition: {
-            y: scroll
-          }
-        })
+        _this.setState({
+          pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.state.pin, {
+            x: x,
+            y: y,
+            scrollPosition: {
+              y: scroll
+            }
+          })
+        });
       });
     });
 
@@ -1421,14 +1427,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 78
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_11__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_9__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 79
         },
         __self: this
       }, function (globalState) {
@@ -1442,7 +1448,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 81
           },
           __self: this
         }, _this2.state.pin.x, "\" \"", _this2.state.pin.y);
@@ -1743,15 +1749,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
-/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! unstated */ "./node_modules/unstated/lib/unstated.es.js");
-/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var _Pin__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Pin */ "./components/special/Pin.js");
+/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var unstated__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! unstated */ "./node_modules/unstated/lib/unstated.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var _Pin__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Pin */ "./components/special/Pin.js");
+/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
+/* harmony import */ var _lib_helpers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib/helpers */ "./lib/helpers.js");
 
 
 
@@ -1768,7 +1774,7 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 
 
-var ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div.withConfig({
+var ShowPinsDiv = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div.withConfig({
   displayName: "ShowPins__ShowPinsDiv",
   componentId: "sc-1acb6tt-0"
 })(["position:absolute;top:", ";left:0px;right:0px;bottom:0px;z-index:2;pointer-events:none;"], function (props) {
@@ -1836,35 +1842,12 @@ function (_Component) {
 
       //get initial scroll pos
       //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-      var interval = setInterval(function () {
-        var element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
-        console.log("running interval");
-
-        if (typeof element !== "undefined") {
-          clearInterval(interval);
-          console.log("Interval cleared");
-
-          _this2._updateScrollPosition(); //attach scroll listener
+      Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_14__["waitForIframeScrollPosition"])(document, function () {
+        _this2._updateScrollPosition(); //attach scroll listener
 
 
-          document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
-        }
-      }, 500); // console.log(
-      //   document
-      //     .getElementById("iframe")
-      //     .contentWindow.document.getElementById("iframeScrollPosition")
-      // );
-      // setTimeout(() => {
-      //   this._updateScrollPosition();
-      //   //attach scroll listener
-      //   document
-      //     .getElementById("iframe")
-      //     .contentWindow.document.addEventListener(
-      //       "scroll",
-      //       this._handleScroll,
-      //       false
-      //     );
-      // }, 2000);
+        document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this2._handleScroll, false);
+      });
     } //polling is almost accurate but needs a trail off perhaps an interval or a while statement
     //that runs several more times over a few seconds.
 
@@ -1878,35 +1861,35 @@ function (_Component) {
       var _this3 = this;
 
       var block = this.props.block;
-      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 82
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_10__["Subscribe"], {
-        to: [_Global__WEBPACK_IMPORTED_MODULE_8__["Global"]],
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_9__["Subscribe"], {
+        to: [_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 83
         },
         __self: this
       }, function (test) {
-        return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShowPinsDiv, {
+        return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(ShowPinsDiv, {
           scrollTop: _this3.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 85
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
-          return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_14__["default"], {
+          return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_12__["default"], {
             key: i,
             pin: pin,
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 117
+              lineNumber: 87
             },
             __self: this
           });
@@ -1916,7 +1899,7 @@ function (_Component) {
   }]);
 
   return ShowPins;
-}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]); // export default withContainers([globalState])(ShowPins);
+}(react__WEBPACK_IMPORTED_MODULE_8__["Component"]); // export default withContainers([globalState])(ShowPins);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowPins);
@@ -2939,22 +2922,31 @@ var STRIPE_PUBLIC_KEY = "pk_test_GAJsoqHqXOre1ItdV76GnDVU00eIVoGX5N";
 /*!************************!*\
   !*** ./lib/helpers.js ***!
   \************************/
-/*! exports provided: getIframeScrollPosition */
+/*! exports provided: waitForIframeScrollPosition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIframeScrollPosition", function() { return getIframeScrollPosition; });
-var getIframeScrollPosition = function getIframeScrollPosition() {
-  var iframeScrollPosition = document.getElementById('iframe').contentWindow.document.getElementById('iframeScrollPosition');
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "waitForIframeScrollPosition", function() { return waitForIframeScrollPosition; });
+var waitForIframeScrollPosition = function waitForIframeScrollPosition(document, callback) {
+  var element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
 
-  if (iframeScrollPosition.getAttribute('y')) {
-    scroll = iframeScrollPosition.getAttribute('y');
+  if (typeof element === "undefined") {
+    var interval = setInterval(function () {
+      //get element again
+      element = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition"); //check if it exists yet.
+
+      if (typeof element !== "undefined") {
+        //if it does kill the interval and run callback
+        clearInterval(interval);
+        console.log("Interval cleared");
+        callback();
+      } //if it doesn't keep checking.
+
+    }, 500);
   } else {
-    scroll = '0';
+    callback();
   }
-
-  return scroll;
 };
 
 
@@ -16250,7 +16242,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 3);
+  var jsdom = __webpack_require__(/*! jsdom */ 4);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -16260,8 +16252,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 4).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 5).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 5).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 6).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -88687,7 +88679,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -88699,7 +88691,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -88710,7 +88702,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -88721,7 +88713,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -88743,5 +88735,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map
