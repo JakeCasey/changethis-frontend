@@ -103,11 +103,11 @@ class Toolbar extends Component {
           })}
 
         <div className="toolbar_card">
-          <div className="flex justify-between mb-8">
+          <div className="toolbar_header_container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="w-6 h-6 mr-4"
+              className="toolbar-icon"
             >
               <path
                 className="fill-current text-gray-300"

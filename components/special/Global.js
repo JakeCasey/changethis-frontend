@@ -5,13 +5,18 @@ import ShowPins from "./ShowPins";
 import shortId from "shortid";
 import _ from "lodash";
 import { frontend, prodFrontend } from "../../config";
+import { endpoint, prodEndPoint } from "../../config";
 
+const backendUrl =
+  process.env.NODE_ENV === "development" ? endpoint : prodEndPoint;
 var frontendUrl =
   process.env.NODE_ENV === "development" ? frontend : prodFrontend;
+
 class Global extends Container {
   state = {
     overIframe: [],
-    currentIframe: frontendUrl + "/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t",
+    urlSelected: backendUrl + "/api/screenshot?url=http://bugherd.com",
+    pageLoading: true,
     showPins: true,
     showCanvas: false,
     canvas: null,
@@ -22,8 +27,7 @@ class Global extends Container {
     toolbarOverlayContents: "",
     toolbar: [],
     isPlacingPin: false,
-    pins: [],
-    text: "This is some text"
+    pins: []
   };
 
   addSimpleTextBlock = () => {
@@ -168,13 +172,37 @@ class Global extends Container {
     }
     previousState.pins = _.cloneDeep(hash.pins);
     previousState.toolbar = hash.toolbar;
-    previousState.currentIframe = hash.currentIframe;
+
+    previousState.urlSelected = hash.urlSelected;
     previousState.isPlacingPin = false;
+    previousState.pageLoading = true;
     this.setState({ ...previousState });
   };
 
-  setCurrentIframe = url => {
-    this.setState({ currentIframe: url });
+  resetUI = () => {
+    this.setState({
+      overIframe: [],
+      pageLoading: true,
+      showPins: true,
+      showCanvas: false,
+      canvas: null,
+      iframe: {
+        size: { height: 0, width: 200 }
+      },
+      showToolbarOverlay: false,
+      toolbarOverlayContents: "",
+      toolbar: [],
+      isPlacingPin: false,
+      pins: []
+    });
+  };
+
+  fetchPage = url => {
+    this.resetUI();
+    this.setState({
+      pageLoading: true,
+      urlSelected: backendUrl + "/api/screenshot?url=" + url
+    });
   };
 }
 

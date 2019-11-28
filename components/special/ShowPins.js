@@ -28,17 +28,7 @@ class ShowPins extends Component {
 
   componentDidMount() {
     //get initial scroll pos
-
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-
-    waitForIframeScrollPosition(document, () => {
-      this._updateScrollPosition();
-
-      //constantly look to attach scroll listener to iframe;
-      setInterval(() => {
-        this._eventListenerThing();
-      }, 1000);
-    });
   }
 
   _eventListenerThing = () => {

@@ -44,22 +44,11 @@ class PinOverlay extends Component {
     var y = e.clientY - rect.top; //y position within the element.
 
     //get scroll position;
-    var scroll;
-    waitForIframeScrollPosition(document, () => {
-      var iframeScrollPosition = document
-        .getElementById("iframe")
-        .contentWindow.document.getElementById("iframeScrollPosition");
+    var scroll = 0;
 
-      if (typeof iframeScrollPosition !== "undefined") {
-        scroll = iframeScrollPosition.getAttribute("y");
-      } else {
-        scroll = "0";
-      }
-
-      // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
-      this.setState({
-        pin: { ...this.state.pin, x: x, y: y, scrollPosition: { y: scroll } }
-      });
+    // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
+    this.setState({
+      pin: { ...this.state.pin, x: x, y: y, scrollPosition: { y: scroll } }
     });
   };
 

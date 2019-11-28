@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -693,6 +693,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+const backendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_8__["endpoint"] : undefined;
 var frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_8__["frontend"] : undefined;
 
 class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
@@ -701,7 +703,8 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "state", {
       overIframe: [],
-      currentIframe: frontendUrl + "/api/proxy?url=aHR0cDovL2J1Z2hlcmQuY29t",
+      urlSelected: backendUrl + "/api/screenshot?url=http://bugherd.com",
+      pageLoading: true,
       showPins: true,
       showCanvas: false,
       canvas: null,
@@ -715,8 +718,7 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
       toolbarOverlayContents: "",
       toolbar: [],
       isPlacingPin: false,
-      pins: [],
-      text: "This is some text"
+      pins: []
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "addSimpleTextBlock", () => {
@@ -873,14 +875,38 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
 
       previousState.pins = lodash__WEBPACK_IMPORTED_MODULE_7___default.a.cloneDeep(hash.pins);
       previousState.toolbar = hash.toolbar;
-      previousState.currentIframe = hash.currentIframe;
+      previousState.urlSelected = hash.urlSelected;
       previousState.isPlacingPin = false;
+      previousState.pageLoading = true;
       this.setState(Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, previousState));
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "setCurrentIframe", url => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "resetUI", () => {
       this.setState({
-        currentIframe: url
+        overIframe: [],
+        pageLoading: true,
+        showPins: true,
+        showCanvas: false,
+        canvas: null,
+        iframe: {
+          size: {
+            height: 0,
+            width: 200
+          }
+        },
+        showToolbarOverlay: false,
+        toolbarOverlayContents: "",
+        toolbar: [],
+        isPlacingPin: false,
+        pins: []
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "fetchPage", url => {
+      this.resetUI();
+      this.setState({
+        pageLoading: true,
+        urlSelected: backendUrl + "/api/screenshot?url=" + url
       });
     });
   }
@@ -1024,7 +1050,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "flex justify-between mb-8",
+      className: "toolbar_header_container",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 15
@@ -1033,7 +1059,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      className: "w-6 h-6 mr-4",
+      className: "toolbar-icon",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -1150,26 +1176,16 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       var y = e.clientY - rect.top; //y position within the element.
       //get scroll position;
 
-      var scroll;
-      Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_9__["waitForIframeScrollPosition"])(document, () => {
-        var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
+      var scroll = 0; // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
 
-        if (typeof iframeScrollPosition !== "undefined") {
-          scroll = iframeScrollPosition.getAttribute("y");
-        } else {
-          scroll = "0";
-        } // this.setState({ pin: { ...this.state.pin, x: e.screenX, y: e.screenY } });
-
-
-        this.setState({
-          pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.pin, {
-            x: x,
-            y: y,
-            scrollPosition: {
-              y: scroll
-            }
-          })
-        });
+      this.setState({
+        pin: Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.pin, {
+          x: x,
+          y: y,
+          scrollPosition: {
+            y: scroll
+          }
+        })
       });
     });
 
@@ -1204,14 +1220,14 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 68
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_5__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_3__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 69
       },
       __self: this
     }, globalState => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(PinOverlayDiv, {
@@ -1220,7 +1236,7 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onMouseMove: e => this._onMouseMove(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 71
       },
       __self: this
     }, this.state.pin.x, "\" \"", this.state.pin.y)));
@@ -1243,26 +1259,23 @@ class PinOverlay extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
-/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
-/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _DesignCanvas__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./DesignCanvas */ "./components/special/DesignCanvas.js");
-/* harmony import */ var _Toolbar_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Toolbar.js */ "./components/special/Toolbar.js");
-/* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! url */ "url");
-/* harmony import */ var url__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(url__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../config */ "./config.js");
-
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
+/* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
+/* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _DesignCanvas__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DesignCanvas */ "./components/special/DesignCanvas.js");
+/* harmony import */ var _Toolbar_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Toolbar.js */ "./components/special/Toolbar.js");
+/* harmony import */ var url__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! url */ "url");
+/* harmony import */ var url__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(url__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../config */ "./config.js");
 
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/Reporting.js";
 
@@ -1277,61 +1290,46 @@ var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-fronte
 
 
 
-const Frame = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.iframe.withConfig({
-  displayName: "Reporting__Frame",
-  componentId: "sc-5smu6h-0"
-})(["position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%;max-width:", ";"], props => props.width);
-const WorkArea = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.div.withConfig({
+const backendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_12__["endpoint"] : undefined;
+const WorkArea = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
   displayName: "Reporting__WorkArea",
-  componentId: "sc-5smu6h-1"
+  componentId: "sc-5smu6h-0"
 })(["display:flex;margin-bottom:30px;"]);
-const UrlBar = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.div.withConfig({
+const UrlBar = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
   displayName: "Reporting__UrlBar",
-  componentId: "sc-5smu6h-2"
+  componentId: "sc-5smu6h-1"
 })(["display:flex;"]);
-const URL = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.input.withConfig({
+const URL = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.input.withConfig({
   displayName: "Reporting__URL",
-  componentId: "sc-5smu6h-3"
+  componentId: "sc-5smu6h-2"
 })(["width:100%;"]);
-const CanvasContainer = styled_components__WEBPACK_IMPORTED_MODULE_9___default.a.div.withConfig({
+const CanvasContainer = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
   displayName: "Reporting__CanvasContainer",
+  componentId: "sc-5smu6h-3"
+})(["position:relative;width:100%;height:100%;min-height:1100px;min-width:1100px;overflow-y:hidden;"]); // https://tobiasahlin.com/spinkit/
+
+const LoadingContainer = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
+  displayName: "Reporting__LoadingContainer",
   componentId: "sc-5smu6h-4"
-})(["position:relative;width:100%;height:100%;min-height:1000px;min-width:1000px;overflow-y:hidden;"]);
+})([".sk-folding-cube{display:", ";margin:20px auto;width:40px;height:40px;-webkit-transform:rotateZ(45deg);transform:rotateZ(45deg);}.sk-folding-cube .sk-cube{float:left;width:50%;height:50%;-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}.sk-folding-cube .sk-cube:before{content:\"\";position:absolute;top:0;left:0;width:100%;height:100%;background-color:#4299e1;-webkit-animation:sk-foldCubeAngle 2.4s infinite linear both;animation:sk-foldCubeAngle 2.4s infinite linear both;-webkit-transform-origin:100% 100%;-ms-transform-origin:100% 100%;transform-origin:100% 100%;}.sk-folding-cube .sk-cube2{-webkit-transform:scale(1.1) rotateZ(90deg);transform:scale(1.1) rotateZ(90deg);}.sk-folding-cube .sk-cube3{-webkit-transform:scale(1.1) rotateZ(180deg);transform:scale(1.1) rotateZ(180deg);}.sk-folding-cube .sk-cube4{-webkit-transform:scale(1.1) rotateZ(270deg);transform:scale(1.1) rotateZ(270deg);}.sk-folding-cube .sk-cube2:before{-webkit-animation-delay:0.3s;animation-delay:0.3s;}.sk-folding-cube .sk-cube3:before{-webkit-animation-delay:0.6s;animation-delay:0.6s;}.sk-folding-cube .sk-cube4:before{-webkit-animation-delay:0.9s;animation-delay:0.9s;}@-webkit-keyframes sk-foldCubeAngle{0%,10%{-webkit-transform:perspective(140px) rotateX(-180deg);transform:perspective(140px) rotateX(-180deg);opacity:0;}25%,75%{-webkit-transform:perspective(140px) rotateX(0deg);transform:perspective(140px) rotateX(0deg);opacity:1;}90%,100%{-webkit-transform:perspective(140px) rotateY(180deg);transform:perspective(140px) rotateY(180deg);opacity:0;}}@keyframes sk-foldCubeAngle{0%,10%{-webkit-transform:perspective(140px) rotateX(-180deg);transform:perspective(140px) rotateX(-180deg);opacity:0;}25%,75%{-webkit-transform:perspective(140px) rotateX(0deg);transform:perspective(140px) rotateX(0deg);opacity:1;}90%,100%{-webkit-transform:perspective(140px) rotateY(180deg);transform:perspective(140px) rotateY(180deg);opacity:0;}}"], props => props.loading ? "block" : "none");
+const LoadingOverlay = styled_components__WEBPACK_IMPORTED_MODULE_8___default.a.div.withConfig({
+  displayName: "Reporting__LoadingOverlay",
+  componentId: "sc-5smu6h-5"
+})(["display:", ";position:absolute;top:0;bottom:0;right:0;left:0;"], props => props.loading ? "block" : "none");
 
-const Test = props => {
-  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_4__["useRouter"])();
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53
-    },
-    __self: undefined
-  }, "Test"), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(router.query), props.children);
-};
-
-const frontendUrl =  true ? _config__WEBPACK_IMPORTED_MODULE_13__["frontend"] : undefined;
-
-class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
+class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   constructor(...args) {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
-      url: "http://bugherd.com",
-      urlSelected: frontendUrl + "/api/proxy?url=aHR0cDovL3d3dy5nb29nbGUuY29t"
+      url: "http://bugherd.com"
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "reloadIframe", () => {
-      var urlString = frontendUrl + "/api/proxy?url=" + btoa(this.state.url);
-      this.props.test.setCurrentIframe(urlString);
-      this.setState({
-        urlSelected: urlString
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchPage", () => {
+      this.props.test.setState({
+        pageLoading: true
       });
+      this.props.test.fetchPage(this.state.url);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "updateUrl", e => {
@@ -1343,29 +1341,35 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleKeyDown", e => {
       if (e.key === "Enter") {
-        this.reloadIframe();
+        this.fetchPage();
       }
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleScroll", e => {});
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "stopLoading", () => {
+      this.props.test.setState({
+        pageLoading: false
+      });
+    });
   }
 
   render() {
     // if (!this.props.test) return <p>Loading...</p>;
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 179
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(UrlBar, {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UrlBar, {
       className: "mb-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93
+        lineNumber: 180
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(URL, {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(URL, {
       className: "bg-gray-100 px-8 mr-8 rounded",
       value: this.state.url,
       onChange: e => {
@@ -1375,82 +1379,135 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 181
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
       className: " text-green-700 mr-4 rounded ",
       onClick: () => {
-        this.reloadIframe();
+        this.fetchPage();
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 190
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       className: "icon-arrow-thick-right-circle w-10 h-10",
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109
+        lineNumber: 196
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("circle", {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("circle", {
       cx: "12",
       cy: "12",
       r: "10",
       className: "fill-current text-green-300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 201
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
       d: "M12 14H7a1 1 0 01-1-1v-2a1 1 0 011-1h5V8a1 1 0 011.7-.7l4 4a1 1 0 010 1.4l-4 4A1 1 0 0112 16v-2z",
       className: "text-green-500 fill-current",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 207
       },
       __self: this
-    })))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WorkArea, {
+    })))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127
+        lineNumber: 214
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CanvasContainer, {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 215
       },
       __self: this
     }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
       var OverIframeComponent = OverIframe.component;
-      return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(OverIframeComponent, {
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(OverIframeComponent, {
         key: i,
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 220
         },
         __self: this
       });
-    }), " ", this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Frame, {
-      id: "iframe",
-      width: this.props.test.state.iframe.size.width,
-      src: this.props.test.state.currentIframe,
+    }), " ", this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingOverlay, {
+      loading: this.props.test.state.pageLoading,
+      className: "bg-gray-100 opacity-75",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137
+        lineNumber: 225
       },
       __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingContainer, {
+      className: "flex absolute w-full mt-64",
+      loading: this.props.test.state.pageLoading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145
+        lineNumber: 229
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "sk-folding-cube ",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 233
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "sk-cube1 sk-cube ",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 234
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "sk-cube2 sk-cube ",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 235
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "sk-cube4 sk-cube ",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 236
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "sk-cube3 sk-cube ",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 237
+      },
+      __self: this
+    }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+      style: {
+        width: "1100px"
+      },
+      onLoad: () => this.stopLoading(),
+      src: this.props.test.state.urlSelected,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 240
+      },
+      __self: this
+    }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 249
       },
       __self: this
     })));
@@ -1458,7 +1515,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_6__["default"])([_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]])(Reporting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__["default"])([_Global__WEBPACK_IMPORTED_MODULE_6__["Global"]])(Reporting));
 
 /***/ }),
 
@@ -1540,17 +1597,8 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
   }
 
-  componentDidMount() {
-    //get initial scroll pos
+  componentDidMount() {//get initial scroll pos
     //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-    Object(_lib_helpers__WEBPACK_IMPORTED_MODULE_8__["waitForIframeScrollPosition"])(document, () => {
-      this._updateScrollPosition(); //constantly look to attach scroll listener to iframe;
-
-
-      setInterval(() => {
-        this._eventListenerThing();
-      }, 1000);
-    });
   }
 
   componentWillUnmount() {// window.removeEventListener('scroll', this._updateScrollPosition, false);
@@ -1561,21 +1609,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 85
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_3__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_1__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 86
       },
       __self: this
     }, test => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 88
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
@@ -1585,7 +1633,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 90
         },
         __self: this
       });
@@ -1636,7 +1684,7 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "flex justify-between mb-8",
+      className: "toolbar_header_container",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 12
@@ -1644,7 +1692,7 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      className: "w-6 h-6 mr-4",
+      className: "toolbar-icon",
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
@@ -1879,7 +1927,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "flex justify-between mb-8",
+      className: "toolbar_header_container",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 106
@@ -1888,7 +1936,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
-      className: "w-6 h-6 mr-4",
+      className: "toolbar-icon",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 107
@@ -2626,7 +2674,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/
