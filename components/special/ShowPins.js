@@ -28,26 +28,8 @@ class ShowPins extends Component {
 
   componentDidMount() {
     //get initial scroll pos
-    //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
+    // TODO: https://techoverflow.net/2018/06/05/how-to-fix-puppetteer-error-while-loading-shared-libraries-libx11-xcb-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
   }
-
-  _eventListenerThing = () => {
-    document
-      .getElementById("iframe")
-      .contentWindow.document.removeEventListener(
-        "scroll",
-        this._handleScroll,
-        false
-      );
-    //attach scroll listener
-    document
-      .getElementById("iframe")
-      .contentWindow.document.addEventListener(
-        "scroll",
-        this._handleScroll,
-        false
-      );
-  };
 
   //polling is almost accurate but needs a trail off perhaps an interval or a while statement
   //that runs several more times over a few seconds.

@@ -1,7 +1,7 @@
 import Error from "../ErrorMessage";
 import React, { Component } from "react";
-import { useRouter } from "next/router";
 import gql from "graphql-tag";
+import { withRouter } from "next/router";
 
 import withContainers from "../wrappers/withContainer";
 import { Global as globalState } from "./Global";
@@ -147,9 +147,24 @@ const LoadingOverlay = styled.div`
 `;
 
 class Reporting extends Component {
+  static getInitialProps({ query }) {
+    return { query };
+  }
+
   state = {
-    url: "http://bugherd.com"
+    url: ""
   };
+
+  componentDidMount() {
+    const { router } = this.props;
+    const url = router.query.url;
+    if (url) {
+      console.log(url);
+      this.setState({ url }, () => {
+        this.fetchPage();
+      });
+    }
+  }
 
   fetchPage = () => {
     this.props.test.setState({ pageLoading: true });
@@ -167,14 +182,11 @@ class Reporting extends Component {
     }
   };
 
-  handleScroll = e => {};
-
   stopLoading = () => {
     this.props.test.setState({ pageLoading: false });
   };
 
   render() {
-    // if (!this.props.test) return <p>Loading...</p>;
     return (
       <div>
         <UrlBar className="mb-8">
@@ -253,4 +265,4 @@ class Reporting extends Component {
   }
 }
 
-export default withContainers([globalState])(Reporting);
+export default withContainers([globalState])(withRouter(Reporting));

@@ -1504,10 +1504,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
 /* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
@@ -1587,7 +1587,7 @@ function (_Component) {
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Reporting)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      url: "http://bugherd.com"
+      url: ""
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "fetchPage", function () {
@@ -1612,8 +1612,6 @@ function (_Component) {
       }
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleScroll", function (e) {});
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "stopLoading", function () {
       _this.props.test.setState({
         pageLoading: false
@@ -1624,47 +1622,63 @@ function (_Component) {
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Reporting, [{
-    key: "render",
-    value: function render() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var _this2 = this;
 
-      // if (!this.props.test) return <p>Loading...</p>;
+      var router = this.props.router;
+      var url = router.query.url;
+
+      if (url) {
+        console.log(url);
+        this.setState({
+          url: url
+        }, function () {
+          _this2.fetchPage();
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 179
+          lineNumber: 191
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(UrlBar, {
         className: "mb-8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180
+          lineNumber: 192
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(URL, {
         className: "bg-gray-100 px-8 mr-8 rounded",
         value: this.state.url,
         onChange: function onChange(e) {
-          _this2.updateUrl(e);
+          _this3.updateUrl(e);
         },
         onKeyDown: function onKeyDown(e) {
-          return _this2.handleKeyDown(e);
+          return _this3.handleKeyDown(e);
         },
         type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 193
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("button", {
         className: " text-green-700 mr-4 rounded ",
         onClick: function onClick() {
-          _this2.fetchPage();
+          _this3.fetchPage();
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 202
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("svg", {
@@ -1673,7 +1687,7 @@ function (_Component) {
         viewBox: "0 0 24 24",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 196
+          lineNumber: 208
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("circle", {
@@ -1683,7 +1697,7 @@ function (_Component) {
         className: "fill-current text-green-300",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 201
+          lineNumber: 213
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("path", {
@@ -1691,19 +1705,19 @@ function (_Component) {
         className: "text-green-500 fill-current",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 207
+          lineNumber: 219
         },
         __self: this
       })))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(WorkArea, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 214
+          lineNumber: 226
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(CanvasContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 215
+          lineNumber: 227
         },
         __self: this
       }, this.props.test && this.props.test.state.overIframe.map(function (OverIframe, i) {
@@ -1713,7 +1727,7 @@ function (_Component) {
           id: OverIframe.belongsTo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 220
+            lineNumber: 232
           },
           __self: this
         });
@@ -1722,7 +1736,7 @@ function (_Component) {
         className: "bg-gray-100 opacity-75",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 225
+          lineNumber: 237
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(LoadingContainer, {
@@ -1730,42 +1744,42 @@ function (_Component) {
         loading: this.props.test.state.pageLoading,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 229
+          lineNumber: 241
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "sk-folding-cube ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 233
+          lineNumber: 245
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "sk-cube1 sk-cube ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 234
+          lineNumber: 246
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "sk-cube2 sk-cube ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 235
+          lineNumber: 247
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "sk-cube4 sk-cube ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 236
+          lineNumber: 248
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "sk-cube3 sk-cube ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 237
+          lineNumber: 249
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("img", {
@@ -1773,28 +1787,36 @@ function (_Component) {
           width: "1100px"
         },
         onLoad: function onLoad() {
-          return _this2.stopLoading();
+          return _this3.stopLoading();
         },
         src: this.props.test.state.urlSelected,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 240
+          lineNumber: 252
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_16__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 249
+          lineNumber: 261
         },
         __self: this
       })));
+    }
+  }], [{
+    key: "getInitialProps",
+    value: function getInitialProps(_ref) {
+      var query = _ref.query;
+      return {
+        query: query
+      };
     }
   }]);
 
   return Reporting;
 }(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_11__["default"])([_Global__WEBPACK_IMPORTED_MODULE_12__["Global"]])(Reporting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_11__["default"])([_Global__WEBPACK_IMPORTED_MODULE_12__["Global"]])(Object(next_router__WEBPACK_IMPORTED_MODULE_10__["withRouter"])(Reporting)));
 
 /***/ }),
 
@@ -1869,12 +1891,6 @@ function (_Component) {
       scrollTop: 0
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_eventListenerThing", function () {
-      document.getElementById("iframe").contentWindow.document.removeEventListener("scroll", _this._handleScroll, false); //attach scroll listener
-
-      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", _this._handleScroll, false);
-    });
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "_updateScrollPosition", function (event) {
       var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
@@ -1906,9 +1922,11 @@ function (_Component) {
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ShowPins, [{
     key: "componentDidMount",
-    value: function componentDidMount() {//get initial scroll pos
-      //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-    }
+    value: function componentDidMount() {} //get initial scroll pos
+    // TODO: https://techoverflow.net/2018/06/05/how-to-fix-puppetteer-error-while-loading-shared-libraries-libx11-xcb-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
+    //polling is almost accurate but needs a trail off perhaps an interval or a while statement
+    //that runs several more times over a few seconds.
+
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {// window.removeEventListener('scroll', this._updateScrollPosition, false);
@@ -1922,14 +1940,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_9__["Subscribe"], {
         to: [_Global__WEBPACK_IMPORTED_MODULE_7__["Global"]],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 68
         },
         __self: this
       }, function (test) {
@@ -1937,7 +1955,7 @@ function (_Component) {
           scrollTop: _this2.state.scrollTop,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 88
+            lineNumber: 70
           },
           __self: this
         }, test.state.pins.map(function (pin, i) {
@@ -1947,7 +1965,7 @@ function (_Component) {
             test: test,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 90
+              lineNumber: 72
             },
             __self: this
           });
@@ -16311,7 +16329,7 @@ if (typeof document !== 'undefined' && "object" !== 'undefined') {
 }
 else {
   // assume we're running under node.js when document/window are not present
-  var jsdom = __webpack_require__(/*! jsdom */ 2);
+  var jsdom = __webpack_require__(/*! jsdom */ 3);
   var virtualWindow = new jsdom.JSDOM(
     decodeURIComponent('%3C!DOCTYPE%20html%3E%3Chtml%3E%3Chead%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E'),
     {
@@ -16321,8 +16339,8 @@ else {
       resources: 'usable'
     }).window;
   fabric.document = virtualWindow.document;
-  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 3).implForWrapper;
-  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 4).Canvas;
+  fabric.jsdomImplForWrapper = __webpack_require__(/*! jsdom/lib/jsdom/living/generated/utils */ 4).implForWrapper;
+  fabric.nodeCanvas = __webpack_require__(/*! jsdom/lib/jsdom/utils */ 5).Canvas;
   fabric.window = virtualWindow;
   DOMParser = fabric.window.DOMParser;
 }
@@ -88748,7 +88766,7 @@ var ProtectedPage = function ProtectedPage(props) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Freporting&absolutePagePath=%2FUsers%2Fjakecasey%2FDocuments%2FProjects%2FBugs%2Fskeleton-key-frontend%2Fpages%2Freporting.js ***!
   \***************************************************************************************************************************************************************************/
@@ -88760,7 +88778,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!***********************!*\
   !*** jsdom (ignored) ***!
   \***********************/
@@ -88771,7 +88789,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!********************************************************!*\
   !*** jsdom/lib/jsdom/living/generated/utils (ignored) ***!
   \********************************************************/
@@ -88782,7 +88800,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Freport
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!***************************************!*\
   !*** jsdom/lib/jsdom/utils (ignored) ***!
   \***************************************/
@@ -88804,5 +88822,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=reporting.js.map

@@ -1262,10 +1262,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ErrorMessage */ "./components/ErrorMessage.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../wrappers/withContainer */ "./components/wrappers/withContainer.js");
 /* harmony import */ var _Global__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Global */ "./components/special/Global.js");
 /* harmony import */ var _styles_SickButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/SickButton */ "./components/styles/SickButton.js");
@@ -1322,7 +1322,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
-      url: "http://bugherd.com"
+      url: ""
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchPage", () => {
@@ -1345,8 +1345,6 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       }
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleScroll", e => {});
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "stopLoading", () => {
       this.props.test.setState({
         pageLoading: false
@@ -1354,19 +1352,42 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
   }
 
+  static getInitialProps({
+    query
+  }) {
+    return {
+      query
+    };
+  }
+
+  componentDidMount() {
+    const {
+      router
+    } = this.props;
+    const url = router.query.url;
+
+    if (url) {
+      console.log(url);
+      this.setState({
+        url
+      }, () => {
+        this.fetchPage();
+      });
+    }
+  }
+
   render() {
-    // if (!this.props.test) return <p>Loading...</p>;
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 179
+        lineNumber: 191
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UrlBar, {
       className: "mb-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 180
+        lineNumber: 192
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(URL, {
@@ -1379,7 +1400,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       type: "text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 181
+        lineNumber: 193
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
@@ -1389,7 +1410,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 190
+        lineNumber: 202
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
@@ -1398,7 +1419,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 196
+        lineNumber: 208
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("circle", {
@@ -1408,7 +1429,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "fill-current text-green-300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 201
+        lineNumber: 213
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
@@ -1416,19 +1437,19 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "text-green-500 fill-current",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 207
+        lineNumber: 219
       },
       __self: this
     })))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WorkArea, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 214
+        lineNumber: 226
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 215
+        lineNumber: 227
       },
       __self: this
     }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
@@ -1438,7 +1459,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         id: OverIframe.belongsTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 220
+          lineNumber: 232
         },
         __self: this
       });
@@ -1447,7 +1468,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       className: "bg-gray-100 opacity-75",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 225
+        lineNumber: 237
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingContainer, {
@@ -1455,42 +1476,42 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       loading: this.props.test.state.pageLoading,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 229
+        lineNumber: 241
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "sk-folding-cube ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 233
+        lineNumber: 245
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "sk-cube1 sk-cube ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 234
+        lineNumber: 246
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "sk-cube2 sk-cube ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 235
+        lineNumber: 247
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "sk-cube4 sk-cube ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 236
+        lineNumber: 248
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "sk-cube3 sk-cube ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 237
+        lineNumber: 249
       },
       __self: this
     }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
@@ -1501,13 +1522,13 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       src: this.props.test.state.urlSelected,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 240
+        lineNumber: 252
       },
       __self: this
     }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Toolbar_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 249
+        lineNumber: 261
       },
       __self: this
     })));
@@ -1515,7 +1536,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__["default"])([_Global__WEBPACK_IMPORTED_MODULE_6__["Global"]])(Reporting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_wrappers_withContainer__WEBPACK_IMPORTED_MODULE_5__["default"])([_Global__WEBPACK_IMPORTED_MODULE_6__["Global"]])(Object(next_router__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Reporting)));
 
 /***/ }),
 
@@ -1564,12 +1585,6 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       scrollTop: 0
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_eventListenerThing", () => {
-      document.getElementById("iframe").contentWindow.document.removeEventListener("scroll", this._handleScroll, false); //attach scroll listener
-
-      document.getElementById("iframe").contentWindow.document.addEventListener("scroll", this._handleScroll, false);
-    });
-
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateScrollPosition", event => {
       var scroll = 0;
       var iframeScrollPosition = document.getElementById("iframe").contentWindow.document.getElementById("iframeScrollPosition");
@@ -1597,9 +1612,11 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
   }
 
-  componentDidMount() {//get initial scroll pos
-    //TODO: THIS NEEDS TO WAIT FOR IFRAME TO EXIST
-  }
+  componentDidMount() {} //get initial scroll pos
+  // TODO: https://techoverflow.net/2018/06/05/how-to-fix-puppetteer-error-while-loading-shared-libraries-libx11-xcb-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
+  //polling is almost accurate but needs a trail off perhaps an interval or a while statement
+  //that runs several more times over a few seconds.
+
 
   componentWillUnmount() {// window.removeEventListener('scroll', this._updateScrollPosition, false);
   }
@@ -1609,21 +1626,21 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 67
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(unstated__WEBPACK_IMPORTED_MODULE_3__["Subscribe"], {
       to: [_Global__WEBPACK_IMPORTED_MODULE_1__["Global"]],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 68
       },
       __self: this
     }, test => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88
+        lineNumber: 70
       },
       __self: this
     }, test.state.pins.map((pin, i) => {
@@ -1633,7 +1650,7 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         test: test,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 72
         },
         __self: this
       });
