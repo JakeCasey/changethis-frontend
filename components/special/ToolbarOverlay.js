@@ -12,9 +12,9 @@ class ToolbarOverlay extends Component {
   render() {
     return (
       <div>
-        {this.props.test && (
+        {this.props.globalState && (
           <Transition
-            items={this.props.test.state.showToolbarOverlay}
+            items={this.props.globalState.state.showToolbarOverlay}
             from={{
               opacity: 0
             }}
@@ -32,7 +32,9 @@ class ToolbarOverlay extends Component {
                     xmlns="http://www.w3.org/2000/svg"
                     className="icon-add-circle h-12 w-12"
                     viewBox="0 0 24 24"
-                    onClick={() => this.props.test.toggleToolbarOverlay()}
+                    onClick={() =>
+                      this.props.globalState.toggleToolbarOverlay()
+                    }
                   >
                     <circle
                       cx="12"
@@ -47,7 +49,7 @@ class ToolbarOverlay extends Component {
                     ></path>
                   </svg>
                   <div className="flex flex-col my-4 py-8 px-8 mt-16 shadow absolute bottom-0 left-0 right-0 top-0">
-                    {this.props.test.state.toolbarOverlayContents}
+                    {this.props.globalState.state.toolbarOverlayContents}
                   </div>
                 </ToolbarOverlayDiv>
               ))

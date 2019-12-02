@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -482,14 +482,14 @@ class BlockList extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   render() {
     var block = this.props.block;
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.test.addSimpleTextBlock(),
+      onClick: () => this.props.globalState.addSimpleTextBlock(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13
       },
       __self: this
     }, "Add Simple Text Block"), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.test.addPinBlock(),
+      onClick: () => this.props.globalState.addPinBlock(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 16
@@ -542,7 +542,7 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_getPlaceholder", () => {
       var placeholders = ["This needs more SPARKLE.", "Can I get this in comic-sans?", "I like everything about how this looks, except for how it looks.", "How can we “spice” this page up?", "Why don’t we add a few more colors into the mix?", "This shit is gonna go viral", "How about we just “spruce” this up a bit?"];
-      return lodash__WEBPACK_IMPORTED_MODULE_4___default.a.sample(placeholders); // return 'test';
+      return lodash__WEBPACK_IMPORTED_MODULE_4___default.a.sample(placeholders);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_updateComment", (globalState, e) => {
@@ -556,11 +556,11 @@ class Comment extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Commentarea, {
       className: "bg-gray-100",
       value: this.props.pin.comment,
-      onChange: e => this._updateComment(this.props.test, e),
+      onChange: e => this._updateComment(this.props.globalState, e),
       placeholder: this._getPlaceholder(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 40
       },
       __self: this
     });
@@ -618,7 +618,7 @@ class DesignCanvas extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Componen
   }
 
   componentDidMount() {
-    this.props.test.instantiateCanvas(this);
+    this.props.globalState.instantiateCanvas(this);
   }
 
   render() {
@@ -626,7 +626,7 @@ class DesignCanvas extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Componen
       width,
       height
     } = this.props;
-    var canvas = this.props.test;
+    var canvas = this.props.globalState;
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CanvasContainer, {
       __source: {
         fileName: _jsxFileName,
@@ -722,15 +722,33 @@ class Global extends unstated__WEBPACK_IMPORTED_MODULE_3__["Container"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "addSimpleTextBlock", () => {
-      this.toggleToolbarOverlay();
+      // 1. Make the overlay disappear.
+      this.toggleToolbarOverlay(); // 2. Build our simple text block.
+
       var simpleText = {
         id: shortid__WEBPACK_IMPORTED_MODULE_6___default.a.generate(),
         type: "text",
         value: "test",
         label: "test"
-      };
+      }; // 3. Add it to our toolbar.
+
       var toolbar = this.state.toolbar;
       toolbar.push(simpleText);
+      this.setState({
+        toolbar
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "updateTextBlock", textBlock => {
+      let {
+        value,
+        label,
+        id
+      } = textBlock;
+      let toolbar = this.state.toolbar;
+      let simpleText = toolbar.find(x => x.id === id);
+      simpleText.value = value;
+      simpleText.label = label;
       this.setState({
         toolbar
       });
@@ -980,7 +998,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Comment__WEBPACK_IMPORTED_MODULE_7__["default"], {
         pin: this.props.pin,
-        test: this.props.test,
+        globalState: this.props.globalState,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 40
@@ -999,7 +1017,7 @@ class Pin extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 47
       },
       __self: this
     })));
@@ -1088,7 +1106,7 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         lineNumber: 30
       },
       __self: this
-    }, "Pin")), this.props.test && this.props.test.state.pins.map((p, index) => {
+    }, "Pin")), this.props.globalState && this.props.globalState.state.pins.map((p, index) => {
       if (p.belongsTo == this.props.block.id) {
         return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
           key: index,
@@ -1100,13 +1118,13 @@ class PinBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         }, p.comment);
       }
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_styles_SickButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClick: () => this.props.test.togglePinPlacement(this.props.block.id),
+      onClick: () => this.props.globalState.togglePinPlacement(this.props.block.id),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 38
       },
       __self: this
-    }, this.props.test && this.props.test.state.isPlacingPin ? "Stop Placing Pins" : "Place Pin"));
+    }, this.props.globalState && this.props.globalState.state.isPlacingPin ? "Stop Placing Pins" : "Place Pin"));
   }
 
 }
@@ -1326,10 +1344,10 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchPage", () => {
-      this.props.test.setState({
+      this.props.globalState.setState({
         pageLoading: true
       });
-      this.props.test.fetchPage(this.state.url);
+      this.props.globalState.fetchPage(this.state.url);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "updateUrl", e => {
@@ -1346,7 +1364,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "stopLoading", () => {
-      this.props.test.setState({
+      this.props.globalState.setState({
         pageLoading: false
       });
     });
@@ -1452,7 +1470,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 227
       },
       __self: this
-    }, this.props.test && this.props.test.state.overIframe.map((OverIframe, i) => {
+    }, this.props.globalState && this.props.globalState.state.overIframe.map((OverIframe, i) => {
       var OverIframeComponent = OverIframe.component;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(OverIframeComponent, {
         key: i,
@@ -1463,8 +1481,8 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         },
         __self: this
       });
-    }), " ", this.props.test && this.props.test.state && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingOverlay, {
-      loading: this.props.test.state.pageLoading,
+    }), " ", this.props.globalState && this.props.globalState.state && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingOverlay, {
+      loading: this.props.globalState.state.pageLoading,
       className: "bg-gray-100 opacity-75",
       __source: {
         fileName: _jsxFileName,
@@ -1473,7 +1491,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(LoadingContainer, {
       className: "flex absolute w-full mt-64",
-      loading: this.props.test.state.pageLoading,
+      loading: this.props.globalState.state.pageLoading,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 241
@@ -1519,7 +1537,7 @@ class Reporting extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         width: "1100px"
       },
       onLoad: () => this.stopLoading(),
-      src: this.props.test.state.urlSelected,
+      src: this.props.globalState.state.urlSelected,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 252
@@ -1636,18 +1654,18 @@ class ShowPins extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 68
       },
       __self: this
-    }, test => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ShowPinsDiv, {
+    }, globalState => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ShowPinsDiv, {
       scrollTop: this.state.scrollTop,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 70
       },
       __self: this
-    }, test.state.pins.map((pin, i) => {
+    }, globalState.state.pins.map((pin, i) => {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Pin__WEBPACK_IMPORTED_MODULE_6__["default"], {
         key: i,
         pin: pin,
-        test: test,
+        globalState: globalState,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 72
@@ -1689,6 +1707,15 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     super(...args);
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {});
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "updateTextBlock", e => {
+      let value = e.target.value;
+      let name = e.target.name;
+      let textBlock = this.props.block;
+      console.log(textBlock);
+      textBlock[name] = value;
+      this.props.globalState.updateTextBlock(textBlock);
+    });
   }
 
   render() {
@@ -1697,14 +1724,14 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       className: "toolbar_card",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
+        lineNumber: 22
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "toolbar_header_container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 23
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("svg", {
@@ -1713,45 +1740,51 @@ class SimpleTextBlock extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       viewBox: "0 0 24 24",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 24
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
       d: "M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 01-2 2H6a2 2 0 01-2-2V4c0-1.1.9-2 2-2zm2 11a1 1 0 000 2h8a1 1 0 000-2H8zm0 4a1 1 0 000 2h4a1 1 0 000-2H8z",
-      className: "fill-current text-gray-300",
+      className: "text-gray-300 fill-current",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 29
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("path", {
       d: "M14 2L20 8 14 8z",
-      className: "fill-current text-gray-500",
+      className: "text-gray-500 fill-current",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 33
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
       className: "toolbar_header",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 38
       },
       __self: this
-    }, "Text")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+    }, "Text")), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
+      name: "label",
+      value: this.props.block.label,
+      onChange: e => this.updateTextBlock(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 40
       },
       __self: this
-    }, block.label), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", {
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
+      name: "value",
+      value: this.props.block.value,
+      onChange: e => this.updateTextBlock(e),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 45
       },
       __self: this
-    }, block.value));
+    }));
   }
 
 }
@@ -1837,7 +1870,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "showBlocks", () => {
       //place component in state
-      this.props.test.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      this.props.globalState.putComponentInToolbar(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_BlockList__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 49
@@ -1845,7 +1878,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         __self: this
       })); //open toolbar
 
-      this.props.test.toggleToolbarOverlay();
+      this.props.globalState.toggleToolbarOverlay();
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "showCanvasOptions", () => {});
@@ -1857,16 +1890,16 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_updateState", () => {
-      this.props.test._loadStateFromHash(this.state.base64);
+      this.props.globalState._loadStateFromHash(this.state.base64);
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "_copyState", () => {
-      return btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.test.state));
+      return btoa__WEBPACK_IMPORTED_MODULE_9___default()(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(this.props.globalState.state));
     });
   }
 
   render() {
-    let canvas = this.props.test; // var toolbar = this.props.test.state.toolbar;
+    let canvas = this.props.globalState; // var toolbar = this.props.globalState.state.toolbar;
 
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ToolbarDiv, {
       __source: {
@@ -1990,7 +2023,7 @@ class Toolbar extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         lineNumber: 125
       },
       __self: this
-    }, "Save")), this.props.test && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
+    }, "Save")), this.props.globalState && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_clipboard_js__WEBPACK_IMPORTED_MODULE_10___default.a, {
       className: "bg-blue-100 text-blue-700 py-2 px-4 rounded ",
       "data-clipboard-text": this._copyState(),
       __source: {
@@ -2070,8 +2103,8 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 14
       },
       __self: this
-    }, this.props.test && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
-      items: this.props.test.state.showToolbarOverlay,
+    }, this.props.globalState && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spring__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
+      items: this.props.globalState.state.showToolbarOverlay,
       from: {
         opacity: 0
       },
@@ -2098,7 +2131,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       xmlns: "http://www.w3.org/2000/svg",
       className: "icon-add-circle h-12 w-12",
       viewBox: "0 0 24 24",
-      onClick: () => this.props.test.toggleToolbarOverlay(),
+      onClick: () => this.props.globalState.toggleToolbarOverlay(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31
@@ -2111,7 +2144,7 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "fill-current text-gray-300",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 39
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
@@ -2119,17 +2152,17 @@ class ToolbarOverlay extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "fill-current text-gray-500",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 46
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "flex flex-col my-4 py-8 px-8 mt-16 shadow absolute bottom-0 left-0 right-0 top-0",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 51
       },
       __self: this
-    }, this.props.test.state.toolbarOverlayContents)))));
+    }, this.props.globalState.state.toolbarOverlayContents)))));
   }
 
 }
@@ -2382,7 +2415,7 @@ function withContainers(Containers) {
         }, (...containers) => {
           const containerObject = {};
           containers.forEach((container, index) => {
-            var a = "test";
+            var a = "globalState";
             containerObject[a] = container;
           });
           return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, containerObject, this.props, {
@@ -2691,7 +2724,7 @@ const ProtectedPage = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.crea
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/reporting.js ***!
   \**********************************/

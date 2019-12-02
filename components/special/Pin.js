@@ -37,7 +37,10 @@ class Pin extends Component {
           interactive={true}
           html={
             <TooltipWrapper>
-              <Comment pin={this.props.pin} test={this.props.test} />
+              <Comment
+                pin={this.props.pin}
+                globalState={this.props.globalState}
+              />
             </TooltipWrapper>
           }
         >

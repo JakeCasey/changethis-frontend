@@ -31,8 +31,10 @@ class Global extends Container {
   };
 
   addSimpleTextBlock = () => {
+    // 1. Make the overlay disappear.
     this.toggleToolbarOverlay();
 
+    // 2. Build our simple text block.
     var simpleText = {
       id: shortId.generate(),
       type: "text",
@@ -40,9 +42,21 @@ class Global extends Container {
       label: "test"
     };
 
+    // 3. Add it to our toolbar.
     var toolbar = this.state.toolbar;
-
     toolbar.push(simpleText);
+
+    this.setState({ toolbar });
+  };
+
+  updateTextBlock = textBlock => {
+    let { value, label, id } = textBlock;
+
+    let toolbar = this.state.toolbar;
+    let simpleText = toolbar.find(x => x.id === id);
+
+    simpleText.value = value;
+    simpleText.label = label;
 
     this.setState({ toolbar });
   };

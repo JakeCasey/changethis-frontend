@@ -29,18 +29,18 @@ class PinBlock extends Component {
           </svg>
           <p className="toolbar_header">Pin</p>
         </div>
-        {this.props.test &&
-          this.props.test.state.pins.map((p, index) => {
+        {this.props.globalState &&
+          this.props.globalState.state.pins.map((p, index) => {
             if (p.belongsTo == this.props.block.id) {
               return <p key={index}>{p.comment}</p>;
             }
           })}
         <SickButton
           onClick={() =>
-            this.props.test.togglePinPlacement(this.props.block.id)
+            this.props.globalState.togglePinPlacement(this.props.block.id)
           }
         >
-          {this.props.test && this.props.test.state.isPlacingPin
+          {this.props.globalState && this.props.globalState.state.isPlacingPin
             ? "Stop Placing Pins"
             : "Place Pin"}
         </SickButton>

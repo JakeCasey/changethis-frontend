@@ -37,7 +37,7 @@ class ToolbarDiv extends Component {
 
 class Toolbar extends Component {
   // state = {
-  //   base64: btoa(JSON.stringify(this.props.test.state)),
+  //   base64: btoa(JSON.stringify(this.props.globalState.state)),
   // };
 
   state = {
@@ -46,10 +46,10 @@ class Toolbar extends Component {
 
   showBlocks = () => {
     //place component in state
-    this.props.test.putComponentInToolbar(<BlockList />);
+    this.props.globalState.putComponentInToolbar(<BlockList />);
 
     //open toolbar
-    this.props.test.toggleToolbarOverlay();
+    this.props.globalState.toggleToolbarOverlay();
   };
 
   showCanvasOptions = () => {};
@@ -59,16 +59,16 @@ class Toolbar extends Component {
   };
 
   _updateState = () => {
-    this.props.test._loadStateFromHash(this.state.base64);
+    this.props.globalState._loadStateFromHash(this.state.base64);
   };
 
   _copyState = () => {
-    return btoa(JSON.stringify(this.props.test.state));
+    return btoa(JSON.stringify(this.props.globalState.state));
   };
 
   render() {
-    let canvas = this.props.test;
-    // var toolbar = this.props.test.state.toolbar;
+    let canvas = this.props.globalState;
+    // var toolbar = this.props.globalState.state.toolbar;
     return (
       <ToolbarDiv>
         <button onClick={() => this.showBlocks()}>
@@ -124,7 +124,7 @@ class Toolbar extends Component {
             </svg>
             <p className="toolbar_header">Save</p>
           </div>
-          {this.props.test && (
+          {this.props.globalState && (
             <>
               <Clipboard
                 className="bg-blue-100 text-blue-700 py-2 px-4 rounded "

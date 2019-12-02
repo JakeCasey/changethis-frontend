@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { fabric } from 'fabric';
-import styled from 'styled-components';
-import { Container, Subscribe } from 'unstated';
-import withContainers from '../wrappers/withContainer';
-import { Global as globalState } from './Global';
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import { fabric } from "fabric";
+import styled from "styled-components";
+import { Container, Subscribe } from "unstated";
+import withContainers from "../wrappers/withContainer";
+import { Global as globalState } from "./Global";
 
 const CanvasContainer = styled.div`
   position: absolute;
@@ -18,25 +18,25 @@ const CanvasContainer = styled.div`
 class DesignCanvas extends React.Component {
   static propTypes = {
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     width: 1440,
-    height: 1000,
+    height: 1000
   };
 
   state = {
-    canvas: null,
+    canvas: null
   };
 
   componentDidMount() {
-    this.props.test.instantiateCanvas(this);
+    this.props.globalState.instantiateCanvas(this);
   }
 
   render() {
     const { width, height } = this.props;
-    var canvas = this.props.test;
+    var canvas = this.props.globalState;
     return (
       <CanvasContainer>
         <canvas ref={c => (this.c = c)} width={width} height={height} />

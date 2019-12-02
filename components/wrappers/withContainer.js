@@ -10,7 +10,7 @@ function withContainers(Containers) {
             {(...containers) => {
               const containerObject = {};
               containers.forEach((container, index) => {
-                var a = "test";
+                var a = "globalState";
                 containerObject[a] = container;
               });
 

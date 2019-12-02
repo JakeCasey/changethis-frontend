@@ -167,8 +167,8 @@ class Reporting extends Component {
   }
 
   fetchPage = () => {
-    this.props.test.setState({ pageLoading: true });
-    this.props.test.fetchPage(this.state.url);
+    this.props.globalState.setState({ pageLoading: true });
+    this.props.globalState.fetchPage(this.state.url);
   };
 
   updateUrl = e => {
@@ -183,7 +183,7 @@ class Reporting extends Component {
   };
 
   stopLoading = () => {
-    this.props.test.setState({ pageLoading: false });
+    this.props.globalState.setState({ pageLoading: false });
   };
 
   render() {
@@ -225,22 +225,22 @@ class Reporting extends Component {
         </UrlBar>
         <WorkArea>
           <CanvasContainer>
-            {this.props.test &&
-              this.props.test.state.overIframe.map((OverIframe, i) => {
+            {this.props.globalState &&
+              this.props.globalState.state.overIframe.map((OverIframe, i) => {
                 var OverIframeComponent = OverIframe.component;
                 return (
                   <OverIframeComponent key={i} id={OverIframe.belongsTo} />
                 );
               })}{" "}
-            {this.props.test && this.props.test.state && (
+            {this.props.globalState && this.props.globalState.state && (
               <>
                 <LoadingOverlay
-                  loading={this.props.test.state.pageLoading}
+                  loading={this.props.globalState.state.pageLoading}
                   className="bg-gray-100 opacity-75"
                 />
                 <LoadingContainer
                   className="flex absolute w-full mt-64"
-                  loading={this.props.test.state.pageLoading}
+                  loading={this.props.globalState.state.pageLoading}
                 >
                   <div className="sk-folding-cube ">
                     <div className="sk-cube1 sk-cube "></div>
@@ -252,7 +252,7 @@ class Reporting extends Component {
                 <img
                   style={{ width: "1100px" }}
                   onLoad={() => this.stopLoading()}
-                  src={this.props.test.state.urlSelected}
+                  src={this.props.globalState.state.urlSelected}
                 />
               </>
             )}

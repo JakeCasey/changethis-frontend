@@ -23,7 +23,6 @@ class Comment extends Component {
       "How about we just “spruce” this up a bit?"
     ];
     return _.sample(placeholders);
-    // return 'test';
   };
 
   _updateComment = (globalState, e) => {
@@ -41,7 +40,7 @@ class Comment extends Component {
       <Commentarea
         className="bg-gray-100"
         value={this.props.pin.comment}
-        onChange={e => this._updateComment(this.props.test, e)}
+        onChange={e => this._updateComment(this.props.globalState, e)}
         placeholder={this._getPlaceholder()}
       />
     );

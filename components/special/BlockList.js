@@ -1,7 +1,7 @@
-import withContainers from '../wrappers/withContainer';
-import { Global as globalState } from './Global';
-import React, { Component } from 'react';
-import SickButton from '../styles/SickButton';
+import withContainers from "../wrappers/withContainer";
+import { Global as globalState } from "./Global";
+import React, { Component } from "react";
+import SickButton from "../styles/SickButton";
 
 class BlockList extends Component {
   state = {};
@@ -10,10 +10,10 @@ class BlockList extends Component {
     var block = this.props.block;
     return (
       <>
-        <SickButton onClick={() => this.props.test.addSimpleTextBlock()}>
+        <SickButton onClick={() => this.props.globalState.addSimpleTextBlock()}>
           Add Simple Text Block
         </SickButton>
-        <SickButton onClick={() => this.props.test.addPinBlock()}>
+        <SickButton onClick={() => this.props.globalState.addPinBlock()}>
           Add Pin Block
         </SickButton>
       </>
