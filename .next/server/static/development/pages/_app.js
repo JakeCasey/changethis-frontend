@@ -399,7 +399,7 @@ const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wr
       lineNumber: 15
     },
     __self: undefined
-  }, "Reporting")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "Dashboard")), me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/permissions",
     __source: {
       fileName: _jsxFileName,

@@ -12,7 +12,7 @@ const Nav = () => (
       return (
         <div className="flex items-end justify-end">
           <Link href="/reporting">
-            <a className="nav-link">Reporting</a>
+            <a className="nav-link">Dashboard</a>
           </Link>
           {me && (
             <>
