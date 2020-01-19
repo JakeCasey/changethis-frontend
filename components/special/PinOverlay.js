@@ -72,9 +72,7 @@ class PinOverlay extends Component {
               showPointerEvents={this.state.showPointerEvents}
               onClick={() => this._handlePinClick(globalState)}
               onMouseMove={e => this._onMouseMove(e)}
-            >
-              {this.state.pin.x}" "{this.state.pin.y}
-            </PinOverlayDiv>
+            ></PinOverlayDiv>
           )}
         </Subscribe>
       </div>

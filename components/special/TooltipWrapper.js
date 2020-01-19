@@ -4,12 +4,10 @@ import { Global as globalState } from "./Global";
 import withContainers from "../wrappers/withContainer";
 import styled from "styled-components";
 
-const Tip = styled.div``;
-
 class TooltipWrapper extends Component {
   render() {
     return (
-      <div className="rounded shadow p-8 bg-gray-100">
+      <div className="p-8 m-4 bg-gray-100 rounded shadow">
         {this.props.children}
       </div>
     );

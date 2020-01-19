@@ -234,7 +234,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "bar mb-12",
+  className: "mb-12 bar",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 47
@@ -255,6 +255,7 @@ const Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  className: "font-bold",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 50
@@ -378,7 +379,7 @@ const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wr
   }, " loading ... ");
   let me = data.me;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex justify-end items-end",
+    className: "flex items-end justify-end",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
@@ -432,35 +433,7 @@ const Nav = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_wr
       lineNumber: 25
     },
     __self: undefined
-  })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/pricing",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "nav-link",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: undefined
-  }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/signin",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "nav-link",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: undefined
-  }, "Sign In"))));
+  })), !me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null));
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
@@ -482,7 +455,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header */ "./components/Header.js");
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
+/* harmony import */ var _special_TopBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./special/TopBar */ "./components/special/TopBar.js");
 var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/Page.js";
+
 
 
 
@@ -515,6 +490,9 @@ styled_components__WEBPACK_IMPORTED_MODULE_1__["injectGlobal"]`
     font-weight: normal;
     font-style: normal;
   } */
+  html {
+    font-family: "Inter";
+  }
 
   @font-face {
     font-family: 'Inter';
@@ -550,32 +528,38 @@ class Page extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 74
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 75
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 76
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_special_TopBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "p-8",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 78
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 79
       },
       __self: this
     }), this.props.children)));
@@ -668,6 +652,59 @@ class SignoutButton extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         __self: this
       })));
     });
+  }
+
+}
+
+/***/ }),
+
+/***/ "./components/special/TopBar.js":
+/*!**************************************!*\
+  !*** ./components/special/TopBar.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TopBar; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/jakecasey/Documents/Projects/Bugs/skeleton-key-frontend/components/special/TopBar.js";
+
+
+class TopBar extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "flex justify-center py-3 bg-blue-500",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/blog",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "font-semibold text-white border-b-2 border-white cursor-pointer",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      },
+      __self: this
+    }, " ", "\uD83C\uDF89 v0.0.1 What is this thing? \uD83C\uDF89"))));
   }
 
 }

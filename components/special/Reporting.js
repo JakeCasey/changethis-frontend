@@ -191,7 +191,7 @@ class Reporting extends Component {
       <div>
         <UrlBar className="mb-8">
           <URL
-            className="bg-gray-100 px-8 mr-8 rounded"
+            className="px-8 mr-8 bg-gray-100 rounded"
             value={this.state.url}
             onChange={e => {
               this.updateUrl(e);
@@ -200,21 +200,21 @@ class Reporting extends Component {
             type="text"
           />
           <button
-            className=" text-green-700 mr-4 rounded "
+            className="mr-4 text-green-700 rounded "
             onClick={() => {
               this.fetchPage();
             }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="icon-arrow-thick-right-circle w-10 h-10"
+              className="w-10 h-10 icon-arrow-thick-right-circle"
               viewBox="0 0 24 24"
             >
               <circle
                 cx="12"
                 cy="12"
                 r="10"
-                className="fill-current text-green-300"
+                className="text-green-300 fill-current"
               ></circle>
               <path
                 d="M12 14H7a1 1 0 01-1-1v-2a1 1 0 011-1h5V8a1 1 0 011.7-.7l4 4a1 1 0 010 1.4l-4 4A1 1 0 0112 16v-2z"
@@ -236,10 +236,10 @@ class Reporting extends Component {
               <>
                 <LoadingOverlay
                   loading={this.props.globalState.state.pageLoading}
-                  className="bg-gray-100 opacity-75"
+                  className="bg-gray-100 opacity-75 cursor-wait"
                 />
                 <LoadingContainer
-                  className="flex absolute w-full mt-64"
+                  className="absolute flex w-full mt-64 cursor-wait"
                   loading={this.props.globalState.state.pageLoading}
                 >
                   <div className="sk-folding-cube ">

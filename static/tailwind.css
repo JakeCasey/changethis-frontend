@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .toolbar_card {
-  @apply flex flex-col my-4 py-8 px-8 shadow;
+  @apply flex flex-col my-4 py-8 px-8 shadow rounded-lg;
 }
 
 .toolbar_header_container {

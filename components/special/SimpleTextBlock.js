@@ -10,7 +10,6 @@ class SimpleTextBlock extends Component {
     let name = e.target.name;
 
     let textBlock = this.props.block;
-    console.log(textBlock);
     textBlock[name] = value;
 
     this.props.globalState.updateTextBlock(textBlock);
@@ -38,6 +37,7 @@ class SimpleTextBlock extends Component {
           <p className="toolbar_header">Text</p>
         </div>
         <input
+          className="text-xs text-gray-500 uppercase"
           name="label"
           value={this.props.block.label}
           onChange={e => this.updateTextBlock(e)}

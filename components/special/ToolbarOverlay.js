@@ -25,12 +25,12 @@ class ToolbarOverlay extends Component {
               show &&
               (props => (
                 <ToolbarOverlayDiv
-                  className="absolute bottom-0 left-0 right-0 top-0 bg-white"
+                  className="absolute top-0 bottom-0 left-0 right-0 bg-white"
                   style={props}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="icon-add-circle h-12 w-12"
+                    className="w-12 h-12 icon-add-circle"
                     viewBox="0 0 24 24"
                     onClick={() =>
                       this.props.globalState.toggleToolbarOverlay()
@@ -40,15 +40,15 @@ class ToolbarOverlay extends Component {
                       cx="12"
                       cy="12"
                       r="10"
-                      className="fill-current text-gray-300"
+                      className="text-gray-300 fill-current"
                     ></circle>
 
                     <path
                       d="M13.41 12l2.83 2.83a1 1 0 01-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 11-1.41-1.41L10.59 12 7.76 9.17a1 1 0 011.41-1.41L12 10.59l2.83-2.83a1 1 0 011.41 1.41L13.41 12z"
-                      className="fill-current text-gray-500"
+                      className="text-gray-500 fill-current"
                     ></path>
                   </svg>
-                  <div className="flex flex-col my-4 py-8 px-8 mt-16 shadow absolute bottom-0 left-0 right-0 top-0">
+                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col px-8 py-8 my-4 mt-16 rounded-lg shadow">
                     {this.props.globalState.state.toolbarOverlayContents}
                   </div>
                 </ToolbarOverlayDiv>

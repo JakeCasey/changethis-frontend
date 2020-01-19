@@ -28,7 +28,7 @@ import PinBlock from "./PinBlock";
 class ToolbarDiv extends Component {
   render() {
     return (
-      <div className="container relative w-1/5 flex flex-col  ml-8">
+      <div className="container relative flex flex-col w-1/5 ml-8">
         {this.props.children}
       </div>
     );
@@ -41,7 +41,8 @@ class Toolbar extends Component {
   // };
 
   state = {
-    base64: ""
+    base64: "",
+    clicked: false
   };
 
   showBlocks = () => {
@@ -75,16 +76,16 @@ class Toolbar extends Component {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="icon-add-circle h-12 w-12"
+            className="w-12 h-12 icon-add-circle"
           >
             <circle
               cx="12"
               cy="12"
               r="10"
-              className="fill-current text-gray-300"
+              className="text-gray-300 fill-current"
             />
             <path
-              className="fill-current text-gray-500"
+              className="text-gray-500 fill-current"
               d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4z"
             />
           </svg>
@@ -110,15 +111,15 @@ class Toolbar extends Component {
               className="toolbar-icon"
             >
               <path
-                className="fill-current text-gray-300"
+                className="text-gray-300 fill-current"
                 d="M6 2h6v6c0 1.1.9 2 2 2h6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z"
               />
               <path
-                className="fill-current text-gray-500"
+                className="text-gray-500 fill-current"
                 d="M13 15h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2v-2a1 1 0 0 1 2 0v2z"
               />
               <polygon
-                className="fill-current text-gray-500"
+                className="text-gray-500 fill-current"
                 points="14 2 20 8 14 8"
               />
             </svg>
@@ -127,15 +128,24 @@ class Toolbar extends Component {
           {this.props.globalState && (
             <>
               <Clipboard
-                className="bg-blue-100 text-blue-700 py-2 px-4 rounded "
+                className="px-4 py-2 text-blue-700 bg-blue-100 rounded "
                 data-clipboard-text={this._copyState()}
+                onClick={() => this.setState({ clicked: true })}
               >
-                <span className="font-bold">Copy State</span>
+                <span className="font-bold">
+                  {this.state.clicked
+                    ? "State Copied to Clipboard"
+                    : "Copy State"}
+                </span>
               </Clipboard>
             </>
           )}
 
-          <textarea onChange={e => this.handlebase64Update(e)} />
+          <textarea
+            className="my-4"
+            placeholder="paste your state code here . . ."
+            onChange={e => this.handlebase64Update(e)}
+          />
 
           <SickButton onClick={() => this._updateState()}>
             {" "}

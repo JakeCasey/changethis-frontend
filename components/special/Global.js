@@ -38,8 +38,8 @@ class Global extends Container {
     var simpleText = {
       id: shortId.generate(),
       type: "text",
-      value: "test",
-      label: "test"
+      value: "change me!",
+      label: "change me!"
     };
 
     // 3. Add it to our toolbar.
@@ -53,10 +53,14 @@ class Global extends Container {
     let { value, label, id } = textBlock;
 
     let toolbar = this.state.toolbar;
-    let simpleText = toolbar.find(x => x.id === id);
+    let index = toolbar
+      .map(function(x) {
+        return x.id;
+      })
+      .indexOf(id);
 
-    simpleText.value = value;
-    simpleText.label = label;
+    toolbar[index].value = value;
+    toolbar[index].label = label;
 
     this.setState({ toolbar });
   };

@@ -44,10 +44,10 @@ const StyledHeader = styled.header`
 
 const Header = () => (
   <StyledHeader>
-    <div className="bar mb-12">
+    <div className="mb-12 bar">
       <Logo className="text-5xl leading-none lowercase">
         <Link href="/">
-          <a>CHANGETHIS</a>
+          <a className="font-bold">CHANGETHIS</a>
         </Link>
       </Logo>
       <Nav />

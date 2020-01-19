@@ -10,7 +10,7 @@ const Nav = () => (
       let me = data.me;
 
       return (
-        <div className="flex justify-end items-end">
+        <div className="flex items-end justify-end">
           <Link href="/reporting">
             <a className="nav-link">Reporting</a>
           </Link>
@@ -27,12 +27,12 @@ const Nav = () => (
           )}
           {!me && (
             <>
-              <Link href="/pricing">
+              {/* <Link href="/pricing">
                 <a className="nav-link">Sign Up</a>
               </Link>
               <Link href="/signin">
                 <a className="nav-link">Sign In</a>
-              </Link>
+              </Link> */}
             </>
           )}
         </div>

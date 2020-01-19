@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled, { ThemeProvider, injectGlobal } from "styled-components";
 import Header from "./Header";
 import Meta from "./Meta";
+import TopBar from "./special/TopBar";
 
 const theme = {
   primary: "lightskyblue",
@@ -35,6 +36,9 @@ injectGlobal`
     font-weight: normal;
     font-style: normal;
   } */
+  html {
+    font-family: "Inter";
+  }
 
   @font-face {
     font-family: 'Inter';
@@ -70,6 +74,7 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
+          <TopBar />
           <div className="p-8">
             <Header />
             {this.props.children}
